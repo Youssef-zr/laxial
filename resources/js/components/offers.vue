@@ -1082,6 +1082,7 @@ body {
     border-left: 1px solid $card_header_bg;
   }
   #accordion {
+      border:none;
     .card-header {
       text-transform: capitalize;
       padding: 0;
@@ -1193,6 +1194,7 @@ export default {
     //   } else {
     //       alert('hd')
     //   }
+      }
     },
     saveOrder() {
       this.form.post("/api/newOffer").then(res => {

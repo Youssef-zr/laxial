@@ -1904,9 +1904,1248 @@ module.exports = {
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/offers.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\youpel_project_one\\resources\\js\\components\\offers.vue: Unexpected token (1196:5)\n\n\u001b[0m \u001b[90m 1194 | \u001b[39m    \u001b[90m//       alert('hd')\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1195 | \u001b[39m    \u001b[90m//   }\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1196 | \u001b[39m    }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m      | \u001b[39m     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1197 | \u001b[39m    saveOrder() {\u001b[0m\n\u001b[0m \u001b[90m 1198 | \u001b[39m      \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mform\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/newOffer\"\u001b[39m)\u001b[33m.\u001b[39mthen(res \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 1199 | \u001b[39m        console\u001b[33m.\u001b[39mlog(res)\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:748:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:741:17)\n    at Parser.raise (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:735:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9097:16)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10548:20)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10122:23)\n    at Parser.parseUpdate (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10102:21)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10091:17)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9961:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9935:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9898:21)\n    at Parser.parseExpressionBase (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9843:23)\n    at C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9837:39\n    at Parser.allowInAnd (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11515:16)\n    at Parser.parseExpression (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9837:17)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11781:23)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11650:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:12232:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:12218:10)\n    at Parser.parseBlock (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:12202:10)\n    at Parser.parseFunctionBody (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11194:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11178:10)\n    at Parser.parseMethod (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11128:10)\n    at Parser.parseObjectMethod (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11057:19)\n    at Parser.parseObjPropValue (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11090:23)\n    at Parser.parsePropertyDefinition (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11014:10)\n    at Parser.parseObjectLike (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10904:25)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10464:23)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10122:23)\n    at Parser.parseUpdate (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10102:21)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:10091:17)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9961:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9935:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9898:21)\n    at C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:9865:39\n    at Parser.allowInAnd (C:\\xampp\\htdocs\\youpel_project_one\\node_modules\\@babel\\parser\\lib\\index.js:11521:12)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: new Form({
+        society_name: "",
+        client_email: "",
+        plan_name: "",
+        total_price: 0,
+        nb_students: "",
+        formation_en_ligne: false,
+        lang: "ar_morocco"
+      }),
+      otherTarif: 70,
+      // tarif inject donner utilisation app mobile / eleve
+      modalTotalPrice: 0,
+      modalStatus: false,
+      plans: {
+        basic: {
+          plan_one: {
+            total_price: ["15500"],
+            plan_name: "basic plan 1"
+          },
+          plan_two: {
+            total_price: ["15000"],
+            plan_name: "basic plan 2"
+          },
+          plan_three: {
+            total_price: ["12000"],
+            plan_name: "basic plan 3"
+          }
+        },
+        advanced: {
+          plan_one: {
+            total_price: ["23000"],
+            plan_name: "basic plan 4"
+          },
+          plan_two: {
+            total_price: ["27000"],
+            plan_name: "basic plan 5"
+          },
+          plan_three: {
+            total_price: ["37000"],
+            plan_name: "basic plan 6"
+          }
+        }
+      }
+    };
+  },
+  methods: {
+    closeModal: function closeModal() {
+      this.form.reset(); // reset our inputs fields
+
+      this.form.clear(); // clear our errors from filed
+
+      this.modalStatus = false;
+    },
+    choosePlane: function choosePlane(plan_name, total_price) {
+      this.modalStatus = true;
+      this.form.plan_name = plan_name;
+      this.form.total_price = total_price;
+      this.modalTotalPrice = total_price;
+      $("html, body").animate({
+        scrollTop: 0
+      }, 100);
+    },
+    priceByStudent: function priceByStudent() {
+      console.log(_typeof(this.form.nb_students));
+
+      if (!isNaN(this.form.nb_students)) {
+        //       alert('bd')
+        var price_student = this.otherTarif * this.form.nb_students;
+        console.log(price_student);
+        this.form.total_price = this.modalTotalPrice + price_student;
+        console.log(this.form.total_price); //   } else {
+        //       alert('hd')
+        //   }
+      }
+    },
+    saveOrder: function saveOrder() {
+      this.form.post("/api/newOffer").then(function (res) {
+        console.log(res);
+      });
+    }
+  },
+  computed: {
+    sum_price_basic_one: function sum_price_basic_one() {
+      return this.plans.basic.plan_one.total_price.reduce(function (a, b) {
+        return parseInt(a) + parseInt(b);
+      }, 0);
+    },
+    sum_price_basic_two: function sum_price_basic_two() {
+      return this.plans.basic.plan_two.total_price.reduce(function (a, b) {
+        return parseInt(a) + parseInt(b);
+      }, 0);
+    },
+    sum_price_basic_three: function sum_price_basic_three() {
+      return this.plans.basic.plan_three.total_price.reduce(function (a, b) {
+        return parseInt(a) + parseInt(b);
+      }, 0);
+    },
+    sum_price_advanced_one: function sum_price_advanced_one() {
+      return this.plans.advanced.plan_one.total_price.reduce(function (a, b) {
+        return parseInt(a) + parseInt(b);
+      }, 0);
+    },
+    sum_price_advanced_two: function sum_price_advanced_two() {
+      return this.plans.advanced.plan_two.total_price.reduce(function (a, b) {
+        return parseInt(a) + parseInt(b);
+      }, 0);
+    },
+    sum_price_advanced_three: function sum_price_advanced_three() {
+      return this.plans.advanced.plan_three.total_price.reduce(function (a, b) {
+        return parseInt(a) + parseInt(b);
+      }, 0);
+    }
+  }
+});
 
 /***/ }),
 
@@ -1941,7 +3180,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".offers {\n  position: relative;\n  z-index: 2;\n}\n.offers .nav-tabs {\n  border-color: #51c1e1;\n}\n.offers .nav-tabs .nav-link {\n  background: transparent;\n  color: #51c1e1;\n}\n.offers .nav-tabs .nav-link:hover {\n  border-color: transparent;\n}\n.offers .nav-tabs .nav-link.active {\n  background: #51c1e1;\n  color: #fff;\n  border-color: transparent;\n  border-bottom-color: white;\n}\n.offers .offers-cards {\n  border: 2px solid #51c1e1;\n  border-radius: 10px;\n  overflow: hidden;\n  padding: 20px 15px;\n  position: relative;\n  background: #fff;\n}\n.offers .offers-cards h2 {\n  color: #fff !important;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  padding: 15px 5px;\n  background: #51c1e1;\n}\n.offers .offers-cards .offer-card {\n  margin-top: 30px;\n  background: #fff;\n  border: 1px solid #51c1e1;\n  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);\n}\n.offers .offers-cards .offer-card .offer-header {\n  border-bottom: 1px dashed #444;\n}\n.offers .offers-cards .offer-card .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #51c1e1;\n  color: #fff;\n  font-size: 20px;\n  text-align: left;\n  margin-bottom: 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price {\n  background-color: white;\n  color: #333;\n  padding: 0px 5px 0px 35px;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span.device {\n  text-align: left;\n  font-size: 27px;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #666;\n  display: block;\n  margin: 4px 0 -5px 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type {\n  display: block;\n  text-align: center;\n  margin-bottom: 10px;\n  color: #444;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type label {\n  text-decoration: line-through;\n  color: #51c1e1;\n}\n.offers .offers-cards .offer-card .offer-body {\n  background: #fff;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item {\n  margin-bottom: 7px;\n  padding: 6px 4px 8px 8px;\n  border-bottom: 1px dashed #444;\n  font-size: 15px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n  position: relative;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item i,\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  position: absolute;\n  top: 10px;\n  left: 8px;\n  color: #51c1e1;\n  font-size: 16px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  top: 12px;\n  color: #444;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span {\n  display: block;\n  margin-left: 20px;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span label.price_color {\n  color: #51c1e1;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item:last-of-type {\n  border-bottom: none;\n  padding-bottom: 2px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra {\n  background: white;\n  border-top: 1px solid #51c1e1;\n  border-bottom: 1px solid #51c1e1;\n  font-weight: bold;\n  color: #51c1e1;\n  padding: 10px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra i {\n  color: #51c1e1;\n  top: 13px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.no-border-bottom {\n  border-bottom: none !important;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.total_price {\n  padding: 0 !important;\n  margin: 0 !important;\n  background: #51c1e1 !important;\n}\n.offers .offers-cards .offer-card .offer-footer .btn {\n  background: #51c1e1;\n  color: #fff;\n  border: none;\n  border-radius: 0 !important;\n  font-size: 16px;\n  font-weight: bold;\n  border-top: 1px solid #51c1e1;\n  transition: 0.2s;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-footer .btn:hover {\n  opacity: 0.9;\n}\n.offers .offer-card.offer-centred {\n  border: 1px solid #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-price span:last-of-type label {\n  color: #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item i:not(.card-centred) {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra {\n  color: #9bc31c !important;\n  border-color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra i {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item span label.price_color {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-footer .btn {\n  background: #9bc31c;\n  border-top: 1px solid #9bc31c;\n}\n.offers .modal {\n  opacity: 1;\n  display: block;\n  position: absolute;\n  height: 100%;\n}\n.offers .modal .modal-shadow {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background: rgba(0, 0, 0, 0.9);\n}\n.offers .modal .modal-content {\n  top: 50px;\n  border-width: 2px;\n  border-color: #51c1e1 !important;\n  box-shadow: 0 0 6px 0px #51c1e1 !important;\n  border-left-width: 4px;\n}\n.offers .modal .modal-content .modal-header {\n  background: #51c1e1 !important;\n  color: #fff;\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .modal-header button.close {\n  color: #fff;\n}\n.offers .modal .modal-content .badge-total-price {\n  background: #51c1e1 !important;\n  color: #fff;\n  padding: 5px 10px;\n}\n.offers .modal .modal-content .modal-body {\n  color: #51c1e1;\n  overflow-y: auto;\n}\n.offers .modal .modal-content .modal-body input {\n  text-transform: capitalize;\n  color: #51c1e1;\n  color: #555;\n}\n.offers .modal .modal-content .modal-footer {\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .icon-form {\n  background: #51c1e1;\n  padding: 5px 12px;\n}\n.offers .modal .modal-content .icon-form.user-icon {\n  padding: 5px 15px;\n}\n.offers .mycheckbox {\n  background: red;\n}\n.offers .invalid-feedback {\n  margin-left: 43px;\n}\nbody {\n  margin: 0 !important;\n  padding: 0 !important;\n  position: relative;\n}\n@media (min-width: 996px) {\n.accordion-parent {\n    border-left: 1px solid #51c1e1;\n}\n}\n.accordion-parent #accordion .card-header {\n  text-transform: capitalize;\n  padding: 0;\n  background: #51c1e1;\n  color: #fff !important;\n}\n.accordion-parent #accordion .card-header .card-link {\n  font-size: 15px;\n  padding: 12px 5px;\n  color: inherit;\n  display: block;\n}\n.accordion-parent #accordion .card-body {\n  border-left: 1px solid #51c1e1 !important;\n  border-right: 1px solid #51c1e1 !important;\n  border-bottom: 1px solid #51c1e1 !important;\n  padding: 10px 8px;\n  color: #666;\n  margin-bottom: 3px;\n}\n.accordion-parent #accordion .card-body .accordion-mony {\n  color: #51c1e1;\n  font-weight: bolder;\n  font-size: 14px;\n}\n.accordion-parent #accordion .card-body .accordion-hours {\n  font-size: 15px;\n  font-weight: bold;\n  color: #777;\n}", ""]);
+exports.push([module.i, ".offers {\n  position: relative;\n  z-index: 2;\n}\n.offers .nav-tabs {\n  border-color: #51c1e1;\n}\n.offers .nav-tabs .nav-link {\n  background: transparent;\n  color: #51c1e1;\n}\n.offers .nav-tabs .nav-link:hover {\n  border-color: transparent;\n}\n.offers .nav-tabs .nav-link.active {\n  background: #51c1e1;\n  color: #fff;\n  border-color: transparent;\n  border-bottom-color: white;\n}\n.offers .offers-cards {\n  border: 2px solid #51c1e1;\n  border-radius: 10px;\n  overflow: hidden;\n  padding: 20px 15px;\n  position: relative;\n  background: #fff;\n}\n.offers .offers-cards h2 {\n  color: #fff !important;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  padding: 15px 5px;\n  background: #51c1e1;\n}\n.offers .offers-cards .offer-card {\n  margin-top: 30px;\n  background: #fff;\n  border: 1px solid #51c1e1;\n  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);\n}\n.offers .offers-cards .offer-card .offer-header {\n  border-bottom: 1px dashed #444;\n}\n.offers .offers-cards .offer-card .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #51c1e1;\n  color: #fff;\n  font-size: 20px;\n  text-align: left;\n  margin-bottom: 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price {\n  background-color: white;\n  color: #333;\n  padding: 0px 5px 0px 35px;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span.device {\n  text-align: left;\n  font-size: 27px;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #666;\n  display: block;\n  margin: 4px 0 -5px 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type {\n  display: block;\n  text-align: center;\n  margin-bottom: 10px;\n  color: #444;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type label {\n  text-decoration: line-through;\n  color: #51c1e1;\n}\n.offers .offers-cards .offer-card .offer-body {\n  background: #fff;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item {\n  margin-bottom: 7px;\n  padding: 6px 4px 8px 8px;\n  border-bottom: 1px dashed #444;\n  font-size: 15px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n  position: relative;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item i,\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  position: absolute;\n  top: 10px;\n  left: 8px;\n  color: #51c1e1;\n  font-size: 16px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  top: 12px;\n  color: #444;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span {\n  display: block;\n  margin-left: 20px;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span label.price_color {\n  color: #51c1e1;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item:last-of-type {\n  border-bottom: none;\n  padding-bottom: 2px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra {\n  background: white;\n  border-top: 1px solid #51c1e1;\n  border-bottom: 1px solid #51c1e1;\n  font-weight: bold;\n  color: #51c1e1;\n  padding: 10px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra i {\n  color: #51c1e1;\n  top: 13px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.no-border-bottom {\n  border-bottom: none !important;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.total_price {\n  padding: 0 !important;\n  margin: 0 !important;\n  background: #51c1e1 !important;\n}\n.offers .offers-cards .offer-card .offer-footer .btn {\n  background: #51c1e1;\n  color: #fff;\n  border: none;\n  border-radius: 0 !important;\n  font-size: 16px;\n  font-weight: bold;\n  border-top: 1px solid #51c1e1;\n  transition: 0.2s;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-footer .btn:hover {\n  opacity: 0.9;\n}\n.offers .offer-card.offer-centred {\n  border: 1px solid #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-price span:last-of-type label {\n  color: #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item i:not(.card-centred) {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra {\n  color: #9bc31c !important;\n  border-color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra i {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item span label.price_color {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-footer .btn {\n  background: #9bc31c;\n  border-top: 1px solid #9bc31c;\n}\n.offers .modal {\n  opacity: 1;\n  display: block;\n  position: absolute;\n  height: 100%;\n}\n.offers .modal .modal-shadow {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background: rgba(0, 0, 0, 0.9);\n}\n.offers .modal .modal-content {\n  top: 50px;\n  border-width: 2px;\n  border-color: #51c1e1 !important;\n  box-shadow: 0 0 6px 0px #51c1e1 !important;\n  border-left-width: 4px;\n}\n.offers .modal .modal-content .modal-header {\n  background: #51c1e1 !important;\n  color: #fff;\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .modal-header button.close {\n  color: #fff;\n}\n.offers .modal .modal-content .badge-total-price {\n  background: #51c1e1 !important;\n  color: #fff;\n  padding: 5px 10px;\n}\n.offers .modal .modal-content .modal-body {\n  color: #51c1e1;\n  overflow-y: auto;\n}\n.offers .modal .modal-content .modal-body input {\n  text-transform: capitalize;\n  color: #51c1e1;\n  color: #555;\n}\n.offers .modal .modal-content .modal-footer {\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .icon-form {\n  background: #51c1e1;\n  padding: 5px 12px;\n}\n.offers .modal .modal-content .icon-form.user-icon {\n  padding: 5px 15px;\n}\n.offers .mycheckbox {\n  background: red;\n}\n.offers .invalid-feedback {\n  margin-left: 43px;\n}\nbody {\n  margin: 0 !important;\n  padding: 0 !important;\n  position: relative;\n}\n@media (min-width: 996px) {\n.accordion-parent {\n    border-left: 1px solid #51c1e1;\n}\n}\n.accordion-parent #accordion {\n  border: none;\n}\n.accordion-parent #accordion .card-header {\n  text-transform: capitalize;\n  padding: 0;\n  background: #51c1e1;\n  color: #fff !important;\n}\n.accordion-parent #accordion .card-header .card-link {\n  font-size: 15px;\n  padding: 12px 5px;\n  color: inherit;\n  display: block;\n}\n.accordion-parent #accordion .card-body {\n  border-left: 1px solid #51c1e1 !important;\n  border-right: 1px solid #51c1e1 !important;\n  border-bottom: 1px solid #51c1e1 !important;\n  padding: 10px 8px;\n  color: #666;\n  margin-bottom: 3px;\n}\n.accordion-parent #accordion .card-body .accordion-mony {\n  color: #51c1e1;\n  font-weight: bolder;\n  font-size: 14px;\n}\n.accordion-parent #accordion .card-body .accordion-hours {\n  font-size: 15px;\n  font-weight: bold;\n  color: #777;\n}", ""]);
 
 // exports
 
