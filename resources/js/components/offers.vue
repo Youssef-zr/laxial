@@ -1,5 +1,12 @@
 <template>
   <div class="offers py-4">
+    <div class="ajax-icon" v-if="loadingStatus">
+      <atom-spinner
+        :animation-duration="1000"
+        :size="60"
+        color="#ff1d5e"
+      />
+    </div>
     <div class="container">
       <div class="offers-cards my-0">
         <h2 class="mb-4 text-capitalize text-center">
@@ -25,7 +32,7 @@
           <div id="menu1" class="container tab-pane active">
             <div class="row">
               <!-- start plan -->
-              <div class="col-12 col-sm-6 col-lg-4 mb-4 mb-md-0">
+              <div class="col-12 col-sm-6 col-lg-4 mb-2 mb-md-0">
                 <div class="offer-card">
                   <div class="offer-header">
                     <h3 class="offer-title">De 1 a 499 élèves</h3>
@@ -71,40 +78,14 @@
                         <input
                           type="checkbox"
                           class="checkbox"
-                          value="6000"
+                          value="7800"
                           v-model="plans.basic.plan_one.total_price"
                         />
                         <span>
                           module frais en extra
-                          <label class="price_color">6000MAD</label> / prix
-                          annuel: <label class="price_color">1800MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="1500"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module bibliothèque en exact
-                          <label class="price_color">1500MAD</label>/ prix
-                          annuel:
-                          <label class="price_color">1000MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="1000"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module transport en exact
-                          <label class="price_color">1000MAD</label>/ prix
-                          annuel: <label class="price_color">500MAD</label>
+                          <label class="price_color">6000MAD</label> + prix
+                          annuel: <label class="price_color">1800MAD</label> =
+                          7800MAD
                         </span>
                       </li>
                       <li class="offer-list-item">
@@ -115,23 +96,52 @@
                           v-model="plans.basic.plan_one.total_price"
                         />
                         <span>
-                          module rapport en exact
-                          <label class="price_color">2500MAD</label>/ prix
-                          annuel: <label class="price_color">1000MAD</label>
+                          module bibliothèque en exact
+                          <label class="price_color">1500MAD</label> + prix
+                          annuel: <label class="price_color">1000MAD</label> =
+                          2500MAD
                         </span>
                       </li>
                       <li class="offer-list-item">
                         <input
                           type="checkbox"
                           class="checkbox"
-                          value="15000"
+                          value="1500"
+                          v-model="plans.basic.plan_one.total_price"
+                        />
+                        <span>
+                          module transport en exact
+                          <label class="price_color">1000MAD</label> + prix
+                          annuel: <label class="price_color">500MAD</label> =
+                          1500MAD
+                        </span>
+                      </li>
+                      <li class="offer-list-item">
+                        <input
+                          type="checkbox"
+                          class="checkbox"
+                          value="3500"
+                          v-model="plans.basic.plan_one.total_price"
+                        />
+                        <span>
+                          module rapport en exact
+                          <label class="price_color">2500MAD</label> + prix
+                          annuel: <label class="price_color">1000MAD</label> =
+                          3500MAD
+                        </span>
+                      </li>
+                      <li class="offer-list-item">
+                        <input
+                          type="checkbox"
+                          class="checkbox"
+                          value="2000"
                           v-model="plans.basic.plan_one.total_price"
                         />
                         <span>
                           module personnele en exact
-                          <label class="price_color">15000MAD</label> / prix
-                          annuel:
-                          <label class="price_color">500MAD</label>
+                          <label class="price_color">1500MAD</label> + prix
+                          annuel: <label class="price_color">500MAD</label> =
+                          2000MAD
                         </span>
                       </li>
                     </ul>
@@ -145,7 +155,12 @@
                     <button
                       class="btn btn-block"
                       @click="
-                        choosePlane('De 1 a 499 élèves', sum_price_basic_one)
+                        choosePlane(
+                          'De 1 a 499 élèves',
+                          sum_price_basic_one,
+                          1,
+                          499
+                        )
                       "
                     >
                       choisissez votre plan
@@ -155,7 +170,7 @@
               </div>
               <!-- end plan -->
               <!-- start plan -->
-              <div class="col-12 col-sm-6 col-lg-4 mb-4 mb-md-0">
+              <div class="col-12 col-sm-6 col-lg-4 mb-2 mb-md-0">
                 <div class="offer-card offer-centred">
                   <div class="offer-header">
                     <h3 class="offer-title">De 1 a 499 élèves</h3>
@@ -645,11 +660,12 @@
                       </div>
 
                       <input
+                        @keydown="priceByStudent"
                         @change="priceByStudent"
-                        @keyup="priceByStudent"
-                        v-model="form.nb_students"
+                        v-model.number="form.nb_students"
                         type="number"
                         min="0"
+                        :max="form.max_nbStudents"
                         placeholder="Le Nombre Des Eleves"
                         :class="{
                           'is-invalid': form.errors.has('nb_students'),
@@ -688,9 +704,9 @@
                         <div class="card-body">
                           <input
                             type="checkbox"
-                            @change="formation_en_ligne != formation_en_ligne"
+                            v-model="form.formation_en_ligne"
                           />
-                          oui/nom
+                          oui/non
                         </div>
                       </div>
                     </div>
@@ -714,9 +730,8 @@
                           <span
                             >Au-delà de
                             <span class="accordion-hours">5H</span> :
-                            <span class="accordion-mony">250MAD</span> /
-                            heure</span
-                          >
+                            <span class="accordion-mony">250MAD/Heure</span>
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -736,14 +751,14 @@
                       </div>
                       <div id="three" class="collapse" data-parent="#accordion">
                         <div class="card-body">
-                          <span
+                          <span class="d-block"
                             >Traitement des listes et injections de données :
                             <span class="accordion-mony">20MAD/élève</span>
                           </span>
                           <span
                             >Version mobile (Android iOS) ainsi que les portails
                             élèves et parents :
-                            <span class="accordion-mony">50MA/Délèves</span>
+                            <span class="accordion-mony">50MAD/élèves</span>
                           </span>
                         </div>
                       </div>
@@ -776,12 +791,16 @@
       </div>
       <!-- end modal dialog -->
     </div>
+    <!-- start msg success  -->
+    <div class="msg" v-if="msg!=''">
+      <p>{{ msg }}</p>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
 $card_centred: #9bc31c;
-$card_header_bg: #51c1e1;
+$card_header_bg: #08acfd;
 $card_header_title: #fff;
 
 $card_body_bg: #fff;
@@ -1077,48 +1096,86 @@ body {
   position: relative;
 }
 
+.ajax-icon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  z-index: 5885489;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // opacity: 0.8;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
 .accordion-parent {
   @media (min-width: 996px) {
     border-left: 1px solid $card_header_bg;
   }
   #accordion {
-      border:none;
-    .card-header {
-      text-transform: capitalize;
-      padding: 0;
-      background: $card_header_bg;
-      color: $card_header_title !important;
-      .card-link {
-        font-size: 15px;
-        padding: 12px 5px;
-        color: inherit;
-        display: block;
-      }
-    }
-    .card-body {
-      border-left: 1px solid $card_header_bg !important;
-      border-right: 1px solid $card_header_bg !important;
-      border-bottom: 1px solid $card_header_bg !important;
-      padding: 10px 8px;
-      color: #666;
+    border: none;
+    .card {
       margin-bottom: 3px;
-      .accordion-mony {
-        color: $card_header_bg;
-        font-weight: bolder;
-        font-size: 14px;
+      border-radius: 0 !important;
+      border: none;
+      .card-header {
+        text-transform: capitalize;
+        padding: 0;
+        background: $card_header_bg;
+        color: $card_header_title !important;
+        .card-link {
+          font-size: 15px;
+          padding: 12px 5px;
+          color: inherit;
+          display: block;
+        }
       }
-      .accordion-hours {
-        font-size: 15px;
-        font-weight: bold;
-        color: #777;
+      .card-body {
+        border-left: 1px solid $card_header_bg !important;
+        border-right: 1px solid $card_header_bg !important;
+        border-bottom: 1px solid $card_header_bg !important;
+        padding: 10px 8px;
+        color: #666;
+        margin-bottom: 3px;
+        .accordion-mony {
+          color: $card_header_bg;
+          font-weight: bolder;
+          font-size: 14px;
+        }
+        .accordion-hours {
+          font-size: 15px;
+          font-weight: bold;
+          color: #777;
+        }
       }
     }
   }
 }
+//   message successfully
+.msg {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  background: $card_centred;
+  color: #fff;
+  z-index: 12455555;
+  padding: 8px 15px 0;
+  font-size: 16px;
+  text-transform: capitalize;
+}
 </style>
 
 <script>
+import { AtomSpinner } from 'epic-spinners'
 export default {
+  components: {
+    AtomSpinner
+  },
   data() {
     return {
       form: new Form({
@@ -1126,13 +1183,17 @@ export default {
         client_email: "",
         plan_name: "",
         total_price: 0,
-        nb_students: "",
+        nb_students: 0,
         formation_en_ligne: false,
-        lang: "ar_morocco"
+        lang: "ar",
+        min_nbStudents: 1,
+        max_nbStudents: 1
       }),
       otherTarif: 70, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
       modalStatus: false,
+      loadingStatus: true,
+      msg: "",
       plans: {
         basic: {
           plan_one: {
@@ -1165,13 +1226,20 @@ export default {
       }
     };
   },
+  created() {
+    setTimeout(() => {
+      this.loadingStatus = false;
+    }, 700);
+  },
   methods: {
     closeModal() {
       this.form.reset(); // reset our inputs fields
       this.form.clear(); // clear our errors from filed
       this.modalStatus = false;
     },
-    choosePlane(plan_name, total_price) {
+    choosePlane(plan_name, total_price, min = 1, max = 10) {
+      this.form.min_nbStudents = min;
+      this.form.max_nbStudents = max;
       this.modalStatus = true;
       this.form.plan_name = plan_name;
       this.form.total_price = total_price;
@@ -1183,23 +1251,54 @@ export default {
         100
       );
     },
-    priceByStudent() {
-        console.log(typeof this.form.nb_students);
-      if (!isNaN(this.form.nb_students)) {
-    //       alert('bd')
+    priceByStudent(e) {
+      var keyCode = e.keyCode ? e.keyCode : e.which;
+      if (keyCode > 47 && keyCode < 58) {
+        return true;
+      } else {
+        if (keyCode != 8) {
+          e.preventDefault();
+        }
         let price_student = this.otherTarif * this.form.nb_students;
-        console.log(price_student);
-        this.form.total_price = this.modalTotalPrice + price_student;
-        console.log(this.form.total_price);
-    //   } else {
-    //       alert('hd')
-    //   }
+
+        if (this.form.nb_students == "") {
+          // if input nb_student = ""
+          this.form.total_price = this.modalTotalPrice;
+        } else if (
+          this.form.nb_students > 0 &&
+          this.form.nb_students <= this.form.max_nbStudents
+        ) {
+          // if nb_students > 0
+          this.form.total_price = this.modalTotalPrice + price_student;
+        } else if (this.form.nb_students > this.form.max_nbStudents) {
+          // if nb_students > max number of students in this offer
+          let price_student = this.otherTarif * this.form.max_nbStudents;
+          this.form.total_price = this.modalTotalPrice + price_student;
+          this.form.nb_students = this.form.max_nbStudents;
+        }
       }
     },
     saveOrder() {
-      this.form.post("/api/newOffer").then(res => {
-        console.log(res);
-      });
+      // send data from form to controller by api
+      this.loadingStatus = true;
+      this.form
+        .post("/api/newOffer")
+        .then(res => {
+          if (res.statusText == "OK") {
+            this.loadingStatus = false;
+            this.form.clear();
+            this.form.reset();
+            this.modalStatus = false;
+            // msg successfull
+            this.msg = res.data.msg;
+            setTimeout(() => {
+              this.msg = "";
+            }, 3000);
+          }
+        })
+        .catch(err => {
+          this.loadingStatus = false;
+        });
     }
   },
   computed: {
@@ -1232,6 +1331,32 @@ export default {
       return this.plans.advanced.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
+    },
+    nb_student_price() {
+      let price_student = this.otherTarif * this.form.nb_students;
+      if (this.form.nb_students == "") {
+        // if input nb_student = ""
+        this.form.total_price = this.modalTotalPrice;
+      } else if (
+        this.form.nb_students > 0 &&
+        this.form.nb_students <= this.form.max_nbStudents
+      ) {
+        this.form.total_price = this.modalTotalPrice + price_student;
+      } // if nb_students > 0
+      else if (this.form.nb_students > this.form.max_nbStudents) {
+        // if nb_students > max number of students in this offer
+        let price_student = this.otherTarif * this.form.max_nbStudents;
+        console.log(this.otherTarif, this.form.nb_students, price_student);
+        this.form.nb_students = this.form.max_nbStudents;
+        this.form.total_price = this.modalTotalPrice + price_student;
+      }
+
+      return this.form.total_price;
+    }
+  },
+  watch: {
+    nb_student_price() {
+      console.log("changed");
     }
   }
 };
