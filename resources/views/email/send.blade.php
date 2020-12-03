@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <h1>{{$details['client_name']}}</h1>
+    <h1>hello {{$details['client_name']}}</h1>
 
 </body>
 </html>

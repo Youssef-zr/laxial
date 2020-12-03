@@ -46,7 +46,7 @@ class OffersController extends Controller
             'total_price'=>$order->prix_total
         ];
 
-        // Mail::to('yn-neinaa@hotmail.com')->send(new sendMail($mailDetails));
+        Mail::to('yn-neinaa@hotmail.com')->send(new sendMail($mailDetails));
 
         return response()->json(["order" => $order, 'msg' => 'your order created successfully']);
 
