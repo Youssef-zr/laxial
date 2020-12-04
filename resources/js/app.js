@@ -8,14 +8,20 @@ window.Fire = new Vue();
 import VueRouter from "vue-router"; // import vue router
 Vue.use(VueRouter);
 
-import index from "./components/offers";
+import maroc from "./components/maroc";
+import fr from "./components/euro";
 import notFound from "./components/not-found";
 
 let routes = [
     {
         path: "/",
-        name: "Index",
-        component: index
+        name: "Maroc",
+        component: maroc
+    },
+    {
+        path: "/fr",
+        name: "Fr",
+        component: fr
     },
     {
         path: "*",

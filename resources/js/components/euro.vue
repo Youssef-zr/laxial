@@ -1,6 +1,5 @@
 <template>
-  <div class="">
-    <!-- <nav-bar/> -->
+  <div class="Euro">
 
     <div class="offers py-4">
       <div class="ajax-icon" v-if="loadingStatus">
@@ -13,9 +12,9 @@
               <i class="fa fa-paper-plane"></i> Choisissez votre plan
               <span class="float-right langue-list">
                 <router-link to="/"
-                  ><img src="/images/maroc.jpg" alt=""
+                  ><img src="/images/maroc.jpg" alt="maroc"
                 /></router-link>
-                <router-link to="/fr"><i class="fa fa-euro"></i></router-link>
+                <router-link to="/fr"><img src="/images/auro.jpg" alt="Euro"></router-link>
               </span>
             </h2>
           </div>
@@ -44,9 +43,9 @@
                     <div class="offer-header">
                       <h3 class="offer-title">De 1 a 499 élèves</h3>
                       <div class="offer-price">
-                        <span class="device">Mad</span
+                        <span class="device">Euro</span
                         ><span class="device"
-                          >15500MAD <label>/25500MAD</label></span
+                          >1550$ <label>/2550$</label></span
                         >
                       </div>
                     </div>
@@ -87,70 +86,70 @@
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="7800"
+                            value="780"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">6000MAD</label> + prix
-                            annuel: <label class="price_color">1800MAD</label> =
-                            7800MAD
+                            <label class="price_color">600$</label> + prix
+                            annuel: <label class="price_color">180$</label> =
+                            780$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2500"
+                            value="250"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module bibliothèque en exact
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            2500MAD
+                            <label class="price_color">150$</label> + prix
+                            annuel: <label class="price_color">100$</label> =
+                            250$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="1500"
+                            value="150"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module transport en exact
-                            <label class="price_color">1000MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            1500MAD
+                            <label class="price_color">100$</label> + prix
+                            annuel: <label class="price_color">50$</label> =
+                            150$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="3500"
+                            value="350"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module rapport en exact
-                            <label class="price_color">2500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            3500MAD
+                            <label class="price_color">250$</label> + prix
+                            annuel: <label class="price_color">100$</label> =
+                            350$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2000"
+                            value="200"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module personnele en exact
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            2000MAD
+                            <label class="price_color">150$</label> + prix
+                            annuel: <label class="price_color">50$</label> =
+                            200$
                           </span>
                         </li>
                       </ul>
@@ -184,9 +183,9 @@
                     <div class="offer-header">
                       <h3 class="offer-title">De 500 a 999 élèves</h3>
                       <div class="offer-price">
-                        <span class="device">Mad</span
+                        <span class="device">Euro</span
                         ><span class="device"
-                          >26500MAD <label>/36500MAD</label></span
+                          >2650$ <label>/3650$</label></span
                         >
                       </div>
                     </div>
@@ -227,70 +226,70 @@
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="7800"
+                            value="780"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">6000MAD</label> + prix
-                            annuel: <label class="price_color">1800MAD</label> =
-                            7800MAD
+                            <label class="price_color">600$</label> + prix
+                            annuel: <label class="price_color">180$</label> =
+                            780$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2500"
+                            value="250"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module bibliothèque en exact
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            2500MAD
+                            <label class="price_color">150$</label> + prix
+                            annuel: <label class="price_color">100$</label> =
+                            250$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="1500"
+                            value="150"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module transport en exact
-                            <label class="price_color">1000MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            1500MAD
+                            <label class="price_color">100$</label> + prix
+                            annuel: <label class="price_color">50$</label> =
+                            150$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="3500"
+                            value="350"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module rapport en exact
-                            <label class="price_color">2500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            3500MAD
+                            <label class="price_color">250$</label> + prix
+                            annuel: <label class="price_color">100$</label> =
+                            350$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2000"
+                            value="200"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module personnele en exact
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            2000MAD
+                            <label class="price_color">150$</label> + prix
+                            annuel: <label class="price_color">50$</label> =
+                            200$
                           </span>
                         </li>
                       </ul>
@@ -324,9 +323,9 @@
                     <div class="offer-header">
                       <h3 class="offer-title">De 1000 et plus</h3>
                       <div class="offer-price">
-                        <span class="device">Mad</span
+                        <span class="device">Euro</span
                         ><span class="device"
-                          >36000MAD <label>/46000MAD</label></span
+                          >3600$ <label>/4600$</label></span
                         >
                       </div>
                     </div>
@@ -357,7 +356,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 3500dh</span>
+                          <span>maintenance anuelle 350$</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -367,42 +366,42 @@
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="7800"
+                            value="780"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">6000MAD</label> + prix
-                            annuel: <label class="price_color">1800MAD</label> =
-                            7800MAD
+                            <label class="price_color">600$</label> + prix
+                            annuel: <label class="price_color">180$</label> =
+                            780$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2500"
+                            value="250"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module bibliothèque en exact
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            2500MAD
+                            <label class="price_color">150$</label> + prix
+                            annuel: <label class="price_color">100$</label> =
+                            250$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="1500"
+                            value="150"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module transport en exact
-                            <label class="price_color">1000MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            1500MAD
+                            <label class="price_color">100$</label> + prix
+                            annuel: <label class="price_color">50$</label> =
+                            150$
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -414,23 +413,23 @@
                           />
                           <span>
                             module rapport en exact
-                            <label class="price_color">2500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            3500MAD
+                            <label class="price_color">250$</label> + prix
+                            annuel: <label class="price_color">100$</label> =
+                            350$
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2000"
+                            value="200"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module personnele en exact
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            2000MAD
+                            <label class="price_color">150$</label> + prix
+                            annuel: <label class="price_color">50$</label> =
+                            200$
                           </span>
                         </li>
                       </ul>
@@ -471,9 +470,9 @@
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">De 1 a 499 élèves</h3>
                       <div class="offer-price">
-                        <span class="device">Mad</span
+                        <span class="device">Euro</span
                         ><span class="device"
-                          >27900MAD <label>/29900MAD</label></span
+                          >2790$ <label>/2990$</label></span
                         >
                       </div>
                     </div>
@@ -502,7 +501,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (3500DH/an) comprise
+                            Maintenance Annulle Comprise (350$/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -536,9 +535,9 @@
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">De 500 a 999 élèves</h3>
                       <div class="offer-price">
-                        <span class="device">Mad</span
+                        <span class="device">Euro</span
                         ><span class="device"
-                          >37800MAD <label>/38800MAD</label></span
+                          >3780$ <label>/3880$</label></span
                         >
                       </div>
                     </div>
@@ -567,7 +566,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (4500DH/an) comprise
+                            Maintenance Annulle Comprise (450$/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -601,8 +600,8 @@
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">Plus De 1000 élèves</h3>
                       <div class="offer-price">
-                        <span class="device">Mad</span>
-                        <span class="device">46350MAD <label>/47350MAD</label></span>
+                        <span class="device">Euro</span>
+                        <span class="device">4635$ <label>/4735$</label></span>
                       </div>
                     </div>
                     <div class="offer-body">
@@ -630,7 +629,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (6000DH/an) comprise
+                            Maintenance Annulle Comprise (600$/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -674,7 +673,7 @@
             <div class="modal-content">
               <!-- Modal Header -->
               <div class="modal-header">
-                <h5 class="modal-title">l'offre {{ form.plan_name }}</h5>
+                <h5 class="modal-title">L'offre {{ form.plan_name }}</h5>
                 <button type="button" class="close" @click="closeModal">
                   <i class="fa fa-times-circle"></i>
                 </button>
@@ -829,7 +828,7 @@
                             <span
                               >Au-delà de
                               <span class="accordion-hours">5H</span> :
-                              <span class="accordion-mony">250MAD / Heure</span>
+                              <span class="accordion-mony">25$ / Heure</span>
                               (Facturation Sur Devis)
                             </span>
                           </div>
@@ -858,18 +857,18 @@
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Traitement des listes
                               et injections de données :
-                              <span class="accordion-mony">20MAD/élève</span>
+                              <span class="accordion-mony">2$/élève</span>
                             </span>
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Version mobile
                               (Android iOS) ainsi que les portails élèves et
                               parents :
-                              <span class="accordion-mony">50MAD/élèves</span>
+                              <span class="accordion-mony">5$/élèves</span>
                             </span>
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Développements
                               Spécifiques:
-                              <span class="accordion-mony">200MAD/Heure</span>
+                              <span class="accordion-mony">20$/Heure</span>
                             </span>
                           </div>
                         </div>
@@ -979,11 +978,6 @@ $secand_color: #444;
               height: 25px !important;
               border-radius: 2px;
             }
-            &:last-of-type {
-              background: #fff;
-              color: #222;
-              padding: 2px 12px;
-            }
           }
         }
       }
@@ -994,7 +988,6 @@ $secand_color: #444;
       border: 1px solid $card_header_bg;
       //   border-radius: 5px 5px 0 0;
       box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);
-      // animation: card-animate ease-in-out infinite alternate-reverse 2s;
       .offer-header {
         border-bottom: 1px dashed #444;
         .offer-title {
@@ -1219,17 +1212,6 @@ $secand_color: #444;
     }
   }
 
-  // @keyframes card-animate {
-  //   0% {
-  //     transform: translateY(0);
-  //   }
-  //   50% {
-  //     transform: translateY(10px);
-  //   }
-  //   100% {
-  //     transform: translateY(-5px);
-  //   }
-  // }
   .mycheckbox {
     background: red;
   }
@@ -1336,11 +1318,9 @@ body {
 
 <script>
 import { AtomSpinner } from "epic-spinners";
-import navBar from "./nav";
 export default {
   components: {
     AtomSpinner,
-    navBar
   },
   data() {
     return {
@@ -1351,11 +1331,11 @@ export default {
         total_price: 0,
         nb_students: "",
         formation_en_ligne: false,
-        lang: "ar",
+        lang: "fr",
         min_nbStudents: 1,
         max_nbStudents: 1
       }),
-      otherTarif: 70, // tarif inject donner utilisation app mobile / eleve
+      otherTarif: 7, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
       modalStatus: false,
       loadingStatus: true,
@@ -1363,29 +1343,29 @@ export default {
       plans: {
         basic: {
           plan_one: {
-            total_price: ["15500"],
+            total_price: ["1550"],
             plan_name: "basic plan 1"
           },
           plan_two: {
-            total_price: ["26500"],
+            total_price: ["2650"],
             plan_name: "basic plan 2"
           },
           plan_three: {
-            total_price: ["36000"],
+            total_price: ["3600"],
             plan_name: "basic plan 3"
           }
         },
         advanced: {
           plan_one: {
-            total_price: ["27900"],
+            total_price: ["2790"],
             plan_name: "Advanced De 1 a 499"
           },
           plan_two: {
-            total_price: ["37800"],
+            total_price: ["3780"],
             plan_name: "Advanced De 500 a 999"
           },
           plan_three: {
-            total_price: ["46350"],
+            total_price: ["4635"],
             plan_name: "Advanced Plus De 1000"
           }
         }
