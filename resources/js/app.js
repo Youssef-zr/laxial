@@ -1,4 +1,4 @@
-require('./bootstrap');
+require("./bootstrap");
 
 window.Vue = require("vue");
 require("./bootstrap");
@@ -40,6 +40,5 @@ Vue.component(AlertError.name, AlertError);
 
 const app = new Vue({
     el: "#app",
-    router,
+    router
 });
-

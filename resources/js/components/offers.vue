@@ -1,806 +1,853 @@
 <template>
-  <div class="offers py-4">
-    <div class="ajax-icon" v-if="loadingStatus">
-      <atom-spinner
-        :animation-duration="1000"
-        :size="60"
-        color="#ff1d5e"
-      />
-    </div>
-    <div class="container">
-      <div class="offers-cards my-0">
-        <h2 class="mb-4 text-capitalize text-center">
-          <i class="fa fa-paper-plane"></i> Choisissez votre plan
-        </h2>
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs mt-4 pt-5" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#menu1"
-              ><i class="fa fa-battery-half"></i> Basic</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#menu2"
-              ><i class="fa fa-battery-full"></i> Avancée</a
-            >
-          </li>
-        </ul>
+  <div class="">
+    <!-- <nav-bar/> -->
 
-        <!-- Tab panes -->
-        <div class="tab-content pt-3">
-          <!-- start basic offers -->
-          <div id="menu1" class="container tab-pane active">
-            <div class="row">
-              <!-- start plan -->
-              <div class="col-12 col-sm-6 col-lg-4 mb-2 mb-md-0">
-                <div class="offer-card">
-                  <div class="offer-header">
-                    <h3 class="offer-title">De 1 a 499 élèves</h3>
-                    <div class="offer-price">
-                      <span class="device">Mad</span
-                      ><span>15500MAD <label>/36500MAD</label></span>
-                    </div>
-                  </div>
-                  <div class="offer-body">
-                    <ul class="offer-list list-unstyled">
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span> module de base </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span
-                          >gestion administrative des élèves et des
-                          professeurs</span
-                        >
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>5h de formation gratuites</span>
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span
-                          >gestion de scolarité. éxamens. notes. absence. le
-                          system de notification et emploi du temps
-                          compris</span
-                        >
-                      </li>
-                      <li class="offer-list-item no-border-bottom">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>maintenance anuelle 3500dh</span>
-                      </li>
-                      <li class="offer-list-item extra">
-                        <i class="fa fa-external-link-square"></i>
-                        <span> Extras </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="7800"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module frais en extra
-                          <label class="price_color">6000MAD</label> + prix
-                          annuel: <label class="price_color">1800MAD</label> =
-                          7800MAD
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="2500"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module bibliothèque en exact
-                          <label class="price_color">1500MAD</label> + prix
-                          annuel: <label class="price_color">1000MAD</label> =
-                          2500MAD
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="1500"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module transport en exact
-                          <label class="price_color">1000MAD</label> + prix
-                          annuel: <label class="price_color">500MAD</label> =
-                          1500MAD
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="3500"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module rapport en exact
-                          <label class="price_color">2500MAD</label> + prix
-                          annuel: <label class="price_color">1000MAD</label> =
-                          3500MAD
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="2000"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module personnele en exact
-                          <label class="price_color">1500MAD</label> + prix
-                          annuel: <label class="price_color">500MAD</label> =
-                          2000MAD
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="offer-footer">
-                    <h5
-                      class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
-                    >
-                      Prix Total : {{ sum_price_basic_one }} MAD
-                    </h5>
-                    <button
-                      class="btn btn-block"
-                      @click="
-                        choosePlane(
-                          'De 1 a 499 élèves',
-                          sum_price_basic_one,
-                          1,
-                          499
-                        )
-                      "
-                    >
-                      choisissez votre plan
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- end plan -->
-              <!-- start plan -->
-              <div class="col-12 col-sm-6 col-lg-4 mb-2 mb-md-0">
-                <div class="offer-card offer-centred">
-                  <div class="offer-header">
-                    <h3 class="offer-title">De 1 a 499 élèves</h3>
-                    <div class="offer-price">
-                      <span class="device">Mad</span
-                      ><span>15500MAD <label>/36500MAD</label></span>
-                    </div>
-                  </div>
-                  <div class="offer-body">
-                    <ul class="offer-list list-unstyled">
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span> module de base </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span
-                          >gestion administrative des élèves et des
-                          professeurs</span
-                        >
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>5h de formation gratuites</span>
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span
-                          >gestion de scolarité. éxamens. notes. absence. le
-                          system de notification et emploi du temps
-                          compris</span
-                        >
-                      </li>
-                      <li class="offer-list-item no-border-bottom">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>maintenance anuelle 3500dh</span>
-                      </li>
-                      <li class="offer-list-item extra">
-                        <i class="fa fa-external-link-square"></i>
-                        <span> Extras </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="6000"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module frais en extra
-                          <label class="price_color">6000MAD</label> / prix
-                          annuel: <label class="price_color">1800MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="1500"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module bibliothèque en exact
-                          <label class="price_color">1500MAD</label>/ prix
-                          annuel:
-                          <label class="price_color">1000MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="1000"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module transport en exact
-                          <label class="price_color">1000MAD</label>/ prix
-                          annuel: <label class="price_color">500MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="2500"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module rapport en exact
-                          <label class="price_color">2500MAD</label>/ prix
-                          annuel: <label class="price_color">1000MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="15000"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module personnele en exact
-                          <label class="price_color">15000MAD</label> / prix
-                          annuel:
-                          <label class="price_color">500MAD</label>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="offer-footer">
-                    <h5
-                      class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
-                    >
-                      Prix Total : {{ sum_price_basic_two }} MAD
-                    </h5>
-                    <button
-                      class="btn btn-block"
-                      @click="
-                        choosePlane('De 1 a 499 élèves', sum_price_basic_two)
-                      "
-                    >
-                      choisissez votre plan
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- end plan -->
-              <!-- start plan -->
-              <div class="col-12 col-sm-6 col-lg-4 mb-4 mb-md-0">
-                <div class="offer-card">
-                  <div class="offer-header">
-                    <h3 class="offer-title">De 1 a 499 élèves</h3>
-                    <div class="offer-price">
-                      <span class="device">Mad</span
-                      ><span>15500MAD <label>/36500MAD</label></span>
-                    </div>
-                  </div>
-                  <div class="offer-body">
-                    <ul class="offer-list list-unstyled">
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span> module de base </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span
-                          >gestion administrative des élèves et des
-                          professeurs</span
-                        >
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>5h de formation gratuites</span>
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span
-                          >gestion de scolarité. éxamens. notes. absence. le
-                          system de notification et emploi du temps
-                          compris</span
-                        >
-                      </li>
-                      <li class="offer-list-item no-border-bottom">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>maintenance anuelle 3500dh</span>
-                      </li>
-                      <li class="offer-list-item extra">
-                        <i class="fa fa-external-link-square"></i>
-                        <span> Extras </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="6000"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module frais en extra
-                          <label class="price_color">6000MAD</label> / prix
-                          annuel: <label class="price_color">1800MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="1500"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module bibliothèque en exact
-                          <label class="price_color">1500MAD</label>/ prix
-                          annuel:
-                          <label class="price_color">1000MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="1000"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module transport en exact
-                          <label class="price_color">1000MAD</label>/ prix
-                          annuel: <label class="price_color">500MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="2500"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module rapport en exact
-                          <label class="price_color">2500MAD</label>/ prix
-                          annuel: <label class="price_color">1000MAD</label>
-                        </span>
-                      </li>
-                      <li class="offer-list-item">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          value="15000"
-                          v-model="plans.basic.plan_one.total_price"
-                        />
-                        <span>
-                          module personnele en exact
-                          <label class="price_color">15000MAD</label> / prix
-                          annuel:
-                          <label class="price_color">500MAD</label>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="offer-footer">
-                    <h5
-                      class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
-                    >
-                      Prix Total : {{ sum_price_basic_three }} MAD
-                    </h5>
-                    <button
-                      class="btn btn-block"
-                      @click="
-                        choosePlane('De 1 a 499 élèves', sum_price_basic_three)
-                      "
-                    >
-                      choisissez votre plan
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- end plan -->
-            </div>
-          </div>
-          <!-- end basic offers -->
-
-          <!-- start premuim offers -->
-          <div id="menu2" class="container tab-pane fade">
-            <div class="row">
-              <!-- start plan -->
-              <div class="col-12 col-sm-6 col-lg-4 mb-4 mb-md-0">
-                <div class="offer-card">
-                  <div class="offer-header">
-                    <div class="offer-price"><span>25$</span></div>
-                    <h3 class="offer-title">Plan 4</h3>
-                  </div>
-                  <div class="offer-body">
-                    <ul class="offer-list list-unstyled">
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>11Go</span> d'internet
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>1H</span> d'appels
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>25H</span> SMS nationaux
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>11Go</span> d'internet
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>1H</span> d'appels
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>25H</span> SMS nationaux
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="offer-footer">
-                    <button
-                      class="btn btn-block btn-flat"
-                      @click="choosePlane(25, 'Plan 4')"
-                    >
-                      choisissez votre plan
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- end plan -->
-
-              <!-- start plan -->
-              <div class="col-12 col-sm-6 col-lg-4 mb-4 mb-md-0">
-                <div class="offer-card">
-                  <div class="offer-header">
-                    <div class="offer-price"><span>30$</span></div>
-                    <h3 class="offer-title">Plan 5</h3>
-                  </div>
-                  <div class="offer-body">
-                    <ul class="offer-list list-unstyled">
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>11Go</span> d'internet
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>1H</span> d'appels
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>25H</span> SMS nationaux
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>11Go</span> d'internet
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>1H</span> d'appels
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>25H</span> SMS nationaux
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="offer-footer">
-                    <button
-                      class="btn btn-block"
-                      @click="choosePlane(25, 'Plan 5')"
-                    >
-                      choisissez votre plan
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- end plan -->
-
-              <!-- start plan -->
-              <div class="col-12 col-sm-6 col-lg-4 mb-4 mb-md-0">
-                <div class="offer-card">
-                  <div class="offer-header">
-                    <div class="offer-price"><span>40$</span></div>
-                    <h3 class="offer-title">Plan 6</h3>
-                  </div>
-                  <div class="offer-body">
-                    <ul class="offer-list list-unstyled">
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>11Go</span> d'internet
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>1H</span> d'appels
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>25H</span> SMS nationaux
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>11Go</span> d'internet
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>1H</span> d'appels
-                      </li>
-                      <li class="offer-list-item">
-                        <i class="fa fa-chevron-circle-right"></i>
-                        <span>25H</span> SMS nationaux
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="offer-footer">
-                    <button
-                      class="btn btn-block btn-flat"
-                      @click="choosePlane(25, 'Plan 6')"
-                    >
-                      choisissez votre plan
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- end plan -->
-            </div>
-          </div>
-          <!-- end premuim offers -->
-        </div>
+    <div class="offers py-4">
+      <div class="ajax-icon" v-if="loadingStatus">
+        <atom-spinner :animation-duration="1000" :size="60" color="#ff1d5e" />
       </div>
+      <div class="container">
+        <div class="offers-cards my-0">
+          <div class="head">
+            <h2 class="mb-2 text-capitalize text-center">
+              <i class="fa fa-paper-plane"></i> Choisissez votre plan
+              <span class="float-right langue-list">
+                <router-link to="/"
+                  ><img src="/images/maroc.jpg" alt=""
+                /></router-link>
+                <router-link to="/fr"><i class="fa fa-euro"></i></router-link>
+              </span>
+            </h2>
+          </div>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#menu1"
+                ><i class="fa fa-battery-half"></i> Basic</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu2"
+                ><i class="fa fa-battery-full"></i> Complète</a
+              >
+            </li>
+          </ul>
 
-      <!-- start modal dialog -->
-      <div class="modal fade" v-if="modalStatus == true">
-        <div class="modal-shadow" @click="closeModal"></div>
-        <div
-          class="modal-dialog modal-lg"
-          style="overflow-y: initial !important"
-        >
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h5 class="modal-title">l'offre {{ form.plan_name }}</h5>
-              <button type="button" class="close" @click="closeModal">
-                <i class="fa fa-times-circle"></i>
-              </button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-              <!-- start modal fields  -->
+          <!-- Tab panes -->
+          <div class="tab-content pt-3">
+            <!-- start basic offers -->
+            <div id="menu1" class="container tab-pane active">
               <div class="row">
-                <div class="col-lg-6">
-                  <h5 class="mb-4">
-                    <i class="fa fa-id-card"></i> Veillez Saisie Votre
-                    Information
-                  </h5>
-
-                  <form autocomplete="off" novalidate>
-                    <!-- start name field -->
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span
-                          class="input-group-text text-white icon-form user-icon"
-                        >
-                          <i class="fa fa-user"></i>
-                        </span>
+                <!-- start plan one -->
+                <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
+                  <div class="offer-card">
+                    <div class="offer-header">
+                      <h3 class="offer-title">De 1 a 499 élèves</h3>
+                      <div class="offer-price">
+                        <span class="device">Mad</span
+                        ><span class="device">15500MAD <label>/25500MAD</label></span>
                       </div>
-                      <input
-                        v-model="form.society_name"
-                        type="text"
-                        placeholder="Entrer Le Nom De L'ecole "
-                        :class="{
-                          'is-invalid': form.errors.has('society_name'),
-                          'form-control': true,
-                        }"
-                      />
-                      <has-error :form="form" field="society_name"></has-error>
                     </div>
-                    <!-- end name field -->
-
-                    <!-- start email field -->
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text text-white icon-form">
-                          <i class="fa fa-envelope"></i>
-                        </span>
-                      </div>
-                      <input
-                        v-model="form.client_email"
-                        type="text"
-                        placeholder="Enter Ton Email"
-                        :class="{
-                          'is-invalid': form.errors.has('client_email'),
-                          'form-control': true,
-                        }"
-                      />
-                      <has-error :form="form" field="client_email"></has-error>
-                    </div>
-                    <!-- end email field -->
-
-                    <!-- start number of student field -->
-                    <div class="input-group mb-3 price_parent">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text text-white icon-form">
-                          <i class="fa fa-envelope"></i>
-                        </span>
-                      </div>
-
-                      <input
-                        @keydown="priceByStudent"
-                        @change="priceByStudent"
-                        v-model.number="form.nb_students"
-                        type="number"
-                        min="0"
-                        :max="form.max_nbStudents"
-                        placeholder="Le Nombre Des Eleves"
-                        :class="{
-                          'is-invalid': form.errors.has('nb_students'),
-                          'form-control': true,
-                        }"
-                      />
-                      <has-error :form="form" field="nb_students"></has-error>
-                    </div>
-                    <!-- start number of student field -->
-                  </form>
-                  <div class="form-group">
-                    <label for="" class="label-control">Prix Total </label>
-                    <span class="badge badge-total-price"
-                      >{{ form.total_price }} MAD
-                    </span>
-                  </div>
-                </div>
-                <!-- start modal other information -->
-                <div class="col-lg-6 accordion-parent">
-                  <div id="accordion">
-                    <div class="card">
-                      <div class="card-header">
-                        <a class="card-link" data-toggle="collapse" href="#one">
-                          <i
-                            class="fa fa-chevron-circle-right"
-                            aria-hidden="true"
-                          ></i>
-                          Souhaitez-vous avoir une formation en ligne ?
-                        </a>
-                      </div>
-                      <div
-                        id="one"
-                        class="collapse show"
-                        data-parent="#accordion"
-                      >
-                        <div class="card-body">
+                    <div class="offer-body">
+                      <ul class="offer-list list-unstyled">
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span> module de base </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span
+                            >gestion administrative des élèves et des
+                            professeurs</span
+                          >
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>5h de formation gratuites</span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span
+                            >gestion de scolarité. éxamens. notes. absence. le
+                            system de notification et emploi du temps
+                            compris</span
+                          >
+                        </li>
+                        <li class="offer-list-item no-border-bottom">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>maintenance anuelle 3500dh</span>
+                        </li>
+                        <li class="offer-list-item extra">
+                          <i class="fa fa-external-link-square"></i>
+                          <span> Extras </span>
+                        </li>
+                        <li class="offer-list-item">
                           <input
                             type="checkbox"
-                            v-model="form.formation_en_ligne"
+                            class="checkbox"
+                            value="7800"
+                            v-model="plans.basic.plan_one.total_price"
                           />
-                          oui/non
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-header">
-                        <a class="card-link" data-toggle="collapse" href="#two">
-                          <i
-                            class="fa fa-chevron-circle-right"
-                            aria-hidden="true"
-                          ></i>
-                          Combien d’heures :
-                        </a>
-                      </div>
-                      <div id="two" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
                           <span>
-                            <label class="accordion-hours"> 5H</label> :
-                            gratuites
+                            module frais en extra
+                            <label class="price_color">6000MAD</label> + prix
+                            annuel: <label class="price_color">1800MAD</label> =
+                            7800MAD
                           </span>
-                          <span
-                            >Au-delà de
-                            <span class="accordion-hours">5H</span> :
-                            <span class="accordion-mony">250MAD/Heure</span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="2500"
+                            v-model="plans.basic.plan_one.total_price"
+                          />
+                          <span>
+                            module bibliothèque en exact
+                            <label class="price_color">1500MAD</label> + prix
+                            annuel: <label class="price_color">1000MAD</label> =
+                            2500MAD
                           </span>
-                        </div>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="1500"
+                            v-model="plans.basic.plan_one.total_price"
+                          />
+                          <span>
+                            module transport en exact
+                            <label class="price_color">1000MAD</label> + prix
+                            annuel: <label class="price_color">500MAD</label> =
+                            1500MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="3500"
+                            v-model="plans.basic.plan_one.total_price"
+                          />
+                          <span>
+                            module rapport en exact
+                            <label class="price_color">2500MAD</label> + prix
+                            annuel: <label class="price_color">1000MAD</label> =
+                            3500MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="2000"
+                            v-model="plans.basic.plan_one.total_price"
+                          />
+                          <span>
+                            module personnele en exact
+                            <label class="price_color">1500MAD</label> + prix
+                            annuel: <label class="price_color">500MAD</label> =
+                            2000MAD
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="offer-footer">
+                      <h5
+                        class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                      >
+                        Prix Total : {{ sum_price_basic_one }} MAD
+                      </h5>
+                      <button
+                        class="btn btn-block"
+                        @click="
+                          choosePlane(
+                            'Basic De 1 a 499 élèves',
+                            sum_price_basic_one,
+                            1,
+                            499
+                          )
+                        "
+                      >
+                        choisissez votre plan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end plan one -->
+                <!-- start plan  two-->
+                <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
+                  <div class="offer-card offer-centred">
+                    <div class="offer-header">
+                      <h3 class="offer-title">De 500 a 999 élèves</h3>
+                      <div class="offer-price">
+                        <span class="device">Mad</span
+                        ><span class="device">26500MAD <label>/36500MAD</label></span>
                       </div>
                     </div>
-                    <div class="card">
-                      <div class="card-header">
-                        <a
-                          class="card-link"
-                          data-toggle="collapse"
-                          href="#three"
-                        >
-                          <i
-                            class="fa fa-chevron-circle-right"
-                            aria-hidden="true"
-                          ></i>
-                          Autres services :
-                        </a>
-                      </div>
-                      <div id="three" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                          <span class="d-block"
-                            >Traitement des listes et injections de données :
-                            <span class="accordion-mony">20MAD/élève</span>
-                          </span>
+                    <div class="offer-body">
+                      <ul class="offer-list list-unstyled">
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span> module de base </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
                           <span
-                            >Version mobile (Android iOS) ainsi que les portails
-                            élèves et parents :
-                            <span class="accordion-mony">50MAD/élèves</span>
+                            >gestion administrative des élèves et des
+                            professeurs</span
+                          >
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>5h de formation gratuites</span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span
+                            >gestion de scolarité. éxamens. notes. absence. le
+                            system de notification et emploi du temps
+                            compris</span
+                          >
+                        </li>
+                        <li class="offer-list-item no-border-bottom">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>maintenance anuelle 3500dh</span>
+                        </li>
+                        <li class="offer-list-item extra">
+                          <i class="fa fa-external-link-square"></i>
+                          <span> Extras </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="7800"
+                            v-model="plans.basic.plan_two.total_price"
+                          />
+                          <span>
+                            module frais en extra
+                            <label class="price_color">6000MAD</label> + prix
+                            annuel: <label class="price_color">1800MAD</label> =
+                            7800MAD
                           </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="2500"
+                            v-model="plans.basic.plan_two.total_price"
+                          />
+                          <span>
+                            module bibliothèque en exact
+                            <label class="price_color">1500MAD</label> + prix
+                            annuel: <label class="price_color">1000MAD</label> =
+                            2500MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="1500"
+                            v-model="plans.basic.plan_two.total_price"
+                          />
+                          <span>
+                            module transport en exact
+                            <label class="price_color">1000MAD</label> + prix
+                            annuel: <label class="price_color">500MAD</label> =
+                            1500MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="3500"
+                            v-model="plans.basic.plan_two.total_price"
+                          />
+                          <span>
+                            module rapport en exact
+                            <label class="price_color">2500MAD</label> + prix
+                            annuel: <label class="price_color">1000MAD</label> =
+                            3500MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="2000"
+                            v-model="plans.basic.plan_two.total_price"
+                          />
+                          <span>
+                            module personnele en exact
+                            <label class="price_color">1500MAD</label> + prix
+                            annuel: <label class="price_color">500MAD</label> =
+                            2000MAD
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="offer-footer">
+                      <h5
+                        class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
+                      >
+                        Prix Total : {{ sum_price_basic_two }} MAD
+                      </h5>
+                      <button
+                        class="btn btn-block"
+                        @click="
+                          choosePlane(
+                            'Basic De 499 a 999 élèves',
+                            sum_price_basic_two,
+                            499,
+                            999
+                          )
+                        "
+                      >
+                        choisissez votre plan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end plan two -->
+                <!-- start plan three-->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
+                  <div class="offer-card">
+                    <div class="offer-header">
+                      <h3 class="offer-title">De 1000 et plus</h3>
+                      <div class="offer-price">
+                        <span class="device">Mad</span
+                        ><span class="device">36000MAD <label>/46000MAD</label></span>
+                      </div>
+                    </div>
+                    <div class="offer-body">
+                      <ul class="offer-list list-unstyled">
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span> module de base </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span
+                            >gestion administrative des élèves et des
+                            professeurs</span
+                          >
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>5h de formation gratuites</span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span
+                            >gestion de scolarité. éxamens. notes. absence. le
+                            system de notification et emploi du temps
+                            compris</span
+                          >
+                        </li>
+                        <li class="offer-list-item no-border-bottom">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>maintenance anuelle 3500dh</span>
+                        </li>
+                        <li class="offer-list-item extra">
+                          <i class="fa fa-external-link-square"></i>
+                          <span> Extras </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="7800"
+                            v-model="plans.basic.plan_three.total_price"
+                          />
+                          <span>
+                            module frais en extra
+                            <label class="price_color">6000MAD</label> + prix
+                            annuel: <label class="price_color">1800MAD</label> =
+                            7800MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="2500"
+                            v-model="plans.basic.plan_three.total_price"
+                          />
+                          <span>
+                            module bibliothèque en exact
+                            <label class="price_color">1500MAD</label> + prix
+                            annuel: <label class="price_color">1000MAD</label> =
+                            2500MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="1500"
+                            v-model="plans.basic.plan_three.total_price"
+                          />
+                          <span>
+                            module transport en exact
+                            <label class="price_color">1000MAD</label> + prix
+                            annuel: <label class="price_color">500MAD</label> =
+                            1500MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="3500"
+                            v-model="plans.basic.plan_three.total_price"
+                          />
+                          <span>
+                            module rapport en exact
+                            <label class="price_color">2500MAD</label> + prix
+                            annuel: <label class="price_color">1000MAD</label> =
+                            3500MAD
+                          </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            value="2000"
+                            v-model="plans.basic.plan_three.total_price"
+                          />
+                          <span>
+                            module personnele en exact
+                            <label class="price_color">1500MAD</label> + prix
+                            annuel: <label class="price_color">500MAD</label> =
+                            2000MAD
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="offer-footer">
+                      <h5
+                        class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
+                      >
+                        Prix Total : {{ sum_price_basic_three }} MAD
+                      </h5>
+                      <button
+                        class="btn btn-block"
+                        @click="
+                          choosePlane(
+                            'Basic Plus de 1000 élèves',
+                            sum_price_basic_three,
+                            500,
+                            10000
+                          )
+                        "
+                      >
+                        choisissez votre plan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end plan three-->
+              </div>
+            </div>
+            <!-- end basic offers -->
+
+            <!-- start premuim offers -->
+            <div id="menu2" class="container tab-pane fade">
+              <div class="row">
+                <!-- start plan -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
+                  <div class="offer-card">
+                    <div class="offer-header">
+                      <div class="offer-price"><span>25$</span></div>
+                      <h3 class="offer-title">Plan 4</h3>
+                    </div>
+                    <div class="offer-body">
+                      <ul class="offer-list list-unstyled">
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>11Go</span> d'internet
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>1H</span> d'appels
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>25H</span> SMS nationaux
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>11Go</span> d'internet
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>1H</span> d'appels
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>25H</span> SMS nationaux
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="offer-footer">
+                      <button
+                        class="btn btn-block btn-flat"
+                        @click="choosePlane(25, 'Plan 4')"
+                      >
+                        choisissez votre plan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end plan -->
+
+                <!-- start plan -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
+                  <div class="offer-card">
+                    <div class="offer-header">
+                      <div class="offer-price"><span>30$</span></div>
+                      <h3 class="offer-title">Plan 5</h3>
+                    </div>
+                    <div class="offer-body">
+                      <ul class="offer-list list-unstyled">
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>11Go</span> d'internet
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>1H</span> d'appels
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>25H</span> SMS nationaux
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>11Go</span> d'internet
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>1H</span> d'appels
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>25H</span> SMS nationaux
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="offer-footer">
+                      <button
+                        class="btn btn-block"
+                        @click="choosePlane(25, 'Plan 5')"
+                      >
+                        choisissez votre plan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end plan -->
+
+                <!-- start plan -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
+                  <div class="offer-card">
+                    <div class="offer-header">
+                      <div class="offer-price"><span>40$</span></div>
+                      <h3 class="offer-title">Plan 6</h3>
+                    </div>
+                    <div class="offer-body">
+                      <ul class="offer-list list-unstyled">
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>11Go</span> d'internet
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>1H</span> d'appels
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>25H</span> SMS nationaux
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>11Go</span> d'internet
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>1H</span> d'appels
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>25H</span> SMS nationaux
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="offer-footer">
+                      <button
+                        class="btn btn-block btn-flat"
+                        @click="choosePlane(25, 'Plan 6')"
+                      >
+                        choisissez votre plan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end plan -->
+              </div>
+            </div>
+            <!-- end premuim offers -->
+          </div>
+        </div>
+
+        <!-- start modal dialog -->
+        <div class="modal fade" v-if="modalStatus == true">
+          <div class="modal-shadow" @click="closeModal"></div>
+          <div
+            class="modal-dialog modal-lg"
+            style="overflow-y: initial !important"
+          >
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title">l'offre {{ form.plan_name }}</h5>
+                <button type="button" class="close" @click="closeModal">
+                  <i class="fa fa-times-circle"></i>
+                </button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <!-- start modal fields  -->
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h5 class="mb-4">
+                      <i class="fa fa-id-card"></i> Veillez Saisie Votre
+                      Information
+                    </h5>
+
+                    <form autocomplete="off" novalidate>
+                      <!-- start name field -->
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span
+                            class="input-group-text text-white icon-form user-icon"
+                          >
+                            <i class="fa fa-user"></i>
+                          </span>
+                        </div>
+                        <input
+                          v-model="form.society_name"
+                          type="text"
+                          placeholder="Entrer Le Nom De L'ecole "
+                          :class="{
+                            'is-invalid': form.errors.has('society_name'),
+                            'form-control': true,
+                          }"
+                        />
+                        <has-error
+                          :form="form"
+                          field="society_name"
+                        ></has-error>
+                      </div>
+                      <!-- end name field -->
+
+                      <!-- start email field -->
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text text-white icon-form">
+                            <i class="fa fa-envelope"></i>
+                          </span>
+                        </div>
+                        <input
+                          v-model="form.client_email"
+                          type="text"
+                          placeholder="Enter Ton Email"
+                          :class="{
+                            'is-invalid': form.errors.has('client_email'),
+                            'form-control': true,
+                          }"
+                        />
+                        <has-error
+                          :form="form"
+                          field="client_email"
+                        ></has-error>
+                      </div>
+                      <!-- end email field -->
+
+                      <!-- start number of student field -->
+                      <div class="input-group mb-3 price_parent">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text text-white icon-form">
+                            <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+                          </span>
+                        </div>
+
+                        <input
+                          @keydown="priceByStudent"
+                          @change="priceByStudent"
+                          v-model.number="form.nb_students"
+                          type="number"
+                          min="0"
+                          :max="form.max_nbStudents"
+                          placeholder="Le Nombre Des Eleves"
+                          :class="{
+                            'is-invalid': form.errors.has('nb_students'),
+                            'form-control': true,
+                          }"
+                        />
+                        <has-error :form="form" field="nb_students"></has-error>
+                      </div>
+                      <!-- start number of student field -->
+                    </form>
+                    <div class="form-group">
+                      <label for="" class="label-control">Prix Total </label>
+                      <span class="badge badge-total-price"
+                        >{{ form.total_price }} MAD
+                      </span>
+                    </div>
+                  </div>
+                  <!-- start modal other information -->
+                  <div class="col-lg-6 accordion-parent">
+                    <div id="accordion">
+                      <div class="card">
+                        <div class="card-header">
+                          <a
+                            class="card-link"
+                            data-toggle="collapse"
+                            href="#one"
+                          >
+                            <i
+                              class="fa fa-chevron-circle-right"
+                              aria-hidden="true"
+                            ></i>
+                            Souhaitez-vous avoir une formation en ligne ?
+                          </a>
+                        </div>
+                        <div
+                          id="one"
+                          class="collapse show"
+                          data-parent="#accordion"
+                        >
+                          <div class="card-body">
+                            <input
+                              type="checkbox"
+                              v-model="form.formation_en_ligne"
+                            />
+                            oui/non
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header">
+                          <a
+                            class="card-link"
+                            data-toggle="collapse"
+                            href="#two"
+                          >
+                            <i
+                              class="fa fa-chevron-circle-right"
+                              aria-hidden="true"
+                            ></i>
+                            Combien d’heures :
+                          </a>
+                        </div>
+                        <div id="two" class="collapse" data-parent="#accordion">
+                          <div class="card-body">
+                            <span>
+                              <label class="accordion-hours"> 5H</label> :
+                              gratuites
+                            </span>
+                            <span
+                              >Au-delà de
+                              <span class="accordion-hours">5H</span> :
+                              <span class="accordion-mony">250MAD/Heure</span>
+                              (FActuration Sur Devis)
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header">
+                          <a
+                            class="card-link"
+                            data-toggle="collapse"
+                            href="#three"
+                          >
+                            <i
+                              class="fa fa-chevron-circle-right"
+                              aria-hidden="true"
+                            ></i>
+                            Autres services :
+                          </a>
+                        </div>
+                        <div
+                          id="three"
+                          class="collapse"
+                          data-parent="#accordion"
+                        >
+                          <div class="card-body">
+                            <span class="d-block other-service">
+                              <i class="fa fa-square"></i> Traitement des listes et injections de données :
+                              <span class="accordion-mony">20MAD/élève</span>
+                            </span>
+                            <span class="d-block other-service">
+                              <i class="fa fa-square"></i> Version mobile (Android iOS) ainsi que les
+                              portails élèves et parents :
+                              <span class="accordion-mony">50MAD/élèves</span>
+                            </span>
+                            <span class="d-block other-service">
+                              <i class="fa fa-square"></i> Développements Spécifiques:
+                              <span class="accordion-mony">200MAD/Heure</span>
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-primary btn-sm"
-                @click="saveOrder"
-              >
-                <i class="fa fa-chevron-circle-right"></i> Save
-              </button>
-              <button
-                type="button"
-                class="btn btn-danger btn-sm"
-                @click="closeModal"
-              >
-                <i class="fa fa-times-circle"></i>
-                Close
-              </button>
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  @click="saveOrder"
+                >
+                  <i class="fa fa-chevron-circle-right"></i> Save
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm"
+                  @click="closeModal"
+                >
+                  <i class="fa fa-times-circle"></i>
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
+        <!-- end modal dialog -->
       </div>
-      <!-- end modal dialog -->
-    </div>
-    <!-- start msg success  -->
-    <div class="msg" v-if="msg!=''">
-      <p>{{ msg }}</p>
+      <!-- start msg success  -->
+      <div class="msg" v-if="msg != ''">
+        <p>{{ msg }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
 $card_centred: #9bc31c;
-$card_header_bg: #08acfd;
+$card_header_bg: #51c1e1;
 $card_header_title: #fff;
 
 $card_body_bg: #fff;
@@ -811,6 +858,7 @@ $secand_color: #444;
 .offers {
   position: relative;
   z-index: 2;
+  //   margin: 80px;
   .nav-tabs {
     border-color: $card_header_bg;
     .nav-link {
@@ -835,7 +883,7 @@ $secand_color: #444;
     position: relative;
     // text-transform: lowercase;
     background: #fff;
-    h2 {
+    .head {
       color: #fff !important;
       position: absolute;
       top: 0;
@@ -843,6 +891,37 @@ $secand_color: #444;
       width: 100%;
       padding: 15px 5px;
       background: $card_header_bg;
+      h2 {
+        width: 90%;
+        margin-bottom: -40px;
+        @media(max-width:768px){
+            font-size: 22px;
+            margin-top:10px;
+        }
+        .langue-list {
+          position: absolute;
+          top: 0px;
+          right: 35px;
+          a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            img {
+              border: 1px solid #fff;
+              padding: 3x;
+              background: #fff;
+              width: 30px !important;
+              height: 25px !important;
+              border-radius: 2px;
+            }
+            &:last-of-type {
+              background: #fff;
+              color: #222;
+              padding: 2px 12px;
+            }
+          }
+        }
+      }
     }
     .offer-card {
       margin-top: 30px;
@@ -865,12 +944,14 @@ $secand_color: #444;
           background-color: white;
           color: $main_color;
           padding: 0px 5px 0px 35px;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          font-weight: bold;
           span.device {
             text-align: left;
             font-size: 27px;
             font-weight: bold;
             text-transform: uppercase;
-            color: #666;
+            color: $card_centred !important;
             display: block;
             margin: 4px 0 -5px 0;
           }
@@ -878,7 +959,8 @@ $secand_color: #444;
             display: block;
             text-align: center;
             margin-bottom: 10px;
-            color: #444;
+            font-size: 16px;
+            // color: #444;
             label {
               text-decoration: line-through;
               color: $card_header_bg;
@@ -952,6 +1034,9 @@ $secand_color: #444;
       }
       .offer-footer {
         // height: 40px;
+        h5 {
+          font-size: 14px;
+        }
         .btn {
           background: $card_header_bg;
           color: #fff;
@@ -980,7 +1065,8 @@ $secand_color: #444;
         background: $card_centred;
       }
       .offer-price span:last-of-type label {
-        color: $card_centred;
+        color: $card_header_bg;
+
       }
     }
 
@@ -1142,6 +1228,20 @@ body {
         padding: 10px 8px;
         color: #666;
         margin-bottom: 3px;
+        .other-service{
+            margin-bottom:5px;
+            padding-bottom:5px;
+            border-bottom:1px dotted $card_header_bg;
+            &:last-of-type{
+                border-bottom:none;
+                padding-bottom:none;
+                margin-bottom:none;
+            }
+            .fa-square{
+                font-size:13px ;
+                color:$card_header_bg;
+            }
+        }
         .accordion-mony {
           color: $card_header_bg;
           font-weight: bolder;
@@ -1171,10 +1271,12 @@ body {
 </style>
 
 <script>
-import { AtomSpinner } from 'epic-spinners'
+import { AtomSpinner } from "epic-spinners";
+import navBar from "./nav";
 export default {
   components: {
-    AtomSpinner
+    AtomSpinner,
+    navBar
   },
   data() {
     return {
@@ -1183,7 +1285,7 @@ export default {
         client_email: "",
         plan_name: "",
         total_price: 0,
-        nb_students: 0,
+        nb_students: '',
         formation_en_ligne: false,
         lang: "ar",
         min_nbStudents: 1,
@@ -1201,11 +1303,11 @@ export default {
             plan_name: "basic plan 1"
           },
           plan_two: {
-            total_price: ["15000"],
+            total_price: ["26500"],
             plan_name: "basic plan 2"
           },
           plan_three: {
-            total_price: ["12000"],
+            total_price: ["36000"],
             plan_name: "basic plan 3"
           }
         },
@@ -1269,7 +1371,18 @@ export default {
           this.form.nb_students <= this.form.max_nbStudents
         ) {
           // if nb_students > 0
-          this.form.total_price = this.modalTotalPrice + price_student;
+          if(this.form.nb_students>1000){
+              let x = this.form.nb_students-1000;
+              x = x/500;
+              x= parseInt(x) * 1000;
+              console.log(this.modalTotalPrice + price_student);
+              this.form.total_price = this.modalTotalPrice + price_student+x;
+              console.log(this.form.total_price);
+
+          }else{
+              this.form.total_price = this.modalTotalPrice + price_student;
+              console.log('hello')
+          }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
           let price_student = this.otherTarif * this.form.max_nbStudents;
@@ -1341,7 +1454,17 @@ export default {
         this.form.nb_students > 0 &&
         this.form.nb_students <= this.form.max_nbStudents
       ) {
-        this.form.total_price = this.modalTotalPrice + price_student;
+          if(this.form.nb_students>1000){
+              let x = this.form.nb_students-1000;
+              x = x/500;
+              x= parseInt(x) * 1000;
+              console.log(this.modalTotalPrice + price_student);
+              this.form.total_price = this.modalTotalPrice + price_student+x;
+              console.log(this.form.total_price);
+
+          }else{
+            this.form.total_price = this.modalTotalPrice + price_student;
+          }
       } // if nb_students > 0
       else if (this.form.nb_students > this.form.max_nbStudents) {
         // if nb_students > max number of students in this offer

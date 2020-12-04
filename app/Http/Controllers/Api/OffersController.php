@@ -40,7 +40,7 @@ class OffersController extends Controller
         $order->save();
 
         $mailDetails = [
-            "client_name"=>$order->name,
+            "client_name"=>$order->nom,
             "offer_name"=>$order->plan_choisie,
             "nb_students"=>$order->nombre_eleves,
             'total_price'=>$order->prix_total
@@ -48,7 +48,7 @@ class OffersController extends Controller
 
         Mail::to('yn-neinaa@hotmail.com')->send(new sendMail($mailDetails));
 
-        return response()->json(["order" => $order, 'msg' => 'your order created successfully']);
+        return response()->json(["order" => $order, 'msg' => 'Votre commande a été créée avec succès']);
 
     }
 }

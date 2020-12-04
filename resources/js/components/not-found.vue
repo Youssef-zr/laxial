@@ -6,10 +6,8 @@
       <div class="error-content text-center">
          <i class="fa fa-warning fa-3x"></i>
         <h1>
-          Sorry !! Page Not Found
+          Désolé !! Page Introuvable
         </h1>
-
-        <router-link to='/' class="display-3 text-warning"><i class="fa fa-chevron-left"> </i>Back</router-link>
       </div>
 
       <!-- /.error-content -->
