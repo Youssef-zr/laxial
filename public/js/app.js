@@ -30786,7 +30786,7 @@ var staticRenderFns = [
               _c("span", { staticClass: "accordion-hours" }, [_vm._v("5H")]),
               _vm._v(" :\n                            "),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("250MAD/Heure")
+                _vm._v("250MAD / Heure")
               ]),
               _vm._v(
                 "\n                            (Facturation Sur Devis)\n                          "

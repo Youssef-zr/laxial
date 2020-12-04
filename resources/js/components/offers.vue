@@ -776,7 +776,7 @@
                             <span
                               >Au-delà de
                               <span class="accordion-hours">5H</span> :
-                              <span class="accordion-mony">250MAD/Heure</span>
+                              <span class="accordion-mony">250MAD / Heure</span>
                               (Facturation Sur Devis)
                             </span>
                           </div>
