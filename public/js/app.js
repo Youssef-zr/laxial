@@ -29491,7 +29491,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_basic_three) +
-                                  " MAD\n                    "
+                                  " MADD\n                    "
                               )
                             ]
                           ),

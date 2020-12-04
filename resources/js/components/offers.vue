@@ -439,7 +439,7 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
                       >
-                        Prix Total : {{ sum_price_basic_three }} MAD
+                        Prix Total : {{ sum_price_basic_three }} MADD
                       </h5>
                       <button
                         class="btn btn-block"
