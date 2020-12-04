@@ -45,7 +45,9 @@
                       <h3 class="offer-title">De 1 a 499 élèves</h3>
                       <div class="offer-price">
                         <span class="device">Mad</span
-                        ><span class="device">15500MAD <label>/25500MAD</label></span>
+                        ><span class="device"
+                          >15500MAD <label>/25500MAD</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -183,7 +185,9 @@
                       <h3 class="offer-title">De 500 a 999 élèves</h3>
                       <div class="offer-price">
                         <span class="device">Mad</span
-                        ><span class="device">26500MAD <label>/36500MAD</label></span>
+                        ><span class="device"
+                          >26500MAD <label>/36500MAD</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -321,7 +325,9 @@
                       <h3 class="offer-title">De 1000 et plus</h3>
                       <div class="offer-price">
                         <span class="device">Mad</span
-                        ><span class="device">36000MAD <label>/46000MAD</label></span>
+                        ><span class="device"
+                          >36000MAD <label>/46000MAD</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -434,7 +440,6 @@
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
                       >
                         Prix Total : {{ sum_price_basic_three }} MAD
-                        d
                       </h5>
                       <button
                         class="btn btn-block"
@@ -685,7 +690,10 @@
                       <div class="input-group mb-3 price_parent">
                         <div class="input-group-prepend">
                           <span class="input-group-text text-white icon-form">
-                            <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+                            <i
+                              class="fa fa-sort-numeric-asc"
+                              aria-hidden="true"
+                            ></i>
                           </span>
                         </div>
 
@@ -795,16 +803,19 @@
                         >
                           <div class="card-body">
                             <span class="d-block other-service">
-                              <i class="fa fa-square"></i> Traitement des listes et injections de données :
+                              <i class="fa fa-square"></i> Traitement des listes
+                              et injections de données :
                               <span class="accordion-mony">20MAD/élève</span>
                             </span>
                             <span class="d-block other-service">
-                              <i class="fa fa-square"></i> Version mobile (Android iOS) ainsi que les
-                              portails élèves et parents :
+                              <i class="fa fa-square"></i> Version mobile
+                              (Android iOS) ainsi que les portails élèves et
+                              parents :
                               <span class="accordion-mony">50MAD/élèves</span>
                             </span>
                             <span class="d-block other-service">
-                              <i class="fa fa-square"></i> Développements Spécifiques:
+                              <i class="fa fa-square"></i> Développements
+                              Spécifiques:
                               <span class="accordion-mony">200MAD/Heure</span>
                             </span>
                           </div>
@@ -895,9 +906,9 @@ $secand_color: #444;
       h2 {
         width: 90%;
         margin-bottom: -40px;
-        @media(max-width:768px){
-            font-size: 22px;
-            margin-top:10px;
+        @media (max-width: 768px) {
+          font-size: 22px;
+          margin-top: 10px;
         }
         .langue-list {
           position: absolute;
@@ -945,7 +956,7 @@ $secand_color: #444;
           background-color: white;
           color: $main_color;
           padding: 0px 5px 0px 35px;
-          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
           font-weight: bold;
           span.device {
             text-align: left;
@@ -1067,7 +1078,6 @@ $secand_color: #444;
       }
       .offer-price span:last-of-type label {
         color: $card_header_bg;
-
       }
     }
 
@@ -1229,19 +1239,19 @@ body {
         padding: 10px 8px;
         color: #666;
         margin-bottom: 3px;
-        .other-service{
-            margin-bottom:5px;
-            padding-bottom:5px;
-            border-bottom:1px dotted $card_header_bg;
-            &:last-of-type{
-                border-bottom:none;
-                padding-bottom:none;
-                margin-bottom:none;
-            }
-            .fa-square{
-                font-size:13px ;
-                color:$card_header_bg;
-            }
+        .other-service {
+          margin-bottom: 5px;
+          padding-bottom: 5px;
+          border-bottom: 1px dotted $card_header_bg;
+          &:last-of-type {
+            border-bottom: none;
+            padding-bottom: none;
+            margin-bottom: none;
+          }
+          .fa-square {
+            font-size: 13px;
+            color: $card_header_bg;
+          }
         }
         .accordion-mony {
           color: $card_header_bg;
@@ -1286,7 +1296,7 @@ export default {
         client_email: "",
         plan_name: "",
         total_price: 0,
-        nb_students: '',
+        nb_students: "",
         formation_en_ligne: false,
         lang: "ar",
         min_nbStudents: 1,
@@ -1372,17 +1382,16 @@ export default {
           this.form.nb_students <= this.form.max_nbStudents
         ) {
           // if nb_students > 0
-          if(this.form.nb_students>1000){
-              let x = this.form.nb_students-1000;
-              x = x/500;
-              x= parseInt(x) * 1000;
-              console.log(this.modalTotalPrice + price_student);
-              this.form.total_price = this.modalTotalPrice + price_student+x;
-              console.log(this.form.total_price);
-
-          }else{
-              this.form.total_price = this.modalTotalPrice + price_student;
-              console.log('hello')
+          if (this.form.nb_students > 1000) {
+            let x = this.form.nb_students - 1000;
+            x = x / 500;
+            x = parseInt(x) * 1000;
+            console.log(this.modalTotalPrice + price_student);
+            this.form.total_price = this.modalTotalPrice + price_student + x;
+            console.log(this.form.total_price);
+          } else {
+            this.form.total_price = this.modalTotalPrice + price_student;
+            console.log("hello");
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
@@ -1455,17 +1464,16 @@ export default {
         this.form.nb_students > 0 &&
         this.form.nb_students <= this.form.max_nbStudents
       ) {
-          if(this.form.nb_students>1000){
-              let x = this.form.nb_students-1000;
-              x = x/500;
-              x= parseInt(x) * 1000;
-              console.log(this.modalTotalPrice + price_student);
-              this.form.total_price = this.modalTotalPrice + price_student+x;
-              console.log(this.form.total_price);
-
-          }else{
-            this.form.total_price = this.modalTotalPrice + price_student;
-          }
+        if (this.form.nb_students > 1000) {
+          let x = this.form.nb_students - 1000;
+          x = x / 500;
+          x = parseInt(x) * 1000;
+          console.log(this.modalTotalPrice + price_student);
+          this.form.total_price = this.modalTotalPrice + price_student + x;
+          console.log(this.form.total_price);
+        } else {
+          this.form.total_price = this.modalTotalPrice + price_student;
+        }
       } // if nb_students > 0
       else if (this.form.nb_students > this.form.max_nbStudents) {
         // if nb_students > max number of students in this offer
