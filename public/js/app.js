@@ -29491,7 +29491,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_basic_three) +
-                                  " MADD\n                    "
+                                  " MAD\n                    "
                               )
                             ]
                           ),
@@ -29963,7 +29963,7 @@ var render = function() {
                           _c("i", {
                             staticClass: "fa fa-chevron-circle-right"
                           }),
-                          _vm._v(" Save\n              ")
+                          _vm._v(" Valider\n              ")
                         ]
                       ),
                       _vm._v(" "),
@@ -29976,7 +29976,7 @@ var render = function() {
                         },
                         [
                           _c("i", { staticClass: "fa fa-times-circle" }),
-                          _vm._v("\n                Close\n              ")
+                          _vm._v("\n                Fermer\n              ")
                         ]
                       )
                     ])
@@ -30789,7 +30789,7 @@ var staticRenderFns = [
                 _vm._v("250MAD/Heure")
               ]),
               _vm._v(
-                "\n                            (FActuration Sur Devis)\n                          "
+                "\n                            (Facturation Sur Devis)\n                          "
               )
             ])
           ])

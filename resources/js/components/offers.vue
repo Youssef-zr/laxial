@@ -439,7 +439,7 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
                       >
-                        Prix Total : {{ sum_price_basic_three }} MADD
+                        Prix Total : {{ sum_price_basic_three }} MAD
                       </h5>
                       <button
                         class="btn btn-block"
@@ -777,7 +777,7 @@
                               >Au-delà de
                               <span class="accordion-hours">5H</span> :
                               <span class="accordion-mony">250MAD/Heure</span>
-                              (FActuration Sur Devis)
+                              (Facturation Sur Devis)
                             </span>
                           </div>
                         </div>
@@ -833,7 +833,7 @@
                   class="btn btn-primary btn-sm"
                   @click="saveOrder"
                 >
-                  <i class="fa fa-chevron-circle-right"></i> Save
+                  <i class="fa fa-chevron-circle-right"></i> Valider
                 </button>
                 <button
                   type="button"
@@ -841,7 +841,7 @@
                   @click="closeModal"
                 >
                   <i class="fa fa-times-circle"></i>
-                  Close
+                  Fermer
                 </button>
               </div>
             </div>
