@@ -3231,6 +3231,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3245,7 +3256,7 @@ __webpack_require__.r(__webpack_exports__);
         client_email: "",
         plan_name: "",
         total_price: 0,
-        nb_students: '',
+        nb_students: "",
         formation_en_ligne: false,
         lang: "ar",
         min_nbStudents: 1,
@@ -3343,7 +3354,7 @@ __webpack_require__.r(__webpack_exports__);
             console.log(this.form.total_price);
           } else {
             this.form.total_price = this.modalTotalPrice + price_student;
-            console.log('hello');
+            console.log("hello");
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
@@ -30821,7 +30832,7 @@ var staticRenderFns = [
             _c("span", { staticClass: "d-block other-service" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
-                " Traitement des listes et injections de données :\n                            "
+                " Traitement des listes\n                            et injections de données :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
                 _vm._v("20MAD/élève")
@@ -30831,7 +30842,7 @@ var staticRenderFns = [
             _c("span", { staticClass: "d-block other-service" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
-                " Version mobile (Android iOS) ainsi que les\n                            portails élèves et parents :\n                            "
+                " Version mobile\n                            (Android iOS) ainsi que les portails élèves et\n                            parents :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
                 _vm._v("50MAD/élèves")
@@ -30841,7 +30852,7 @@ var staticRenderFns = [
             _c("span", { staticClass: "d-block other-service" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
-                " Développements Spécifiques:\n                            "
+                " Développements\n                            Spécifiques:\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
                 _vm._v("200MAD/Heure")
