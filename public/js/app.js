@@ -3242,6 +3242,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3285,16 +3338,16 @@ __webpack_require__.r(__webpack_exports__);
         },
         advanced: {
           plan_one: {
-            total_price: ["23000"],
-            plan_name: "basic plan 4"
+            total_price: ["27900"],
+            plan_name: "Advanced De 1 a 499"
           },
           plan_two: {
-            total_price: ["27000"],
-            plan_name: "basic plan 5"
+            total_price: ["37800"],
+            plan_name: "Advanced De 500 a 999"
           },
           plan_three: {
-            total_price: ["37000"],
-            plan_name: "basic plan 6"
+            total_price: ["46350"],
+            plan_name: "Advanced Plus De 1000"
           }
         }
       }
@@ -29506,7 +29559,7 @@ var render = function() {
                                     "Basic Plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
                                     500,
-                                    10000
+                                    900000
                                   )
                                 }
                               }
@@ -29535,7 +29588,7 @@ var render = function() {
                 _c("div", { staticClass: "row" }, [
                   _c(
                     "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0" },
+                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
                         _vm._m(37),
@@ -29544,43 +29597,32 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-footer" }, [
                           _c(
-                            "button",
+                            "h5",
                             {
-                              staticClass: "btn btn-block btn-flat",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(25, "Plan 4")
-                                }
-                              }
+                              staticClass:
+                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                             },
                             [
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                "\n                      Prix Total : " +
+                                  _vm._s(_vm.sum_price_advanced_one) +
+                                  " MAD\n                    "
                               )
                             ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(39),
-                        _vm._v(" "),
-                        _vm._m(40),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
+                          ),
+                          _vm._v(" "),
                           _c(
                             "button",
                             {
                               staticClass: "btn btn-block",
                               on: {
                                 click: function($event) {
-                                  return _vm.choosePlane(25, "Plan 5")
+                                  return _vm.choosePlane(
+                                    "Complète De 1 a 499 élèves",
+                                    _vm.sum_price_advanced_one,
+                                    1,
+                                    499
+                                  )
                                 }
                               }
                             },
@@ -29597,7 +29639,58 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0" },
+                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
+                    [
+                      _c("div", { staticClass: "offer-card offer-centred" }, [
+                        _vm._m(39),
+                        _vm._v(" "),
+                        _vm._m(40),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "offer-footer" }, [
+                          _c(
+                            "h5",
+                            {
+                              staticClass:
+                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                            },
+                            [
+                              _vm._v(
+                                "\n                      Prix Total : " +
+                                  _vm._s(_vm.sum_price_advanced_two) +
+                                  " MAD\n                    "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-block",
+                              on: {
+                                click: function($event) {
+                                  return _vm.choosePlane(
+                                    "Complète De 500 a 999 élèves",
+                                    _vm.sum_price_advanced_two,
+                                    500,
+                                    999
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                      choisissez votre plan\n                    "
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
                         _vm._m(41),
@@ -29606,12 +29699,32 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-footer" }, [
                           _c(
+                            "h5",
+                            {
+                              staticClass:
+                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                            },
+                            [
+                              _vm._v(
+                                "\n                      Prix Total : " +
+                                  _vm._s(_vm.sum_price_advanced_three) +
+                                  " MAD\n                    "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
                             "button",
                             {
-                              staticClass: "btn btn-block btn-flat",
+                              staticClass: "btn btn-block",
                               on: {
                                 click: function($event) {
-                                  return _vm.choosePlane(25, "Plan 6")
+                                  return _vm.choosePlane(
+                                    "Complète Plus De 1000 Elèves",
+                                    _vm.sum_price_advanced_three,
+                                    500,
+                                    900000
+                                  )
                                 }
                               }
                             },
@@ -30497,58 +30610,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header" }, [
-      _c("div", { staticClass: "offer-price" }, [_c("span", [_vm._v("25$")])]),
+    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
+      _c("h3", { staticClass: "offer-title" }, [_vm._v("De 1 a 499 élèves")]),
       _vm._v(" "),
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("Plan 4")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-body" }, [
-      _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("11Go")]),
-          _vm._v(" d'internet\n                      ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("1H")]),
-          _vm._v(" d'appels\n                      ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("25H")]),
-          _vm._v(" SMS nationaux\n                      ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("11Go")]),
-          _vm._v(" d'internet\n                      ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("1H")]),
-          _vm._v(" d'appels\n                      ")
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("25H")]),
-          _vm._v(" SMS nationaux\n                      ")
+      _c("div", { staticClass: "offer-price" }, [
+        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
+        _c("span", { staticClass: "device" }, [
+          _vm._v("27900MAD "),
+          _c("label", [_vm._v("/29900MAD")])
         ])
       ])
     ])
@@ -30557,58 +30626,46 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header" }, [
-      _c("div", { staticClass: "offer-price" }, [_c("span", [_vm._v("30$")])]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("Plan 5")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "offer-body" }, [
       _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+        _c("li", { staticClass: "offer-list-item extra" }, [
+          _c("i", { staticClass: "fa fa-external-link-square" }),
           _vm._v(" "),
-          _c("span", [_vm._v("11Go")]),
-          _vm._v(" d'internet\n                      ")
+          _c("span", [_vm._v(" réduction de 10%")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("1H")]),
-          _vm._v(" d'appels\n                      ")
+          _c("span", [_vm._v(" module de base ")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("25H")]),
-          _vm._v(" SMS nationaux\n                      ")
+          _c("span", [_vm._v("tous les modules offerts. ")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("11Go")]),
-          _vm._v(" d'internet\n                      ")
+          _c("span", [_vm._v("Portail Professeur Offert")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("1H")]),
-          _vm._v(" d'appels\n                      ")
+          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
         ]),
         _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
+        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("25H")]),
-          _vm._v(" SMS nationaux\n                      ")
+          _c("span", [
+            _vm._v(
+              "\n                          Maintenance Annulle Comprise (3500DH/an) comprise\n                        "
+            )
+          ])
         ])
       ])
     ])
@@ -30617,10 +30674,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header" }, [
-      _c("div", { staticClass: "offer-price" }, [_c("span", [_vm._v("40$")])]),
+    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
+      _c("h3", { staticClass: "offer-title" }, [_vm._v("De 500 a 999 élèves")]),
       _vm._v(" "),
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("Plan 6")])
+      _c("div", { staticClass: "offer-price" }, [
+        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
+        _c("span", { staticClass: "device" }, [
+          _vm._v("37800MAD "),
+          _c("label", [_vm._v("/38800MAD")])
+        ])
+      ])
     ])
   },
   function() {
@@ -30629,46 +30692,109 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "offer-body" }, [
       _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+        _c("li", { staticClass: "offer-list-item extra" }, [
+          _c("i", { staticClass: "fa fa-external-link-square" }),
           _vm._v(" "),
-          _c("span", [_vm._v("11Go")]),
-          _vm._v(" d'internet\n                      ")
+          _c("span", [_vm._v(" réduction de 10%")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("1H")]),
-          _vm._v(" d'appels\n                      ")
+          _c("span", [_vm._v(" module de base ")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("25H")]),
-          _vm._v(" SMS nationaux\n                      ")
+          _c("span", [_vm._v("tous les modules offerts. ")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("11Go")]),
-          _vm._v(" d'internet\n                      ")
+          _c("span", [_vm._v("Portail Professeur Offert")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("1H")]),
-          _vm._v(" d'appels\n                      ")
+          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
+          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+          _vm._v(" "),
+          _c("span", [
+            _vm._v(
+              "\n                          Maintenance Annulle Comprise (4500DH/an) comprise\n                        "
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
+      _c("h3", { staticClass: "offer-title" }, [_vm._v("Plus De 1000 élèves")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "offer-price" }, [
+        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "device" }, [
+          _vm._v("46350MAD "),
+          _c("label", [_vm._v("/47350MAD")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "offer-body" }, [
+      _c("ul", { staticClass: "offer-list list-unstyled" }, [
+        _c("li", { staticClass: "offer-list-item extra" }, [
+          _c("i", { staticClass: "fa fa-external-link-square" }),
+          _vm._v(" "),
+          _c("span", [_vm._v(" réduction de 10%")])
         ]),
         _vm._v(" "),
         _c("li", { staticClass: "offer-list-item" }, [
           _c("i", { staticClass: "fa fa-chevron-circle-right" }),
           _vm._v(" "),
-          _c("span", [_vm._v("25H")]),
-          _vm._v(" SMS nationaux\n                      ")
+          _c("span", [_vm._v(" module de base ")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "offer-list-item" }, [
+          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("tous les modules offerts. ")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "offer-list-item" }, [
+          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Portail Professeur Offert")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "offer-list-item" }, [
+          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+          _vm._v(" "),
+          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
+          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+          _vm._v(" "),
+          _c("span", [
+            _vm._v(
+              "\n                          Maintenance Annulle Comprise (6000DH/an) comprise\n                        "
+            )
+          ])
         ])
       ])
     ])

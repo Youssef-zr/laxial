@@ -448,7 +448,7 @@
                             'Basic Plus de 1000 élèves',
                             sum_price_basic_three,
                             500,
-                            10000
+                            900000
                           )
                         "
                       >
@@ -465,146 +465,199 @@
             <!-- start premuim offers -->
             <div id="menu2" class="container tab-pane fade">
               <div class="row">
-                <!-- start plan -->
-                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
+                <!-- start plan one -->
+                <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card">
-                    <div class="offer-header">
-                      <div class="offer-price"><span>25$</span></div>
-                      <h3 class="offer-title">Plan 4</h3>
+                    <div class="offer-header border-bottom-0">
+                      <h3 class="offer-title">De 1 a 499 élèves</h3>
+                      <div class="offer-price">
+                        <span class="device">Mad</span
+                        ><span class="device"
+                          >27900MAD <label>/29900MAD</label></span
+                        >
+                      </div>
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span>11Go</span> d'internet
+                        <li class="offer-list-item extra">
+                          <i class="fa fa-external-link-square"></i>
+                          <span> réduction de 10%</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>1H</span> d'appels
+                          <span> module de base </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>25H</span> SMS nationaux
+                          <span>tous les modules offerts. </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>11Go</span> d'internet
+                          <span>Portail Professeur Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>1H</span> d'appels
+                          <span> 5H heures de formation gratuites </span>
                         </li>
-                        <li class="offer-list-item">
+                        <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>25H</span> SMS nationaux
+                          <span>
+                            Maintenance Annulle Comprise (3500DH/an) comprise
+                          </span>
                         </li>
                       </ul>
                     </div>
                     <div class="offer-footer">
-                      <button
-                        class="btn btn-block btn-flat"
-                        @click="choosePlane(25, 'Plan 4')"
+                      <h5
+                        class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        choisissez votre plan
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- end plan -->
-
-                <!-- start plan -->
-                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
-                  <div class="offer-card">
-                    <div class="offer-header">
-                      <div class="offer-price"><span>30$</span></div>
-                      <h3 class="offer-title">Plan 5</h3>
-                    </div>
-                    <div class="offer-body">
-                      <ul class="offer-list list-unstyled">
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span>11Go</span> d'internet
-                        </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span>1H</span> d'appels
-                        </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span>25H</span> SMS nationaux
-                        </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span>11Go</span> d'internet
-                        </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span>1H</span> d'appels
-                        </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span>25H</span> SMS nationaux
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="offer-footer">
+                        Prix Total : {{ sum_price_advanced_one }} MAD
+                      </h5>
                       <button
                         class="btn btn-block"
-                        @click="choosePlane(25, 'Plan 5')"
+                        @click="
+                          choosePlane(
+                            'Complète De 1 a 499 élèves',
+                            sum_price_advanced_one,
+                            1,
+                            499
+                          )
+                        "
                       >
                         choisissez votre plan
                       </button>
                     </div>
                   </div>
                 </div>
-                <!-- end plan -->
-
-                <!-- start plan -->
-                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
-                  <div class="offer-card">
-                    <div class="offer-header">
-                      <div class="offer-price"><span>40$</span></div>
-                      <h3 class="offer-title">Plan 6</h3>
+                <!-- end plan one -->
+                <!-- start plan  two-->
+                <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
+                  <div class="offer-card offer-centred">
+                    <div class="offer-header border-bottom-0">
+                      <h3 class="offer-title">De 500 a 999 élèves</h3>
+                      <div class="offer-price">
+                        <span class="device">Mad</span
+                        ><span class="device"
+                          >37800MAD <label>/38800MAD</label></span
+                        >
+                      </div>
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span>11Go</span> d'internet
+                        <li class="offer-list-item extra">
+                          <i class="fa fa-external-link-square"></i>
+                          <span> réduction de 10%</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>1H</span> d'appels
+                          <span> module de base </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>25H</span> SMS nationaux
+                          <span>tous les modules offerts. </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>11Go</span> d'internet
+                          <span>Portail Professeur Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>1H</span> d'appels
+                          <span> 5H heures de formation gratuites </span>
                         </li>
-                        <li class="offer-list-item">
+                        <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>25H</span> SMS nationaux
+                          <span>
+                            Maintenance Annulle Comprise (4500DH/an) comprise
+                          </span>
                         </li>
                       </ul>
                     </div>
                     <div class="offer-footer">
+                      <h5
+                        class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                      >
+                        Prix Total : {{ sum_price_advanced_two }} MAD
+                      </h5>
                       <button
-                        class="btn btn-block btn-flat"
-                        @click="choosePlane(25, 'Plan 6')"
+                        class="btn btn-block"
+                        @click="
+                          choosePlane(
+                            'Complète De 500 a 999 élèves',
+                            sum_price_advanced_two,
+                            500,
+                            999
+                          )
+                        "
                       >
                         choisissez votre plan
                       </button>
                     </div>
                   </div>
                 </div>
-                <!-- end plan -->
+                <!-- end plan two -->
+                <!-- start plan three-->
+                <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
+                  <div class="offer-card">
+                    <div class="offer-header border-bottom-0">
+                      <h3 class="offer-title">Plus De 1000 élèves</h3>
+                      <div class="offer-price">
+                        <span class="device">Mad</span>
+                        <span class="device">46350MAD <label>/47350MAD</label></span>
+                      </div>
+                    </div>
+                    <div class="offer-body">
+                      <ul class="offer-list list-unstyled">
+                        <li class="offer-list-item extra">
+                          <i class="fa fa-external-link-square"></i>
+                          <span> réduction de 10%</span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span> module de base </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>tous les modules offerts. </span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>Portail Professeur Offert</span>
+                        </li>
+                        <li class="offer-list-item">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span> 5H heures de formation gratuites </span>
+                        </li>
+                        <li class="offer-list-item no-border-bottom">
+                          <i class="fa fa-chevron-circle-right"></i>
+                          <span>
+                            Maintenance Annulle Comprise (6000DH/an) comprise
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="offer-footer">
+                      <h5
+                        class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                      >
+                        Prix Total : {{ sum_price_advanced_three }} MAD
+                      </h5>
+                      <button
+                        class="btn btn-block"
+                        @click="
+                          choosePlane(
+                            'Complète Plus De 1000 Elèves',
+                            sum_price_advanced_three,
+                            500,
+                            900000
+                          )
+                        "
+                      >
+                        choisissez votre plan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end plan three-->
               </div>
             </div>
             <!-- end premuim offers -->
@@ -1324,16 +1377,16 @@ export default {
         },
         advanced: {
           plan_one: {
-            total_price: ["23000"],
-            plan_name: "basic plan 4"
+            total_price: ["27900"],
+            plan_name: "Advanced De 1 a 499"
           },
           plan_two: {
-            total_price: ["27000"],
-            plan_name: "basic plan 5"
+            total_price: ["37800"],
+            plan_name: "Advanced De 500 a 999"
           },
           plan_three: {
-            total_price: ["37000"],
-            plan_name: "basic plan 6"
+            total_price: ["46350"],
+            plan_name: "Advanced Plus De 1000"
           }
         }
       }
