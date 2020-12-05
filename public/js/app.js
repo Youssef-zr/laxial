@@ -30166,7 +30166,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_basic_one) +
-                                  " MAD\n                    "
+                                  " $\n                    "
                               )
                             ]
                           ),
@@ -30555,7 +30555,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_basic_two) +
-                                  " MAD\n                    "
+                                  " $\n                    "
                               )
                             ]
                           ),
@@ -30954,7 +30954,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_basic_three) +
-                                  " MAD\n                    "
+                                  " $\n                    "
                               )
                             ]
                           ),
@@ -31016,7 +31016,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_advanced_one) +
-                                  " MAD\n                    "
+                                  " $\n                    "
                               )
                             ]
                           ),
@@ -31067,7 +31067,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_advanced_two) +
-                                  " MAD\n                    "
+                                  " $\n                    "
                               )
                             ]
                           ),
@@ -31118,7 +31118,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_advanced_three) +
-                                  " MAD\n                    "
+                                  " $\n                    "
                               )
                             ]
                           ),
@@ -31372,7 +31372,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   _vm._s(_vm.form.total_price) +
-                                    " MAD\n                    "
+                                    " $\n                    "
                                 )
                               ]
                             )
