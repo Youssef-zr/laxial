@@ -3227,6 +3227,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3251,33 +3256,28 @@ __webpack_require__.r(__webpack_exports__);
       modalStatus: false,
       loadingStatus: true,
       msg: "",
+      msgError: "",
       plans: {
         basic: {
           plan_one: {
-            total_price: ["1550"],
-            plan_name: "basic plan 1"
+            total_price: ["1550"]
           },
           plan_two: {
-            total_price: ["2650"],
-            plan_name: "basic plan 2"
+            total_price: ["2650"]
           },
           plan_three: {
-            total_price: ["3600"],
-            plan_name: "basic plan 3"
+            total_price: ["3600"]
           }
         },
         advanced: {
           plan_one: {
-            total_price: ["2790"],
-            plan_name: "Advanced De 1 a 499"
+            total_price: ["2790"]
           },
           plan_two: {
-            total_price: ["3780"],
-            plan_name: "Advanced De 500 a 999"
+            total_price: ["3780"]
           },
           plan_three: {
-            total_price: ["4635"],
-            plan_name: "Advanced Plus De 1000"
+            total_price: ["4635"]
           }
         }
       }
@@ -3327,17 +3327,15 @@ __webpack_require__.r(__webpack_exports__);
           // if input nb_student = ""
           this.form.total_price = this.modalTotalPrice;
         } else if (this.form.nb_students > 0 && this.form.nb_students <= this.form.max_nbStudents) {
-          // if nb_students > 0
+          // if nb_students > 1000
           if (this.form.nb_students > 1000) {
             var x = this.form.nb_students - 1000;
             x = x / 500;
-            x = parseInt(x) * 1000;
-            console.log(this.modalTotalPrice + price_student);
-            this.form.total_price = this.modalTotalPrice + price_student + x;
-            console.log(this.form.total_price);
+            x = parseInt(x) * 1000; // console.log(this.modalTotalPrice + price_student);
+
+            this.form.total_price = this.modalTotalPrice + price_student + x; // console.log(this.form.total_price);
           } else {
-            this.form.total_price = this.modalTotalPrice + price_student;
-            console.log("hello");
+            this.form.total_price = this.modalTotalPrice + price_student; // console.log("hello");
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
@@ -3357,11 +3355,8 @@ __webpack_require__.r(__webpack_exports__);
         if (res.statusText == "OK") {
           _this2.loadingStatus = false;
 
-          _this2.form.clear();
+          _this2.closeModal(); // msg successfull
 
-          _this2.form.reset();
-
-          _this2.modalStatus = false; // msg successfull
 
           _this2.msg = res.data.msg;
           setTimeout(function () {
@@ -3370,6 +3365,13 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (err) {
         _this2.loadingStatus = false;
+
+        if (err.response != undefined && err.response.status == 500) {
+          _this2.msgError = "Erreur veuillez réessayer plus tard";
+          setTimeout(function () {
+            _this2.msgError = "";
+          }, 4000);
+        }
       });
     }
   },
@@ -3414,19 +3416,18 @@ __webpack_require__.r(__webpack_exports__);
         if (this.form.nb_students > 1000) {
           var x = this.form.nb_students - 1000;
           x = x / 500;
-          x = parseInt(x) * 1000;
-          console.log(this.modalTotalPrice + price_student);
-          this.form.total_price = this.modalTotalPrice + price_student + x;
-          console.log(this.form.total_price);
+          x = parseInt(x) * 1000; //   console.log(this.modalTotalPrice + price_student);
+
+          this.form.total_price = this.modalTotalPrice + price_student + x; //   console.log(this.form.total_price);
         } else {
           this.form.total_price = this.modalTotalPrice + price_student;
         }
       } // if nb_students > 0
       else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
-          var _price_student2 = this.otherTarif * this.form.max_nbStudents;
+          var _price_student2 = this.otherTarif * this.form.max_nbStudents; // console.log(this.otherTarif, this.form.nb_students, price_student);
 
-          console.log(this.otherTarif, this.form.nb_students, _price_student2);
+
           this.form.nb_students = this.form.max_nbStudents;
           this.form.total_price = this.modalTotalPrice + _price_student2;
         }
@@ -4783,6 +4784,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4807,33 +4821,28 @@ __webpack_require__.r(__webpack_exports__);
       modalStatus: false,
       loadingStatus: true,
       msg: "",
+      msgError: "",
       plans: {
         basic: {
           plan_one: {
-            total_price: ["15500"],
-            plan_name: "basic plan 1"
+            total_price: ["15500"]
           },
           plan_two: {
-            total_price: ["26500"],
-            plan_name: "basic plan 2"
+            total_price: ["26500"]
           },
           plan_three: {
-            total_price: ["36000"],
-            plan_name: "basic plan 3"
+            total_price: ["36000"]
           }
         },
         advanced: {
           plan_one: {
-            total_price: ["27900"],
-            plan_name: "Advanced De 1 a 499"
+            total_price: ["27900"]
           },
           plan_two: {
-            total_price: ["37800"],
-            plan_name: "Advanced De 500 a 999"
+            total_price: ["37800"]
           },
           plan_three: {
-            total_price: ["46350"],
-            plan_name: "Advanced Plus De 1000"
+            total_price: ["46350"]
           }
         }
       }
@@ -4883,17 +4892,15 @@ __webpack_require__.r(__webpack_exports__);
           // if input nb_student = ""
           this.form.total_price = this.modalTotalPrice;
         } else if (this.form.nb_students > 0 && this.form.nb_students <= this.form.max_nbStudents) {
-          // if nb_students > 0
+          // if nb_students > 1000
           if (this.form.nb_students > 1000) {
             var x = this.form.nb_students - 1000;
             x = x / 500;
-            x = parseInt(x) * 1000;
-            console.log(this.modalTotalPrice + price_student);
-            this.form.total_price = this.modalTotalPrice + price_student + x;
-            console.log(this.form.total_price);
+            x = parseInt(x) * 1000; // console.log(this.modalTotalPrice + price_student);
+
+            this.form.total_price = this.modalTotalPrice + price_student + x; // console.log(this.form.total_price);
           } else {
-            this.form.total_price = this.modalTotalPrice + price_student;
-            console.log("hello");
+            this.form.total_price = this.modalTotalPrice + price_student; // console.log("hello");
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
@@ -4913,11 +4920,8 @@ __webpack_require__.r(__webpack_exports__);
         if (res.statusText == "OK") {
           _this2.loadingStatus = false;
 
-          _this2.form.clear();
+          _this2.closeModal(); // msg successfull
 
-          _this2.form.reset();
-
-          _this2.modalStatus = false; // msg successfull
 
           _this2.msg = res.data.msg;
           setTimeout(function () {
@@ -4926,6 +4930,13 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (err) {
         _this2.loadingStatus = false;
+
+        if (err.response != undefined && err.response.status == 500) {
+          _this2.msgError = "Erreur veuillez réessayer plus tard";
+          setTimeout(function () {
+            _this2.msgError = "";
+          }, 4000);
+        }
       });
     }
   },
@@ -30166,7 +30177,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_basic_one) +
-                                  " $\n                    "
+                                  " ‎€\n                    "
                               )
                             ]
                           ),
@@ -30555,7 +30566,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_basic_two) +
-                                  " $\n                    "
+                                  " ‎€\n                    "
                               )
                             ]
                           ),
@@ -30567,9 +30578,9 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Basic De 499 a 999 élèves",
+                                    "Basic De 500 a 999 élèves",
                                     _vm.sum_price_basic_two,
-                                    499,
+                                    500,
                                     999
                                   )
                                 }
@@ -30954,7 +30965,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_basic_three) +
-                                  " $\n                    "
+                                  " ‎€\n                    "
                               )
                             ]
                           ),
@@ -30968,7 +30979,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Basic Plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
-                                    500,
+                                    1000,
                                     900000
                                   )
                                 }
@@ -31016,7 +31027,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_advanced_one) +
-                                  " $\n                    "
+                                  " ‎€\n                    "
                               )
                             ]
                           ),
@@ -31067,7 +31078,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_advanced_two) +
-                                  " $\n                    "
+                                  " ‎€\n                    "
                               )
                             ]
                           ),
@@ -31118,7 +31129,7 @@ var render = function() {
                               _vm._v(
                                 "\n                      Prix Total : " +
                                   _vm._s(_vm.sum_price_advanced_three) +
-                                  " $\n                    "
+                                  " ‎€\n                    "
                               )
                             ]
                           ),
@@ -31132,7 +31143,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Complète Plus De 1000 Elèves",
                                     _vm.sum_price_advanced_three,
-                                    500,
+                                    1000,
                                     900000
                                   )
                                 }
@@ -31313,9 +31324,9 @@ var render = function() {
                                       }
                                     ],
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "nb_students"
-                                      ),
+                                      "is-invalid":
+                                        _vm.form.errors.has("nb_students") ||
+                                        _vm.form.errors.has("min_nbStudents"),
                                       "form-control": true
                                     },
                                     attrs: {
@@ -31349,6 +31360,13 @@ var render = function() {
                                       form: _vm.form,
                                       field: "nb_students"
                                     }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("has-error", {
+                                    attrs: {
+                                      form: _vm.form,
+                                      field: "min_nbStudents"
+                                    }
                                   })
                                 ],
                                 1
@@ -31372,7 +31390,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   _vm._s(_vm.form.total_price) +
-                                    " $\n                    "
+                                    " ‎€\n                    "
                                 )
                               ]
                             )
@@ -31514,6 +31532,12 @@ var render = function() {
         ? _c("div", { staticClass: "msg" }, [
             _c("p", [_vm._v(_vm._s(_vm.msg))])
           ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.msgError != ""
+        ? _c("div", { staticClass: "msg bg-danger" }, [
+            _c("p", [_vm._v(_vm._s(_vm.msgError))])
+          ])
         : _vm._e()
     ])
   ])
@@ -31564,8 +31588,8 @@ var staticRenderFns = [
       _c("div", { staticClass: "offer-price" }, [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _c("span", { staticClass: "device" }, [
-          _vm._v("1550$ "),
-          _c("label", [_vm._v("/2550$")])
+          _vm._v("1550‎€ "),
+          _c("label", [_vm._v("/2550‎€")])
         ])
       ])
     ])
@@ -31646,10 +31670,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module frais en extra\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("600$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("600‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("180$")]),
-      _vm._v(" =\n                          780$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("180‎€")]),
+      _vm._v(" =\n                          780‎€\n                        ")
     ])
   },
   function() {
@@ -31660,10 +31684,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module bibliothèque en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("150$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
-      _vm._v(" =\n                          250$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
+      _vm._v(" =\n                          250‎€\n                        ")
     ])
   },
   function() {
@@ -31674,10 +31698,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module transport en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("50$")]),
-      _vm._v(" =\n                          150$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("50‎€")]),
+      _vm._v(" =\n                          150‎€\n                        ")
     ])
   },
   function() {
@@ -31688,10 +31712,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module rapport en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("250$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("250‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
-      _vm._v(" =\n                          350$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
+      _vm._v(" =\n                          350‎€\n                        ")
     ])
   },
   function() {
@@ -31702,10 +31726,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module personnele en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("150$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("50$")]),
-      _vm._v(" =\n                          200$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("50‎€")]),
+      _vm._v(" =\n                          200‎€\n                        ")
     ])
   },
   function() {
@@ -31718,8 +31742,8 @@ var staticRenderFns = [
       _c("div", { staticClass: "offer-price" }, [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _c("span", { staticClass: "device" }, [
-          _vm._v("2650$ "),
-          _c("label", [_vm._v("/3650$")])
+          _vm._v("2650‎€ "),
+          _c("label", [_vm._v("/3650‎€")])
         ])
       ])
     ])
@@ -31800,10 +31824,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module frais en extra\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("600$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("600‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("180$")]),
-      _vm._v(" =\n                          780$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("180‎€")]),
+      _vm._v(" =\n                          780‎€\n                        ")
     ])
   },
   function() {
@@ -31814,10 +31838,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module bibliothèque en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("150$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
-      _vm._v(" =\n                          250$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
+      _vm._v(" =\n                          250‎€\n                        ")
     ])
   },
   function() {
@@ -31828,10 +31852,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module transport en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("50$")]),
-      _vm._v(" =\n                          150$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("50‎€")]),
+      _vm._v(" =\n                          150‎€\n                        ")
     ])
   },
   function() {
@@ -31842,10 +31866,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module rapport en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("250$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("250‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
-      _vm._v(" =\n                          350$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
+      _vm._v(" =\n                          350‎€\n                        ")
     ])
   },
   function() {
@@ -31856,10 +31880,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module personnele en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("150$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("50$")]),
-      _vm._v(" =\n                          200$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("50‎€")]),
+      _vm._v(" =\n                          200‎€\n                        ")
     ])
   },
   function() {
@@ -31872,8 +31896,8 @@ var staticRenderFns = [
       _c("div", { staticClass: "offer-price" }, [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _c("span", { staticClass: "device" }, [
-          _vm._v("3600$ "),
-          _c("label", [_vm._v("/4600$")])
+          _vm._v("3600‎€ "),
+          _c("label", [_vm._v("/4600‎€")])
         ])
       ])
     ])
@@ -31933,7 +31957,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("maintenance anuelle 350$")])
+      _c("span", [_vm._v("maintenance anuelle 350‎€")])
     ])
   },
   function() {
@@ -31954,10 +31978,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module frais en extra\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("600$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("600‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("180$")]),
-      _vm._v(" =\n                          780$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("180‎€")]),
+      _vm._v(" =\n                          780‎€\n                        ")
     ])
   },
   function() {
@@ -31968,10 +31992,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module bibliothèque en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("150$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
-      _vm._v(" =\n                          250$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
+      _vm._v(" =\n                          250‎€\n                        ")
     ])
   },
   function() {
@@ -31982,10 +32006,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module transport en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("50$")]),
-      _vm._v(" =\n                          150$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("50‎€")]),
+      _vm._v(" =\n                          150‎€\n                        ")
     ])
   },
   function() {
@@ -31996,10 +32020,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module rapport en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("250$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("250‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("100$")]),
-      _vm._v(" =\n                          350$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("100‎€")]),
+      _vm._v(" =\n                          350‎€\n                        ")
     ])
   },
   function() {
@@ -32010,10 +32034,10 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module personnele en exact\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("150$")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
-      _c("label", { staticClass: "price_color" }, [_vm._v("50$")]),
-      _vm._v(" =\n                          200$\n                        ")
+      _c("label", { staticClass: "price_color" }, [_vm._v("50‎€")]),
+      _vm._v(" =\n                          200‎€\n                        ")
     ])
   },
   function() {
@@ -32026,8 +32050,8 @@ var staticRenderFns = [
       _c("div", { staticClass: "offer-price" }, [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _c("span", { staticClass: "device" }, [
-          _vm._v("2790$ "),
-          _c("label", [_vm._v("/2990$")])
+          _vm._v("2790‎€ "),
+          _c("label", [_vm._v("/2990‎€")])
         ])
       ])
     ])
@@ -32073,7 +32097,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (350$/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (350‎€/an) comprise\n                        "
             )
           ])
         ])
@@ -32090,8 +32114,8 @@ var staticRenderFns = [
       _c("div", { staticClass: "offer-price" }, [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _c("span", { staticClass: "device" }, [
-          _vm._v("3780$ "),
-          _c("label", [_vm._v("/3880$")])
+          _vm._v("3780‎€ "),
+          _c("label", [_vm._v("/3880‎€")])
         ])
       ])
     ])
@@ -32137,7 +32161,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (450$/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (450‎€/an) comprise\n                        "
             )
           ])
         ])
@@ -32155,8 +32179,8 @@ var staticRenderFns = [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _vm._v(" "),
         _c("span", { staticClass: "device" }, [
-          _vm._v("4635$ "),
-          _c("label", [_vm._v("/4735$")])
+          _vm._v("4635‎€ "),
+          _c("label", [_vm._v("/4735‎€")])
         ])
       ])
     ])
@@ -32202,7 +32226,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (600$/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (600‎€/an) comprise\n                        "
             )
           ])
         ])
@@ -32322,7 +32346,7 @@ var staticRenderFns = [
               _c("span", { staticClass: "accordion-hours" }, [_vm._v("5H")]),
               _vm._v(" :\n                            "),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("25$ / Heure")
+                _vm._v("25‎€ / Heure")
               ]),
               _vm._v(
                 "\n                            (Facturation Sur Devis)\n                          "
@@ -32371,7 +32395,7 @@ var staticRenderFns = [
                 " Traitement des listes\n                            et injections de données :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("2$/élève")
+                _vm._v("2‎€/élève")
               ])
             ]),
             _vm._v(" "),
@@ -32381,7 +32405,7 @@ var staticRenderFns = [
                 " Version mobile\n                            (Android iOS) ainsi que les portails élèves et\n                            parents :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("5$/élèves")
+                _vm._v("5‎€/élèves")
               ])
             ]),
             _vm._v(" "),
@@ -32391,7 +32415,7 @@ var staticRenderFns = [
                 " Développements\n                            Spécifiques:\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("20$/Heure")
+                _vm._v("20‎€/Heure")
               ])
             ])
           ])
@@ -33237,9 +33261,9 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Basic De 499 a 999 élèves",
+                                    "Basic De 500 a 999 élèves",
                                     _vm.sum_price_basic_two,
-                                    499,
+                                    500,
                                     999
                                   )
                                 }
@@ -33638,7 +33662,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Basic Plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
-                                    500,
+                                    1000,
                                     900000
                                   )
                                 }
@@ -33802,7 +33826,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Complète Plus De 1000 Elèves",
                                     _vm.sum_price_advanced_three,
-                                    500,
+                                    1000,
                                     900000
                                   )
                                 }
@@ -33983,9 +34007,9 @@ var render = function() {
                                       }
                                     ],
                                     class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "nb_students"
-                                      ),
+                                      "is-invalid":
+                                        _vm.form.errors.has("nb_students") ||
+                                        _vm.form.errors.has("min_nbStudents"),
                                       "form-control": true
                                     },
                                     attrs: {
@@ -34018,6 +34042,13 @@ var render = function() {
                                     attrs: {
                                       form: _vm.form,
                                       field: "nb_students"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("has-error", {
+                                    attrs: {
+                                      form: _vm.form,
+                                      field: "min_nbStudents"
                                     }
                                   })
                                 ],
@@ -34183,6 +34214,12 @@ var render = function() {
       _vm.msg != ""
         ? _c("div", { staticClass: "msg" }, [
             _c("p", [_vm._v(_vm._s(_vm.msg))])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.msgError != ""
+        ? _c("div", { staticClass: "msg bg-danger" }, [
+            _c("p", [_vm._v(_vm._s(_vm.msgError))])
           ])
         : _vm._e()
     ])

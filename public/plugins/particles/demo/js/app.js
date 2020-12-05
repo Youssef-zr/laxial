@@ -19,14 +19,14 @@ particlesJS('snow_fall',
         "value": 1000,
         "density": {
           "enable": true,
-          "value_area": 800
+          "value_area": 1200
         }
       },
       "color": {
         "value": "#fff"
       },
       "shape": {
-        "type": "star",
+        "type": ["star","circle"],
         "stroke": {
           "width": 0,
           "color": "#000000"

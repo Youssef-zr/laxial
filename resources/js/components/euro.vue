@@ -45,7 +45,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >1550$ <label>/2550$</label></span
+                          >1550‎€ <label>/2550‎€</label></span
                         >
                       </div>
                     </div>
@@ -91,9 +91,9 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">600$</label> + prix
-                            annuel: <label class="price_color">180$</label> =
-                            780$
+                            <label class="price_color">600‎€</label> + prix
+                            annuel: <label class="price_color">180‎€</label> =
+                            780‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -105,9 +105,9 @@
                           />
                           <span>
                             module bibliothèque en exact
-                            <label class="price_color">150$</label> + prix
-                            annuel: <label class="price_color">100$</label> =
-                            250$
+                            <label class="price_color">150‎€</label> + prix
+                            annuel: <label class="price_color">100‎€</label> =
+                            250‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -119,9 +119,9 @@
                           />
                           <span>
                             module transport en exact
-                            <label class="price_color">100$</label> + prix
-                            annuel: <label class="price_color">50$</label> =
-                            150$
+                            <label class="price_color">100‎€</label> + prix
+                            annuel: <label class="price_color">50‎€</label> =
+                            150‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -133,9 +133,9 @@
                           />
                           <span>
                             module rapport en exact
-                            <label class="price_color">250$</label> + prix
-                            annuel: <label class="price_color">100$</label> =
-                            350$
+                            <label class="price_color">250‎€</label> + prix
+                            annuel: <label class="price_color">100‎€</label> =
+                            350‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -147,9 +147,9 @@
                           />
                           <span>
                             module personnele en exact
-                            <label class="price_color">150$</label> + prix
-                            annuel: <label class="price_color">50$</label> =
-                            200$
+                            <label class="price_color">150‎€</label> + prix
+                            annuel: <label class="price_color">50‎€</label> =
+                            200‎€
                           </span>
                         </li>
                       </ul>
@@ -158,7 +158,7 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        Prix Total : {{ sum_price_basic_one }} $
+                        Prix Total : {{ sum_price_basic_one }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
@@ -185,7 +185,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >2650$ <label>/3650$</label></span
+                          >2650‎€ <label>/3650‎€</label></span
                         >
                       </div>
                     </div>
@@ -231,9 +231,9 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">600$</label> + prix
-                            annuel: <label class="price_color">180$</label> =
-                            780$
+                            <label class="price_color">600‎€</label> + prix
+                            annuel: <label class="price_color">180‎€</label> =
+                            780‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -245,9 +245,9 @@
                           />
                           <span>
                             module bibliothèque en exact
-                            <label class="price_color">150$</label> + prix
-                            annuel: <label class="price_color">100$</label> =
-                            250$
+                            <label class="price_color">150‎€</label> + prix
+                            annuel: <label class="price_color">100‎€</label> =
+                            250‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -259,9 +259,9 @@
                           />
                           <span>
                             module transport en exact
-                            <label class="price_color">100$</label> + prix
-                            annuel: <label class="price_color">50$</label> =
-                            150$
+                            <label class="price_color">100‎€</label> + prix
+                            annuel: <label class="price_color">50‎€</label> =
+                            150‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -273,9 +273,9 @@
                           />
                           <span>
                             module rapport en exact
-                            <label class="price_color">250$</label> + prix
-                            annuel: <label class="price_color">100$</label> =
-                            350$
+                            <label class="price_color">250‎€</label> + prix
+                            annuel: <label class="price_color">100‎€</label> =
+                            350‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -287,9 +287,9 @@
                           />
                           <span>
                             module personnele en exact
-                            <label class="price_color">150$</label> + prix
-                            annuel: <label class="price_color">50$</label> =
-                            200$
+                            <label class="price_color">150‎€</label> + prix
+                            annuel: <label class="price_color">50‎€</label> =
+                            200‎€
                           </span>
                         </li>
                       </ul>
@@ -298,15 +298,15 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
                       >
-                        Prix Total : {{ sum_price_basic_two }} $
+                        Prix Total : {{ sum_price_basic_two }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Basic De 499 a 999 élèves',
+                            'Basic De 500 a 999 élèves',
                             sum_price_basic_two,
-                            499,
+                            500,
                             999
                           )
                         "
@@ -325,7 +325,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >3600$ <label>/4600$</label></span
+                          >3600‎€ <label>/4600‎€</label></span
                         >
                       </div>
                     </div>
@@ -356,7 +356,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 350$</span>
+                          <span>maintenance anuelle 350‎€</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -371,9 +371,9 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">600$</label> + prix
-                            annuel: <label class="price_color">180$</label> =
-                            780$
+                            <label class="price_color">600‎€</label> + prix
+                            annuel: <label class="price_color">180‎€</label> =
+                            780‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -385,9 +385,9 @@
                           />
                           <span>
                             module bibliothèque en exact
-                            <label class="price_color">150$</label> + prix
-                            annuel: <label class="price_color">100$</label> =
-                            250$
+                            <label class="price_color">150‎€</label> + prix
+                            annuel: <label class="price_color">100‎€</label> =
+                            250‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -399,9 +399,9 @@
                           />
                           <span>
                             module transport en exact
-                            <label class="price_color">100$</label> + prix
-                            annuel: <label class="price_color">50$</label> =
-                            150$
+                            <label class="price_color">100‎€</label> + prix
+                            annuel: <label class="price_color">50‎€</label> =
+                            150‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -413,9 +413,9 @@
                           />
                           <span>
                             module rapport en exact
-                            <label class="price_color">250$</label> + prix
-                            annuel: <label class="price_color">100$</label> =
-                            350$
+                            <label class="price_color">250‎€</label> + prix
+                            annuel: <label class="price_color">100‎€</label> =
+                            350‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
@@ -427,9 +427,9 @@
                           />
                           <span>
                             module personnele en exact
-                            <label class="price_color">150$</label> + prix
-                            annuel: <label class="price_color">50$</label> =
-                            200$
+                            <label class="price_color">150‎€</label> + prix
+                            annuel: <label class="price_color">50‎€</label> =
+                            200‎€
                           </span>
                         </li>
                       </ul>
@@ -438,7 +438,7 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
                       >
-                        Prix Total : {{ sum_price_basic_three }} $
+                        Prix Total : {{ sum_price_basic_three }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
@@ -446,7 +446,7 @@
                           choosePlane(
                             'Basic Plus de 1000 élèves',
                             sum_price_basic_three,
-                            500,
+                            1000,
                             900000
                           )
                         "
@@ -472,7 +472,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >2790$ <label>/2990$</label></span
+                          >2790‎€ <label>/2990‎€</label></span
                         >
                       </div>
                     </div>
@@ -501,7 +501,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (350$/an) comprise
+                            Maintenance Annulle Comprise (350‎€/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -510,7 +510,7 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        Prix Total : {{ sum_price_advanced_one }} $
+                        Prix Total : {{ sum_price_advanced_one }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
@@ -537,7 +537,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >3780$ <label>/3880$</label></span
+                          >3780‎€ <label>/3880‎€</label></span
                         >
                       </div>
                     </div>
@@ -566,7 +566,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (450$/an) comprise
+                            Maintenance Annulle Comprise (450‎€/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -575,7 +575,7 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        Prix Total : {{ sum_price_advanced_two }} $
+                        Prix Total : {{ sum_price_advanced_two }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
@@ -601,7 +601,7 @@
                       <h3 class="offer-title">Plus De 1000 élèves</h3>
                       <div class="offer-price">
                         <span class="device">Euro</span>
-                        <span class="device">4635$ <label>/4735$</label></span>
+                        <span class="device">4635‎€ <label>/4735‎€</label></span>
                       </div>
                     </div>
                     <div class="offer-body">
@@ -629,7 +629,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (600$/an) comprise
+                            Maintenance Annulle Comprise (600‎€/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -638,7 +638,7 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        Prix Total : {{ sum_price_advanced_three }} $
+                        Prix Total : {{ sum_price_advanced_three }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
@@ -646,7 +646,7 @@
                           choosePlane(
                             'Complète Plus De 1000 Elèves',
                             sum_price_advanced_three,
-                            500,
+                            1000,
                             900000
                           )
                         "
@@ -758,18 +758,19 @@
                           :max="form.max_nbStudents"
                           placeholder="Le Nombre Des Eleves"
                           :class="{
-                            'is-invalid': form.errors.has('nb_students'),
+                            'is-invalid': form.errors.has('nb_students') || form.errors.has('min_nbStudents'),
                             'form-control': true,
                           }"
                         />
                         <has-error :form="form" field="nb_students"></has-error>
+                        <has-error :form="form" field="min_nbStudents"></has-error>
                       </div>
                       <!-- start number of student field -->
                     </form>
                     <div class="form-group">
                       <label for="" class="label-control">Prix Total </label>
                       <span class="badge badge-total-price"
-                        >{{ form.total_price }} $
+                        >{{ form.total_price }} ‎€
                       </span>
                     </div>
                   </div>
@@ -828,7 +829,7 @@
                             <span
                               >Au-delà de
                               <span class="accordion-hours">5H</span> :
-                              <span class="accordion-mony">25$ / Heure</span>
+                              <span class="accordion-mony">25‎€ / Heure</span>
                               (Facturation Sur Devis)
                             </span>
                           </div>
@@ -857,18 +858,18 @@
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Traitement des listes
                               et injections de données :
-                              <span class="accordion-mony">2$/élève</span>
+                              <span class="accordion-mony">2‎€/élève</span>
                             </span>
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Version mobile
                               (Android iOS) ainsi que les portails élèves et
                               parents :
-                              <span class="accordion-mony">5$/élèves</span>
+                              <span class="accordion-mony">5‎€/élèves</span>
                             </span>
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Développements
                               Spécifiques:
-                              <span class="accordion-mony">20$/Heure</span>
+                              <span class="accordion-mony">20‎€/Heure</span>
                             </span>
                           </div>
                         </div>
@@ -904,6 +905,10 @@
       <!-- start msg success  -->
       <div class="msg" v-if="msg != ''">
         <p>{{ msg }}</p>
+      </div>
+      <!-- start msg error  -->
+      <div class="msg bg-danger" v-if="msgError != ''">
+        <p>{{ msgError }}</p>
       </div>
     </div>
   </div>
@@ -1340,33 +1345,28 @@ export default {
       modalStatus: false,
       loadingStatus: true,
       msg: "",
+      msgError: "",
       plans: {
         basic: {
           plan_one: {
             total_price: ["1550"],
-            plan_name: "basic plan 1"
           },
           plan_two: {
             total_price: ["2650"],
-            plan_name: "basic plan 2"
           },
           plan_three: {
             total_price: ["3600"],
-            plan_name: "basic plan 3"
           }
         },
         advanced: {
           plan_one: {
             total_price: ["2790"],
-            plan_name: "Advanced De 1 a 499"
           },
           plan_two: {
             total_price: ["3780"],
-            plan_name: "Advanced De 500 a 999"
           },
           plan_three: {
             total_price: ["4635"],
-            plan_name: "Advanced Plus De 1000"
           }
         }
       }
@@ -1414,17 +1414,17 @@ export default {
           this.form.nb_students > 0 &&
           this.form.nb_students <= this.form.max_nbStudents
         ) {
-          // if nb_students > 0
+          // if nb_students > 1000
           if (this.form.nb_students > 1000) {
             let x = this.form.nb_students - 1000;
             x = x / 500;
             x = parseInt(x) * 1000;
-            console.log(this.modalTotalPrice + price_student);
+            // console.log(this.modalTotalPrice + price_student);
             this.form.total_price = this.modalTotalPrice + price_student + x;
-            console.log(this.form.total_price);
+            // console.log(this.form.total_price);
           } else {
             this.form.total_price = this.modalTotalPrice + price_student;
-            console.log("hello");
+            // console.log("hello");
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
@@ -1442,9 +1442,7 @@ export default {
         .then(res => {
           if (res.statusText == "OK") {
             this.loadingStatus = false;
-            this.form.clear();
-            this.form.reset();
-            this.modalStatus = false;
+           this.closeModal();
             // msg successfull
             this.msg = res.data.msg;
             setTimeout(() => {
@@ -1454,6 +1452,12 @@ export default {
         })
         .catch(err => {
           this.loadingStatus = false;
+           if (err.response != undefined && err.response.status == 500) {
+            this.msgError = "Erreur veuillez réessayer plus tard";
+            setTimeout(() => {
+              this.msgError = "";
+            }, 4000);
+          }
         });
     }
   },
@@ -1501,9 +1505,9 @@ export default {
           let x = this.form.nb_students - 1000;
           x = x / 500;
           x = parseInt(x) * 1000;
-          console.log(this.modalTotalPrice + price_student);
+        //   console.log(this.modalTotalPrice + price_student);
           this.form.total_price = this.modalTotalPrice + price_student + x;
-          console.log(this.form.total_price);
+        //   console.log(this.form.total_price);
         } else {
           this.form.total_price = this.modalTotalPrice + price_student;
         }
@@ -1511,7 +1515,7 @@ export default {
       else if (this.form.nb_students > this.form.max_nbStudents) {
         // if nb_students > max number of students in this offer
         let price_student = this.otherTarif * this.form.max_nbStudents;
-        console.log(this.otherTarif, this.form.nb_students, price_student);
+        // console.log(this.otherTarif, this.form.nb_students, price_student);
         this.form.nb_students = this.form.max_nbStudents;
         this.form.total_price = this.modalTotalPrice + price_student;
       }

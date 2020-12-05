@@ -1,6 +1,5 @@
 <template>
   <div class="maroc">
-
     <div class="offers py-4">
       <div class="ajax-icon" v-if="loadingStatus">
         <atom-spinner :animation-duration="1000" :size="60" color="#ff1d5e" />
@@ -14,7 +13,9 @@
                 <router-link to="/"
                   ><img src="/images/maroc.jpg" alt="maroc"
                 /></router-link>
-                <router-link to="/fr"><img src="/images/auro.jpg" alt="euro"></router-link>
+                <router-link to="/fr"
+                  ><img src="/images/auro.jpg" alt="euro"
+                /></router-link>
               </span>
             </h2>
           </div>
@@ -304,9 +305,9 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Basic De 499 a 999 élèves',
+                            'Basic De 500 a 999 élèves',
                             sum_price_basic_two,
-                            499,
+                            500,
                             999
                           )
                         "
@@ -446,7 +447,7 @@
                           choosePlane(
                             'Basic Plus de 1000 élèves',
                             sum_price_basic_three,
-                            500,
+                            1000,
                             900000
                           )
                         "
@@ -601,7 +602,9 @@
                       <h3 class="offer-title">Plus De 1000 élèves</h3>
                       <div class="offer-price">
                         <span class="device">Mad</span>
-                        <span class="device">46350MAD <label>/47350MAD</label></span>
+                        <span class="device"
+                          >46350MAD <label>/47350MAD</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -646,7 +649,7 @@
                           choosePlane(
                             'Complète Plus De 1000 Elèves',
                             sum_price_advanced_three,
-                            500,
+                            1000,
                             900000
                           )
                         "
@@ -758,11 +761,17 @@
                           :max="form.max_nbStudents"
                           placeholder="Le Nombre Des Eleves"
                           :class="{
-                            'is-invalid': form.errors.has('nb_students'),
+                            'is-invalid':
+                              form.errors.has('nb_students') ||
+                              form.errors.has('min_nbStudents'),
                             'form-control': true,
                           }"
                         />
                         <has-error :form="form" field="nb_students"></has-error>
+                        <has-error
+                          :form="form"
+                          field="min_nbStudents"
+                        ></has-error>
                       </div>
                       <!-- start number of student field -->
                     </form>
@@ -904,6 +913,10 @@
       <!-- start msg success  -->
       <div class="msg" v-if="msg != ''">
         <p>{{ msg }}</p>
+      </div>
+      <!-- start msg error  -->
+      <div class="msg bg-danger" v-if="msgError != ''">
+        <p>{{ msgError }}</p>
       </div>
     </div>
   </div>
@@ -1332,7 +1345,7 @@ body {
 import { AtomSpinner } from "epic-spinners";
 export default {
   components: {
-    AtomSpinner,
+    AtomSpinner
   },
   data() {
     return {
@@ -1352,33 +1365,28 @@ export default {
       modalStatus: false,
       loadingStatus: true,
       msg: "",
+      msgError: "",
       plans: {
         basic: {
           plan_one: {
             total_price: ["15500"],
-            plan_name: "basic plan 1"
           },
           plan_two: {
             total_price: ["26500"],
-            plan_name: "basic plan 2"
           },
           plan_three: {
             total_price: ["36000"],
-            plan_name: "basic plan 3"
           }
         },
         advanced: {
           plan_one: {
             total_price: ["27900"],
-            plan_name: "Advanced De 1 a 499"
           },
           plan_two: {
             total_price: ["37800"],
-            plan_name: "Advanced De 500 a 999"
           },
           plan_three: {
             total_price: ["46350"],
-            plan_name: "Advanced Plus De 1000"
           }
         }
       }
@@ -1426,17 +1434,17 @@ export default {
           this.form.nb_students > 0 &&
           this.form.nb_students <= this.form.max_nbStudents
         ) {
-          // if nb_students > 0
+          // if nb_students > 1000
           if (this.form.nb_students > 1000) {
             let x = this.form.nb_students - 1000;
             x = x / 500;
             x = parseInt(x) * 1000;
-            console.log(this.modalTotalPrice + price_student);
+            // console.log(this.modalTotalPrice + price_student);
             this.form.total_price = this.modalTotalPrice + price_student + x;
-            console.log(this.form.total_price);
+            // console.log(this.form.total_price);
           } else {
             this.form.total_price = this.modalTotalPrice + price_student;
-            console.log("hello");
+            // console.log("hello");
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
@@ -1454,9 +1462,7 @@ export default {
         .then(res => {
           if (res.statusText == "OK") {
             this.loadingStatus = false;
-            this.form.clear();
-            this.form.reset();
-            this.modalStatus = false;
+            this.closeModal();
             // msg successfull
             this.msg = res.data.msg;
             setTimeout(() => {
@@ -1466,6 +1472,12 @@ export default {
         })
         .catch(err => {
           this.loadingStatus = false;
+          if (err.response != undefined && err.response.status == 500) {
+            this.msgError = "Erreur veuillez réessayer plus tard";
+            setTimeout(() => {
+              this.msgError = "";
+            }, 4000);
+          }
         });
     }
   },

@@ -15,7 +15,7 @@ class OffersController extends Controller
         $rules = [
             'society_name' => 'required|string|min:4',
             'client_email' => "required|email",
-            'nb_students' => "required|integer",
+            'nb_students' => "required|integer|min:".$request->min_nbStudents,
         ];
 
         $niceNames = [
@@ -24,7 +24,11 @@ class OffersController extends Controller
             "nb_students" => "nombre des éleves",
         ];
 
-        $data = $this->validate($request, $rules, [], $niceNames);
+        $messages=[
+            "min"=>"Le Nombre Minimum Des Elèves est: ".$request->min_nbStudents." Elève(s)"
+        ];
+
+        $data = $this->validate($request, $rules, $messages, $niceNames);
 
         $order = new Order();
         $order->nom = $request->society_name;
@@ -34,7 +38,7 @@ class OffersController extends Controller
         $order->max_eleves = $request->max_nbStudents;
         $order->nombre_eleves = $request->nb_students;
         $order->plan_choisie = $request->plan_name;
-        $order->prix_total = $request->lang == 'ar' ? $request->total_price . "MAD" : $request->total_price . '$';
+        $order->prix_total = $request->lang == 'ar' ? $request->total_price . "MAD" : $request->total_price . '‎€';
         $order->formation_en_ligne = $request->formation_en_ligne == true ? "Oui" : "Non";
 
         $order->save();
@@ -46,9 +50,9 @@ class OffersController extends Controller
             'total_price'=>$order->prix_total
         ];
 
-        Mail::to('yn-neinaa@hotmail.com')->send(new sendMail($mailDetails));
+        Mail::to([$order->email,"sarah@connectivemarket.com"])->send(new sendMail($mailDetails));
 
-        return response()->json(["order" => $order, 'msg' => 'Votre commande a été créée avec succès']);
+        return response()->json(["order" => $order, 'msg' => 'Votre order a été créée avec succès']);
 
     }
 }
