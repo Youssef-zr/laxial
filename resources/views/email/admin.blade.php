@@ -27,6 +27,14 @@
        .email .color{
            color:#9bc31c
        }
+       .email h5{
+        margin-bottom:5px !important;
+    }
+
+    .email ul{
+        margin-top:0px;
+        list-style-type: square;
+    }
     </style>
 </head>
 <body>
