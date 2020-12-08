@@ -8,7 +8,8 @@
         <div class="offers-cards my-0">
           <div class="head">
             <h2 class="mb-2 text-capitalize text-center">
-              <i class="fa fa-paper-plane"></i> Choisissez votre plan
+              <i class="fa fa-thumb-tack" aria-hidden="true"></i> Choisissez
+              votre plan
               <span class="float-right langue-list">
                 <router-link to="/"
                   ><img src="/images/maroc.jpg" alt="maroc"
@@ -22,13 +23,13 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#menu1"
-                ><i class="fa fa-battery-half"></i> Basic</a
+              <a class="nav-link active" data-toggle="tab" href="#menu1">
+                <i class="fa fa-star-half-o" aria-hidden="true"></i> Basic</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#menu2"
-                ><i class="fa fa-battery-full"></i> Complète</a
+              <a class="nav-link" data-toggle="tab" href="#menu2">
+                <i class="fa fa-star"></i> Complète</a
               >
             </li>
           </ul>
@@ -167,6 +168,7 @@
                           choosePlane(
                             'Basic De 1 a 499 élèves',
                             sum_price_basic_one,
+                            plans.basic.plan_one.total_price,
                             1,
                             499
                           )
@@ -307,6 +309,7 @@
                           choosePlane(
                             'Basic De 500 a 999 élèves',
                             sum_price_basic_two,
+                            plans.basic.plan_two.total_price,
                             500,
                             999
                           )
@@ -447,6 +450,7 @@
                           choosePlane(
                             'Basic Plus de 1000 élèves',
                             sum_price_basic_three,
+                            plans.basic.plan_three.total_price,
                             1000,
                             900000
                           )
@@ -519,6 +523,7 @@
                           choosePlane(
                             'Complète De 1 a 499 élèves',
                             sum_price_advanced_one,
+                            plans.advanced.plan_one.total_price,
                             1,
                             499
                           )
@@ -584,6 +589,7 @@
                           choosePlane(
                             'Complète De 500 a 999 élèves',
                             sum_price_advanced_two,
+                            plans.advanced.plan_two.total_price,
                             500,
                             999
                           )
@@ -649,6 +655,7 @@
                           choosePlane(
                             'Complète Plus De 1000 Elèves',
                             sum_price_advanced_three,
+                            plans.advanced.plan_three.total_price,
                             1000,
                             900000
                           )
@@ -705,7 +712,7 @@
                         <input
                           v-model="form.society_name"
                           type="text"
-                          placeholder="Entrer Le Nom De L'ecole "
+                          placeholder="Entrer Ton Nom"
                           :class="{
                             'is-invalid': form.errors.has('society_name'),
                             'form-control': true,
@@ -1358,7 +1365,8 @@ export default {
         formation_en_ligne: false,
         lang: "ar",
         min_nbStudents: 1,
-        max_nbStudents: 1
+        max_nbStudents: 1,
+        extraServices: []
       }),
       otherTarif: 70, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
@@ -1372,21 +1380,21 @@ export default {
             total_price: ["15500"],
           },
           plan_two: {
-            total_price: ["26500"],
+            total_price: ["26500"]
           },
           plan_three: {
-            total_price: ["36000"],
+            total_price: ["36000"]
           }
         },
         advanced: {
           plan_one: {
-            total_price: ["27900"],
+            total_price: ["27900"]
           },
           plan_two: {
-            total_price: ["37800"],
+            total_price: ["37800"]
           },
           plan_three: {
-            total_price: ["46350"],
+            total_price: ["46350"]
           }
         }
       }
@@ -1403,13 +1411,14 @@ export default {
       this.form.clear(); // clear our errors from filed
       this.modalStatus = false;
     },
-    choosePlane(plan_name, total_price, min = 1, max = 10) {
+    choosePlane(plan_name, total_price,services, min = 1, max = 10) {
       this.form.min_nbStudents = min;
       this.form.max_nbStudents = max;
       this.modalStatus = true;
       this.form.plan_name = plan_name;
       this.form.total_price = total_price;
       this.modalTotalPrice = total_price;
+      this.form.extraServices = services;
       $("html, body").animate(
         {
           scrollTop: 0
@@ -1479,35 +1488,42 @@ export default {
             }, 4000);
           }
         });
-    }
+    },
+
   },
   computed: {
     sum_price_basic_one() {
+        this.plans.basic.plan_one.extra = [...this.plans.basic.plan_one.total_price];
       return this.plans.basic.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_two() {
+        this.plans.basic.plan_two.extra = [...this.plans.basic.plan_two.total_price];
       return this.plans.basic.plan_two.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_three() {
+        this.plans.basic.plan_three.extra = [...this.plans.basic.plan_three.total_price];
       return this.plans.basic.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_one() {
+        this.plans.advanced.plan_one.extra = [...this.plans.advanced.plan_one.total_price];
       return this.plans.advanced.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_two() {
+        this.plans.advanced.plan_two.extra = [...this.plans.advanced.plan_two.total_price];
       return this.plans.advanced.plan_two.total_price.reduce(function(a, b) {
-        return parseInt(a) + parseInt(b);
+          return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_three() {
+        this.plans.advanced.plan_three.extra = [...this.plans.advanced.plan_three.total_price];
       return this.plans.advanced.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
@@ -1545,8 +1561,8 @@ export default {
   },
   watch: {
     nb_student_price() {
-      console.log("changed");
-    }
+     console.log('....');
+    },
   }
 };
 </script>

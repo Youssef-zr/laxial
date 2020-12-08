@@ -27,21 +27,39 @@
        .email .color{
            color:#9bc31c
        }
+
+       .email h5{
+           margin-bottom:5px !important;
+       }
+
+       .email ul{
+           margin-top:0px;
+           list-style-type: square;
+       }
     </style>
 </head>
 <body>
 
     <section class="email">
+        <img src="{{url('images/laxial.png')}}" alt="laxial image">
         <div class="header">
-            <h3 class="title">Bonjour Ms,M {{$details['client_name']}}</h3>
+            <h3 class="title">Salut {{$details['client_name']}}</h3>
         </div>
         <div class="body">
             <div class="offer-name">
-                <p>Vous Avez Choisie Loffre <span class="color">{{$details['offer_name']}}</span> </p>
+                <p>Vous Avez Choisie La Version <span class="color">{{$details['offer_name']}}</span> </p>
             </div>
             <div class="nb-students">
                 <p>Le Nombre délèves choisie est <span class="color">{{$details['nb_students']}}</span> élèves</p>
             </div>
+            @if (count($details['extra'])>0)
+            <h5>Extra Services:</h5>
+            <ul>
+                @foreach ($details['extra'] as $extra)
+                <li>{{$extra}}</li>
+                @endforeach
+            </ul>
+            @endif
             <div class="total-price">
                 <p>Le Montant Total de cette offre est <span class="color">{{$details['total_price']}}</span></p>
             </div>

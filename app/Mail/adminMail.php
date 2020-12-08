@@ -7,18 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class sendMail extends Mailable
+class adminMail extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $details;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($deatils)
     {
-        $this->details = $details;
+        $this->details = $deatils;
     }
 
     /**
@@ -28,6 +29,6 @@ class sendMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('interConnect order')->view('email.send',['details'=>$this->details]);
+        return $this->subject('Laxial order')->view('email.admin',['details'=>$this->details]);
     }
 }

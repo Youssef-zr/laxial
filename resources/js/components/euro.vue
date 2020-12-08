@@ -1,33 +1,39 @@
 <template>
   <div class="Euro">
-
     <div class="offers py-4">
       <div class="ajax-icon" v-if="loadingStatus">
-        <atom-spinner :animation-duration="1000" :size="60" color="#ff1d5e" />
+        <breeding-rhombus-spinner
+          :animation-duration="2000"
+          :size="65"
+          color="#ff1d5e"
+        />
       </div>
       <div class="container">
         <div class="offers-cards my-0">
           <div class="head">
             <h2 class="mb-2 text-capitalize text-center">
-              <i class="fa fa-paper-plane"></i> Choisissez votre plan
+              <i class="fa fa-thumb-tack" aria-hidden="true"></i> Choisissez
+              votre plan
               <span class="float-right langue-list">
                 <router-link to="/"
                   ><img src="/images/maroc.jpg" alt="maroc"
                 /></router-link>
-                <router-link to="/fr"><img src="/images/auro.jpg" alt="Euro"></router-link>
+                <router-link to="/fr"
+                  ><img src="/images/auro.jpg" alt="Euro"
+                /></router-link>
               </span>
             </h2>
           </div>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#menu1"
-                ><i class="fa fa-battery-half"></i> Basic</a
+              <a class="nav-link active" data-toggle="tab" href="#menu1">
+                <i class="fa fa-star-half-o" aria-hidden="true"></i> Basic</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#menu2"
-                ><i class="fa fa-battery-full"></i> Complète</a
+              <a class="nav-link" data-toggle="tab" href="#menu2">
+                <i class="fa fa-star"></i> Complète</a
               >
             </li>
           </ul>
@@ -76,7 +82,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 3500dh</span>
+                          <span>maintenance anuelle 350€</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -166,6 +172,7 @@
                           choosePlane(
                             'Basic De 1 a 499 élèves',
                             sum_price_basic_one,
+                             plans.basic.plan_one.total_price,
                             1,
                             499
                           )
@@ -216,7 +223,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 3500dh</span>
+                          <span>maintenance anuelle 350€</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -306,6 +313,7 @@
                           choosePlane(
                             'Basic De 500 a 999 élèves',
                             sum_price_basic_two,
+                             plans.basic.plan_two.total_price,
                             500,
                             999
                           )
@@ -408,7 +416,7 @@
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="3500"
+                            value="350"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
@@ -446,6 +454,7 @@
                           choosePlane(
                             'Basic Plus de 1000 élèves',
                             sum_price_basic_three,
+                             plans.basic.plan_three.total_price,
                             1000,
                             900000
                           )
@@ -518,6 +527,7 @@
                           choosePlane(
                             'Complète De 1 a 499 élèves',
                             sum_price_advanced_one,
+                             plans.advanced.plan_one.total_price,
                             1,
                             499
                           )
@@ -583,6 +593,7 @@
                           choosePlane(
                             'Complète De 500 a 999 élèves',
                             sum_price_advanced_two,
+                             plans.advanced.plan_two.total_price,
                             500,
                             999
                           )
@@ -601,7 +612,9 @@
                       <h3 class="offer-title">Plus De 1000 élèves</h3>
                       <div class="offer-price">
                         <span class="device">Euro</span>
-                        <span class="device">4635‎€ <label>/4735‎€</label></span>
+                        <span class="device"
+                          >4635‎€ <label>/4735‎€</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -646,6 +659,7 @@
                           choosePlane(
                             'Complète Plus De 1000 Elèves',
                             sum_price_advanced_three,
+                             plans.advanced.plan_three.total_price,
                             1000,
                             900000
                           )
@@ -702,7 +716,7 @@
                         <input
                           v-model="form.society_name"
                           type="text"
-                          placeholder="Entrer Le Nom De L'ecole "
+                          placeholder="Entrer Ton Nom"
                           :class="{
                             'is-invalid': form.errors.has('society_name'),
                             'form-control': true,
@@ -758,12 +772,17 @@
                           :max="form.max_nbStudents"
                           placeholder="Le Nombre Des Eleves"
                           :class="{
-                            'is-invalid': form.errors.has('nb_students') || form.errors.has('min_nbStudents'),
+                            'is-invalid':
+                              form.errors.has('nb_students') ||
+                              form.errors.has('min_nbStudents'),
                             'form-control': true,
                           }"
                         />
                         <has-error :form="form" field="nb_students"></has-error>
-                        <has-error :form="form" field="min_nbStudents"></has-error>
+                        <has-error
+                          :form="form"
+                          field="min_nbStudents"
+                        ></has-error>
                       </div>
                       <!-- start number of student field -->
                     </form>
@@ -1322,10 +1341,10 @@ body {
 </style>
 
 <script>
-import { AtomSpinner } from "epic-spinners";
+import { BreedingRhombusSpinner } from "epic-spinners";
 export default {
   components: {
-    AtomSpinner,
+    BreedingRhombusSpinner
   },
   data() {
     return {
@@ -1338,7 +1357,8 @@ export default {
         formation_en_ligne: false,
         lang: "fr",
         min_nbStudents: 1,
-        max_nbStudents: 1
+        max_nbStudents: 1,
+        extraServices: []
       }),
       otherTarif: 7, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
@@ -1349,24 +1369,24 @@ export default {
       plans: {
         basic: {
           plan_one: {
-            total_price: ["1550"],
+            total_price: ["1550"]
           },
           plan_two: {
-            total_price: ["2650"],
+            total_price: ["2650"]
           },
           plan_three: {
-            total_price: ["3600"],
+            total_price: ["3600"]
           }
         },
         advanced: {
           plan_one: {
-            total_price: ["2790"],
+            total_price: ["2790"]
           },
           plan_two: {
-            total_price: ["3780"],
+            total_price: ["3780"]
           },
           plan_three: {
-            total_price: ["4635"],
+            total_price: ["4635"]
           }
         }
       }
@@ -1383,13 +1403,14 @@ export default {
       this.form.clear(); // clear our errors from filed
       this.modalStatus = false;
     },
-    choosePlane(plan_name, total_price, min = 1, max = 10) {
+    choosePlane(plan_name, total_price,services, min = 1, max = 10) {
       this.form.min_nbStudents = min;
       this.form.max_nbStudents = max;
       this.modalStatus = true;
       this.form.plan_name = plan_name;
       this.form.total_price = total_price;
       this.modalTotalPrice = total_price;
+      this.form.extraServices = services;
       $("html, body").animate(
         {
           scrollTop: 0
@@ -1442,7 +1463,7 @@ export default {
         .then(res => {
           if (res.statusText == "OK") {
             this.loadingStatus = false;
-           this.closeModal();
+            this.closeModal();
             // msg successfull
             this.msg = res.data.msg;
             setTimeout(() => {
@@ -1452,7 +1473,7 @@ export default {
         })
         .catch(err => {
           this.loadingStatus = false;
-           if (err.response != undefined && err.response.status == 500) {
+          if (err.response != undefined && err.response.status == 500) {
             this.msgError = "Erreur veuillez réessayer plus tard";
             setTimeout(() => {
               this.msgError = "";
@@ -1462,32 +1483,38 @@ export default {
     }
   },
   computed: {
-    sum_price_basic_one() {
+     sum_price_basic_one() {
+        this.plans.basic.plan_one.extra = [...this.plans.basic.plan_one.total_price];
       return this.plans.basic.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_two() {
+        this.plans.basic.plan_two.extra = [...this.plans.basic.plan_two.total_price];
       return this.plans.basic.plan_two.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_three() {
+        this.plans.basic.plan_three.extra = [...this.plans.basic.plan_three.total_price];
       return this.plans.basic.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_one() {
+        this.plans.advanced.plan_one.extra = [...this.plans.advanced.plan_one.total_price];
       return this.plans.advanced.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_two() {
+        this.plans.advanced.plan_two.extra = [...this.plans.advanced.plan_two.total_price];
       return this.plans.advanced.plan_two.total_price.reduce(function(a, b) {
-        return parseInt(a) + parseInt(b);
+          return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_three() {
+        this.plans.advanced.plan_three.extra = [...this.plans.advanced.plan_three.total_price];
       return this.plans.advanced.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
@@ -1505,9 +1532,9 @@ export default {
           let x = this.form.nb_students - 1000;
           x = x / 500;
           x = parseInt(x) * 1000;
-        //   console.log(this.modalTotalPrice + price_student);
+          //   console.log(this.modalTotalPrice + price_student);
           this.form.total_price = this.modalTotalPrice + price_student + x;
-        //   console.log(this.form.total_price);
+          //   console.log(this.form.total_price);
         } else {
           this.form.total_price = this.modalTotalPrice + price_student;
         }

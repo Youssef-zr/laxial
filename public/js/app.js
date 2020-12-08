@@ -1909,6 +1909,37 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var epic_spinners__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! epic-spinners */ "./node_modules/epic-spinners/src/lib.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3235,7 +3266,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    AtomSpinner: epic_spinners__WEBPACK_IMPORTED_MODULE_0__["AtomSpinner"]
+    BreedingRhombusSpinner: epic_spinners__WEBPACK_IMPORTED_MODULE_0__["BreedingRhombusSpinner"]
   },
   data: function data() {
     return {
@@ -3248,7 +3279,8 @@ __webpack_require__.r(__webpack_exports__);
         formation_en_ligne: false,
         lang: "fr",
         min_nbStudents: 1,
-        max_nbStudents: 1
+        max_nbStudents: 1,
+        extraServices: []
       }),
       otherTarif: 7,
       // tarif inject donner utilisation app mobile / eleve
@@ -3298,15 +3330,16 @@ __webpack_require__.r(__webpack_exports__);
 
       this.modalStatus = false;
     },
-    choosePlane: function choosePlane(plan_name, total_price) {
-      var min = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-      var max = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 10;
+    choosePlane: function choosePlane(plan_name, total_price, services) {
+      var min = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
+      var max = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 10;
       this.form.min_nbStudents = min;
       this.form.max_nbStudents = max;
       this.modalStatus = true;
       this.form.plan_name = plan_name;
       this.form.total_price = total_price;
       this.modalTotalPrice = total_price;
+      this.form.extraServices = services;
       $("html, body").animate({
         scrollTop: 0
       }, 100);
@@ -3377,31 +3410,37 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     sum_price_basic_one: function sum_price_basic_one() {
+      this.plans.basic.plan_one.extra = _toConsumableArray(this.plans.basic.plan_one.total_price);
       return this.plans.basic.plan_one.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_two: function sum_price_basic_two() {
+      this.plans.basic.plan_two.extra = _toConsumableArray(this.plans.basic.plan_two.total_price);
       return this.plans.basic.plan_two.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_three: function sum_price_basic_three() {
+      this.plans.basic.plan_three.extra = _toConsumableArray(this.plans.basic.plan_three.total_price);
       return this.plans.basic.plan_three.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_one: function sum_price_advanced_one() {
+      this.plans.advanced.plan_one.extra = _toConsumableArray(this.plans.advanced.plan_one.total_price);
       return this.plans.advanced.plan_one.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_two: function sum_price_advanced_two() {
+      this.plans.advanced.plan_two.extra = _toConsumableArray(this.plans.advanced.plan_two.total_price);
       return this.plans.advanced.plan_two.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_three: function sum_price_advanced_three() {
+      this.plans.advanced.plan_three.extra = _toConsumableArray(this.plans.advanced.plan_three.total_price);
       return this.plans.advanced.plan_three.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
@@ -3454,6 +3493,25 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var epic_spinners__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! epic-spinners */ "./node_modules/epic-spinners/src/lib.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4813,7 +4871,8 @@ __webpack_require__.r(__webpack_exports__);
         formation_en_ligne: false,
         lang: "ar",
         min_nbStudents: 1,
-        max_nbStudents: 1
+        max_nbStudents: 1,
+        extraServices: []
       }),
       otherTarif: 70,
       // tarif inject donner utilisation app mobile / eleve
@@ -4863,15 +4922,16 @@ __webpack_require__.r(__webpack_exports__);
 
       this.modalStatus = false;
     },
-    choosePlane: function choosePlane(plan_name, total_price) {
-      var min = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-      var max = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 10;
+    choosePlane: function choosePlane(plan_name, total_price, services) {
+      var min = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
+      var max = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 10;
       this.form.min_nbStudents = min;
       this.form.max_nbStudents = max;
       this.modalStatus = true;
       this.form.plan_name = plan_name;
       this.form.total_price = total_price;
       this.modalTotalPrice = total_price;
+      this.form.extraServices = services;
       $("html, body").animate({
         scrollTop: 0
       }, 100);
@@ -4942,31 +5002,37 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     sum_price_basic_one: function sum_price_basic_one() {
+      this.plans.basic.plan_one.extra = _toConsumableArray(this.plans.basic.plan_one.total_price);
       return this.plans.basic.plan_one.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_two: function sum_price_basic_two() {
+      this.plans.basic.plan_two.extra = _toConsumableArray(this.plans.basic.plan_two.total_price);
       return this.plans.basic.plan_two.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_three: function sum_price_basic_three() {
+      this.plans.basic.plan_three.extra = _toConsumableArray(this.plans.basic.plan_three.total_price);
       return this.plans.basic.plan_three.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_one: function sum_price_advanced_one() {
+      this.plans.advanced.plan_one.extra = _toConsumableArray(this.plans.advanced.plan_one.total_price);
       return this.plans.advanced.plan_one.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_two: function sum_price_advanced_two() {
+      this.plans.advanced.plan_two.extra = _toConsumableArray(this.plans.advanced.plan_two.total_price);
       return this.plans.advanced.plan_two.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_three: function sum_price_advanced_three() {
+      this.plans.advanced.plan_three.extra = _toConsumableArray(this.plans.advanced.plan_three.total_price);
       return this.plans.advanced.plan_three.total_price.reduce(function (a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
@@ -5003,7 +5069,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     nb_student_price: function nb_student_price() {
-      console.log("changed");
+      console.log('....');
     }
   }
 });
@@ -29769,10 +29835,10 @@ var render = function() {
             "div",
             { staticClass: "ajax-icon" },
             [
-              _c("atom-spinner", {
+              _c("breeding-rhombus-spinner", {
                 attrs: {
-                  "animation-duration": 1000,
-                  size: 60,
+                  "animation-duration": 2000,
+                  size: 65,
                   color: "#ff1d5e"
                 }
               })
@@ -29785,8 +29851,11 @@ var render = function() {
         _c("div", { staticClass: "offers-cards my-0" }, [
           _c("div", { staticClass: "head" }, [
             _c("h2", { staticClass: "mb-2 text-capitalize text-center" }, [
-              _c("i", { staticClass: "fa fa-paper-plane" }),
-              _vm._v(" Choisissez votre plan\n            "),
+              _c("i", {
+                staticClass: "fa fa-thumb-tack",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" Choisissez\n            votre plan\n            "),
               _c(
                 "span",
                 { staticClass: "float-right langue-list" },
@@ -30191,6 +30260,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Basic De 1 a 499 élèves",
                                     _vm.sum_price_basic_one,
+                                    _vm.plans.basic.plan_one.total_price,
                                     1,
                                     499
                                   )
@@ -30580,6 +30650,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Basic De 500 a 999 élèves",
                                     _vm.sum_price_basic_two,
+                                    _vm.plans.basic.plan_two.total_price,
                                     500,
                                     999
                                   )
@@ -30832,7 +30903,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "3500" },
+                                  attrs: { type: "checkbox", value: "350" },
                                   domProps: {
                                     checked: Array.isArray(
                                       _vm.plans.basic.plan_three.total_price
@@ -30840,7 +30911,7 @@ var render = function() {
                                       ? _vm._i(
                                           _vm.plans.basic.plan_three
                                             .total_price,
-                                          "3500"
+                                          "350"
                                         ) > -1
                                       : _vm.plans.basic.plan_three.total_price
                                   },
@@ -30852,7 +30923,7 @@ var render = function() {
                                         $$el = $event.target,
                                         $$c = $$el.checked ? true : false
                                       if (Array.isArray($$a)) {
-                                        var $$v = "3500",
+                                        var $$v = "350",
                                           $$i = _vm._i($$a, $$v)
                                         if ($$el.checked) {
                                           $$i < 0 &&
@@ -30979,6 +31050,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Basic Plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
+                                    _vm.plans.basic.plan_three.total_price,
                                     1000,
                                     900000
                                   )
@@ -31041,6 +31113,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Complète De 1 a 499 élèves",
                                     _vm.sum_price_advanced_one,
+                                    _vm.plans.advanced.plan_one.total_price,
                                     1,
                                     499
                                   )
@@ -31092,6 +31165,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Complète De 500 a 999 élèves",
                                     _vm.sum_price_advanced_two,
+                                    _vm.plans.advanced.plan_two.total_price,
                                     500,
                                     999
                                   )
@@ -31143,6 +31217,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Complète Plus De 1000 Elèves",
                                     _vm.sum_price_advanced_three,
+                                    _vm.plans.advanced.plan_three.total_price,
                                     1000,
                                     900000
                                   )
@@ -31228,7 +31303,7 @@ var render = function() {
                                     },
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Entrer Le Nom De L'ecole "
+                                      placeholder: "Entrer Ton Nom"
                                     },
                                     domProps: { value: _vm.form.society_name },
                                     on: {
@@ -31558,7 +31633,13 @@ var staticRenderFns = [
               staticClass: "nav-link active",
               attrs: { "data-toggle": "tab", href: "#menu1" }
             },
-            [_c("i", { staticClass: "fa fa-battery-half" }), _vm._v(" Basic")]
+            [
+              _c("i", {
+                staticClass: "fa fa-star-half-o",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" Basic")
+            ]
           )
         ]),
         _vm._v(" "),
@@ -31569,10 +31650,7 @@ var staticRenderFns = [
               staticClass: "nav-link",
               attrs: { "data-toggle": "tab", href: "#menu2" }
             },
-            [
-              _c("i", { staticClass: "fa fa-battery-full" }),
-              _vm._v(" Complète")
-            ]
+            [_c("i", { staticClass: "fa fa-star" }), _vm._v(" Complète")]
           )
         ])
       ]
@@ -31649,7 +31727,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("maintenance anuelle 3500dh")])
+      _c("span", [_vm._v("maintenance anuelle 350€")])
     ])
   },
   function() {
@@ -31803,7 +31881,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("maintenance anuelle 3500dh")])
+      _c("span", [_vm._v("maintenance anuelle 350€")])
     ])
   },
   function() {
@@ -32468,8 +32546,11 @@ var render = function() {
         _c("div", { staticClass: "offers-cards my-0" }, [
           _c("div", { staticClass: "head" }, [
             _c("h2", { staticClass: "mb-2 text-capitalize text-center" }, [
-              _c("i", { staticClass: "fa fa-paper-plane" }),
-              _vm._v(" Choisissez votre plan\n            "),
+              _c("i", {
+                staticClass: "fa fa-thumb-tack",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" Choisissez\n            votre plan\n            "),
               _c(
                 "span",
                 { staticClass: "float-right langue-list" },
@@ -32874,6 +32955,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Basic De 1 a 499 élèves",
                                     _vm.sum_price_basic_one,
+                                    _vm.plans.basic.plan_one.total_price,
                                     1,
                                     499
                                   )
@@ -33263,6 +33345,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Basic De 500 a 999 élèves",
                                     _vm.sum_price_basic_two,
+                                    _vm.plans.basic.plan_two.total_price,
                                     500,
                                     999
                                   )
@@ -33662,6 +33745,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Basic Plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
+                                    _vm.plans.basic.plan_three.total_price,
                                     1000,
                                     900000
                                   )
@@ -33724,6 +33808,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Complète De 1 a 499 élèves",
                                     _vm.sum_price_advanced_one,
+                                    _vm.plans.advanced.plan_one.total_price,
                                     1,
                                     499
                                   )
@@ -33775,6 +33860,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Complète De 500 a 999 élèves",
                                     _vm.sum_price_advanced_two,
+                                    _vm.plans.advanced.plan_two.total_price,
                                     500,
                                     999
                                   )
@@ -33826,6 +33912,7 @@ var render = function() {
                                   return _vm.choosePlane(
                                     "Complète Plus De 1000 Elèves",
                                     _vm.sum_price_advanced_three,
+                                    _vm.plans.advanced.plan_three.total_price,
                                     1000,
                                     900000
                                   )
@@ -33911,7 +33998,7 @@ var render = function() {
                                     },
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Entrer Le Nom De L'ecole "
+                                      placeholder: "Entrer Ton Nom"
                                     },
                                     domProps: { value: _vm.form.society_name },
                                     on: {
@@ -34241,7 +34328,13 @@ var staticRenderFns = [
               staticClass: "nav-link active",
               attrs: { "data-toggle": "tab", href: "#menu1" }
             },
-            [_c("i", { staticClass: "fa fa-battery-half" }), _vm._v(" Basic")]
+            [
+              _c("i", {
+                staticClass: "fa fa-star-half-o",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" Basic")
+            ]
           )
         ]),
         _vm._v(" "),
@@ -34252,10 +34345,7 @@ var staticRenderFns = [
               staticClass: "nav-link",
               attrs: { "data-toggle": "tab", href: "#menu2" }
             },
-            [
-              _c("i", { staticClass: "fa fa-battery-full" }),
-              _vm._v(" Complète")
-            ]
+            [_c("i", { staticClass: "fa fa-star" }), _vm._v(" Complète")]
           )
         ])
       ]
