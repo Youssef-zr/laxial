@@ -66,7 +66,7 @@
         </div>
         <div class="footer">
             <p>
-                Merci De Choisie no Services Cordialement Léquipe Interconnet Marquet
+                Merci De Choisie no Services Cordialement Léquipe Interconnet Marquet.
             </p>
         </div>
     </section>
