@@ -41,14 +41,14 @@
 
     <section class="email">
         <div class="header">
-            <h3 class="title">Salut , [ Sarah , Otman ]</h3>
+            <h3 class="title">Salut , Sarah</h3>
         </div>
         <div class="body">
             <div class="offer-name">
-                <p>un client à choisies La Version <span class="color">{{$details['offer_name']}}</span> </p>
+                <p>Un Client à Choisie La Version <span class="color">{{$details['offer_name']}}</span> </p>
             </div>
             <div class="nb-students">
-                <p>Le Nombre délèves choisie ( <span class="color">{{$details['nb_students']}}</span> élèves )</p>
+                <p>Le Nombre Délèves choisie ( <span class="color">{{$details['nb_students']}}</span> élèves )</p>
             </div>
             @if (count($details['extra'])>0)
             <h5>Extra Services:</h5>

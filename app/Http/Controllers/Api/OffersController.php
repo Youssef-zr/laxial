@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Mail\clientMail;
+use App\Mail\adminMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
@@ -101,7 +102,7 @@ class OffersController extends Controller
         ];
 
         Mail::to([$order->email])->send(new clientMail($mailDetails));
-        // Mail::to("sarah@connectivemarket.com")->send(new adminMail($mailDetails));
+        Mail::to("sarah@connectivemarket.com")->send(new adminMail($mailDetails));
 
         return response()->json(["order" => $order, 'msg' => 'Votre order a été créée avec succès']);
 
