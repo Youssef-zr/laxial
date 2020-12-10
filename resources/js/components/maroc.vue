@@ -24,7 +24,7 @@
           <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#menu1">
-                <i class="fa fa-star-half-o" aria-hidden="true"></i> Basic</a
+                <i class="fa fa-star-half-o" aria-hidden="true"></i> Basique</a
               >
             </li>
             <li class="nav-item">
@@ -219,7 +219,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 3500dh</span>
+                          <span>maintenance anuelle 4000DH</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -360,7 +360,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 3500dh</span>
+                          <span>maintenance anuelle 6000dh</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -477,7 +477,7 @@
                       <div class="offer-price">
                         <span class="device">Mad</span
                         ><span class="device"
-                          >27900MAD <label>/29900MAD</label></span
+                          >27900MAD <label>/37900MAD</label></span
                         >
                       </div>
                     </div>
@@ -506,7 +506,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (3500DH/an) comprise
+                            Maintenance Annulle Comprise (7200DH/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -543,7 +543,7 @@
                       <div class="offer-price">
                         <span class="device">Mad</span
                         ><span class="device"
-                          >37800MAD <label>/38800MAD</label></span
+                          >37800MAD <label>/47800MAD</label></span
                         >
                       </div>
                     </div>
@@ -572,7 +572,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (4500DH/an) comprise
+                            Maintenance Annulle Comprise (8100DH/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -609,7 +609,7 @@
                       <div class="offer-price">
                         <span class="device">Mad</span>
                         <span class="device"
-                          >46350MAD <label>/47350MAD</label></span
+                          >46350MAD <label>/56350MAD</label></span
                         >
                       </div>
                     </div>
@@ -638,7 +638,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (6000DH/an) comprise
+                            Maintenance Annulle Comprise (9450DH/an) comprise
                           </span>
                         </li>
                       </ul>

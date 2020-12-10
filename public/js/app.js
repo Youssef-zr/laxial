@@ -31638,7 +31638,7 @@ var staticRenderFns = [
                 staticClass: "fa fa-star-half-o",
                 attrs: { "aria-hidden": "true" }
               }),
-              _vm._v(" Basic")
+              _vm._v(" Basique")
             ]
           )
         ]),
@@ -31727,7 +31727,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("maintenance anuelle 350€")])
+      _c("span", [_vm._v("Maintenance Anuelle 350€")])
     ])
   },
   function() {
@@ -31748,7 +31748,7 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module frais en extra\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("600‎€")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("945€")]),
       _vm._v(" + prix\n                          annuel: "),
       _c("label", { staticClass: "price_color" }, [_vm._v("180‎€")]),
       _vm._v(" =\n                          780‎€\n                        ")
@@ -31881,7 +31881,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("maintenance anuelle 350€")])
+      _c("span", [_vm._v("maintenance anuelle 400€")])
     ])
   },
   function() {
@@ -31902,7 +31902,7 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module frais en extra\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("600‎€")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("945€")]),
       _vm._v(" + prix\n                          annuel: "),
       _c("label", { staticClass: "price_color" }, [_vm._v("180‎€")]),
       _vm._v(" =\n                          780‎€\n                        ")
@@ -31974,8 +31974,8 @@ var staticRenderFns = [
       _c("div", { staticClass: "offer-price" }, [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _c("span", { staticClass: "device" }, [
-          _vm._v("3600‎€ "),
-          _c("label", [_vm._v("/4600‎€")])
+          _vm._v("3945€ "),
+          _c("label", [_vm._v("/4945€")])
         ])
       ])
     ])
@@ -32035,7 +32035,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("maintenance anuelle 350‎€")])
+      _c("span", [_vm._v("Maintenance Anuelle 600€")])
     ])
   },
   function() {
@@ -32056,7 +32056,7 @@ var staticRenderFns = [
       _vm._v(
         "\n                          module frais en extra\n                          "
       ),
-      _c("label", { staticClass: "price_color" }, [_vm._v("600‎€")]),
+      _c("label", { staticClass: "price_color" }, [_vm._v("945€")]),
       _vm._v(" + prix\n                          annuel: "),
       _c("label", { staticClass: "price_color" }, [_vm._v("180‎€")]),
       _vm._v(" =\n                          780‎€\n                        ")
@@ -32129,7 +32129,7 @@ var staticRenderFns = [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _c("span", { staticClass: "device" }, [
           _vm._v("2790‎€ "),
-          _c("label", [_vm._v("/2990‎€")])
+          _c("label", [_vm._v("/3790‎€")])
         ])
       ])
     ])
@@ -32175,7 +32175,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (350‎€/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (720€/An) comprise\n                        "
             )
           ])
         ])
@@ -32193,7 +32193,7 @@ var staticRenderFns = [
         _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
         _c("span", { staticClass: "device" }, [
           _vm._v("3780‎€ "),
-          _c("label", [_vm._v("/3880‎€")])
+          _c("label", [_vm._v("/4780€")])
         ])
       ])
     ])
@@ -32239,7 +32239,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (450‎€/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (810€/an) comprise\n                        "
             )
           ])
         ])
@@ -32258,7 +32258,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("span", { staticClass: "device" }, [
           _vm._v("4635‎€ "),
-          _c("label", [_vm._v("/4735‎€")])
+          _c("label", [_vm._v("/5635€")])
         ])
       ])
     ])
@@ -32304,7 +32304,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (600‎€/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (945€/an) comprise\n                        "
             )
           ])
         ])
@@ -34333,7 +34333,7 @@ var staticRenderFns = [
                 staticClass: "fa fa-star-half-o",
                 attrs: { "aria-hidden": "true" }
               }),
-              _vm._v(" Basic")
+              _vm._v(" Basique")
             ]
           )
         ]),
@@ -34576,7 +34576,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("maintenance anuelle 3500dh")])
+      _c("span", [_vm._v("maintenance anuelle 4000DH")])
     ])
   },
   function() {
@@ -34730,7 +34730,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("maintenance anuelle 3500dh")])
+      _c("span", [_vm._v("maintenance anuelle 6000dh")])
     ])
   },
   function() {
@@ -34824,7 +34824,7 @@ var staticRenderFns = [
         _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
         _c("span", { staticClass: "device" }, [
           _vm._v("27900MAD "),
-          _c("label", [_vm._v("/29900MAD")])
+          _c("label", [_vm._v("/37900MAD")])
         ])
       ])
     ])
@@ -34870,7 +34870,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (3500DH/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (7200DH/an) comprise\n                        "
             )
           ])
         ])
@@ -34888,7 +34888,7 @@ var staticRenderFns = [
         _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
         _c("span", { staticClass: "device" }, [
           _vm._v("37800MAD "),
-          _c("label", [_vm._v("/38800MAD")])
+          _c("label", [_vm._v("/47800MAD")])
         ])
       ])
     ])
@@ -34934,7 +34934,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (4500DH/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (8100DH/an) comprise\n                        "
             )
           ])
         ])
@@ -34953,7 +34953,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("span", { staticClass: "device" }, [
           _vm._v("46350MAD "),
-          _c("label", [_vm._v("/47350MAD")])
+          _c("label", [_vm._v("/56350MAD")])
         ])
       ])
     ])
@@ -34999,7 +34999,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("span", [
             _vm._v(
-              "\n                          Maintenance Annulle Comprise (6000DH/an) comprise\n                        "
+              "\n                          Maintenance Annulle Comprise (9450DH/an) comprise\n                        "
             )
           ])
         ])

@@ -28,7 +28,7 @@
           <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#menu1">
-                <i class="fa fa-star-half-o" aria-hidden="true"></i> Basic</a
+                <i class="fa fa-star-half-o" aria-hidden="true"></i> Basique</a
               >
             </li>
             <li class="nav-item">
@@ -82,7 +82,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 350€</span>
+                          <span>Maintenance Anuelle 350€</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -97,7 +97,7 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">600‎€</label> + prix
+                            <label class="price_color">945€</label> + prix
                             annuel: <label class="price_color">180‎€</label> =
                             780‎€
                           </span>
@@ -223,7 +223,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 350€</span>
+                          <span>maintenance anuelle 400€</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -238,7 +238,7 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">600‎€</label> + prix
+                            <label class="price_color">945€</label> + prix
                             annuel: <label class="price_color">180‎€</label> =
                             780‎€
                           </span>
@@ -333,7 +333,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >3600‎€ <label>/4600‎€</label></span
+                          >3945€ <label>/4945€</label></span
                         >
                       </div>
                     </div>
@@ -364,7 +364,7 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 350‎€</span>
+                          <span>Maintenance Anuelle 600€</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -379,7 +379,7 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">600‎€</label> + prix
+                            <label class="price_color">945€</label> + prix
                             annuel: <label class="price_color">180‎€</label> =
                             780‎€
                           </span>
@@ -481,7 +481,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >2790‎€ <label>/2990‎€</label></span
+                          >2790‎€ <label>/3790‎€</label></span
                         >
                       </div>
                     </div>
@@ -510,7 +510,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (350‎€/an) comprise
+                            Maintenance Annulle Comprise (720€/An) comprise
                           </span>
                         </li>
                       </ul>
@@ -547,7 +547,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >3780‎€ <label>/3880‎€</label></span
+                          >3780‎€ <label>/4780€</label></span
                         >
                       </div>
                     </div>
@@ -576,7 +576,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (450‎€/an) comprise
+                            Maintenance Annulle Comprise (810€/an) comprise
                           </span>
                         </li>
                       </ul>
@@ -613,7 +613,7 @@
                       <div class="offer-price">
                         <span class="device">Euro</span>
                         <span class="device"
-                          >4635‎€ <label>/4735‎€</label></span
+                          >4635‎€ <label>/5635€</label></span
                         >
                       </div>
                     </div>
@@ -642,7 +642,7 @@
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            Maintenance Annulle Comprise (600‎€/an) comprise
+                            Maintenance Annulle Comprise (945€/an) comprise
                           </span>
                         </li>
                       </ul>
