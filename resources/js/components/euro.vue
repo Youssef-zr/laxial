@@ -716,7 +716,7 @@
                         <input
                           v-model="form.society_name"
                           type="text"
-                          placeholder="Entrer Ton Nom"
+                          placeholder="Entrer Votre Nom"
                           :class="{
                             'is-invalid': form.errors.has('society_name'),
                             'form-control': true,

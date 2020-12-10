@@ -5069,7 +5069,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   watch: {
     nb_student_price: function nb_student_price() {
-      console.log('....');
+      console.log("....");
     }
   }
 });
@@ -31303,7 +31303,7 @@ var render = function() {
                                     },
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Entrer Ton Nom"
+                                      placeholder: "Entrer Votre Nom"
                                     },
                                     domProps: { value: _vm.form.society_name },
                                     on: {
@@ -33998,7 +33998,7 @@ var render = function() {
                                     },
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Entrer Ton Nom"
+                                      placeholder: "Entrer Votre Nom"
                                     },
                                     domProps: { value: _vm.form.society_name },
                                     on: {

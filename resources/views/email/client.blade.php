@@ -23,6 +23,7 @@
        .email p{
         color:#333;
         font-size:15px;
+        margin:5px 0 !important;
        }
        .email .color{
            color:#9bc31c

@@ -64,7 +64,8 @@ canvas {
     position: relative;
     width: 100%;
     height: 100%;
-    background: #333;
+    background: rgb(8, 50, 85) url('/images/map-image.png') center;
+    background-size:contain;
 }
 
 canvas {

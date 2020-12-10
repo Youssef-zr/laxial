@@ -712,7 +712,7 @@
                         <input
                           v-model="form.society_name"
                           type="text"
-                          placeholder="Entrer Ton Nom"
+                          placeholder="Entrer Votre Nom"
                           :class="{
                             'is-invalid': form.errors.has('society_name'),
                             'form-control': true,
@@ -1008,7 +1008,7 @@ $secand_color: #444;
       border: 1px solid $card_header_bg;
       //   border-radius: 5px 5px 0 0;
       box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);
-      // animation: card-animate ease-in-out infinite alternate-reverse 2s;
+    //   animation: card-animate ease-in-out infinite alternate-reverse 2s;
       .offer-header {
         border-bottom: 1px dashed #444;
         .offer-title {
@@ -1233,17 +1233,17 @@ $secand_color: #444;
     }
   }
 
-  // @keyframes card-animate {
-  //   0% {
-  //     transform: translateY(0);
-  //   }
-  //   50% {
-  //     transform: translateY(10px);
-  //   }
-  //   100% {
-  //     transform: translateY(-5px);
-  //   }
-  // }
+//   @keyframes card-animate {
+//     0% {
+//       transform: translateY(0) rotate(5deg);
+//     }
+//     50% {
+//       transform: translateY(10px) rotate(0deg);
+//     }
+//     100% {
+//       transform: translateY(-5px) scale(1.1);
+//     }
+//   }
   .mycheckbox {
     background: red;
   }
@@ -1377,7 +1377,7 @@ export default {
       plans: {
         basic: {
           plan_one: {
-            total_price: ["15500"],
+            total_price: ["15500"]
           },
           plan_two: {
             total_price: ["26500"]
@@ -1411,7 +1411,7 @@ export default {
       this.form.clear(); // clear our errors from filed
       this.modalStatus = false;
     },
-    choosePlane(plan_name, total_price,services, min = 1, max = 10) {
+    choosePlane(plan_name, total_price, services, min = 1, max = 10) {
       this.form.min_nbStudents = min;
       this.form.max_nbStudents = max;
       this.modalStatus = true;
@@ -1488,42 +1488,53 @@ export default {
             }, 4000);
           }
         });
-    },
-
+    }
   },
   computed: {
     sum_price_basic_one() {
-        this.plans.basic.plan_one.extra = [...this.plans.basic.plan_one.total_price];
+      this.plans.basic.plan_one.extra = [
+        ...this.plans.basic.plan_one.total_price
+      ];
       return this.plans.basic.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_two() {
-        this.plans.basic.plan_two.extra = [...this.plans.basic.plan_two.total_price];
+      this.plans.basic.plan_two.extra = [
+        ...this.plans.basic.plan_two.total_price
+      ];
       return this.plans.basic.plan_two.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_three() {
-        this.plans.basic.plan_three.extra = [...this.plans.basic.plan_three.total_price];
+      this.plans.basic.plan_three.extra = [
+        ...this.plans.basic.plan_three.total_price
+      ];
       return this.plans.basic.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_one() {
-        this.plans.advanced.plan_one.extra = [...this.plans.advanced.plan_one.total_price];
+      this.plans.advanced.plan_one.extra = [
+        ...this.plans.advanced.plan_one.total_price
+      ];
       return this.plans.advanced.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_two() {
-        this.plans.advanced.plan_two.extra = [...this.plans.advanced.plan_two.total_price];
+      this.plans.advanced.plan_two.extra = [
+        ...this.plans.advanced.plan_two.total_price
+      ];
       return this.plans.advanced.plan_two.total_price.reduce(function(a, b) {
-          return parseInt(a) + parseInt(b);
+        return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_three() {
-        this.plans.advanced.plan_three.extra = [...this.plans.advanced.plan_three.total_price];
+      this.plans.advanced.plan_three.extra = [
+        ...this.plans.advanced.plan_three.total_price
+      ];
       return this.plans.advanced.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
@@ -1561,8 +1572,8 @@ export default {
   },
   watch: {
     nb_student_price() {
-     console.log('....');
-    },
+      console.log("....");
+    }
   }
 };
 </script>
