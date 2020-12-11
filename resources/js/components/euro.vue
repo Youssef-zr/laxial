@@ -1502,7 +1502,7 @@ export default {
       }, 0);
     },
     sum_price_advanced_one() {
-        this.plans.advanced.plan_one.extra = [...this.plans.advanced.plan_one.total_price]
+        this.plans.advanced.plan_one.extra = [...this.plans.advanced.plan_one.total_price];
       return this.plans.advanced.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
