@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url('css/app.css')}}">
     <link rel="stylesheet" href="{{url('plugins/particles/demo/css/style.css')}}">
+    <link rel="icon" href="/images/laxial.ico">
 
     @stack('css')
 
