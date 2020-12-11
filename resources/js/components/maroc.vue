@@ -1564,7 +1564,7 @@ export default {
         let price_student = this.otherTarif * this.form.max_nbStudents;
         console.log(this.otherTarif, this.form.nb_students, price_student);
         this.form.nb_students = this.form.max_nbStudents;
-        this.form.total_price = this.modalTotalPrice + price_student
+        this.form.total_price = this.modalTotalPrice + price_student;
       }
 
       return this.form.total_price;
