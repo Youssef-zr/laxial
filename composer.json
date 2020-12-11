@@ -12,8 +12,7 @@
         "fideloper/proxy": "^4.4",
         "laravel/framework": "^6.20",
         "laravel/tinker": "^2.5",
-        "laravelcollective/html": "^6.2",
-        "tcg/voyager": "^1.4"
+        "laravelcollective/html": "^6.2"
     },
     "require-dev": {
         "facade/ignition": "^1.16.4",
@@ -61,9 +60,6 @@
         ]
     },
     "repositories": {
-        "hooks": {
-            "type": "composer",
-            "url": "https://larapack.io"
-        }
+      
     }
 }
