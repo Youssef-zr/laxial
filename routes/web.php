@@ -11,8 +11,11 @@
 |
  */
 
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
 // see to laravel we well use vueJs route to catch the error 404 when refresh page
 Route::get('{any}', function () {
     return view('website.welcome');
 })->where('any', '.*');
-
