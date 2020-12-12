@@ -735,7 +735,7 @@
                         <input
                           v-model="form.client_email"
                           type="text"
-                          placeholder="Enter Ton Email"
+                          placeholder="Entrer Votre Email"
                           :class="{
                             'is-invalid': form.errors.has('client_email'),
                             'form-control': true,

@@ -31353,7 +31353,7 @@ var render = function() {
                                     },
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Enter Ton Email"
+                                      placeholder: "Entrer Votre Email"
                                     },
                                     domProps: { value: _vm.form.client_email },
                                     on: {
@@ -34048,7 +34048,7 @@ var render = function() {
                                     },
                                     attrs: {
                                       type: "text",
-                                      placeholder: "Enter Ton Email"
+                                      placeholder: "Entrer Votre Email"
                                     },
                                     domProps: { value: _vm.form.client_email },
                                     on: {
