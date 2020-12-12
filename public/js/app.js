@@ -30268,8 +30268,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -30658,8 +30662,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31058,8 +31066,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31121,8 +31133,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31173,8 +31189,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31225,8 +31245,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -32963,8 +32987,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33353,8 +33381,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33753,8 +33785,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33816,8 +33852,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33868,8 +33908,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33920,8 +33964,12 @@ var render = function() {
                               }
                             },
                             [
+                              _c("i", {
+                                staticClass: "fa fa-paper-plane",
+                                attrs: { "aria-hidden": "true" }
+                              }),
                               _vm._v(
-                                "\n                      choisissez votre plan\n                    "
+                                " choisissez votre plan\n                    "
                               )
                             ]
                           )

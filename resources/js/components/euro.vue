@@ -178,7 +178,7 @@
                           )
                         "
                       >
-                        choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -319,7 +319,7 @@
                           )
                         "
                       >
-                        choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -460,7 +460,7 @@
                           )
                         "
                       >
-                        choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -533,7 +533,7 @@
                           )
                         "
                       >
-                        choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -599,7 +599,7 @@
                           )
                         "
                       >
-                        choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -665,7 +665,7 @@
                           )
                         "
                       >
-                        choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
                       </button>
                     </div>
                   </div>
