@@ -68,6 +68,7 @@
                 acceder directement a lordre via ce lien (<a href="{{ $details['lien'] }}">{{ $details['lien'] }}</a> )
             </p>
         </div>
+        <img src="{{url('images/laxial.ico')}}" alt="laxial image">
     </section>
 
     </body>

@@ -42,7 +42,6 @@
 <body>
 
     <section class="email">
-        <img src="{{url('images/laxial.ico')}}" alt="laxial image">
         <div class="header">
             <h3 class="title">Salut {{$details['client_name']}}</h3>
         </div>
@@ -70,6 +69,7 @@
                 Merci De Choisie no Services Cordialement Léquipe Interconnet Marquet
             </p>
         </div>
+        <img src="{{url('images/laxial.ico')}}" alt="laxial image">
     </section>
 
     </body>
