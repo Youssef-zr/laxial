@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "epic-spinners": "^1.1.0",
+        "icheck-bootstrap": "^3.0.1",
         "vform": "^1.0.1",
         "vue-router": "^3.4.9"
     }

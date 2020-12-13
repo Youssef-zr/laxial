@@ -42,7 +42,7 @@
 <body>
 
     <section class="email">
-        <img src="{{url('images/laxial.png')}}" alt="laxial image">
+        <img src="{{url('images/laxial.ico')}}" alt="laxial image">
         <div class="header">
             <h3 class="title">Salut {{$details['client_name']}}</h3>
         </div>
