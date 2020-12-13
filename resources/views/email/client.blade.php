@@ -61,12 +61,12 @@
             </ul>
             @endif
             <div class="total-price">
-                <p>Le Montant Total de cette offre est <span class="color">{{$details['total_price']}}</span></p>
+                <p>Le Montant Total De Cette Offre Est <span class="color">{{$details['total_price']}}</span></p>
             </div>
         </div>
         <div class="footer">
             <p>
-                Merci De Choisie no Services Cordialement Léquipe Interconnet Marquet
+                Merci De Choisie Notre Services Cordialement Léquipe Interconnet Marquet
             </p>
         </div>
         <img src="{{url('images/laxial.ico')}}" alt="laxial image">

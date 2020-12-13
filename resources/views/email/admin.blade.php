@@ -60,12 +60,12 @@
             </ul>
             @endif
             <div class="total-price">
-                <p>Le Montant Total de cette offre ( <span class="color">{{$details['total_price']}}</span> )</p>
+                <p>Le Montant Total De Cette offre ( <span class="color">{{$details['total_price']}}</span> )</p>
             </div>
         </div>
         <div class="footer">
             <p>
-                acceder directement a lordre via ce lien (<a href="{{ $details['lien'] }}">{{ $details['lien'] }}</a> )
+                Acceder Directement A Lordre Via Ce Lien (<a href="{{ $details['lien'] }}">{{ $details['lien'] }}</a> )
             </p>
         </div>
         <img src="{{url('images/laxial.ico')}}" alt="laxial image">
