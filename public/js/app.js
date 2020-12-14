@@ -3263,6 +3263,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3505,9 +3511,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-//
-//
-//
 //
 //
 //
@@ -30273,7 +30276,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -30667,7 +30670,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31071,7 +31074,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31138,7 +31141,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31194,7 +31197,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31250,7 +31253,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -31826,7 +31829,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _vm._v(
-        "\n                          module personnele en exact\n                          "
+        "\n                          module personnel en exact\n                          "
       ),
       _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
@@ -31980,7 +31983,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _vm._v(
-        "\n                          module personnele en exact\n                          "
+        "\n                          module personnel en exact\n                          "
       ),
       _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
@@ -32134,7 +32137,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _vm._v(
-        "\n                          module personnele en exact\n                          "
+        "\n                          module personnel en exact\n                          "
       ),
       _c("label", { staticClass: "price_color" }, [_vm._v("150‎€")]),
       _vm._v(" + prix\n                          annuel: "),
@@ -32519,6 +32522,13 @@ var staticRenderFns = [
               _c("span", { staticClass: "accordion-mony" }, [
                 _vm._v("20‎€/Heure")
               ])
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "d-block other-service" }, [
+              _c("i", { staticClass: "fa fa-square" }),
+              _vm._v(
+                "\n                            (Facturation Sur Devis)\n                          "
+              )
             ])
           ])
         ]
@@ -32992,7 +33002,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33386,7 +33396,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33790,7 +33800,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33857,7 +33867,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33913,7 +33923,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -33969,7 +33979,7 @@ var render = function() {
                                 attrs: { "aria-hidden": "true" }
                               }),
                               _vm._v(
-                                " choisissez votre plan\n                    "
+                                "\n                      choisissez votre plan\n                    "
                               )
                             ]
                           )
@@ -34545,7 +34555,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _vm._v(
-        "\n                          module personnele en exact\n                          "
+        "\n                          module personnel en exact\n                          "
       ),
       _c("label", { staticClass: "price_color" }, [_vm._v("1500MAD")]),
       _vm._v(" + prix\n                          annuel: "),
@@ -34699,7 +34709,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _vm._v(
-        "\n                          module personnele en exact\n                          "
+        "\n                          module personnel en exact\n                          "
       ),
       _c("label", { staticClass: "price_color" }, [_vm._v("1500MAD")]),
       _vm._v(" + prix\n                          annuel: "),
@@ -34853,7 +34863,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _vm._v(
-        "\n                          module personnele en exact\n                          "
+        "\n                          module personnel en exact\n                          "
       ),
       _c("label", { staticClass: "price_color" }, [_vm._v("1500MAD")]),
       _vm._v(" + prix\n                          annuel: "),
@@ -35238,6 +35248,13 @@ var staticRenderFns = [
               _c("span", { staticClass: "accordion-mony" }, [
                 _vm._v("200MAD/Heure")
               ])
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "d-block other-service" }, [
+              _c("i", { staticClass: "fa fa-square" }),
+              _vm._v(
+                "\n                            (Facturation Sur Devis)\n                          "
+              )
             ])
           ])
         ]

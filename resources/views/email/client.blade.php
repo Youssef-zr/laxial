@@ -47,10 +47,10 @@
         </div>
         <div class="body">
             <div class="offer-name">
-                <p>Vous Avez Choisie La Version <span class="color">{{$details['offer_name']}}</span> </p>
+                <p>Vous Avez Choisi La Version <span class="color">{{$details['offer_name']}}</span> </p>
             </div>
             <div class="nb-students">
-                <p>Le Nombre délèves choisie est <span class="color">{{$details['nb_students']}}</span> élèves</p>
+                <p>Le Nombre délèves choisi est <span class="color">{{$details['nb_students']}}</span> élèves</p>
             </div>
             @if (count($details['extra'])>0)
             <h5>Extra Services:</h5>
@@ -66,7 +66,7 @@
         </div>
         <div class="footer">
             <p>
-                Merci De Choisie Notre Services Cordialement Léquipe Interconnet Marquet
+                Merci De Choisir Notre Service, Cordialement Léquipe Connective Market
             </p>
         </div>
         <img src="{{url('images/laxial.ico')}}" alt="laxial image">

@@ -152,7 +152,7 @@
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
-                            module personnele en exact
+                            module personnel en exact
                             <label class="price_color">150‎€</label> + prix
                             annuel: <label class="price_color">50‎€</label> =
                             200‎€
@@ -172,13 +172,14 @@
                           choosePlane(
                             'Basic De 1 a 499 élèves',
                             sum_price_basic_one,
-                             plans.basic.plan_one.total_price,
+                            plans.basic.plan_one.total_price,
                             1,
                             499
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -293,7 +294,7 @@
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
-                            module personnele en exact
+                            module personnel en exact
                             <label class="price_color">150‎€</label> + prix
                             annuel: <label class="price_color">50‎€</label> =
                             200‎€
@@ -313,13 +314,14 @@
                           choosePlane(
                             'Basic De 500 a 999 élèves',
                             sum_price_basic_two,
-                             plans.basic.plan_two.total_price,
+                            plans.basic.plan_two.total_price,
                             500,
                             999
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -332,9 +334,7 @@
                       <h3 class="offer-title">De 1000 et plus</h3>
                       <div class="offer-price">
                         <span class="device">Euro</span
-                        ><span class="device"
-                          >3945€ <label>/4945€</label></span
-                        >
+                        ><span class="device">3945€ <label>/4945€</label></span>
                       </div>
                     </div>
                     <div class="offer-body">
@@ -434,7 +434,7 @@
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
-                            module personnele en exact
+                            module personnel en exact
                             <label class="price_color">150‎€</label> + prix
                             annuel: <label class="price_color">50‎€</label> =
                             200‎€
@@ -454,13 +454,14 @@
                           choosePlane(
                             'Basic Plus de 1000 élèves',
                             sum_price_basic_three,
-                             plans.basic.plan_three.total_price,
+                            plans.basic.plan_three.total_price,
                             1000,
                             900000
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -527,13 +528,14 @@
                           choosePlane(
                             'Complète De 1 a 499 élèves',
                             sum_price_advanced_one,
-                             plans.advanced.plan_one.total_price,
+                            plans.advanced.plan_one.total_price,
                             1,
                             499
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -593,13 +595,14 @@
                           choosePlane(
                             'Complète De 500 a 999 élèves',
                             sum_price_advanced_two,
-                             plans.advanced.plan_two.total_price,
+                            plans.advanced.plan_two.total_price,
                             500,
                             999
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -612,9 +615,7 @@
                       <h3 class="offer-title">Plus De 1000 élèves</h3>
                       <div class="offer-price">
                         <span class="device">Euro</span>
-                        <span class="device"
-                          >4635‎€ <label>/5635€</label></span
-                        >
+                        <span class="device">4635‎€ <label>/5635€</label></span>
                       </div>
                     </div>
                     <div class="offer-body">
@@ -659,13 +660,14 @@
                           choosePlane(
                             'Complète Plus De 1000 Elèves',
                             sum_price_advanced_three,
-                             plans.advanced.plan_three.total_price,
+                            plans.advanced.plan_three.total_price,
                             1000,
                             900000
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -889,6 +891,10 @@
                               <i class="fa fa-square"></i> Développements
                               Spécifiques:
                               <span class="accordion-mony">20‎€/Heure</span>
+                            </span>
+                            <span class="d-block other-service">
+                              <i class="fa fa-square"></i>
+                              (Facturation Sur Devis)
                             </span>
                           </div>
                         </div>
@@ -1403,7 +1409,7 @@ export default {
       this.form.clear(); // clear our errors from filed
       this.modalStatus = false;
     },
-    choosePlane(plan_name, total_price,services, min = 1, max = 10) {
+    choosePlane(plan_name, total_price, services, min = 1, max = 10) {
       this.form.min_nbStudents = min;
       this.form.max_nbStudents = max;
       this.modalStatus = true;
@@ -1483,38 +1489,50 @@ export default {
     }
   },
   computed: {
-     sum_price_basic_one() {
-        this.plans.basic.plan_one.extra = [...this.plans.basic.plan_one.total_price];
+    sum_price_basic_one() {
+      this.plans.basic.plan_one.extra = [
+        ...this.plans.basic.plan_one.total_price
+      ];
       return this.plans.basic.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_two() {
-        this.plans.basic.plan_two.extra = [...this.plans.basic.plan_two.total_price];
+      this.plans.basic.plan_two.extra = [
+        ...this.plans.basic.plan_two.total_price
+      ];
       return this.plans.basic.plan_two.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_basic_three() {
-        this.plans.basic.plan_three.extra = [...this.plans.basic.plan_three.total_price];
+      this.plans.basic.plan_three.extra = [
+        ...this.plans.basic.plan_three.total_price
+      ];
       return this.plans.basic.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_one() {
-        this.plans.advanced.plan_one.extra = [...this.plans.advanced.plan_one.total_price]
+      this.plans.advanced.plan_one.extra = [
+        ...this.plans.advanced.plan_one.total_price
+      ];
       return this.plans.advanced.plan_one.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_two() {
-        this.plans.advanced.plan_two.extra = [...this.plans.advanced.plan_two.total_price];
+      this.plans.advanced.plan_two.extra = [
+        ...this.plans.advanced.plan_two.total_price
+      ];
       return this.plans.advanced.plan_two.total_price.reduce(function(a, b) {
-          return parseInt(a) + parseInt(b);
+        return parseInt(a) + parseInt(b);
       }, 0);
     },
     sum_price_advanced_three() {
-        this.plans.advanced.plan_three.extra = [...this.plans.advanced.plan_three.total_price];
+      this.plans.advanced.plan_three.extra = [
+        ...this.plans.advanced.plan_three.total_price
+      ];
       return this.plans.advanced.plan_three.total_price.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       }, 0);
@@ -1544,7 +1562,7 @@ export default {
         let price_student = this.otherTarif * this.form.max_nbStudents;
         // console.log(this.otherTarif, this.form.nb_students, price_student);
         this.form.nb_students = this.form.max_nbStudents;
-        this.form.total_price = this.modalTotalPrice + price_student
+        this.form.total_price = this.modalTotalPrice + price_student;
       }
 
       return this.form.total_price;

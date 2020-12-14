@@ -46,10 +46,10 @@
         </div>
         <div class="body">
             <div class="offer-name">
-                <p>Un Client à Choisie La Version <span class="color">{{$details['offer_name']}}</span> </p>
+                <p>Un Client à Choisi La Version <span class="color">{{$details['offer_name']}}</span> </p>
             </div>
             <div class="nb-students">
-                <p>Le Nombre Délèves choisie ( <span class="color">{{$details['nb_students']}}</span> élèves )</p>
+                <p>Le Nombre Délèves choisi ( <span class="color">{{$details['nb_students']}}</span> élèves )</p>
             </div>
             @if (count($details['extra'])>0)
             <h5>Extra Services:</h5>
@@ -65,7 +65,7 @@
         </div>
         <div class="footer">
             <p>
-                Acceder Directement A Lordre Via Ce Lien (<a href="{{ $details['lien'] }}">{{ $details['lien'] }}</a> )
+                Accèder Dirèctement A Lordre Via Ce Lien (<a href="{{ $details['lien'] }}">{{ $details['lien'] }}</a> )
             </p>
         </div>
         <img src="{{url('images/laxial.ico')}}" alt="laxial image">

@@ -148,7 +148,7 @@
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
-                            module personnele en exact
+                            module personnel en exact
                             <label class="price_color">1500MAD</label> + prix
                             annuel: <label class="price_color">500MAD</label> =
                             2000MAD
@@ -174,7 +174,8 @@
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -289,7 +290,7 @@
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
-                            module personnele en exact
+                            module personnel en exact
                             <label class="price_color">1500MAD</label> + prix
                             annuel: <label class="price_color">500MAD</label> =
                             2000MAD
@@ -315,7 +316,8 @@
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -430,7 +432,7 @@
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
-                            module personnele en exact
+                            module personnel en exact
                             <label class="price_color">1500MAD</label> + prix
                             annuel: <label class="price_color">500MAD</label> =
                             2000MAD
@@ -456,7 +458,8 @@
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -529,7 +532,8 @@
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -595,7 +599,8 @@
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -661,7 +666,8 @@
                           )
                         "
                       >
-                        <i class="fa fa-paper-plane" aria-hidden="true"></i> choisissez votre plan
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        choisissez votre plan
                       </button>
                     </div>
                   </div>
@@ -886,6 +892,10 @@
                               Spécifiques:
                               <span class="accordion-mony">200MAD/Heure</span>
                             </span>
+                            <span class="d-block other-service">
+                              <i class="fa fa-square"></i>
+                              (Facturation Sur Devis)
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -1006,9 +1016,7 @@ $secand_color: #444;
       margin-top: 30px;
       background: #fff;
       border: 1px solid $card_header_bg;
-      //   border-radius: 5px 5px 0 0;
       box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);
-    //   animation: card-animate ease-in-out infinite alternate-reverse 2s;
       .offer-header {
         border-bottom: 1px dashed #444;
         .offer-title {
@@ -1233,17 +1241,6 @@ $secand_color: #444;
     }
   }
 
-//   @keyframes card-animate {
-//     0% {
-//       transform: translateY(0) rotate(5deg);
-//     }
-//     50% {
-//       transform: translateY(10px) rotate(0deg);
-//     }
-//     100% {
-//       transform: translateY(-5px) scale(1.1);
-//     }
-//   }
   .mycheckbox {
     background: red;
   }
@@ -1349,7 +1346,6 @@ body {
 </style>
 
 <script>
-
 import { AtomSpinner } from "epic-spinners";
 export default {
   components: {
@@ -1565,7 +1561,7 @@ export default {
         let price_student = this.otherTarif * this.form.max_nbStudents;
         console.log(this.otherTarif, this.form.nb_students, price_student);
         this.form.nb_students = this.form.max_nbStudents;
-        this.form.total_price = this.modalTotalPrice + price_student
+        this.form.total_price = this.modalTotalPrice + price_student;
       }
 
       return this.form.total_price;
