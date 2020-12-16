@@ -110,7 +110,8 @@ class OffersController extends Controller
 
     public function localisation(Request $request)
     {
-        $location = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR']));
+        $ip = $request->ip();
+        $location = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip='.$ip.'"));
         return response()->json(['localisation' => $location]);
     }
 
