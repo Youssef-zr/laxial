@@ -1400,7 +1400,7 @@ export default {
   created() {
     axios.get("/api/localisation").then(res => {
       if(res.statusText=='OK'){
-          console.log(res.data.localisation.countryName);
+          console.log(res.data.localisation.countryName)
           if(res.data.localisation.countryName !=="Morocco")
           {
               this.form.lang = res.data.localisation.countryName;
