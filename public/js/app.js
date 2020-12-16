@@ -3326,6 +3326,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     axios.get("/api/localisation").then(function (res) {
       if (res.statusText == 'OK') {
+        console.log(res.data.localisation.countryName);
+
         if (res.data.localisation.countryName === "Morocco") {
           _this.form.lang = res.data.localisation.countryName;
 
@@ -4924,6 +4926,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     axios.get("/api/localisation").then(function (res) {
       if (res.statusText == 'OK') {
+        console.log(res.data.localisation.countryName);
+
         if (res.data.localisation.countryName !== "Morocco") {
           _this.form.lang = res.data.localisation.countryName;
 
