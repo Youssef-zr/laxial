@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Order;
-use App\Mail\clientMail;
 use App\Mail\adminMail;
-use Illuminate\Support\Facades\Mail;
+use App\Mail\clientMail;
+use App\Order;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Mail;
+use Stevebauman\Location\Facades\Location;
 class OffersController extends Controller
 {
     public function newOffer(Request $request)
@@ -88,7 +88,7 @@ class OffersController extends Controller
         if ($extra != '') {
             $extra = trim($extra, '/ ');
             $extra = explode('//', $extra);
-        }else{
+        } else {
             $extra = [];
         }
 
@@ -106,5 +106,12 @@ class OffersController extends Controller
 
         return response()->json(['msg' => 'Votre order a été créée avec succès']);
 
+    }
+
+    public function localisation(Request $request )
+    {
+        $ip = $request->ip(); //For static IP address get
+        $location = \Location::get(".$ip.");
+        return response()->json(['localisation' => $location]);
     }
 }

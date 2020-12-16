@@ -3324,9 +3324,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   created: function created() {
     var _this = this;
 
+    axios.get("/api/localisation").then(function (res) {
+      if (res.statusText == 'OK') {
+        if (res.data.localisation.countryName === "Morocco") {
+          _this.form.lang = res.data.localisation.countryName;
+
+          _this.$router.push('/');
+        }
+      }
+    });
     setTimeout(function () {
       _this.loadingStatus = false;
-    }, 700);
+    }, 1000);
   },
   methods: {
     closeModal: function closeModal() {
@@ -4913,9 +4922,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   created: function created() {
     var _this = this;
 
+    axios.get("/api/localisation").then(function (res) {
+      if (res.statusText == 'OK') {
+        if (res.data.localisation.countryName !== "Morocco") {
+          _this.form.lang = res.data.localisation.countryName;
+
+          _this.$router.push('/fr');
+        }
+      }
+    });
     setTimeout(function () {
       _this.loadingStatus = false;
-    }, 700);
+    }, 1000);
   },
   methods: {
     closeModal: function closeModal() {

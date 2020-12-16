@@ -1399,9 +1399,19 @@ export default {
     };
   },
   created() {
+      axios.get("/api/localisation").then(res => {
+      if(res.statusText=='OK'){
+          if(res.data.localisation.countryName === "Morocco")
+          {
+              this.form.lang = res.data.localisation.countryName;
+              this.$router.push('/');
+          }
+      }
+    });
+
     setTimeout(() => {
       this.loadingStatus = false;
-    }, 700);
+    }, 1000);
   },
   methods: {
     closeModal() {
