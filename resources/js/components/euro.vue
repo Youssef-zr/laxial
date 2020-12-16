@@ -1361,7 +1361,7 @@ export default {
         total_price: 0,
         nb_students: "",
         formation_en_ligne: false,
-        lang: "fr",
+        lang: "",
         min_nbStudents: 1,
         max_nbStudents: 1,
         extraServices: []
@@ -1401,8 +1401,8 @@ export default {
   created() {
     axios.get("/api/localisation").then(res => {
       if (res.statusText == "OK") {
-        if (res.data.localisation.geoplugin_countryName === "Morocco") {
           this.form.lang = res.data.localisation.geoplugin_countryName;
+        if (res.data.localisation.geoplugin_countryName === "Morocco") {
           this.$router.push("/");
         }
       }

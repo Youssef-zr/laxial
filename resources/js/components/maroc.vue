@@ -1407,9 +1407,9 @@ export default {
   created() {
     axios.get("/api/localisation").then(res => {
       if(res.statusText=='OK'){
+          this.form.lang = res.data.localisation.geoplugin_countryName;
           if(res.data.localisation.geoplugin_countryName !=="Morocco")
           {
-              this.form.lang = res.data.localisation.geoplugin_countryName;
               this.$router.push('/fr');
           }
       }

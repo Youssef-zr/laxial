@@ -3283,7 +3283,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         total_price: 0,
         nb_students: "",
         formation_en_ligne: false,
-        lang: "fr",
+        lang: "",
         min_nbStudents: 1,
         max_nbStudents: 1,
         extraServices: []
@@ -3326,9 +3326,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     axios.get("/api/localisation").then(function (res) {
       if (res.statusText == "OK") {
-        if (res.data.localisation.geoplugin_countryName === "Morocco") {
-          _this.form.lang = res.data.localisation.geoplugin_countryName;
+        _this.form.lang = res.data.localisation.geoplugin_countryName;
 
+        if (res.data.localisation.geoplugin_countryName === "Morocco") {
           _this.$router.push("/");
         }
       }
@@ -4931,9 +4931,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     axios.get("/api/localisation").then(function (res) {
       if (res.statusText == 'OK') {
-        if (res.data.localisation.geoplugin_countryName !== "Morocco") {
-          _this.form.lang = res.data.localisation.geoplugin_countryName;
+        _this.form.lang = res.data.localisation.geoplugin_countryName;
 
+        if (res.data.localisation.geoplugin_countryName !== "Morocco") {
           _this.$router.push('/fr');
         }
       }
