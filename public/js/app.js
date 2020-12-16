@@ -4867,10 +4867,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    AtomSpinner: epic_spinners__WEBPACK_IMPORTED_MODULE_0__["AtomSpinner"]
+    BreedingRhombusSpinner: epic_spinners__WEBPACK_IMPORTED_MODULE_0__["BreedingRhombusSpinner"]
   },
   data: function data() {
     return {
@@ -32582,10 +32589,10 @@ var render = function() {
             "div",
             { staticClass: "ajax-icon" },
             [
-              _c("atom-spinner", {
+              _c("breeding-rhombus-spinner", {
                 attrs: {
-                  "animation-duration": 1000,
-                  size: 60,
+                  "animation-duration": 2000,
+                  size: 65,
                   color: "#ff1d5e"
                 }
               })
@@ -32593,7 +32600,9 @@ var render = function() {
             1
           )
         : _vm._e(),
-      _vm._v(" "),
+      _vm._v(
+        '\n    import { BreedingRhombusSpinner } from "epic-spinners";\n  BreedingRhombusSpinner\n\n    '
+      ),
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "offers-cards my-0" }, [
           _c("div", { staticClass: "head" }, [

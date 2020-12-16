@@ -1,9 +1,16 @@
 <template>
   <div class="maroc">
     <div class="offers py-4">
-      <div class="ajax-icon" v-if="loadingStatus">
-        <atom-spinner :animation-duration="1000" :size="60" color="#ff1d5e" />
+     <div class="ajax-icon" v-if="loadingStatus">
+        <breeding-rhombus-spinner
+          :animation-duration="2000"
+          :size="65"
+          color="#ff1d5e"
+        />
       </div>
+      import { BreedingRhombusSpinner } from "epic-spinners";
+    BreedingRhombusSpinner
+
       <div class="container">
         <div class="offers-cards my-0">
           <div class="head">
@@ -1346,10 +1353,10 @@ body {
 </style>
 
 <script>
-import { AtomSpinner } from "epic-spinners";
+import { BreedingRhombusSpinner } from "epic-spinners";
 export default {
   components: {
-    AtomSpinner
+    BreedingRhombusSpinner
   },
   data() {
     return {

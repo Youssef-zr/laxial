@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'api','namespace'=>"Api"], function() {
     Route::post('newOffer','OffersController@newOffer');
-    Route::get('localisation', 'OffersController@localisation');
+    Route::get('localisation', 'OffersController@localCountry');
 });
 
 

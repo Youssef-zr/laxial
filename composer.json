@@ -14,7 +14,6 @@
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.2",
         "maxmind-db/reader": "^1.8",
-        "stevebauman/location": "^5.2",
         "tcg/voyager": "^1.4",
         "torann/geoip": "1.1"
     },
