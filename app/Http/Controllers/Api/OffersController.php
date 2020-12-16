@@ -110,8 +110,8 @@ class OffersController extends Controller
 
     public function localisation(Request $request )
     {
-        $ip = $request->ip(); //For static IP address get
-        $location = \Location::get(".$ip.");
+        $ip = $_SERVER['REMOTE_ADDR']; //For static IP address get
+        $location = Location::get(".$ip.");
         return response()->json(['localisation' => $location]);
     }
 }
