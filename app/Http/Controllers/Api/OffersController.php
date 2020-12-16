@@ -9,6 +9,7 @@ use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Stevebauman\Location\Facades\Location;
+
 class OffersController extends Controller
 {
     public function newOffer(Request $request)
@@ -108,24 +109,25 @@ class OffersController extends Controller
 
     }
 
-    public function localisation(Request $request )
+    public function localisation(Request $request)
     {
-        $ip = $this->getRealIpAddr();; //For static IP address get
+        $ip =$this->getOriginalClientIp($request); //For static IP address get
         $location = Location::get(".$ip.");
-        return response()->json(['localisation' => $location]);
+        return response()->json(['localisation' => $location,"ip"=>$ip]);
     }
 
-    function getRealIpAddr(){
-        if ( !empty($_SERVER['HTTP_CLIENT_IP']) ) {
-         // Check IP from internet.
-         $ip = $_SERVER['HTTP_CLIENT_IP'];
-        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']) ) {
-         // Check IP is passed from proxy.
-         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    function getOriginalClientIp(Request $request = null) : string
+    {
+        $request = $request ?? request();
+        $xForwardedFor = $request->header('x-forwarded-for');
+        if (empty($xForwardedFor)) {
+            // Si está vacío, tome la IP del request.
+            $ip = $request->ip();
         } else {
-         // Get IP address from remote address.
-         $ip = $_SERVER['REMOTE_ADDR'];
+            // Si no, viene de API gateway y se transforma para usar.
+            $ips = is_array($xForwardedFor) ? $xForwardedFor : explode(', ', $xForwardedFor);
+            $ip = $ips[0];
         }
         return $ip;
-       }
+    }
 }
