@@ -3325,13 +3325,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var _this = this;
 
     axios.get("/api/localisation").then(function (res) {
-      if (res.statusText == 'OK') {
-        console.log(res.data.localisation.countryName);
+      if (res.statusText == "OK") {
+        if (res.data.localisation.geoplugin_countryName === "Morocco") {
+          _this.form.lang = res.data.localisation.geoplugin_countryName;
 
-        if (res.data.localisation.countryName === "Morocco") {
-          _this.form.lang = res.data.localisation.countryName;
-
-          _this.$router.push('/');
+          _this.$router.push("/");
         }
       }
     });
@@ -4926,10 +4924,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     axios.get("/api/localisation").then(function (res) {
       if (res.statusText == 'OK') {
-        console.log(res.data.localisation.countryName);
-
-        if (res.data.localisation.countryName !== "Morocco") {
-          _this.form.lang = res.data.localisation.countryName;
+        if (res.data.localisation.geoplugin_countryName !== "Morocco") {
+          _this.form.lang = res.data.localisation.geoplugin_countryName;
 
           _this.$router.push('/fr');
         }
