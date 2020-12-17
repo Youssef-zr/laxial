@@ -1,42 +1,32 @@
 <template>
   <div class="maroc">
     <div class="offers py-4">
-     <div class="ajax-icon" v-if="loadingStatus">
+      <div class="ajax-icon" v-if="loadingStatus">
         <breeding-rhombus-spinner
           :animation-duration="2000"
           :size="65"
           color="#ff1d5e"
         />
       </div>
-      import { BreedingRhombusSpinner } from "epic-spinners";
-    BreedingRhombusSpinner
-
       <div class="container">
         <div class="offers-cards my-0">
           <div class="head">
             <h2 class="mb-2 text-capitalize text-center">
               <i class="fa fa-thumb-tack" aria-hidden="true"></i> Choisissez
               votre plan
-              <span class="float-right langue-list">
-                <router-link to="/"
-                  ><img src="/images/maroc.jpg" alt="maroc"
-                /></router-link>
-                <router-link to="/fr"
-                  ><img src="/images/auro.jpg" alt="euro"
-                /></router-link>
-              </span>
             </h2>
           </div>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#menu1">
-                <i class="fa fa-star-half-o" aria-hidden="true"></i> Basique</a
+              <a class="nav-link" data-toggle="tab" href="#menu1">
+                <i class="fa fa-star-half-o" aria-hidden="true"></i> Version
+                Basique</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#menu2">
-                <i class="fa fa-star"></i> Complète</a
+              <a class="nav-link active" data-toggle="tab" href="#menu2">
+                <i class="fa fa-star"></i>Version Complète</a
               >
             </li>
           </ul>
@@ -44,7 +34,7 @@
           <!-- Tab panes -->
           <div class="tab-content pt-3">
             <!-- start basic offers -->
-            <div id="menu1" class="container tab-pane active">
+            <div id="menu1" class="container tab-pane fade">
               <div class="row">
                 <!-- start plan one -->
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
@@ -477,7 +467,7 @@
             <!-- end basic offers -->
 
             <!-- start premuim offers -->
-            <div id="menu2" class="container tab-pane fade">
+            <div id="menu2" class="container tab-pane active">
               <div class="row">
                 <!-- start plan one -->
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
@@ -494,12 +484,17 @@
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
-                          <i class="fa fa-external-link-square"></i>
-                          <span> réduction de 10%</span>
-                        </li>
-                        <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
+                          <span class="d-inline"> module de base </span>
+                          <a
+                            @click="openModalBase"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -561,12 +556,17 @@
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
-                          <i class="fa fa-external-link-square"></i>
-                          <span> réduction de 10%</span>
-                        </li>
-                        <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
+                          <span class="d-inline"> module de base </span>
+                          <a
+                            @click="openModalBase"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -628,12 +628,17 @@
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
-                          <i class="fa fa-external-link-square"></i>
-                          <span> réduction de 10%</span>
-                        </li>
-                        <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
+                          <span class="d-inline"> module de base </span>
+                          <a
+                            @click="openModalBase"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -800,6 +805,12 @@
                       <span class="badge badge-total-price"
                         >{{ form.total_price }} MAD
                       </span>
+                      <div class="message">
+                        <span
+                          class="d-block text-white p-2 display-5 mt-2 rounded"
+                          >taper un message ici</span
+                        >
+                      </div>
                     </div>
                   </div>
                   <!-- start modal other information -->
@@ -819,17 +830,13 @@
                             Souhaitez-vous avoir une formation en ligne ?
                           </a>
                         </div>
-                        <div
-                          id="one"
-                          class="collapse show"
-                          data-parent="#accordion"
-                        >
+                        <div id="one" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <input
                               type="checkbox"
                               v-model="form.formation_en_ligne"
                             />
-                            oui/non
+                            oui
                           </div>
                         </div>
                       </div>
@@ -848,7 +855,7 @@
                             Combien d’heures :
                           </a>
                         </div>
-                        <div id="two" class="collapse" data-parent="#accordion">
+                        <div id="two" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <span>
                               <label class="accordion-hours"> 5H</label> :
@@ -877,11 +884,7 @@
                             Autres services :
                           </a>
                         </div>
-                        <div
-                          id="three"
-                          class="collapse"
-                          data-parent="#accordion"
-                        >
+                        <div id="three" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Traitement des listes
@@ -894,12 +897,14 @@
                               parents :
                               <span class="accordion-mony">50MAD/élèves</span>
                             </span>
-                            <span class="d-block other-service">
+                            <span
+                              class="d-block other-service no-border-bottom mb-0"
+                            >
                               <i class="fa fa-square"></i> Développements
                               Spécifiques:
                               <span class="accordion-mony">200MAD/Heure</span>
                             </span>
-                            <span class="d-block other-service">
+                            <span class="d-block other-service mt-0">
                               <i class="fa fa-square"></i>
                               (Facturation Sur Devis)
                             </span>
@@ -933,6 +938,66 @@
           </div>
         </div>
         <!-- end modal dialog -->
+          <!-- start modal dialog module de base-->
+        <div class="modal fade module-base" v-if="modalBaseStatus">
+          <div class="modal-shadow" @click="closeModalBase"></div>
+          <div class="modal-dialog" style="overflow-y: initial !important">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title">Les Modules De Base</h5>
+                <button type="button" class="close" @click="closeModalBase">
+                  <i class="fa fa-times-circle"></i>
+                </button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <!-- start modal fields  -->
+                <ul class="list-group module-base">
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 1</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 2</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 3</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 4</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 5</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 6</span>
+                  </li>
+                </ul>
+                <!-- start modal other information -->
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm"
+                  @click="closeModalBase"
+                >
+                  <i class="fa fa-times-circle"></i>
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end modal dialog module de base-->
       </div>
       <!-- start msg success  -->
       <div class="msg" v-if="msg != ''">
@@ -998,24 +1063,6 @@ $secand_color: #444;
         @media (max-width: 768px) {
           font-size: 22px;
           margin-top: 10px;
-        }
-        .langue-list {
-          position: absolute;
-          top: 0px;
-          right: 35px;
-          a {
-            color: #fff;
-            font-size: 15px;
-            font-weight: bold;
-            img {
-              border: 1px solid #fff;
-              padding: 3x;
-              background: #fff;
-              width: 30px !important;
-              height: 25px !important;
-              border-radius: 2px;
-            }
-          }
         }
       }
     }
@@ -1114,9 +1161,14 @@ $secand_color: #444;
                 color: $card_header_bg;
                 top: 13px;
               }
-            }
-            &.no-border-bottom {
-              border-bottom: none !important;
+              a.d-inline
+              {
+                  cursor:pointer;
+                  &:hover{
+                      color:#555;
+                    //   opacity:.9;
+                  }
+              }
             }
             &.total_price {
               padding: 0 !important;
@@ -1225,6 +1277,11 @@ $secand_color: #444;
         color: $card_header_title;
         padding: 5px 10px;
       }
+      .message {
+        span {
+          background: $card_centred;
+        }
+      }
       .modal-body {
         color: $card_header_bg;
         overflow-y: auto;
@@ -1232,6 +1289,17 @@ $secand_color: #444;
           text-transform: capitalize;
           color: $card_header_bg;
           color: #555;
+        }
+        .module-base {
+          li {
+            border: 1px solid #dc3545;
+            color: #dc3545 !important;
+            margin-bottom: 7px;
+            border-radius: 3px;
+            i {
+              color: #dc3545 !important;
+            }
+          }
         }
       }
       .modal-footer {
@@ -1244,6 +1312,22 @@ $secand_color: #444;
         &.user-icon {
           padding: 5px 15px;
         }
+      }
+    }
+  }
+
+  //   start modal de base
+  .modal.module-base {
+    border-color: #dc3545 !important;
+    .modal-content {
+      border-color: #dc3545 !important;
+      box-shadow: 0 0 6px 0px #dc3545 !important;
+      .modal-header {
+        background: #dc3545 !important;
+        border-color: #dc3545;
+      }
+      .modal-footer {
+        border-color: #dc3545;
       }
     }
   }
@@ -1350,6 +1434,10 @@ body {
   font-size: 16px;
   text-transform: capitalize;
 }
+
+.no-border-bottom {
+  border-bottom: none !important;
+}
 </style>
 
 <script>
@@ -1367,7 +1455,7 @@ export default {
         total_price: 0,
         nb_students: "",
         formation_en_ligne: false,
-        lang: "ar",
+        country: "Morocco",
         min_nbStudents: 1,
         max_nbStudents: 1,
         extraServices: []
@@ -1375,6 +1463,7 @@ export default {
       otherTarif: 70, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
       modalStatus: false,
+      modalBaseStatus: false,
       loadingStatus: true,
       msg: "",
       msgError: "",
@@ -1405,20 +1494,32 @@ export default {
     };
   },
   created() {
-    axios.get("/api/localisation").then(res => {
-      if(res.statusText=='OK'){
-          this.form.lang = res.data.localisation.geoplugin_countryName;
-          if(res.data.localisation.geoplugin_countryName !=="Morocco")
-          {
-              this.$router.push('/fr');
-          }
-      }
-    });
+    // axios.get("/api/localisation").then(res => {
+    //   if(res.statusText=='OK'){
+    //       this.form.country = res.data.localisation.geoplugin_countryName;
+    //       if(res.data.localisation.geoplugin_countryName !=="Morocco")
+    //       {
+    //           this.$router.push('/fr');
+    //       }
+    //   }
+    // });
     setTimeout(() => {
       this.loadingStatus = false;
     }, 1000);
   },
   methods: {
+    openModalBase() {
+      this.modalBaseStatus = true;
+      $("html, body").animate(
+        {
+          scrollTop: 0
+        },
+        100
+      );
+    },
+     closeModalBase() {
+      this.modalBaseStatus = false;
+    },
     closeModal() {
       this.form.reset(); // reset our inputs fields
       this.form.clear(); // clear our errors from filed

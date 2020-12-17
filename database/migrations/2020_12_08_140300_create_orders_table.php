@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->string('email');
-            $table->string('langue');
+            $table->string('pays');
             $table->integer('min_eleves');
             $table->integer('max_eleves');
             $table->integer('nombre_eleves');

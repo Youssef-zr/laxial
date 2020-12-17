@@ -2907,368 +2907,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3283,7 +2921,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         total_price: 0,
         nb_students: "",
         formation_en_ligne: false,
-        lang: "",
+        country: "France",
         min_nbStudents: 1,
         max_nbStudents: 1,
         extraServices: []
@@ -3292,6 +2930,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
       modalStatus: false,
+      modalBaseStatus: false,
       loadingStatus: true,
       msg: "",
       msgError: "",
@@ -3324,20 +2963,28 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   created: function created() {
     var _this = this;
 
-    axios.get("/api/localisation").then(function (res) {
-      if (res.statusText == "OK") {
-        _this.form.lang = res.data.localisation.geoplugin_countryName;
-
-        if (res.data.localisation.geoplugin_countryName === "Morocco") {
-          _this.$router.push("/");
-        }
-      }
-    });
+    // axios.get("/api/localisation").then(res => {
+    //   if (res.statusText == "OK") {
+    //       this.form.country = res.data.localisation.geoplugin_countryName;
+    //     if (res.data.localisation.geoplugin_countryName === "Morocco") {
+    //       this.$router.push("/");
+    //     }
+    //   }
+    // });b
     setTimeout(function () {
       _this.loadingStatus = false;
     }, 1000);
   },
   methods: {
+    openModalBase: function openModalBase() {
+      this.modalBaseStatus = true;
+      $("html, body").animate({
+        scrollTop: 0
+      }, 100);
+    },
+    closeModalBase: function closeModalBase() {
+      this.modalBaseStatus = false;
+    },
     closeModal: function closeModal() {
       this.form.reset(); // reset our inputs fields
 
@@ -4874,6 +4521,94 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4888,7 +4623,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         total_price: 0,
         nb_students: "",
         formation_en_ligne: false,
-        lang: "ar",
+        country: "Morocco",
         min_nbStudents: 1,
         max_nbStudents: 1,
         extraServices: []
@@ -4897,6 +4632,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
       modalStatus: false,
+      modalBaseStatus: false,
       loadingStatus: true,
       msg: "",
       msgError: "",
@@ -4929,20 +4665,29 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   created: function created() {
     var _this = this;
 
-    axios.get("/api/localisation").then(function (res) {
-      if (res.statusText == 'OK') {
-        _this.form.lang = res.data.localisation.geoplugin_countryName;
-
-        if (res.data.localisation.geoplugin_countryName !== "Morocco") {
-          _this.$router.push('/fr');
-        }
-      }
-    });
+    // axios.get("/api/localisation").then(res => {
+    //   if(res.statusText=='OK'){
+    //       this.form.country = res.data.localisation.geoplugin_countryName;
+    //       if(res.data.localisation.geoplugin_countryName !=="Morocco")
+    //       {
+    //           this.$router.push('/fr');
+    //       }
+    //   }
+    // });
     setTimeout(function () {
       _this.loadingStatus = false;
     }, 1000);
   },
   methods: {
+    openModalBase: function openModalBase() {
+      this.modalBaseStatus = true;
+      $("html, body").animate({
+        scrollTop: 0
+      }, 100);
+    },
+    closeModalBase: function closeModalBase() {
+      this.modalBaseStatus = false;
+    },
     closeModal: function closeModal() {
       this.form.reset(); // reset our inputs fields
 
@@ -5104,25 +4849,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".offers {\n  position: relative;\n  z-index: 2;\n}\n.offers .nav-tabs {\n  border-color: #51c1e1;\n}\n.offers .nav-tabs .nav-link {\n  background: transparent;\n  color: #51c1e1;\n}\n.offers .nav-tabs .nav-link:hover {\n  border-color: transparent;\n}\n.offers .nav-tabs .nav-link.active {\n  background: #51c1e1;\n  color: #fff;\n  border-color: transparent;\n  border-bottom-color: white;\n}\n.offers .offers-cards {\n  border: 2px solid #51c1e1;\n  border-radius: 10px;\n  overflow: hidden;\n  padding: 20px 15px;\n  position: relative;\n  background: #fff;\n}\n.offers .offers-cards .head {\n  color: #fff !important;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  padding: 15px 5px;\n  background: #51c1e1;\n}\n.offers .offers-cards .head h2 {\n  width: 90%;\n  margin-bottom: -40px;\n}\n@media (max-width: 768px) {\n.offers .offers-cards .head h2 {\n    font-size: 22px;\n    margin-top: 10px;\n}\n}\n.offers .offers-cards .head h2 .langue-list {\n  position: absolute;\n  top: 0px;\n  right: 35px;\n}\n.offers .offers-cards .head h2 .langue-list a {\n  color: #fff;\n  font-size: 15px;\n  font-weight: bold;\n}\n.offers .offers-cards .head h2 .langue-list a img {\n  border: 1px solid #fff;\n  padding: 3x;\n  background: #fff;\n  width: 30px !important;\n  height: 25px !important;\n  border-radius: 2px;\n}\n.offers .offers-cards .offer-card {\n  margin-top: 30px;\n  background: #fff;\n  border: 1px solid #51c1e1;\n  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);\n}\n.offers .offers-cards .offer-card .offer-header {\n  border-bottom: 1px dashed #444;\n}\n.offers .offers-cards .offer-card .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #51c1e1;\n  color: #fff;\n  font-size: 20px;\n  text-align: left;\n  margin-bottom: 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price {\n  background-color: white;\n  color: #333;\n  padding: 0px 5px 0px 35px;\n  font-family: Cambria, Cochin, Georgia, Times, \"Times New Roman\", serif;\n  font-weight: bold;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span.device {\n  text-align: left;\n  font-size: 27px;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #9bc31c !important;\n  display: block;\n  margin: 4px 0 -5px 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type {\n  display: block;\n  text-align: center;\n  margin-bottom: 10px;\n  font-size: 16px;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type label {\n  text-decoration: line-through;\n  color: #51c1e1;\n}\n.offers .offers-cards .offer-card .offer-body {\n  background: #fff;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item {\n  margin-bottom: 7px;\n  padding: 6px 4px 8px 8px;\n  border-bottom: 1px dashed #444;\n  font-size: 15px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n  position: relative;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item i,\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  position: absolute;\n  top: 10px;\n  left: 8px;\n  color: #51c1e1;\n  font-size: 16px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  top: 12px;\n  color: #444;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span {\n  display: block;\n  margin-left: 20px;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span label.price_color {\n  color: #51c1e1;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item:last-of-type {\n  border-bottom: none;\n  padding-bottom: 2px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra {\n  background: white;\n  border-top: 1px solid #51c1e1;\n  border-bottom: 1px solid #51c1e1;\n  font-weight: bold;\n  color: #51c1e1;\n  padding: 10px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra i {\n  color: #51c1e1;\n  top: 13px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.no-border-bottom {\n  border-bottom: none !important;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.total_price {\n  padding: 0 !important;\n  margin: 0 !important;\n  background: #51c1e1 !important;\n}\n.offers .offers-cards .offer-card .offer-footer h5 {\n  font-size: 14px;\n}\n.offers .offers-cards .offer-card .offer-footer .btn {\n  background: #51c1e1;\n  color: #fff;\n  border: none;\n  border-radius: 0 !important;\n  font-size: 16px;\n  font-weight: bold;\n  border-top: 1px solid #51c1e1;\n  transition: 0.2s;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-footer .btn:hover {\n  opacity: 0.9;\n}\n.offers .offer-card.offer-centred {\n  border: 1px solid #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-price span:last-of-type label {\n  color: #51c1e1;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item i:not(.card-centred) {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra {\n  color: #9bc31c !important;\n  border-color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra i {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item span label.price_color {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-footer .btn {\n  background: #9bc31c;\n  border-top: 1px solid #9bc31c;\n}\n.offers .modal {\n  opacity: 1;\n  display: block;\n  position: absolute;\n  height: 100%;\n}\n.offers .modal .modal-shadow {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background: rgba(0, 0, 0, 0.9);\n}\n.offers .modal .modal-content {\n  top: 50px;\n  border-width: 2px;\n  border-color: #51c1e1 !important;\n  box-shadow: 0 0 6px 0px #51c1e1 !important;\n  border-left-width: 4px;\n}\n.offers .modal .modal-content .modal-header {\n  background: #51c1e1 !important;\n  color: #fff;\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .modal-header button.close {\n  color: #fff;\n}\n.offers .modal .modal-content .badge-total-price {\n  background: #51c1e1 !important;\n  color: #fff;\n  padding: 5px 10px;\n}\n.offers .modal .modal-content .modal-body {\n  color: #51c1e1;\n  overflow-y: auto;\n}\n.offers .modal .modal-content .modal-body input {\n  text-transform: capitalize;\n  color: #51c1e1;\n  color: #555;\n}\n.offers .modal .modal-content .modal-footer {\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .icon-form {\n  background: #51c1e1;\n  padding: 5px 12px;\n}\n.offers .modal .modal-content .icon-form.user-icon {\n  padding: 5px 15px;\n}\n.offers .mycheckbox {\n  background: red;\n}\n.offers .invalid-feedback {\n  margin-left: 43px;\n}\nbody {\n  margin: 0 !important;\n  padding: 0 !important;\n  position: relative;\n}\n.ajax-icon {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100vh;\n  background: #fff;\n  z-index: 5885489;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.ajax-icon img {\n  width: 40px;\n  height: 40px;\n}\n@media (min-width: 996px) {\n.accordion-parent {\n    border-left: 1px solid #51c1e1;\n}\n}\n.accordion-parent #accordion {\n  border: none;\n}\n.accordion-parent #accordion .card {\n  margin-bottom: 3px;\n  border-radius: 0 !important;\n  border: none;\n}\n.accordion-parent #accordion .card .card-header {\n  text-transform: capitalize;\n  padding: 0;\n  background: #51c1e1;\n  color: #fff !important;\n}\n.accordion-parent #accordion .card .card-header .card-link {\n  font-size: 15px;\n  padding: 12px 5px;\n  color: inherit;\n  display: block;\n}\n.accordion-parent #accordion .card .card-body {\n  border-left: 1px solid #51c1e1 !important;\n  border-right: 1px solid #51c1e1 !important;\n  border-bottom: 1px solid #51c1e1 !important;\n  padding: 10px 8px;\n  color: #666;\n  margin-bottom: 3px;\n}\n.accordion-parent #accordion .card .card-body .other-service {\n  margin-bottom: 5px;\n  padding-bottom: 5px;\n  border-bottom: 1px dotted #51c1e1;\n}\n.accordion-parent #accordion .card .card-body .other-service:last-of-type {\n  border-bottom: none;\n  padding-bottom: none;\n  margin-bottom: none;\n}\n.accordion-parent #accordion .card .card-body .other-service .fa-square {\n  font-size: 13px;\n  color: #51c1e1;\n}\n.accordion-parent #accordion .card .card-body .accordion-mony {\n  color: #51c1e1;\n  font-weight: bolder;\n  font-size: 14px;\n}\n.accordion-parent #accordion .card .card-body .accordion-hours {\n  font-size: 15px;\n  font-weight: bold;\n  color: #777;\n}\n.msg {\n  position: fixed;\n  top: 5px;\n  right: 5px;\n  background: #9bc31c;\n  color: #fff;\n  z-index: 12455555;\n  padding: 8px 15px 0;\n  font-size: 16px;\n  text-transform: capitalize;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/maroc.vue?vue&type=style&index=0&lang=scss&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/maroc.vue?vue&type=style&index=0&lang=scss& ***!
@@ -5135,7 +4861,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".offers {\n  position: relative;\n  z-index: 2;\n}\n.offers .nav-tabs {\n  border-color: #51c1e1;\n}\n.offers .nav-tabs .nav-link {\n  background: transparent;\n  color: #51c1e1;\n}\n.offers .nav-tabs .nav-link:hover {\n  border-color: transparent;\n}\n.offers .nav-tabs .nav-link.active {\n  background: #51c1e1;\n  color: #fff;\n  border-color: transparent;\n  border-bottom-color: white;\n}\n.offers .offers-cards {\n  border: 2px solid #51c1e1;\n  border-radius: 10px;\n  overflow: hidden;\n  padding: 20px 15px;\n  position: relative;\n  background: #fff;\n}\n.offers .offers-cards .head {\n  color: #fff !important;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  padding: 15px 5px;\n  background: #51c1e1;\n}\n.offers .offers-cards .head h2 {\n  width: 90%;\n  margin-bottom: -40px;\n}\n@media (max-width: 768px) {\n.offers .offers-cards .head h2 {\n    font-size: 22px;\n    margin-top: 10px;\n}\n}\n.offers .offers-cards .head h2 .langue-list {\n  position: absolute;\n  top: 0px;\n  right: 35px;\n}\n.offers .offers-cards .head h2 .langue-list a {\n  color: #fff;\n  font-size: 15px;\n  font-weight: bold;\n}\n.offers .offers-cards .head h2 .langue-list a img {\n  border: 1px solid #fff;\n  padding: 3x;\n  background: #fff;\n  width: 30px !important;\n  height: 25px !important;\n  border-radius: 2px;\n}\n.offers .offers-cards .offer-card {\n  margin-top: 30px;\n  background: #fff;\n  border: 1px solid #51c1e1;\n  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);\n}\n.offers .offers-cards .offer-card .offer-header {\n  border-bottom: 1px dashed #444;\n}\n.offers .offers-cards .offer-card .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #51c1e1;\n  color: #fff;\n  font-size: 20px;\n  text-align: left;\n  margin-bottom: 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price {\n  background-color: white;\n  color: #333;\n  padding: 0px 5px 0px 35px;\n  font-family: Cambria, Cochin, Georgia, Times, \"Times New Roman\", serif;\n  font-weight: bold;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span.device {\n  text-align: left;\n  font-size: 27px;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #9bc31c !important;\n  display: block;\n  margin: 4px 0 -5px 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type {\n  display: block;\n  text-align: center;\n  margin-bottom: 10px;\n  font-size: 16px;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type label {\n  text-decoration: line-through;\n  color: #51c1e1;\n}\n.offers .offers-cards .offer-card .offer-body {\n  background: #fff;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item {\n  margin-bottom: 7px;\n  padding: 6px 4px 8px 8px;\n  border-bottom: 1px dashed #444;\n  font-size: 15px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n  position: relative;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item i,\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  position: absolute;\n  top: 10px;\n  left: 8px;\n  color: #51c1e1;\n  font-size: 16px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  top: 12px;\n  color: #444;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span {\n  display: block;\n  margin-left: 20px;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span label.price_color {\n  color: #51c1e1;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item:last-of-type {\n  border-bottom: none;\n  padding-bottom: 2px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra {\n  background: white;\n  border-top: 1px solid #51c1e1;\n  border-bottom: 1px solid #51c1e1;\n  font-weight: bold;\n  color: #51c1e1;\n  padding: 10px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra i {\n  color: #51c1e1;\n  top: 13px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.no-border-bottom {\n  border-bottom: none !important;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.total_price {\n  padding: 0 !important;\n  margin: 0 !important;\n  background: #51c1e1 !important;\n}\n.offers .offers-cards .offer-card .offer-footer h5 {\n  font-size: 14px;\n}\n.offers .offers-cards .offer-card .offer-footer .btn {\n  background: #51c1e1;\n  color: #fff;\n  border: none;\n  border-radius: 0 !important;\n  font-size: 16px;\n  font-weight: bold;\n  border-top: 1px solid #51c1e1;\n  transition: 0.2s;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-footer .btn:hover {\n  opacity: 0.9;\n}\n.offers .offer-card.offer-centred {\n  border: 1px solid #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-price span:last-of-type label {\n  color: #51c1e1;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item i:not(.card-centred) {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra {\n  color: #9bc31c !important;\n  border-color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra i {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item span label.price_color {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-footer .btn {\n  background: #9bc31c;\n  border-top: 1px solid #9bc31c;\n}\n.offers .modal {\n  opacity: 1;\n  display: block;\n  position: absolute;\n  height: 100%;\n}\n.offers .modal .modal-shadow {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background: rgba(0, 0, 0, 0.9);\n}\n.offers .modal .modal-content {\n  top: 50px;\n  border-width: 2px;\n  border-color: #51c1e1 !important;\n  box-shadow: 0 0 6px 0px #51c1e1 !important;\n  border-left-width: 4px;\n}\n.offers .modal .modal-content .modal-header {\n  background: #51c1e1 !important;\n  color: #fff;\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .modal-header button.close {\n  color: #fff;\n}\n.offers .modal .modal-content .badge-total-price {\n  background: #51c1e1 !important;\n  color: #fff;\n  padding: 5px 10px;\n}\n.offers .modal .modal-content .modal-body {\n  color: #51c1e1;\n  overflow-y: auto;\n}\n.offers .modal .modal-content .modal-body input {\n  text-transform: capitalize;\n  color: #51c1e1;\n  color: #555;\n}\n.offers .modal .modal-content .modal-footer {\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .icon-form {\n  background: #51c1e1;\n  padding: 5px 12px;\n}\n.offers .modal .modal-content .icon-form.user-icon {\n  padding: 5px 15px;\n}\n.offers .mycheckbox {\n  background: red;\n}\n.offers .invalid-feedback {\n  margin-left: 43px;\n}\nbody {\n  margin: 0 !important;\n  padding: 0 !important;\n  position: relative;\n}\n.ajax-icon {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100vh;\n  background: #fff;\n  z-index: 5885489;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.ajax-icon img {\n  width: 40px;\n  height: 40px;\n}\n@media (min-width: 996px) {\n.accordion-parent {\n    border-left: 1px solid #51c1e1;\n}\n}\n.accordion-parent #accordion {\n  border: none;\n}\n.accordion-parent #accordion .card {\n  margin-bottom: 3px;\n  border-radius: 0 !important;\n  border: none;\n}\n.accordion-parent #accordion .card .card-header {\n  text-transform: capitalize;\n  padding: 0;\n  background: #51c1e1;\n  color: #fff !important;\n}\n.accordion-parent #accordion .card .card-header .card-link {\n  font-size: 15px;\n  padding: 12px 5px;\n  color: inherit;\n  display: block;\n}\n.accordion-parent #accordion .card .card-body {\n  border-left: 1px solid #51c1e1 !important;\n  border-right: 1px solid #51c1e1 !important;\n  border-bottom: 1px solid #51c1e1 !important;\n  padding: 10px 8px;\n  color: #666;\n  margin-bottom: 3px;\n}\n.accordion-parent #accordion .card .card-body .other-service {\n  margin-bottom: 5px;\n  padding-bottom: 5px;\n  border-bottom: 1px dotted #51c1e1;\n}\n.accordion-parent #accordion .card .card-body .other-service:last-of-type {\n  border-bottom: none;\n  padding-bottom: none;\n  margin-bottom: none;\n}\n.accordion-parent #accordion .card .card-body .other-service .fa-square {\n  font-size: 13px;\n  color: #51c1e1;\n}\n.accordion-parent #accordion .card .card-body .accordion-mony {\n  color: #51c1e1;\n  font-weight: bolder;\n  font-size: 14px;\n}\n.accordion-parent #accordion .card .card-body .accordion-hours {\n  font-size: 15px;\n  font-weight: bold;\n  color: #777;\n}\n.msg {\n  position: fixed;\n  top: 5px;\n  right: 5px;\n  background: #9bc31c;\n  color: #fff;\n  z-index: 12455555;\n  padding: 8px 15px 0;\n  font-size: 16px;\n  text-transform: capitalize;\n}", ""]);
+exports.push([module.i, ".offers {\n  position: relative;\n  z-index: 2;\n}\n.offers .nav-tabs {\n  border-color: #51c1e1;\n}\n.offers .nav-tabs .nav-link {\n  background: transparent;\n  color: #51c1e1;\n}\n.offers .nav-tabs .nav-link:hover {\n  border-color: transparent;\n}\n.offers .nav-tabs .nav-link.active {\n  background: #51c1e1;\n  color: #fff;\n  border-color: transparent;\n  border-bottom-color: white;\n}\n.offers .offers-cards {\n  border: 2px solid #51c1e1;\n  border-radius: 10px;\n  overflow: hidden;\n  padding: 20px 15px;\n  position: relative;\n  background: #fff;\n}\n.offers .offers-cards .head {\n  color: #fff !important;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  padding: 15px 5px;\n  background: #51c1e1;\n}\n.offers .offers-cards .head h2 {\n  width: 90%;\n  margin-bottom: -40px;\n}\n@media (max-width: 768px) {\n.offers .offers-cards .head h2 {\n    font-size: 22px;\n    margin-top: 10px;\n}\n}\n.offers .offers-cards .offer-card {\n  margin-top: 30px;\n  background: #fff;\n  border: 1px solid #51c1e1;\n  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);\n}\n.offers .offers-cards .offer-card .offer-header {\n  border-bottom: 1px dashed #444;\n}\n.offers .offers-cards .offer-card .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #51c1e1;\n  color: #fff;\n  font-size: 20px;\n  text-align: left;\n  margin-bottom: 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price {\n  background-color: white;\n  color: #333;\n  padding: 0px 5px 0px 35px;\n  font-family: Cambria, Cochin, Georgia, Times, \"Times New Roman\", serif;\n  font-weight: bold;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span.device {\n  text-align: left;\n  font-size: 27px;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #9bc31c !important;\n  display: block;\n  margin: 4px 0 -5px 0;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type {\n  display: block;\n  text-align: center;\n  margin-bottom: 10px;\n  font-size: 16px;\n}\n.offers .offers-cards .offer-card .offer-header .offer-price span:last-of-type label {\n  text-decoration: line-through;\n  color: #51c1e1;\n}\n.offers .offers-cards .offer-card .offer-body {\n  background: #fff;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item {\n  margin-bottom: 7px;\n  padding: 6px 4px 8px 8px;\n  border-bottom: 1px dashed #444;\n  font-size: 15px;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif;\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n  position: relative;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item i,\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  position: absolute;\n  top: 10px;\n  left: 8px;\n  color: #51c1e1;\n  font-size: 16px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item .checkbox {\n  top: 12px;\n  color: #444;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span {\n  display: block;\n  margin-left: 20px;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item span label.price_color {\n  color: #51c1e1;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item:last-of-type {\n  border-bottom: none;\n  padding-bottom: 2px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra {\n  background: white;\n  border-top: 1px solid #51c1e1;\n  border-bottom: 1px solid #51c1e1;\n  font-weight: bold;\n  color: #51c1e1;\n  padding: 10px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra i {\n  color: #51c1e1;\n  top: 13px;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra a.d-inline {\n  cursor: pointer;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.extra a.d-inline:hover {\n  color: #555;\n}\n.offers .offers-cards .offer-card .offer-body .offer-list .offer-list-item.total_price {\n  padding: 0 !important;\n  margin: 0 !important;\n  background: #51c1e1 !important;\n}\n.offers .offers-cards .offer-card .offer-footer h5 {\n  font-size: 14px;\n}\n.offers .offers-cards .offer-card .offer-footer .btn {\n  background: #51c1e1;\n  color: #fff;\n  border: none;\n  border-radius: 0 !important;\n  font-size: 16px;\n  font-weight: bold;\n  border-top: 1px solid #51c1e1;\n  transition: 0.2s;\n  text-transform: capitalize;\n}\n.offers .offers-cards .offer-card .offer-footer .btn:hover {\n  opacity: 0.9;\n}\n.offers .offer-card.offer-centred {\n  border: 1px solid #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-title {\n  padding: 15px 5px 15px 35px;\n  background: #9bc31c;\n}\n.offers .offer-card.offer-centred .offer-header .offer-price span:last-of-type label {\n  color: #51c1e1;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item i:not(.card-centred) {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra {\n  color: #9bc31c !important;\n  border-color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item.extra i {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-list .offer-list-item span label.price_color {\n  color: #9bc31c !important;\n}\n.offers .offer-card.offer-centred .offer-footer .btn {\n  background: #9bc31c;\n  border-top: 1px solid #9bc31c;\n}\n.offers .modal {\n  opacity: 1;\n  display: block;\n  position: absolute;\n  height: 100%;\n}\n.offers .modal .modal-shadow {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background: rgba(0, 0, 0, 0.9);\n}\n.offers .modal .modal-content {\n  top: 50px;\n  border-width: 2px;\n  border-color: #51c1e1 !important;\n  box-shadow: 0 0 6px 0px #51c1e1 !important;\n  border-left-width: 4px;\n}\n.offers .modal .modal-content .modal-header {\n  background: #51c1e1 !important;\n  color: #fff;\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .modal-header button.close {\n  color: #fff;\n}\n.offers .modal .modal-content .badge-total-price {\n  background: #51c1e1 !important;\n  color: #fff;\n  padding: 5px 10px;\n}\n.offers .modal .modal-content .message span {\n  background: #9bc31c;\n}\n.offers .modal .modal-content .modal-body {\n  color: #51c1e1;\n  overflow-y: auto;\n}\n.offers .modal .modal-content .modal-body input {\n  text-transform: capitalize;\n  color: #51c1e1;\n  color: #555;\n}\n.offers .modal .modal-content .modal-body .module-base li {\n  border: 1px solid #dc3545;\n  color: #dc3545 !important;\n  margin-bottom: 7px;\n  border-radius: 3px;\n}\n.offers .modal .modal-content .modal-body .module-base li i {\n  color: #dc3545 !important;\n}\n.offers .modal .modal-content .modal-footer {\n  border-color: #51c1e1;\n}\n.offers .modal .modal-content .icon-form {\n  background: #51c1e1;\n  padding: 5px 12px;\n}\n.offers .modal .modal-content .icon-form.user-icon {\n  padding: 5px 15px;\n}\n.offers .modal.module-base {\n  border-color: #dc3545 !important;\n}\n.offers .modal.module-base .modal-content {\n  border-color: #dc3545 !important;\n  box-shadow: 0 0 6px 0px #dc3545 !important;\n}\n.offers .modal.module-base .modal-content .modal-header {\n  background: #dc3545 !important;\n  border-color: #dc3545;\n}\n.offers .modal.module-base .modal-content .modal-footer {\n  border-color: #dc3545;\n}\n.offers .mycheckbox {\n  background: red;\n}\n.offers .invalid-feedback {\n  margin-left: 43px;\n}\nbody {\n  margin: 0 !important;\n  padding: 0 !important;\n  position: relative;\n}\n.ajax-icon {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100vh;\n  background: #fff;\n  z-index: 5885489;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.ajax-icon img {\n  width: 40px;\n  height: 40px;\n}\n@media (min-width: 996px) {\n.accordion-parent {\n    border-left: 1px solid #51c1e1;\n}\n}\n.accordion-parent #accordion {\n  border: none;\n}\n.accordion-parent #accordion .card {\n  margin-bottom: 3px;\n  border-radius: 0 !important;\n  border: none;\n}\n.accordion-parent #accordion .card .card-header {\n  text-transform: capitalize;\n  padding: 0;\n  background: #51c1e1;\n  color: #fff !important;\n}\n.accordion-parent #accordion .card .card-header .card-link {\n  font-size: 15px;\n  padding: 12px 5px;\n  color: inherit;\n  display: block;\n}\n.accordion-parent #accordion .card .card-body {\n  border-left: 1px solid #51c1e1 !important;\n  border-right: 1px solid #51c1e1 !important;\n  border-bottom: 1px solid #51c1e1 !important;\n  padding: 10px 8px;\n  color: #666;\n  margin-bottom: 3px;\n}\n.accordion-parent #accordion .card .card-body .other-service {\n  margin-bottom: 5px;\n  padding-bottom: 5px;\n  border-bottom: 1px dotted #51c1e1;\n}\n.accordion-parent #accordion .card .card-body .other-service:last-of-type {\n  border-bottom: none;\n  padding-bottom: none;\n  margin-bottom: none;\n}\n.accordion-parent #accordion .card .card-body .other-service .fa-square {\n  font-size: 13px;\n  color: #51c1e1;\n}\n.accordion-parent #accordion .card .card-body .accordion-mony {\n  color: #51c1e1;\n  font-weight: bolder;\n  font-size: 14px;\n}\n.accordion-parent #accordion .card .card-body .accordion-hours {\n  font-size: 15px;\n  font-weight: bold;\n  color: #777;\n}\n.msg {\n  position: fixed;\n  top: 5px;\n  right: 5px;\n  background: #9bc31c;\n  color: #fff;\n  z-index: 12455555;\n  padding: 8px 15px 0;\n  font-size: 16px;\n  text-transform: capitalize;\n}\n.no-border-bottom {\n  border-bottom: none !important;\n}", ""]);
 
 // exports
 
@@ -25062,36 +24788,6 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./euro.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/maroc.vue?vue&type=style&index=0&lang=scss&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/maroc.vue?vue&type=style&index=0&lang=scss& ***!
@@ -29877,41 +29573,15 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "offers-cards my-0" }, [
-          _c("div", { staticClass: "head" }, [
-            _c("h2", { staticClass: "mb-2 text-capitalize text-center" }, [
-              _c("i", {
-                staticClass: "fa fa-thumb-tack",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v(" Choisissez\n            votre plan\n            "),
-              _c(
-                "span",
-                { staticClass: "float-right langue-list" },
-                [
-                  _c("router-link", { attrs: { to: "/" } }, [
-                    _c("img", {
-                      attrs: { src: "/images/maroc.jpg", alt: "maroc" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("router-link", { attrs: { to: "/fr" } }, [
-                    _c("img", {
-                      attrs: { src: "/images/auro.jpg", alt: "Euro" }
-                    })
-                  ])
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
           _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "tab-content pt-3" }, [
             _c(
               "div",
               {
-                staticClass: "container tab-pane active",
+                staticClass: "container tab-pane fade",
                 attrs: { id: "menu1" }
               },
               [
@@ -29921,15 +29591,13 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(1),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-body" }, [
                           _c(
                             "ul",
                             { staticClass: "offer-list list-unstyled" },
                             [
-                              _vm._m(2),
-                              _vm._v(" "),
                               _vm._m(3),
                               _vm._v(" "),
                               _vm._m(4),
@@ -29939,6 +29607,8 @@ var render = function() {
                               _vm._m(6),
                               _vm._v(" "),
                               _vm._m(7),
+                              _vm._v(" "),
+                              _vm._m(8),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
                                 _c("input", {
@@ -30001,7 +29671,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(8)
+                                _vm._m(9)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30065,7 +29735,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(9)
+                                _vm._m(10)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30129,7 +29799,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(10)
+                                _vm._m(11)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30193,7 +29863,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(11)
+                                _vm._m(12)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30257,7 +29927,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(12)
+                                _vm._m(13)
                               ])
                             ]
                           )
@@ -30315,15 +29985,13 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card offer-centred" }, [
-                        _vm._m(13),
+                        _vm._m(14),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-body" }, [
                           _c(
                             "ul",
                             { staticClass: "offer-list list-unstyled" },
                             [
-                              _vm._m(14),
-                              _vm._v(" "),
                               _vm._m(15),
                               _vm._v(" "),
                               _vm._m(16),
@@ -30333,6 +30001,8 @@ var render = function() {
                               _vm._m(18),
                               _vm._v(" "),
                               _vm._m(19),
+                              _vm._v(" "),
+                              _vm._m(20),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
                                 _c("input", {
@@ -30395,7 +30065,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(20)
+                                _vm._m(21)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30459,7 +30129,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(21)
+                                _vm._m(22)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30523,7 +30193,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(22)
+                                _vm._m(23)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30587,7 +30257,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(23)
+                                _vm._m(24)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30651,7 +30321,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(24)
+                                _vm._m(25)
                               ])
                             ]
                           )
@@ -30709,15 +30379,13 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(25),
+                        _vm._m(26),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-body" }, [
                           _c(
                             "ul",
                             { staticClass: "offer-list list-unstyled" },
                             [
-                              _vm._m(26),
-                              _vm._v(" "),
                               _vm._m(27),
                               _vm._v(" "),
                               _vm._m(28),
@@ -30727,6 +30395,8 @@ var render = function() {
                               _vm._m(30),
                               _vm._v(" "),
                               _vm._m(31),
+                              _vm._v(" "),
+                              _vm._m(32),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
                                 _c("input", {
@@ -30791,7 +30461,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(32)
+                                _vm._m(33)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30857,7 +30527,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(33)
+                                _vm._m(34)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30923,7 +30593,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(34)
+                                _vm._m(35)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -30989,7 +30659,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(35)
+                                _vm._m(36)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -31055,7 +30725,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(36)
+                                _vm._m(37)
                               ])
                             ]
                           )
@@ -31114,7 +30784,7 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "container tab-pane fade",
+                staticClass: "container tab-pane active",
                 attrs: { id: "menu2" }
               },
               [
@@ -31124,9 +30794,53 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(37),
-                        _vm._v(" "),
                         _vm._m(38),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "offer-body" }, [
+                          _c(
+                            "ul",
+                            { staticClass: "offer-list list-unstyled" },
+                            [
+                              _c(
+                                "li",
+                                { staticClass: "offer-list-item extra" },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-chevron-circle-right"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "d-inline" }, [
+                                    _vm._v(" module de base ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "d-inline ml-0",
+                                      attrs: { title: "modules de base" },
+                                      on: { click: _vm.openModalBase }
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass:
+                                          "d-inline fa fa-eye fa-fw ml-2",
+                                        staticStyle: { "font-size": "16px" }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(39),
+                              _vm._v(" "),
+                              _vm._m(40),
+                              _vm._v(" "),
+                              _vm._m(41),
+                              _vm._v(" "),
+                              _vm._m(42)
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-footer" }, [
                           _c(
@@ -31180,9 +30894,53 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card offer-centred" }, [
-                        _vm._m(39),
+                        _vm._m(43),
                         _vm._v(" "),
-                        _vm._m(40),
+                        _c("div", { staticClass: "offer-body" }, [
+                          _c(
+                            "ul",
+                            { staticClass: "offer-list list-unstyled" },
+                            [
+                              _c(
+                                "li",
+                                { staticClass: "offer-list-item extra" },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-chevron-circle-right"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "d-inline" }, [
+                                    _vm._v(" module de base ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "d-inline ml-0",
+                                      attrs: { title: "modules de base" },
+                                      on: { click: _vm.openModalBase }
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass:
+                                          "d-inline fa fa-eye fa-fw ml-2",
+                                        staticStyle: { "font-size": "16px" }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(44),
+                              _vm._v(" "),
+                              _vm._m(45),
+                              _vm._v(" "),
+                              _vm._m(46),
+                              _vm._v(" "),
+                              _vm._m(47)
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-footer" }, [
                           _c(
@@ -31236,9 +30994,53 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(41),
+                        _vm._m(48),
                         _vm._v(" "),
-                        _vm._m(42),
+                        _c("div", { staticClass: "offer-body" }, [
+                          _c(
+                            "ul",
+                            { staticClass: "offer-list list-unstyled" },
+                            [
+                              _c(
+                                "li",
+                                { staticClass: "offer-list-item extra" },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-chevron-circle-right"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "d-inline" }, [
+                                    _vm._v(" module de base ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "d-inline ml-0",
+                                      attrs: { title: "modules de base" },
+                                      on: { click: _vm.openModalBase }
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass:
+                                          "d-inline fa fa-eye fa-fw ml-2",
+                                        staticStyle: { "font-size": "16px" }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(49),
+                              _vm._v(" "),
+                              _vm._m(50),
+                              _vm._v(" "),
+                              _vm._m(51),
+                              _vm._v(" "),
+                              _vm._m(52)
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-footer" }, [
                           _c(
@@ -31326,7 +31128,7 @@ var render = function() {
                     _c("div", { staticClass: "modal-body" }, [
                       _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "col-lg-6" }, [
-                          _vm._m(43),
+                          _vm._m(53),
                           _vm._v(" "),
                           _c(
                             "form",
@@ -31336,7 +31138,7 @@ var render = function() {
                                 "div",
                                 { staticClass: "input-group mb-3" },
                                 [
-                                  _vm._m(44),
+                                  _vm._m(54),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -31386,7 +31188,7 @@ var render = function() {
                                 "div",
                                 { staticClass: "input-group mb-3" },
                                 [
-                                  _vm._m(45),
+                                  _vm._m(55),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -31438,7 +31240,7 @@ var render = function() {
                                   staticClass: "input-group mb-3 price_parent"
                                 },
                                 [
-                                  _vm._m(46),
+                                  _vm._m(56),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -31520,7 +31322,9 @@ var render = function() {
                                     " ‎€\n                    "
                                 )
                               ]
-                            )
+                            ),
+                            _vm._v(" "),
+                            _vm._m(57)
                           ])
                         ]),
                         _vm._v(" "),
@@ -31530,12 +31334,12 @@ var render = function() {
                           [
                             _c("div", { attrs: { id: "accordion" } }, [
                               _c("div", { staticClass: "card" }, [
-                                _vm._m(47),
+                                _vm._m(58),
                                 _vm._v(" "),
                                 _c(
                                   "div",
                                   {
-                                    staticClass: "collapse show",
+                                    staticClass: "show",
                                     attrs: {
                                       id: "one",
                                       "data-parent": "#accordion"
@@ -31603,16 +31407,16 @@ var render = function() {
                                         }
                                       }),
                                       _vm._v(
-                                        "\n                          oui/non\n                        "
+                                        "\n                          oui\n                        "
                                       )
                                     ])
                                   ]
                                 )
                               ]),
                               _vm._v(" "),
-                              _vm._m(48),
+                              _vm._m(59),
                               _vm._v(" "),
-                              _vm._m(49)
+                              _vm._m(60)
                             ])
                           ]
                         )
@@ -31652,6 +31456,59 @@ var render = function() {
                 ]
               )
             ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.modalBaseStatus
+          ? _c("div", { staticClass: "modal fade module-base" }, [
+              _c("div", {
+                staticClass: "modal-shadow",
+                on: { click: _vm.closeModalBase }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "modal-dialog",
+                  staticStyle: { "overflow-y": "initial !important" }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _c("div", { staticClass: "modal-header" }, [
+                      _c("h5", { staticClass: "modal-title" }, [
+                        _vm._v("Les Modules De Base")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "close",
+                          attrs: { type: "button" },
+                          on: { click: _vm.closeModalBase }
+                        },
+                        [_c("i", { staticClass: "fa fa-times-circle" })]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(61),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger btn-sm",
+                          attrs: { type: "button" },
+                          on: { click: _vm.closeModalBase }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-times-circle" }),
+                          _vm._v("\n                Fermer\n              ")
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ])
           : _vm._e()
       ]),
       _vm._v(" "),
@@ -31674,6 +31531,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "head" }, [
+      _c("h2", { staticClass: "mb-2 text-capitalize text-center" }, [
+        _c("i", {
+          staticClass: "fa fa-thumb-tack",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" Choisissez\n            votre plan\n          ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "ul",
       { staticClass: "nav nav-tabs mt-5 pt-5", attrs: { role: "tablist" } },
@@ -31682,7 +31553,7 @@ var staticRenderFns = [
           _c(
             "a",
             {
-              staticClass: "nav-link active",
+              staticClass: "nav-link",
               attrs: { "data-toggle": "tab", href: "#menu1" }
             },
             [
@@ -31690,7 +31561,7 @@ var staticRenderFns = [
                 staticClass: "fa fa-star-half-o",
                 attrs: { "aria-hidden": "true" }
               }),
-              _vm._v(" Basique")
+              _vm._v(" Version Basique")
             ]
           )
         ]),
@@ -31699,10 +31570,13 @@ var staticRenderFns = [
           _c(
             "a",
             {
-              staticClass: "nav-link",
+              staticClass: "nav-link active",
               attrs: { "data-toggle": "tab", href: "#menu2" }
             },
-            [_c("i", { staticClass: "fa fa-star" }), _vm._v(" Complète")]
+            [
+              _c("i", { staticClass: "fa fa-star" }),
+              _vm._v(" Version Complète")
+            ]
           )
         ])
       ]
@@ -32190,47 +32064,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-body" }, [
-      _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item extra" }, [
-          _c("i", { staticClass: "fa fa-external-link-square" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" réduction de 10%")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" module de base ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("tous les modules offerts. ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("Portail Professeur Offert")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "\n                          Maintenance Annulle Comprise (720€/An) comprise\n                        "
-            )
-          ])
-        ])
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("tous les modules offerts. ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Portail Professeur Offert")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "\n                          Maintenance Annulle Comprise (720€/An) comprise\n                        "
+        )
       ])
     ])
   },
@@ -32254,47 +32124,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-body" }, [
-      _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item extra" }, [
-          _c("i", { staticClass: "fa fa-external-link-square" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" réduction de 10%")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" module de base ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("tous les modules offerts. ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("Portail Professeur Offert")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "\n                          Maintenance Annulle Comprise (810€/an) comprise\n                        "
-            )
-          ])
-        ])
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("tous les modules offerts. ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Portail Professeur Offert")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "\n                          Maintenance Annulle Comprise (810€/an) comprise\n                        "
+        )
       ])
     ])
   },
@@ -32319,47 +32185,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-body" }, [
-      _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item extra" }, [
-          _c("i", { staticClass: "fa fa-external-link-square" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" réduction de 10%")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" module de base ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("tous les modules offerts. ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("Portail Professeur Offert")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "\n                          Maintenance Annulle Comprise (945€/an) comprise\n                        "
-            )
-          ])
-        ])
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("tous les modules offerts. ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Portail Professeur Offert")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "\n                          Maintenance Annulle Comprise (945€/an) comprise\n                        "
+        )
       ])
     ])
   },
@@ -32413,6 +32275,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "message" }, [
+      _c(
+        "span",
+        { staticClass: "d-block text-white p-2 display-5 mt-2 rounded" },
+        [_vm._v("taper un message ici")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c(
         "a",
@@ -32459,7 +32333,7 @@ var staticRenderFns = [
       _c(
         "div",
         {
-          staticClass: "collapse",
+          staticClass: "show",
           attrs: { id: "two", "data-parent": "#accordion" }
         },
         [
@@ -32476,7 +32350,7 @@ var staticRenderFns = [
               _c("span", { staticClass: "accordion-hours" }, [_vm._v("5H")]),
               _vm._v(" :\n                            "),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("25‎€ / Heure")
+                _vm._v("250MAD / Heure")
               ]),
               _vm._v(
                 "\n                            (Facturation Sur Devis)\n                          "
@@ -32514,7 +32388,7 @@ var staticRenderFns = [
       _c(
         "div",
         {
-          staticClass: "collapse",
+          staticClass: "show",
           attrs: { id: "three", "data-parent": "#accordion" }
         },
         [
@@ -32525,7 +32399,7 @@ var staticRenderFns = [
                 " Traitement des listes\n                            et injections de données :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("2‎€/élève")
+                _vm._v("20MAD/élève")
               ])
             ]),
             _vm._v(" "),
@@ -32535,21 +32409,25 @@ var staticRenderFns = [
                 " Version mobile\n                            (Android iOS) ainsi que les portails élèves et\n                            parents :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("5‎€/élèves")
+                _vm._v("50MAD/élèves")
               ])
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "d-block other-service" }, [
-              _c("i", { staticClass: "fa fa-square" }),
-              _vm._v(
-                " Développements\n                            Spécifiques:\n                            "
-              ),
-              _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("20‎€/Heure")
-              ])
-            ]),
+            _c(
+              "span",
+              { staticClass: "d-block other-service no-border-bottom mb-0" },
+              [
+                _c("i", { staticClass: "fa fa-square" }),
+                _vm._v(
+                  " Développements\n                            Spécifiques:\n                            "
+                ),
+                _c("span", { staticClass: "accordion-mony" }, [
+                  _vm._v("200MAD/Heure")
+                ])
+              ]
+            ),
             _vm._v(" "),
-            _c("span", { staticClass: "d-block other-service" }, [
+            _c("span", { staticClass: "d-block other-service mt-0" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
                 "\n                            (Facturation Sur Devis)\n                          "
@@ -32558,6 +32436,50 @@ var staticRenderFns = [
           ])
         ]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("ul", { staticClass: "list-group module-base" }, [
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 1")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 2")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 3")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 4")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 5")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 6")])
+        ])
+      ])
     ])
   }
 ]
@@ -32600,46 +32522,18 @@ var render = function() {
             1
           )
         : _vm._e(),
-      _vm._v(
-        '\n    import { BreedingRhombusSpinner } from "epic-spinners";\n  BreedingRhombusSpinner\n\n    '
-      ),
+      _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "offers-cards my-0" }, [
-          _c("div", { staticClass: "head" }, [
-            _c("h2", { staticClass: "mb-2 text-capitalize text-center" }, [
-              _c("i", {
-                staticClass: "fa fa-thumb-tack",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v(" Choisissez\n            votre plan\n            "),
-              _c(
-                "span",
-                { staticClass: "float-right langue-list" },
-                [
-                  _c("router-link", { attrs: { to: "/" } }, [
-                    _c("img", {
-                      attrs: { src: "/images/maroc.jpg", alt: "maroc" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("router-link", { attrs: { to: "/fr" } }, [
-                    _c("img", {
-                      attrs: { src: "/images/auro.jpg", alt: "euro" }
-                    })
-                  ])
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
           _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "tab-content pt-3" }, [
             _c(
               "div",
               {
-                staticClass: "container tab-pane active",
+                staticClass: "container tab-pane fade",
                 attrs: { id: "menu1" }
               },
               [
@@ -32649,15 +32543,13 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(1),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-body" }, [
                           _c(
                             "ul",
                             { staticClass: "offer-list list-unstyled" },
                             [
-                              _vm._m(2),
-                              _vm._v(" "),
                               _vm._m(3),
                               _vm._v(" "),
                               _vm._m(4),
@@ -32667,6 +32559,8 @@ var render = function() {
                               _vm._m(6),
                               _vm._v(" "),
                               _vm._m(7),
+                              _vm._v(" "),
+                              _vm._m(8),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
                                 _c("input", {
@@ -32729,7 +32623,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(8)
+                                _vm._m(9)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -32793,7 +32687,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(9)
+                                _vm._m(10)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -32857,7 +32751,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(10)
+                                _vm._m(11)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -32921,7 +32815,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(11)
+                                _vm._m(12)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -32985,7 +32879,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(12)
+                                _vm._m(13)
                               ])
                             ]
                           )
@@ -33043,15 +32937,13 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card offer-centred" }, [
-                        _vm._m(13),
+                        _vm._m(14),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-body" }, [
                           _c(
                             "ul",
                             { staticClass: "offer-list list-unstyled" },
                             [
-                              _vm._m(14),
-                              _vm._v(" "),
                               _vm._m(15),
                               _vm._v(" "),
                               _vm._m(16),
@@ -33061,6 +32953,8 @@ var render = function() {
                               _vm._m(18),
                               _vm._v(" "),
                               _vm._m(19),
+                              _vm._v(" "),
+                              _vm._m(20),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
                                 _c("input", {
@@ -33123,7 +33017,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(20)
+                                _vm._m(21)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -33187,7 +33081,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(21)
+                                _vm._m(22)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -33251,7 +33145,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(22)
+                                _vm._m(23)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -33315,7 +33209,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(23)
+                                _vm._m(24)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -33379,7 +33273,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(24)
+                                _vm._m(25)
                               ])
                             ]
                           )
@@ -33437,15 +33331,13 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(25),
+                        _vm._m(26),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-body" }, [
                           _c(
                             "ul",
                             { staticClass: "offer-list list-unstyled" },
                             [
-                              _vm._m(26),
-                              _vm._v(" "),
                               _vm._m(27),
                               _vm._v(" "),
                               _vm._m(28),
@@ -33455,6 +33347,8 @@ var render = function() {
                               _vm._m(30),
                               _vm._v(" "),
                               _vm._m(31),
+                              _vm._v(" "),
+                              _vm._m(32),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
                                 _c("input", {
@@ -33519,7 +33413,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(32)
+                                _vm._m(33)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -33585,7 +33479,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(33)
+                                _vm._m(34)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -33651,7 +33545,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(34)
+                                _vm._m(35)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -33717,7 +33611,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(35)
+                                _vm._m(36)
                               ]),
                               _vm._v(" "),
                               _c("li", { staticClass: "offer-list-item" }, [
@@ -33783,7 +33677,7 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _vm._m(36)
+                                _vm._m(37)
                               ])
                             ]
                           )
@@ -33842,7 +33736,7 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "container tab-pane fade",
+                staticClass: "container tab-pane active",
                 attrs: { id: "menu2" }
               },
               [
@@ -33852,9 +33746,53 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(37),
-                        _vm._v(" "),
                         _vm._m(38),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "offer-body" }, [
+                          _c(
+                            "ul",
+                            { staticClass: "offer-list list-unstyled" },
+                            [
+                              _c(
+                                "li",
+                                { staticClass: "offer-list-item extra" },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-chevron-circle-right"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "d-inline" }, [
+                                    _vm._v(" module de base ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "d-inline ml-0",
+                                      attrs: { title: "modules de base" },
+                                      on: { click: _vm.openModalBase }
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass:
+                                          "d-inline fa fa-eye fa-fw ml-2",
+                                        staticStyle: { "font-size": "16px" }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(39),
+                              _vm._v(" "),
+                              _vm._m(40),
+                              _vm._v(" "),
+                              _vm._m(41),
+                              _vm._v(" "),
+                              _vm._m(42)
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-footer" }, [
                           _c(
@@ -33908,9 +33846,53 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card offer-centred" }, [
-                        _vm._m(39),
+                        _vm._m(43),
                         _vm._v(" "),
-                        _vm._m(40),
+                        _c("div", { staticClass: "offer-body" }, [
+                          _c(
+                            "ul",
+                            { staticClass: "offer-list list-unstyled" },
+                            [
+                              _c(
+                                "li",
+                                { staticClass: "offer-list-item extra" },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-chevron-circle-right"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "d-inline" }, [
+                                    _vm._v(" module de base ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "d-inline ml-0",
+                                      attrs: { title: "modules de base" },
+                                      on: { click: _vm.openModalBase }
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass:
+                                          "d-inline fa fa-eye fa-fw ml-2",
+                                        staticStyle: { "font-size": "16px" }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(44),
+                              _vm._v(" "),
+                              _vm._m(45),
+                              _vm._v(" "),
+                              _vm._m(46),
+                              _vm._v(" "),
+                              _vm._m(47)
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-footer" }, [
                           _c(
@@ -33964,9 +33946,53 @@ var render = function() {
                     { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
                     [
                       _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(41),
+                        _vm._m(48),
                         _vm._v(" "),
-                        _vm._m(42),
+                        _c("div", { staticClass: "offer-body" }, [
+                          _c(
+                            "ul",
+                            { staticClass: "offer-list list-unstyled" },
+                            [
+                              _c(
+                                "li",
+                                { staticClass: "offer-list-item extra" },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-chevron-circle-right"
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "d-inline" }, [
+                                    _vm._v(" module de base ")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "d-inline ml-0",
+                                      attrs: { title: "modules de base" },
+                                      on: { click: _vm.openModalBase }
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass:
+                                          "d-inline fa fa-eye fa-fw ml-2",
+                                        staticStyle: { "font-size": "16px" }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(49),
+                              _vm._v(" "),
+                              _vm._m(50),
+                              _vm._v(" "),
+                              _vm._m(51),
+                              _vm._v(" "),
+                              _vm._m(52)
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "offer-footer" }, [
                           _c(
@@ -34054,7 +34080,7 @@ var render = function() {
                     _c("div", { staticClass: "modal-body" }, [
                       _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "col-lg-6" }, [
-                          _vm._m(43),
+                          _vm._m(53),
                           _vm._v(" "),
                           _c(
                             "form",
@@ -34064,7 +34090,7 @@ var render = function() {
                                 "div",
                                 { staticClass: "input-group mb-3" },
                                 [
-                                  _vm._m(44),
+                                  _vm._m(54),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -34114,7 +34140,7 @@ var render = function() {
                                 "div",
                                 { staticClass: "input-group mb-3" },
                                 [
-                                  _vm._m(45),
+                                  _vm._m(55),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -34166,7 +34192,7 @@ var render = function() {
                                   staticClass: "input-group mb-3 price_parent"
                                 },
                                 [
-                                  _vm._m(46),
+                                  _vm._m(56),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -34248,7 +34274,9 @@ var render = function() {
                                     " MAD\n                    "
                                 )
                               ]
-                            )
+                            ),
+                            _vm._v(" "),
+                            _vm._m(57)
                           ])
                         ]),
                         _vm._v(" "),
@@ -34258,12 +34286,12 @@ var render = function() {
                           [
                             _c("div", { attrs: { id: "accordion" } }, [
                               _c("div", { staticClass: "card" }, [
-                                _vm._m(47),
+                                _vm._m(58),
                                 _vm._v(" "),
                                 _c(
                                   "div",
                                   {
-                                    staticClass: "collapse show",
+                                    staticClass: "show",
                                     attrs: {
                                       id: "one",
                                       "data-parent": "#accordion"
@@ -34331,16 +34359,16 @@ var render = function() {
                                         }
                                       }),
                                       _vm._v(
-                                        "\n                          oui/non\n                        "
+                                        "\n                          oui\n                        "
                                       )
                                     ])
                                   ]
                                 )
                               ]),
                               _vm._v(" "),
-                              _vm._m(48),
+                              _vm._m(59),
                               _vm._v(" "),
-                              _vm._m(49)
+                              _vm._m(60)
                             ])
                           ]
                         )
@@ -34380,6 +34408,59 @@ var render = function() {
                 ]
               )
             ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.modalBaseStatus
+          ? _c("div", { staticClass: "modal fade module-base" }, [
+              _c("div", {
+                staticClass: "modal-shadow",
+                on: { click: _vm.closeModalBase }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "modal-dialog",
+                  staticStyle: { "overflow-y": "initial !important" }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _c("div", { staticClass: "modal-header" }, [
+                      _c("h5", { staticClass: "modal-title" }, [
+                        _vm._v("Les Modules De Base")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "close",
+                          attrs: { type: "button" },
+                          on: { click: _vm.closeModalBase }
+                        },
+                        [_c("i", { staticClass: "fa fa-times-circle" })]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(61),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger btn-sm",
+                          attrs: { type: "button" },
+                          on: { click: _vm.closeModalBase }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-times-circle" }),
+                          _vm._v("\n                Fermer\n              ")
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ])
           : _vm._e()
       ]),
       _vm._v(" "),
@@ -34402,6 +34483,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "head" }, [
+      _c("h2", { staticClass: "mb-2 text-capitalize text-center" }, [
+        _c("i", {
+          staticClass: "fa fa-thumb-tack",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" Choisissez\n            votre plan\n          ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "ul",
       { staticClass: "nav nav-tabs mt-5 pt-5", attrs: { role: "tablist" } },
@@ -34410,7 +34505,7 @@ var staticRenderFns = [
           _c(
             "a",
             {
-              staticClass: "nav-link active",
+              staticClass: "nav-link",
               attrs: { "data-toggle": "tab", href: "#menu1" }
             },
             [
@@ -34418,7 +34513,7 @@ var staticRenderFns = [
                 staticClass: "fa fa-star-half-o",
                 attrs: { "aria-hidden": "true" }
               }),
-              _vm._v(" Basique")
+              _vm._v(" Version\n              Basique")
             ]
           )
         ]),
@@ -34427,10 +34522,10 @@ var staticRenderFns = [
           _c(
             "a",
             {
-              staticClass: "nav-link",
+              staticClass: "nav-link active",
               attrs: { "data-toggle": "tab", href: "#menu2" }
             },
-            [_c("i", { staticClass: "fa fa-star" }), _vm._v(" Complète")]
+            [_c("i", { staticClass: "fa fa-star" }), _vm._v("Version Complète")]
           )
         ])
       ]
@@ -34918,47 +35013,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-body" }, [
-      _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item extra" }, [
-          _c("i", { staticClass: "fa fa-external-link-square" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" réduction de 10%")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" module de base ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("tous les modules offerts. ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("Portail Professeur Offert")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "\n                          Maintenance Annulle Comprise (7200DH/an) comprise\n                        "
-            )
-          ])
-        ])
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("tous les modules offerts. ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Portail Professeur Offert")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "\n                          Maintenance Annulle Comprise (7200DH/an) comprise\n                        "
+        )
       ])
     ])
   },
@@ -34982,47 +35073,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-body" }, [
-      _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item extra" }, [
-          _c("i", { staticClass: "fa fa-external-link-square" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" réduction de 10%")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" module de base ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("tous les modules offerts. ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("Portail Professeur Offert")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "\n                          Maintenance Annulle Comprise (8100DH/an) comprise\n                        "
-            )
-          ])
-        ])
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("tous les modules offerts. ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Portail Professeur Offert")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "\n                          Maintenance Annulle Comprise (8100DH/an) comprise\n                        "
+        )
       ])
     ])
   },
@@ -35047,47 +35134,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-body" }, [
-      _c("ul", { staticClass: "offer-list list-unstyled" }, [
-        _c("li", { staticClass: "offer-list-item extra" }, [
-          _c("i", { staticClass: "fa fa-external-link-square" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" réduction de 10%")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" module de base ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("tous les modules offerts. ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v("Portail Professeur Offert")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [_vm._v(" 5H heures de formation gratuites ")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
-          _c("i", { staticClass: "fa fa-chevron-circle-right" }),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "\n                          Maintenance Annulle Comprise (9450DH/an) comprise\n                        "
-            )
-          ])
-        ])
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("tous les modules offerts. ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Portail Professeur Offert")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "offer-list-item no-border-bottom" }, [
+      _c("i", { staticClass: "fa fa-chevron-circle-right" }),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "\n                          Maintenance Annulle Comprise (9450DH/an) comprise\n                        "
+        )
       ])
     ])
   },
@@ -35141,6 +35224,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "message" }, [
+      _c(
+        "span",
+        { staticClass: "d-block text-white p-2 display-5 mt-2 rounded" },
+        [_vm._v("taper un message ici")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c(
         "a",
@@ -35187,7 +35282,7 @@ var staticRenderFns = [
       _c(
         "div",
         {
-          staticClass: "collapse",
+          staticClass: "show",
           attrs: { id: "two", "data-parent": "#accordion" }
         },
         [
@@ -35242,7 +35337,7 @@ var staticRenderFns = [
       _c(
         "div",
         {
-          staticClass: "collapse",
+          staticClass: "show",
           attrs: { id: "three", "data-parent": "#accordion" }
         },
         [
@@ -35267,17 +35362,21 @@ var staticRenderFns = [
               ])
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "d-block other-service" }, [
-              _c("i", { staticClass: "fa fa-square" }),
-              _vm._v(
-                " Développements\n                            Spécifiques:\n                            "
-              ),
-              _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("200MAD/Heure")
-              ])
-            ]),
+            _c(
+              "span",
+              { staticClass: "d-block other-service no-border-bottom mb-0" },
+              [
+                _c("i", { staticClass: "fa fa-square" }),
+                _vm._v(
+                  " Développements\n                            Spécifiques:\n                            "
+                ),
+                _c("span", { staticClass: "accordion-mony" }, [
+                  _vm._v("200MAD/Heure")
+                ])
+              ]
+            ),
             _vm._v(" "),
-            _c("span", { staticClass: "d-block other-service" }, [
+            _c("span", { staticClass: "d-block other-service mt-0" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
                 "\n                            (Facturation Sur Devis)\n                          "
@@ -35286,6 +35385,50 @@ var staticRenderFns = [
           ])
         ]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("ul", { staticClass: "list-group module-base" }, [
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 1")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 2")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 3")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 4")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 5")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-group-item p-1" }, [
+          _c("i", { staticClass: "fa fa-slack fa-fw" }),
+          _vm._v(" "),
+          _c("span", [_vm._v("Module 6")])
+        ])
+      ])
     ])
   }
 ]
@@ -50679,9 +50822,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _euro_vue_vue_type_template_id_dcbcf990___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./euro.vue?vue&type=template&id=dcbcf990& */ "./resources/js/components/euro.vue?vue&type=template&id=dcbcf990&");
 /* harmony import */ var _euro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./euro.vue?vue&type=script&lang=js& */ "./resources/js/components/euro.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _euro_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./euro.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50689,7 +50830,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _euro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _euro_vue_vue_type_template_id_dcbcf990___WEBPACK_IMPORTED_MODULE_0__["render"],
   _euro_vue_vue_type_template_id_dcbcf990___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -50718,22 +50859,6 @@ component.options.__file = "resources/js/components/euro.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_euro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./euro.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/euro.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_euro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss& ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_euro_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./euro.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/euro.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_euro_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_euro_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_euro_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_euro_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
 
 /***/ }),
 

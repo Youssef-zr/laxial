@@ -14,26 +14,18 @@
             <h2 class="mb-2 text-capitalize text-center">
               <i class="fa fa-thumb-tack" aria-hidden="true"></i> Choisissez
               votre plan
-              <span class="float-right langue-list">
-                <router-link to="/"
-                  ><img src="/images/maroc.jpg" alt="maroc"
-                /></router-link>
-                <router-link to="/fr"
-                  ><img src="/images/auro.jpg" alt="Euro"
-                /></router-link>
-              </span>
             </h2>
           </div>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#menu1">
-                <i class="fa fa-star-half-o" aria-hidden="true"></i> Basique</a
+              <a class="nav-link" data-toggle="tab" href="#menu1">
+                <i class="fa fa-star-half-o" aria-hidden="true"></i> Version Basique</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#menu2">
-                <i class="fa fa-star"></i> Complète</a
+              <a class="nav-link active" data-toggle="tab" href="#menu2">
+                <i class="fa fa-star"></i> Version Complète</a
               >
             </li>
           </ul>
@@ -41,7 +33,7 @@
           <!-- Tab panes -->
           <div class="tab-content pt-3">
             <!-- start basic offers -->
-            <div id="menu1" class="container tab-pane active">
+            <div id="menu1" class="container tab-pane fade">
               <div class="row">
                 <!-- start plan one -->
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
@@ -472,7 +464,7 @@
             <!-- end basic offers -->
 
             <!-- start premuim offers -->
-            <div id="menu2" class="container tab-pane fade">
+            <div id="menu2" class="container tab-pane active">
               <div class="row">
                 <!-- start plan one -->
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
@@ -489,12 +481,9 @@
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
-                          <i class="fa fa-external-link-square"></i>
-                          <span> réduction de 10%</span>
-                        </li>
-                        <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
+                          <span class="d-inline"> module de base </span>
+                          <a @click="openModalBase" title="modules de base" class="d-inline ml-0"><span class="d-inline fa fa-eye fa-fw ml-2" style="font-size:16px"></span></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -556,12 +545,9 @@
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
-                          <i class="fa fa-external-link-square"></i>
-                          <span> réduction de 10%</span>
-                        </li>
-                        <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
+                          <span class="d-inline"> module de base </span>
+                          <a @click="openModalBase" title="modules de base" class="d-inline ml-0"><span class="d-inline fa fa-eye fa-fw ml-2" style="font-size:16px"></span></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -621,12 +607,9 @@
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
-                          <i class="fa fa-external-link-square"></i>
-                          <span> réduction de 10%</span>
-                        </li>
-                        <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
+                          <span class="d-inline"> module de base </span>
+                          <a @click="openModalBase" title="modules de base" class="d-inline ml-0"><span class="d-inline fa fa-eye fa-fw ml-2" style="font-size:16px"></span></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -679,7 +662,7 @@
           </div>
         </div>
 
-        <!-- start modal dialog -->
+        <!-- start modal dialog order-->
         <div class="modal fade" v-if="modalStatus == true">
           <div class="modal-shadow" @click="closeModal"></div>
           <div
@@ -793,8 +776,15 @@
                       <span class="badge badge-total-price"
                         >{{ form.total_price }} ‎€
                       </span>
+                      <div class="message">
+                        <span
+                          class="d-block text-white p-2 display-5 mt-2 rounded"
+                          >taper un message ici</span
+                        >
+                      </div>
                     </div>
                   </div>
+                  <!-- start modal other information -->
                   <!-- start modal other information -->
                   <div class="col-lg-6 accordion-parent">
                     <div id="accordion">
@@ -812,17 +802,13 @@
                             Souhaitez-vous avoir une formation en ligne ?
                           </a>
                         </div>
-                        <div
-                          id="one"
-                          class="collapse show"
-                          data-parent="#accordion"
-                        >
+                        <div id="one" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <input
                               type="checkbox"
                               v-model="form.formation_en_ligne"
                             />
-                            oui/non
+                            oui
                           </div>
                         </div>
                       </div>
@@ -841,7 +827,7 @@
                             Combien d’heures :
                           </a>
                         </div>
-                        <div id="two" class="collapse" data-parent="#accordion">
+                        <div id="two" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <span>
                               <label class="accordion-hours"> 5H</label> :
@@ -850,7 +836,7 @@
                             <span
                               >Au-delà de
                               <span class="accordion-hours">5H</span> :
-                              <span class="accordion-mony">25‎€ / Heure</span>
+                              <span class="accordion-mony">250MAD / Heure</span>
                               (Facturation Sur Devis)
                             </span>
                           </div>
@@ -870,29 +856,27 @@
                             Autres services :
                           </a>
                         </div>
-                        <div
-                          id="three"
-                          class="collapse"
-                          data-parent="#accordion"
-                        >
+                        <div id="three" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Traitement des listes
                               et injections de données :
-                              <span class="accordion-mony">2‎€/élève</span>
+                              <span class="accordion-mony">20MAD/élève</span>
                             </span>
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Version mobile
                               (Android iOS) ainsi que les portails élèves et
                               parents :
-                              <span class="accordion-mony">5‎€/élèves</span>
+                              <span class="accordion-mony">50MAD/élèves</span>
                             </span>
-                            <span class="d-block other-service">
+                            <span
+                              class="d-block other-service no-border-bottom mb-0"
+                            >
                               <i class="fa fa-square"></i> Développements
                               Spécifiques:
-                              <span class="accordion-mony">20‎€/Heure</span>
+                              <span class="accordion-mony">200MAD/Heure</span>
                             </span>
-                            <span class="d-block other-service">
+                            <span class="d-block other-service mt-0">
                               <i class="fa fa-square"></i>
                               (Facturation Sur Devis)
                             </span>
@@ -925,7 +909,68 @@
             </div>
           </div>
         </div>
-        <!-- end modal dialog -->
+        <!-- end modal dialog order-->
+
+        <!-- start modal dialog module de base-->
+        <div class="modal fade module-base" v-if="modalBaseStatus">
+          <div class="modal-shadow" @click="closeModalBase"></div>
+          <div class="modal-dialog" style="overflow-y: initial !important">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title">Les Modules De Base</h5>
+                <button type="button" class="close" @click="closeModalBase">
+                  <i class="fa fa-times-circle"></i>
+                </button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <!-- start modal fields  -->
+                <ul class="list-group module-base">
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 1</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 2</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 3</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 4</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 5</span>
+                  </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>Module 6</span>
+                  </li>
+                </ul>
+                <!-- start modal other information -->
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm"
+                  @click="closeModalBase"
+                >
+                  <i class="fa fa-times-circle"></i>
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end modal dialog module de base-->
       </div>
       <!-- start msg success  -->
       <div class="msg" v-if="msg != ''">
@@ -938,413 +983,6 @@
     </div>
   </div>
 </template>
-
-<style lang="scss">
-$card_centred: #9bc31c;
-$card_header_bg: #51c1e1;
-$card_header_title: #fff;
-
-$card_body_bg: #fff;
-
-$main_color: #333;
-$secand_color: #444;
-
-.offers {
-  position: relative;
-  z-index: 2;
-  //   margin: 80px;
-  .nav-tabs {
-    border-color: $card_header_bg;
-    .nav-link {
-      background: transparent;
-      color: $card_header_bg;
-      &:hover {
-        border-color: transparent;
-      }
-      &.active {
-        background: $card_header_bg;
-        color: $card_header_title;
-        border-color: transparent;
-        border-bottom-color: white;
-      }
-    }
-  }
-  .offers-cards {
-    border: 2px solid $card_header_bg;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 20px 15px;
-    position: relative;
-    // text-transform: lowercase;
-    background: #fff;
-    .head {
-      color: #fff !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 15px 5px;
-      background: $card_header_bg;
-      h2 {
-        width: 90%;
-        margin-bottom: -40px;
-        @media (max-width: 768px) {
-          font-size: 22px;
-          margin-top: 10px;
-        }
-        .langue-list {
-          position: absolute;
-          top: 0px;
-          right: 35px;
-          a {
-            color: #fff;
-            font-size: 15px;
-            font-weight: bold;
-            img {
-              border: 1px solid #fff;
-              padding: 3x;
-              background: #fff;
-              width: 30px !important;
-              height: 25px !important;
-              border-radius: 2px;
-            }
-          }
-        }
-      }
-    }
-    .offer-card {
-      margin-top: 30px;
-      background: #fff;
-      border: 1px solid $card_header_bg;
-      //   border-radius: 5px 5px 0 0;
-      box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);
-      .offer-header {
-        border-bottom: 1px dashed #444;
-        .offer-title {
-          padding: 15px 5px 15px 35px;
-          background: $card_header_bg;
-          color: $card_header_title;
-          font-size: 20px;
-          text-align: left;
-          margin-bottom: 0;
-        }
-        .offer-price {
-          background-color: white;
-          color: $main_color;
-          padding: 0px 5px 0px 35px;
-          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-          font-weight: bold;
-          span.device {
-            text-align: left;
-            font-size: 27px;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: $card_centred !important;
-            display: block;
-            margin: 4px 0 -5px 0;
-          }
-          span:last-of-type {
-            display: block;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 16px;
-            // color: #444;
-            label {
-              text-decoration: line-through;
-              color: $card_header_bg;
-            }
-          }
-        }
-      }
-      .offer-body {
-        background: $card_body_bg;
-        .offer-list {
-          .offer-list-item {
-            margin-bottom: 7px;
-            padding: 6px 4px 8px 8px;
-            border-bottom: 1px dashed #444;
-            font-size: 15px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-              Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-              sans-serif;
-            font-weight: 500;
-            color: $main_color;
-            font-size: 14px;
-            position: relative;
-            i,
-            .checkbox {
-              position: absolute;
-              top: 10px;
-              left: 8px;
-              color: $card_header_bg;
-              font-size: 16px;
-            }
-            .checkbox {
-              top: 12px;
-              color: #444;
-            }
-            span {
-              display: block;
-              margin-left: 20px;
-              text-transform: capitalize;
-              label.price_color {
-                color: $card_header_bg;
-                font-weight: bold;
-                letter-spacing: 1px;
-              }
-            }
-            &:last-of-type {
-              border-bottom: none;
-              padding-bottom: 2px;
-            }
-            &.extra {
-              background: white;
-              border-top: 1px solid $card_header_bg;
-              border-bottom: 1px solid $card_header_bg;
-              font-weight: bold;
-              color: $card_header_bg;
-              padding: 10px;
-              i {
-                color: $card_header_bg;
-                top: 13px;
-              }
-            }
-            &.no-border-bottom {
-              border-bottom: none !important;
-            }
-            &.total_price {
-              padding: 0 !important;
-              margin: 0 !important;
-              background: $card_header_bg !important;
-            }
-          }
-        }
-      }
-      .offer-footer {
-        // height: 40px;
-        h5 {
-          font-size: 14px;
-        }
-        .btn {
-          background: $card_header_bg;
-          color: #fff;
-          border: none;
-          border-radius: 0 !important;
-          font-size: 16px;
-          font-weight: bold;
-          border-top: 1px solid $card_header_bg;
-          transition: 0.2s;
-          text-transform: capitalize;
-          &:hover {
-            // background: $card_header_bg;
-            opacity: 0.9;
-          }
-        }
-      }
-    }
-  }
-
-  //   offer card other style
-  .offer-card.offer-centred {
-    border: 1px solid $card_centred;
-    .offer-header {
-      .offer-title {
-        padding: 15px 5px 15px 35px;
-        background: $card_centred;
-      }
-      .offer-price span:last-of-type label {
-        color: $card_header_bg;
-      }
-    }
-
-    .offer-list {
-      .offer-list-item {
-        i:not(.card-centred) {
-          color: $card_centred !important;
-        }
-        &.extra {
-          color: $card_centred !important;
-          border-color: $card_centred !important;
-          i {
-            color: $card_centred !important;
-          }
-        }
-        span {
-          label.price_color {
-            color: $card_centred !important;
-          }
-        }
-      }
-    }
-    .offer-footer {
-      // height: 40px;
-      .btn {
-        background: $card_centred;
-        border-top: 1px solid $card_centred;
-      }
-    }
-  }
-
-  //   start modal style
-  .modal {
-    opacity: 1;
-    display: block;
-    position: absolute;
-    height: 100%;
-    .modal-shadow {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      background: rgba(0, 0, 0, 0.9);
-    }
-
-    .modal-content {
-      top: 50px;
-      border-width: 2px;
-      border-color: $card_header_bg !important;
-      box-shadow: 0 0 6px 0px $card_header_bg !important;
-      border-left-width: 4px;
-      .modal-header {
-        background: $card_header_bg !important;
-        color: $card_header_title;
-        border-color: $card_header_bg;
-        button.close {
-          color: $card_header_title;
-        }
-      }
-      .badge-total-price {
-        background: $card_header_bg !important;
-        color: $card_header_title;
-        padding: 5px 10px;
-      }
-      .modal-body {
-        color: $card_header_bg;
-        overflow-y: auto;
-        input {
-          text-transform: capitalize;
-          color: $card_header_bg;
-          color: #555;
-        }
-      }
-      .modal-footer {
-        border-color: $card_header_bg;
-      }
-
-      .icon-form {
-        background: $card_header_bg;
-        padding: 5px 12px;
-        &.user-icon {
-          padding: 5px 15px;
-        }
-      }
-    }
-  }
-
-  .mycheckbox {
-    background: red;
-  }
-
-  .invalid-feedback {
-    margin-left: 43px;
-  }
-}
-
-// effect snow
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  position: relative;
-}
-
-.ajax-icon {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #fff;
-  z-index: 5885489;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // opacity: 0.8;
-  img {
-    width: 40px;
-    height: 40px;
-  }
-}
-.accordion-parent {
-  @media (min-width: 996px) {
-    border-left: 1px solid $card_header_bg;
-  }
-  #accordion {
-    border: none;
-    .card {
-      margin-bottom: 3px;
-      border-radius: 0 !important;
-      border: none;
-      .card-header {
-        text-transform: capitalize;
-        padding: 0;
-        background: $card_header_bg;
-        color: $card_header_title !important;
-        .card-link {
-          font-size: 15px;
-          padding: 12px 5px;
-          color: inherit;
-          display: block;
-        }
-      }
-      .card-body {
-        border-left: 1px solid $card_header_bg !important;
-        border-right: 1px solid $card_header_bg !important;
-        border-bottom: 1px solid $card_header_bg !important;
-        padding: 10px 8px;
-        color: #666;
-        margin-bottom: 3px;
-        .other-service {
-          margin-bottom: 5px;
-          padding-bottom: 5px;
-          border-bottom: 1px dotted $card_header_bg;
-          &:last-of-type {
-            border-bottom: none;
-            padding-bottom: none;
-            margin-bottom: none;
-          }
-          .fa-square {
-            font-size: 13px;
-            color: $card_header_bg;
-          }
-        }
-        .accordion-mony {
-          color: $card_header_bg;
-          font-weight: bolder;
-          font-size: 14px;
-        }
-        .accordion-hours {
-          font-size: 15px;
-          font-weight: bold;
-          color: #777;
-        }
-      }
-    }
-  }
-}
-//   message successfully
-.msg {
-  position: fixed;
-  top: 5px;
-  right: 5px;
-  background: $card_centred;
-  color: #fff;
-  z-index: 12455555;
-  padding: 8px 15px 0;
-  font-size: 16px;
-  text-transform: capitalize;
-}
-</style>
 
 <script>
 import { BreedingRhombusSpinner } from "epic-spinners";
@@ -1361,7 +999,7 @@ export default {
         total_price: 0,
         nb_students: "",
         formation_en_ligne: false,
-        lang: "",
+        country: "France",
         min_nbStudents: 1,
         max_nbStudents: 1,
         extraServices: []
@@ -1369,6 +1007,7 @@ export default {
       otherTarif: 7, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
       modalStatus: false,
+      modalBaseStatus: false,
       loadingStatus: true,
       msg: "",
       msgError: "",
@@ -1399,20 +1038,32 @@ export default {
     };
   },
   created() {
-    axios.get("/api/localisation").then(res => {
-      if (res.statusText == "OK") {
-          this.form.lang = res.data.localisation.geoplugin_countryName;
-        if (res.data.localisation.geoplugin_countryName === "Morocco") {
-          this.$router.push("/");
-        }
-      }
-    });
+    // axios.get("/api/localisation").then(res => {
+    //   if (res.statusText == "OK") {
+    //       this.form.country = res.data.localisation.geoplugin_countryName;
+    //     if (res.data.localisation.geoplugin_countryName === "Morocco") {
+    //       this.$router.push("/");
+    //     }
+    //   }
+    // });b
 
     setTimeout(() => {
       this.loadingStatus = false;
     }, 1000);
   },
   methods: {
+    openModalBase(){
+        this.modalBaseStatus = true;
+        $("html, body").animate(
+            {
+            scrollTop: 0
+            },
+            100
+        );
+    },
+    closeModalBase() {
+      this.modalBaseStatus = false;
+    },
     closeModal() {
       this.form.reset(); // reset our inputs fields
       this.form.clear(); // clear our errors from filed
