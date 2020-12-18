@@ -3000,6 +3000,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3058,14 +3061,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   created: function created() {
     var _this = this;
 
-    // axios.get("/api/localisation").then(res => {
-    //   if (res.statusText == "OK") {
-    //       this.form.country = res.data.localisation.geoplugin_countryName;
-    //     if (res.data.localisation.geoplugin_countryName === "Morocco") {
-    //       this.$router.push("/");
-    //     }
-    //   }
-    // });b
+    axios.get("/api/localisation").then(function (res) {
+      if (res.statusText == "OK") {
+        _this.form.country = res.data.localisation;
+
+        if (res.data.localisation === "Morocco") {
+          _this.$router.push("/");
+        }
+      }
+    });
     setTimeout(function () {
       _this.loadingStatus = false;
     }, 700);
@@ -4774,6 +4778,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4832,15 +4845,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   created: function created() {
     var _this = this;
 
-    // axios.get("/api/localisation").then(res => {
-    //   if(res.statusText=='OK'){
-    //       this.form.country = res.data.localisation.geoplugin_countryName;
-    //       if(res.data.localisation.geoplugin_countryName !=="Morocco")
-    //       {
-    //           this.$router.push('/fr');
-    //       }
-    //   }
-    // });
+    axios.get("/api/localisation").then(function (res) {
+      if (res.statusText == "OK") {
+        _this.form.country = res.data.localisation;
+
+        if (res.data.localisation !== "Morocco") {
+          _this.$router.push("/fr");
+        }
+      }
+    });
     setTimeout(function () {
       _this.loadingStatus = false;
     }, 700);
@@ -30167,7 +30180,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Basic De 1 a 499 élèves",
+                                    "Version Basic De Laxial  De 1 a 499 élèves",
                                     _vm.sum_price_basic_one,
                                     _vm.plans.basic.plan_one.total_price,
                                     1,
@@ -30591,7 +30604,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Basic De 500 a 999 élèves",
+                                    "Version Basic De Laxial  De 500 a 999 élèves",
                                     _vm.sum_price_basic_two,
                                     _vm.plans.basic.plan_two.total_price,
                                     500,
@@ -31025,7 +31038,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Basic Plus de 1000 élèves",
+                                    "Version Basic De Laxial Plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
                                     _vm.plans.basic.plan_three.total_price,
                                     1000,
@@ -31136,7 +31149,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Complète De 1 a 499 élèves",
+                                    "Version Complète De Laxial De 1 a 499 élèves",
                                     _vm.sum_price_advanced_one,
                                     _vm.plans.advanced.plan_one.total_price,
                                     1,
@@ -31236,7 +31249,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Complète De 500 a 999 élèves",
+                                    "Version Complète De Laxial De 500 a 999 élèves",
                                     _vm.sum_price_advanced_two,
                                     _vm.plans.advanced.plan_two.total_price,
                                     500,
@@ -31338,7 +31351,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Complète Plus De 1000 Elèves",
+                                    "Version Complète De Laxial Plus De 1000 Elèves",
                                     _vm.sum_price_advanced_three,
                                     _vm.plans.advanced.plan_three.total_price,
                                     1000,
@@ -32183,7 +32196,9 @@ var staticRenderFns = [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
       _c("span", [
-        _vm._v("Maintenance de la première année Comprise (600€/an)")
+        _vm._v(
+          "Maintenance de la première année Comprise\n                          (600€/an)"
+        )
       ])
     ])
   },
@@ -33287,7 +33302,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Basic De 1 a 499 élèves",
+                                    "Version Basic De Laxial De 1 a 499 élèves",
                                     _vm.sum_price_basic_one,
                                     _vm.plans.basic.plan_one.total_price,
                                     1,
@@ -33711,7 +33726,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Basic De 500 a 999 élèves",
+                                    "Version Basic De Laxial De 500 a 999 élèves",
                                     _vm.sum_price_basic_two,
                                     _vm.plans.basic.plan_two.total_price,
                                     500,
@@ -34145,7 +34160,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Basic Plus de 1000 élèves",
+                                    "Version Basic De Laxial Plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
                                     _vm.plans.basic.plan_three.total_price,
                                     1000,
@@ -34262,7 +34277,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Complète De 1 a 499 élèves",
+                                    "Version Complète De Laxial De 1 a 499 élèves",
                                     _vm.sum_price_advanced_one,
                                     _vm.plans.advanced.plan_one.total_price,
                                     1,
@@ -34368,7 +34383,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Complète De 500 a 999 élèves",
+                                    "Version Complète De Laxial De 500 a 999 élèves",
                                     _vm.sum_price_advanced_two,
                                     _vm.plans.advanced.plan_two.total_price,
                                     500,
@@ -34474,7 +34489,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "Complète Plus De 1000 Elèves",
+                                    "Version Complète De Laxial  Plus De 1000 Elèves",
                                     _vm.sum_price_advanced_three,
                                     _vm.plans.advanced.plan_three.total_price,
                                     1000,
@@ -35079,7 +35094,9 @@ var staticRenderFns = [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
       _c("span", [
-        _vm._v("Maintenance de la première année Comprise (3500dh/an)")
+        _vm._v(
+          "Maintenance de la première année Comprise\n                          (3500dh/an)"
+        )
       ])
     ])
   },
@@ -35197,7 +35214,9 @@ var staticRenderFns = [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
       _c("span", [
-        _vm._v("Maintenance de la première année Comprise (4000DH/an)")
+        _vm._v(
+          "Maintenance de la première année Comprise\n                          (4000DH/an)"
+        )
       ])
     ])
   },
@@ -35315,7 +35334,9 @@ var staticRenderFns = [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
       _c("span", [
-        _vm._v("Maintenance de la première année Comprise (6000dh/an)")
+        _vm._v(
+          "Maintenance de la première année Comprise\n                          (6000dh/an)"
+        )
       ])
     ])
   },

@@ -71,7 +71,10 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Maintenance de la première année Comprise (3500dh/an)</span>
+                          <span
+                            >Maintenance de la première année Comprise
+                            (3500dh/an)</span
+                          >
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -159,7 +162,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Basic De 1 a 499 élèves',
+                            'Version Basic De Laxial De 1 a 499 élèves',
                             sum_price_basic_one,
                             plans.basic.plan_one.total_price,
                             1,
@@ -209,7 +212,10 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Maintenance de la première année Comprise (4000DH/an)</span>
+                          <span
+                            >Maintenance de la première année Comprise
+                            (4000DH/an)</span
+                          >
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -297,7 +303,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Basic De 500 a 999 élèves',
+                            'Version Basic De Laxial De 500 a 999 élèves',
                             sum_price_basic_two,
                             plans.basic.plan_two.total_price,
                             500,
@@ -347,7 +353,10 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Maintenance de la première année Comprise (6000dh/an)</span>
+                          <span
+                            >Maintenance de la première année Comprise
+                            (6000dh/an)</span
+                          >
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -435,7 +444,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Basic Plus de 1000 élèves',
+                            'Version Basic De Laxial Plus de 1000 élèves',
                             sum_price_basic_three,
                             plans.basic.plan_three.total_price,
                             1000,
@@ -517,7 +526,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Complète De 1 a 499 élèves',
+                            'Version Complète De Laxial De 1 a 499 élèves',
                             sum_price_advanced_one,
                             plans.advanced.plan_one.total_price,
                             1,
@@ -593,7 +602,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Complète De 500 a 999 élèves',
+                            'Version Complète De Laxial De 500 a 999 élèves',
                             sum_price_advanced_two,
                             plans.advanced.plan_two.total_price,
                             500,
@@ -668,7 +677,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Complète Plus De 1000 Elèves',
+                            'Version Complète De Laxial  Plus De 1000 Elèves',
                             sum_price_advanced_three,
                             plans.advanced.plan_three.total_price,
                             1000,
@@ -1011,10 +1020,10 @@
                     <i class="fa fa-slack fa-fw"></i>
                     <span>le system de notification </span>
                   </li>
-                    <li class="list-group-item p-1">
-                      <i class="fa fa-slack fa-fw"></i>
-                      <span>module emploi du temps</span>
-                    </li>
+                  <li class="list-group-item p-1">
+                    <i class="fa fa-slack fa-fw"></i>
+                    <span>module emploi du temps</span>
+                  </li>
                   <template v-if="moduleVersion">
                     <li class="list-group-item p-1">
                       <i class="fa fa-slack fa-fw"></i>
@@ -1552,25 +1561,24 @@ export default {
     };
   },
   created() {
-    // axios.get("/api/localisation").then(res => {
-    //   if(res.statusText=='OK'){
-    //       this.form.country = res.data.localisation.geoplugin_countryName;
-    //       if(res.data.localisation.geoplugin_countryName !=="Morocco")
-    //       {
-    //           this.$router.push('/fr');
-    //       }
-    //   }
-    // });
+    axios.get("/api/localisation").then(res => {
+      if (res.statusText == "OK") {
+        this.form.country = res.data.localisation;
+        if (res.data.localisation !== "Morocco") {
+          this.$router.push("/fr");
+        }
+      }
+    });
     setTimeout(() => {
       this.loadingStatus = false;
     }, 700);
   },
   methods: {
     openModalBase(version) {
-        if (version === "vBasic") {
-            this.moduleVersion = false;
+      if (version === "vBasic") {
+        this.moduleVersion = false;
       } else {
-          this.moduleVersion = true;
+        this.moduleVersion = true;
       }
       this.modalBaseStatus = true;
       $("html, body").animate(

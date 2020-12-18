@@ -162,7 +162,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Basic De 1 a 499 élèves',
+                            'Version Basic De Laxial  De 1 a 499 élèves',
                             sum_price_basic_one,
                             plans.basic.plan_one.total_price,
                             1,
@@ -303,7 +303,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Basic De 500 a 999 élèves',
+                            'Version Basic De Laxial  De 500 a 999 élèves',
                             sum_price_basic_two,
                             plans.basic.plan_two.total_price,
                             500,
@@ -330,7 +330,7 @@
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
-                       <li class="offer-list-item extra">
+                        <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
                             tous les modules offerts
@@ -351,7 +351,10 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Maintenance de la première année Comprise (600€/an)</span>
+                          <span
+                            >Maintenance de la première année Comprise
+                            (600€/an)</span
+                          >
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -439,7 +442,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Basic Plus de 1000 élèves',
+                            'Version Basic De Laxial Plus de 1000 élèves',
                             sum_price_basic_three,
                             plans.basic.plan_three.total_price,
                             1000,
@@ -518,7 +521,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Complète De 1 a 499 élèves',
+                            'Version Complète De Laxial De 1 a 499 élèves',
                             sum_price_advanced_one,
                             plans.advanced.plan_one.total_price,
                             1,
@@ -590,7 +593,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Complète De 500 a 999 élèves',
+                            'Version Complète De Laxial De 500 a 999 élèves',
                             sum_price_advanced_two,
                             plans.advanced.plan_two.total_price,
                             500,
@@ -662,7 +665,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Complète Plus De 1000 Elèves',
+                            'Version Complète De Laxial Plus De 1000 Elèves',
                             sum_price_advanced_three,
                             plans.advanced.plan_three.total_price,
                             1000,
@@ -1133,14 +1136,14 @@ export default {
     };
   },
   created() {
-    // axios.get("/api/localisation").then(res => {
-    //   if (res.statusText == "OK") {
-    //       this.form.country = res.data.localisation.geoplugin_countryName;
-    //     if (res.data.localisation.geoplugin_countryName === "Morocco") {
-    //       this.$router.push("/");
-    //     }
-    //   }
-    // });b
+    axios.get("/api/localisation").then(res => {
+      if (res.statusText == "OK") {
+        this.form.country = res.data.localisation;
+        if (res.data.localisation === "Morocco") {
+          this.$router.push("/");
+        }
+      }
+    });
 
     setTimeout(() => {
       this.loadingStatus = false;

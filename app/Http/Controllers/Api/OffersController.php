@@ -110,7 +110,7 @@ class OffersController extends Controller
     public function localCountry(Request $request)
     {
         $localisation = file_get_contents("http://www.geoplugin.net/json.gp?ip=".$this->getRealIpAddr());
-        return response()->json(['localisation' => json_decode($localisation)]);
+        return response()->json(['localisation' => json_decode($localisation)->geoplugin_countryName]);
     }
 
     public function getRealIpAddr()
