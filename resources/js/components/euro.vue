@@ -1142,7 +1142,7 @@ export default {
           if(res.data.localisation != null ){
               this.form.country = res.data.localisation;
           }
-        if (res.data.localisation === "Morocco") {
+        if (res.data.localisation === "Morocco" && res.data.localisation!=null) {
           this.$router.push("/");
         }
       }

@@ -3069,7 +3069,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           _this.form.country = res.data.localisation;
         }
 
-        if (res.data.localisation === "Morocco") {
+        if (res.data.localisation === "Morocco" && res.data.localisation != null) {
           _this.$router.push("/");
         }
       }
@@ -4869,7 +4869,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           _this.form.country = res.data.localisation;
         }
 
-        if (res.data.localisation !== "Morocco") {
+        if (res.data.localisation !== "Morocco" && res.data.localisation != null) {
           _this.$router.push("/fr");
         }
       }
