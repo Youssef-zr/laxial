@@ -20,7 +20,8 @@
           <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#menu1">
-                <i class="fa fa-star-half-o" aria-hidden="true"></i> Version Basique</a
+                <i class="fa fa-star-half-o" aria-hidden="true"></i> Version
+                Basique</a
               >
             </li>
             <li class="nav-item">
@@ -38,7 +39,7 @@
                 <!-- start plan one -->
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card">
-                    <div class="offer-header">
+                    <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">De 1 a 499 élèves</h3>
                       <div class="offer-price">
                         <span class="device">Euro</span
@@ -49,32 +50,31 @@
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
-                        <li class="offer-list-item">
+                        <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
-                        </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span
-                            >gestion administrative des élèves et des
-                            professeurs</span
-                          >
+                          <span class="d-inline">
+                            tous les modules offerts
+                          </span>
+                          <a
+                            @click="openModalBase('vBasic')"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>5h de formation gratuites</span>
                         </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span
-                            >gestion de scolarité. éxamens. notes. absence. le
-                            system de notification et emploi du temps
-                            compris</span
-                          >
-                        </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Maintenance Anuelle 350€</span>
+                          <span
+                            >Maintenance de la première année Comprise
+                            (350€/an)</span
+                          >
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -89,7 +89,7 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">945€</label> + prix
+                            <label class="price_color">600€</label> + prix
                             annuel: <label class="price_color">180‎€</label> =
                             780‎€
                           </span>
@@ -180,7 +180,7 @@
                 <!-- start plan  two-->
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card offer-centred">
-                    <div class="offer-header">
+                    <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">De 500 a 999 élèves</h3>
                       <div class="offer-price">
                         <span class="device">Euro</span
@@ -191,32 +191,31 @@
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
-                        <li class="offer-list-item">
+                        <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
-                        </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span
-                            >gestion administrative des élèves et des
-                            professeurs</span
-                          >
+                          <span class="d-inline">
+                            tous les modules offerts
+                          </span>
+                          <a
+                            @click="openModalBase('vBasic')"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>5h de formation gratuites</span>
                         </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span
-                            >gestion de scolarité. éxamens. notes. absence. le
-                            system de notification et emploi du temps
-                            compris</span
-                          >
-                        </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>maintenance anuelle 400€</span>
+                          <span
+                            >Maintenance de la première année Comprise
+                            (400€/an)</span
+                          >
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -231,7 +230,7 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">945€</label> + prix
+                            <label class="price_color">600€</label> + prix
                             annuel: <label class="price_color">180‎€</label> =
                             780‎€
                           </span>
@@ -322,7 +321,7 @@
                 <!-- start plan three-->
                 <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
                   <div class="offer-card">
-                    <div class="offer-header">
+                    <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">De 1000 et plus</h3>
                       <div class="offer-price">
                         <span class="device">Euro</span
@@ -331,32 +330,28 @@
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
-                        <li class="offer-list-item">
+                       <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> module de base </span>
-                        </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span
-                            >gestion administrative des élèves et des
-                            professeurs</span
-                          >
+                          <span class="d-inline">
+                            tous les modules offerts
+                          </span>
+                          <a
+                            @click="openModalBase('vBasic')"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>5h de formation gratuites</span>
                         </li>
-                        <li class="offer-list-item">
-                          <i class="fa fa-chevron-circle-right"></i>
-                          <span
-                            >gestion de scolarité. éxamens. notes. absence. le
-                            system de notification et emploi du temps
-                            compris</span
-                          >
-                        </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Maintenance Anuelle 600€</span>
+                          <span>Maintenance de la première année Comprise (600€/an)</span>
                         </li>
                         <li class="offer-list-item extra">
                           <i class="fa fa-external-link-square"></i>
@@ -371,7 +366,7 @@
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">945€</label> + prix
+                            <label class="price_color">600€</label> + prix
                             annuel: <label class="price_color">180‎€</label> =
                             780‎€
                           </span>
@@ -482,16 +477,24 @@
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline"> module de base </span>
-                          <a @click="openModalBase" title="modules de base" class="d-inline ml-0"><span class="d-inline fa fa-eye fa-fw ml-2" style="font-size:16px"></span></a>
+                          <span class="d-inline">tous les modules offerts</span>
+                          <a
+                            @click="openModalBase"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>tous les modules offerts. </span>
+                          <span>Portails Administrateurs Offert </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portail Professeur Offert</span>
+                          <span>Portail Professeurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -499,8 +502,8 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>
-                            Maintenance Annulle Comprise (720€/An) comprise
+                          <span
+                            >Maintenance de la première année Comprise (720€/An)
                           </span>
                         </li>
                       </ul>
@@ -546,16 +549,24 @@
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline"> module de base </span>
-                          <a @click="openModalBase" title="modules de base" class="d-inline ml-0"><span class="d-inline fa fa-eye fa-fw ml-2" style="font-size:16px"></span></a>
+                          <span class="d-inline">tous les modules offerts</span>
+                          <a
+                            @click="openModalBase"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>tous les modules offerts. </span>
+                          <span>Portails Administrateurs Offert </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portail Professeur Offert</span>
+                          <span>Portail Professeurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -563,8 +574,8 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>
-                            Maintenance Annulle Comprise (810€/an) comprise
+                          <span
+                            >Maintenance de la première année Comprise (810€/an)
                           </span>
                         </li>
                       </ul>
@@ -608,16 +619,26 @@
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline"> module de base </span>
-                          <a @click="openModalBase" title="modules de base" class="d-inline ml-0"><span class="d-inline fa fa-eye fa-fw ml-2" style="font-size:16px"></span></a>
+                          <span class="d-inline"
+                            >tous les modules offerts
+                          </span>
+                          <a
+                            @click="openModalBase"
+                            title="modules de base"
+                            class="d-inline ml-0"
+                            ><span
+                              class="d-inline fa fa-eye fa-fw ml-2"
+                              style="font-size: 16px"
+                            ></span
+                          ></a>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>tous les modules offerts. </span>
+                          <span>Portails Administrateurs Offert </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portail Professeur Offert</span>
+                          <span>Portail Professeurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -625,8 +646,8 @@
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>
-                            Maintenance Annulle Comprise (945€/an) comprise
+                          <span
+                            >Maintenance de la première année Comprise (945€/an)
                           </span>
                         </li>
                       </ul>
@@ -768,6 +789,12 @@
                           :form="form"
                           field="min_nbStudents"
                         ></has-error>
+                        <span
+                          class="d-block rounded m-0 py-0 text-danger"
+                          v-if="msgDepassNbMax"
+                        >
+                          {{ msgDepassNbMax }}
+                        </span>
                       </div>
                       <!-- start number of student field -->
                     </form>
@@ -777,10 +804,48 @@
                         >{{ form.total_price }} ‎€
                       </span>
                       <div class="message">
-                        <span
-                          class="d-block text-white p-2 display-5 mt-2 rounded"
-                          >taper un message ici</span
+                        <label class="mt-3 d-block">
+                          <i
+                            class="fa fa-info-circle fa-2x fa-fw"
+                            style="color: #9bc31c"
+                          ></i>
+                        </label>
+                        <ul
+                          class="list-unstyled text-dark text-capitalize border p-2 rounded"
+                          style="border-color: #9bc31c !important"
                         >
+                          <li class="d-flex flex-direction-row">
+                            <i
+                              class="fa fa-star m-2 mt-1"
+                              style="color: #9bc31c"
+                            ></i>
+                            <label>
+                              le prix total comprend les comptes application
+                              mobile et IOS
+                              <b style="color: #9bc31c">5€/elève</b>
+                            </label>
+                          </li>
+                          <li class="d-flex flex-direction-row">
+                            <i
+                              class="fa fa-star m-2 mt-1"
+                              style="color: #9bc31c"
+                            ></i>
+                            <label>
+                              traitement des injection des listes et injection
+                              des données <b style="color: #9bc31c">2€/elève</b>
+                            </label>
+                          </li>
+                          <li class="d-flex flex-direction-row">
+                            <i
+                              class="fa fa-star m-2 mt-1"
+                              style="color: #9bc31c"
+                            ></i>
+                            <label>
+                              les développment spécifique seront facturés sur
+                              devis
+                            </label>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -836,7 +901,7 @@
                             <span
                               >Au-delà de
                               <span class="accordion-hours">5H</span> :
-                              <span class="accordion-mony">250MAD / Heure</span>
+                              <span class="accordion-mony">25€ / Heure</span>
                               (Facturation Sur Devis)
                             </span>
                           </div>
@@ -861,20 +926,20 @@
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Traitement des listes
                               et injections de données :
-                              <span class="accordion-mony">20MAD/élève</span>
+                              <span class="accordion-mony">2€/élève</span>
                             </span>
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Version mobile
                               (Android iOS) ainsi que les portails élèves et
                               parents :
-                              <span class="accordion-mony">50MAD/élèves</span>
+                              <span class="accordion-mony">5€/élèves</span>
                             </span>
                             <span
                               class="d-block other-service no-border-bottom mb-0"
                             >
                               <i class="fa fa-square"></i> Développements
                               Spécifiques:
-                              <span class="accordion-mony">200MAD/Heure</span>
+                              <span class="accordion-mony">20€/Heure</span>
                             </span>
                             <span class="d-block other-service mt-0">
                               <i class="fa fa-square"></i>
@@ -911,14 +976,17 @@
         </div>
         <!-- end modal dialog order-->
 
-        <!-- start modal dialog module de base-->
-        <div class="modal fade module-base" v-if="modalBaseStatus">
+        <!-- start modal dialog modules de base-->
+        <div
+          class="modal fade module-base text-capitalize"
+          v-if="modalBaseStatus"
+        >
           <div class="modal-shadow" @click="closeModalBase"></div>
           <div class="modal-dialog" style="overflow-y: initial !important">
             <div class="modal-content">
               <!-- Modal Header -->
               <div class="modal-header">
-                <h5 class="modal-title">Les Modules De Base</h5>
+                <h5 class="modal-title">tous les modules offerts.</h5>
                 <button type="button" class="close" @click="closeModalBase">
                   <i class="fa fa-times-circle"></i>
                 </button>
@@ -930,28 +998,53 @@
                 <ul class="list-group module-base">
                   <li class="list-group-item p-1">
                     <i class="fa fa-slack fa-fw"></i>
-                    <span>Module 1</span>
+                    <span
+                      >gestion administrative des élèves et des
+                      professeurs</span
+                    >
                   </li>
                   <li class="list-group-item p-1">
                     <i class="fa fa-slack fa-fw"></i>
-                    <span>Module 2</span>
+                    <span>gestion de scolarité.</span>
                   </li>
                   <li class="list-group-item p-1">
                     <i class="fa fa-slack fa-fw"></i>
-                    <span>Module 3</span>
+                    <span>gestion des éxamens , notes </span>
                   </li>
                   <li class="list-group-item p-1">
                     <i class="fa fa-slack fa-fw"></i>
-                    <span>Module 4</span>
+                    <span>gestion des absences </span>
                   </li>
                   <li class="list-group-item p-1">
                     <i class="fa fa-slack fa-fw"></i>
-                    <span>Module 5</span>
+                    <span>le system de notification </span>
                   </li>
                   <li class="list-group-item p-1">
                     <i class="fa fa-slack fa-fw"></i>
-                    <span>Module 6</span>
+                    <span>module emploi du temps</span>
                   </li>
+                  <template v-if="moduleVersion">
+                    <li class="list-group-item p-1">
+                      <i class="fa fa-slack fa-fw"></i>
+                      <span>module frais </span>
+                    </li>
+                    <li class="list-group-item p-1">
+                      <i class="fa fa-slack fa-fw"></i>
+                      <span>module bibliothèque </span>
+                    </li>
+                    <li class="list-group-item p-1">
+                      <i class="fa fa-slack fa-fw"></i>
+                      <span>module transport </span>
+                    </li>
+                    <li class="list-group-item p-1">
+                      <i class="fa fa-slack fa-fw"></i>
+                      <span>module rapport </span>
+                    </li>
+                    <li class="list-group-item p-1">
+                      <i class="fa fa-slack fa-fw"></i>
+                      <span>module personnel</span>
+                    </li>
+                  </template>
                 </ul>
                 <!-- start modal other information -->
               </div>
@@ -970,7 +1063,7 @@
             </div>
           </div>
         </div>
-        <!-- end modal dialog module de base-->
+        <!-- end modal dialog modules de base-->
       </div>
       <!-- start msg success  -->
       <div class="msg" v-if="msg != ''">
@@ -1008,9 +1101,11 @@ export default {
       modalTotalPrice: 0,
       modalStatus: false,
       modalBaseStatus: false,
+      moduleVersion: false,
       loadingStatus: true,
       msg: "",
       msgError: "",
+      msgDepassNbMax: "",
       plans: {
         basic: {
           plan_one: {
@@ -1020,7 +1115,7 @@ export default {
             total_price: ["2650"]
           },
           plan_three: {
-            total_price: ["3600"]
+            total_price: ["3945"]
           }
         },
         advanced: {
@@ -1049,17 +1144,22 @@ export default {
 
     setTimeout(() => {
       this.loadingStatus = false;
-    }, 1000);
+    }, 700);
   },
   methods: {
-    openModalBase(){
-        this.modalBaseStatus = true;
-        $("html, body").animate(
-            {
-            scrollTop: 0
-            },
-            100
-        );
+    openModalBase(version) {
+      if (version === "vBasic") {
+        this.moduleVersion = false;
+      } else {
+        this.moduleVersion = true;
+      }
+      this.modalBaseStatus = true;
+      $("html, body").animate(
+        {
+          scrollTop: 0
+        },
+        100
+      );
     },
     closeModalBase() {
       this.modalBaseStatus = false;
@@ -1093,6 +1193,8 @@ export default {
           e.preventDefault();
         }
         let price_student = this.otherTarif * this.form.nb_students;
+        // if the user deppased the maximum number of students
+        this.msgDepassNbMax = "";
 
         if (this.form.nb_students == "") {
           // if input nb_student = ""
@@ -1206,6 +1308,9 @@ export default {
         this.form.nb_students > 0 &&
         this.form.nb_students <= this.form.max_nbStudents
       ) {
+        //  if the number gretehr then max_nbStudents
+        this.msgDepassNbMax = "";
+
         if (this.form.nb_students > 1000) {
           let x = this.form.nb_students - 1000;
           x = x / 500;
@@ -1219,6 +1324,10 @@ export default {
       } // if nb_students > 0
       else if (this.form.nb_students > this.form.max_nbStudents) {
         // if nb_students > max number of students in this offer
+        // if the user deppased the maximum number of students
+        this.msgDepassNbMax =
+          "vous avez atteint le nombre maximum, veuillez choisir le pack adéquat !";
+
         let price_student = this.otherTarif * this.form.max_nbStudents;
         // console.log(this.otherTarif, this.form.nb_students, price_student);
         this.form.nb_students = this.form.max_nbStudents;
