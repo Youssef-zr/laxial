@@ -47,21 +47,30 @@
         </div>
         <div class="body">
             <div class="offer-name">
-                <p>Vous Avez Choisi La Version <span class="color">{{$details['offer_name']}}</span> </p>
-            </div>
-            <div class="nb-students">
-                <p>Le Nombre délèves choisi est <span class="color">{{$details['nb_students']}}</span> élèves</p>
+                <p>
+                    vous avez choisi la <span class="color">{{$details['offer_name']}}</span>
+                    qui comprends la licence , linstallation et lhébergement du logiciel.
+                </p>
             </div>
             @if (count($details['extra'])>0)
-            <h5>Extra Services:</h5>
-            <ul>
+            <h5 style="margin-bottom:0 !important">les extra services que tu as choisi:</h5>
+            <ul style="margin-bottom:8px !important">
                 @foreach ($details['extra'] as $extra)
-                <li>{{$extra}}</li>
+                <li>{{$extra}}.</li>
                 @endforeach
             </ul>
             @endif
+            <hr>
             <div class="total-price">
-                <p>Le Montant Total De Cette Offre Est <span class="color">{{$details['total_price']}}</span></p>
+                <ul>
+                    <li>Le nombre des élèves choisi ( <span class="color">{{$details['nb_students']}} </span> élèves ).</li>
+                    <li>le prix Initial de loffre ( {{ $details['price_init'] }} ) </li>
+                    <li>le prix de traitement des injection des listes et lutilisation des application mobile et IOS ( {{$details['tarif']}} )/elève.</li>
+                    @if (count($details['extra'])>0)
+                        <li>le prix des module de lextra ( {{$details['modules_price']}} ).</li>
+                    @endif
+                    <li>le montant total : <span class="color">( {{$details['total_price']}} ).</span></li>
+                </ul>
             </div>
         </div>
         <div class="footer">

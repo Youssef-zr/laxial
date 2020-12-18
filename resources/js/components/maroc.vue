@@ -821,28 +821,40 @@
                       <div class="message">
                         <label class="mt-3 d-block">
                           <i
-                            class="fa fa-info-circle fa-2x fa-fw text-dark"
+                            class="fa fa-info-circle fa-2x fa-fw"
+                            style="color: #9bc31c"
                           ></i>
                         </label>
                         <ul
-                          class="list-unstyled text-capitalize border p-2 rounded"
+                          class="list-unstyled text-dark text-capitalize border p-2 rounded"
+                          style="border-color: #9bc31c !important"
                         >
                           <li class="d-flex flex-direction-row">
-                            <i class="fa fa-star m-2 mt-1"></i>
+                            <i
+                              class="fa fa-star m-2 mt-1"
+                              style="color: #9bc31c"
+                            ></i>
                             <label>
                               le prix total comprend les comptes application
-                              mobile et IOS 50DH/elève
+                              mobile et IOS
+                              <b style="color: #9bc31c">5€/elève</b>
                             </label>
                           </li>
                           <li class="d-flex flex-direction-row">
-                            <i class="fa fa-star m-2 mt-1"></i>
+                            <i
+                              class="fa fa-star m-2 mt-1"
+                              style="color: #9bc31c"
+                            ></i>
                             <label>
                               traitement des injection des listes et injection
-                              des données 20DH/elève
+                              des données <b style="color: #9bc31c">2€/elève</b>
                             </label>
                           </li>
                           <li class="d-flex flex-direction-row">
-                            <i class="fa fa-star m-2 mt-1"></i>
+                            <i
+                              class="fa fa-star m-2 mt-1"
+                              style="color: #9bc31c"
+                            ></i>
                             <label>
                               les développment spécifique seront facturés sur
                               devis
@@ -1523,7 +1535,8 @@ export default {
         country: "Morocco",
         min_nbStudents: 1,
         max_nbStudents: 1,
-        extraServices: []
+        extraServices: [],
+        iosDonee: "70MAD" // tarif use ios and enter data in the application
       }),
       otherTarif: 70, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
@@ -1563,12 +1576,15 @@ export default {
   created() {
     axios.get("/api/localisation").then(res => {
       if (res.statusText == "OK") {
-        this.form.country = res.data.localisation;
+        if (res.data.localisation != null) {
+          this.form.country = res.data.localisation;
+        }
         if (res.data.localisation !== "Morocco") {
           this.$router.push("/fr");
         }
       }
     });
+    
     setTimeout(() => {
       this.loadingStatus = false;
     }, 700);
@@ -1641,7 +1657,6 @@ export default {
             // console.log(this.form.total_price);
           } else {
             this.form.total_price = this.modalTotalPrice + price_student;
-            // console.log("hello");
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer

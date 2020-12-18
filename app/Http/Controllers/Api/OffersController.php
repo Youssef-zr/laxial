@@ -13,38 +13,45 @@ class OffersController extends Controller
 {
     public function newOffer(Request $request)
     {
+        $currency = $request->country == "Morocco" ? "MAD" : "€";
+        // plan price init
+        $price_init = $request->extraServices[0];
+        // extra services prices check prices and create extra by price
         $extraServices = $request->extraServices;
         array_shift($extraServices);
+
+        // the extra modules sum
+        $extra_modules_sum = array_sum($extraServices);
 
         $extra = "";
         foreach ($extraServices as $extraService) {
             if ($extraService == "7800" || $extraService == "780") {
-                if ($request->lang == "ar") {
+                if ($request->country == "Morocco") {
                     $extra .= "/[ frais en extra ( 7.800 MAD ) ]/";
                 } else {
-                    $extra .= "/[ frais en extra ( 7.80€  ) ]/";
+                    $extra .= "/[ frais en extra ( 780€  ) ]/";
                 }
             } elseif ($extraService == "2500" || $extraService == "250") {
-                if ($request->lang == "ar") {
+                if ($request->country == "Morocco") {
                     $extra .= "/[ bibliothèque  en extra ( 2.500 MAD ) ]/";
                 } else {
                     $extra .= "/[ bibliothèque  en extra ( 250€  ) ]/";
                 }
 
             } elseif ($extraService == "1500" || $extraService == "150") {
-                if ($request->lang == "ar") {
+                if ($request->country == "Morocco") {
                     $extra .= "/[ transport  en extra ( 1.500 MAD ) ]/";
                 } else {
                     $extra .= "/[ transport  en extra ( 150€  ) ]/";
                 }
             } elseif ($extraService == "3500" || $extraService == "350") {
-                if ($request->lang == "ar") {
+                if ($request->country == "Morocco") {
                     $extra .= "/[ rapport  en extra ( 3.500 MAD ) ]/";
                 } else {
                     $extra .= "/[ rapport  en extra ( 350€  ) ]/";
                 }
             } elseif ($extraService == "2000" || $extraService == "200") {
-                if ($request->lang == "ar") {
+                if ($request->country == "Morocco") {
                     $extra .= "/[ personnele  en extra ( 2.000 MAD ) ]/";
                 } else {
                     $extra .= "/[ personnele  en extra ( 200€  ) ]/";
@@ -78,12 +85,11 @@ class OffersController extends Controller
         $order->max_eleves = $request->max_nbStudents;
         $order->nombre_eleves = $request->nb_students;
         $order->plan_choisie = $request->plan_name;
-        $order->prix_total = $request->lang == 'ar' ? $request->total_price . "MAD" : $request->total_price . '‎€';
+        $order->prix_total = $request->total_price . $currency;
         $order->formation_en_ligne = $request->formation_en_ligne == true ? "Oui" : "Non";
         $order->extra_services = $extra;
 
         $order->save();
-
         if ($extra != '') {
             $extra = trim($extra, '/ ');
             $extra = explode('//', $extra);
@@ -94,14 +100,17 @@ class OffersController extends Controller
         $mailDetails = [
             "client_name" => $order->nom,
             "offer_name" => $order->plan_choisie,
-            "nb_students" => $order->nombre_eleves,
             'total_price' => $order->prix_total,
             "lien" => url("/admin/orders/" . $order->id),
             "extra" => $extra,
+            "price_init" => $price_init.$currency,
+            "nb_students" => $order->nombre_eleves,
+            "tarif" => $request->iosDonee,
+            "modules_price" => $extra_modules_sum . $currency,
         ];
 
         Mail::to([$order->email])->send(new clientMail($mailDetails));
-        Mail::to("sarah@connectivemarket.com")->send(new adminMail($mailDetails));
+        // Mail::to("sarah@connectivemarket.com")->send(new adminMail($mailDetails));
 
         return response()->json(['msg' => 'Votre order a été créée avec succès']);
 
@@ -109,7 +118,7 @@ class OffersController extends Controller
 
     public function localCountry(Request $request)
     {
-        $localisation = file_get_contents("http://www.geoplugin.net/json.gp?ip=".$this->getRealIpAddr());
+        $localisation = file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $this->getRealIpAddr());
         return response()->json(['localisation' => json_decode($localisation)->geoplugin_countryName]);
     }
 

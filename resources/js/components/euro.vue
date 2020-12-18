@@ -1098,7 +1098,8 @@ export default {
         country: "France",
         min_nbStudents: 1,
         max_nbStudents: 1,
-        extraServices: []
+        extraServices: [],
+        iosDonee:"7€",// tarif use ios and enter data in the application
       }),
       otherTarif: 7, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
@@ -1138,7 +1139,9 @@ export default {
   created() {
     axios.get("/api/localisation").then(res => {
       if (res.statusText == "OK") {
-        this.form.country = res.data.localisation;
+          if(res.data.localisation != null ){
+              this.form.country = res.data.localisation;
+          }
         if (res.data.localisation === "Morocco") {
           this.$router.push("/");
         }
@@ -1342,7 +1345,7 @@ export default {
   },
   watch: {
     nb_student_price() {
-      console.log("changed");
+      console.log("....");
     }
   }
 };

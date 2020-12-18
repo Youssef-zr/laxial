@@ -3020,7 +3020,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         country: "France",
         min_nbStudents: 1,
         max_nbStudents: 1,
-        extraServices: []
+        extraServices: [],
+        iosDonee: "7€" // tarif use ios and enter data in the application
+
       }),
       otherTarif: 7,
       // tarif inject donner utilisation app mobile / eleve
@@ -3063,7 +3065,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     axios.get("/api/localisation").then(function (res) {
       if (res.statusText == "OK") {
-        _this.form.country = res.data.localisation;
+        if (res.data.localisation != null) {
+          _this.form.country = res.data.localisation;
+        }
 
         if (res.data.localisation === "Morocco") {
           _this.$router.push("/");
@@ -3251,7 +3255,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   watch: {
     nb_student_price: function nb_student_price() {
-      console.log("changed");
+      console.log("....");
     }
   }
 });
@@ -4787,6 +4791,18 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4804,7 +4820,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         country: "Morocco",
         min_nbStudents: 1,
         max_nbStudents: 1,
-        extraServices: []
+        extraServices: [],
+        iosDonee: "70MAD" // tarif use ios and enter data in the application
+
       }),
       otherTarif: 70,
       // tarif inject donner utilisation app mobile / eleve
@@ -4847,7 +4865,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     axios.get("/api/localisation").then(function (res) {
       if (res.statusText == "OK") {
-        _this.form.country = res.data.localisation;
+        if (res.data.localisation != null) {
+          _this.form.country = res.data.localisation;
+        }
 
         if (res.data.localisation !== "Morocco") {
           _this.$router.push("/fr");
@@ -4921,7 +4941,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
             this.form.total_price = this.modalTotalPrice + price_student + x; // console.log(this.form.total_price);
           } else {
-            this.form.total_price = this.modalTotalPrice + price_student; // console.log("hello");
+            this.form.total_price = this.modalTotalPrice + price_student;
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
@@ -35653,35 +35673,57 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "message" }, [
       _c("label", { staticClass: "mt-3 d-block" }, [
-        _c("i", { staticClass: "fa fa-info-circle fa-2x fa-fw text-dark" })
+        _c("i", {
+          staticClass: "fa fa-info-circle fa-2x fa-fw",
+          staticStyle: { color: "#9bc31c" }
+        })
       ]),
       _vm._v(" "),
       _c(
         "ul",
-        { staticClass: "list-unstyled text-capitalize border p-2 rounded" },
+        {
+          staticClass:
+            "list-unstyled text-dark text-capitalize border p-2 rounded",
+          staticStyle: { "border-color": "#9bc31c !important" }
+        },
         [
           _c("li", { staticClass: "d-flex flex-direction-row" }, [
-            _c("i", { staticClass: "fa fa-star m-2 mt-1" }),
+            _c("i", {
+              staticClass: "fa fa-star m-2 mt-1",
+              staticStyle: { color: "#9bc31c" }
+            }),
             _vm._v(" "),
             _c("label", [
               _vm._v(
-                "\n                            le prix total comprend les comptes application\n                            mobile et IOS 50DH/elève\n                          "
-              )
+                "\n                            le prix total comprend les comptes application\n                            mobile et IOS\n                            "
+              ),
+              _c("b", { staticStyle: { color: "#9bc31c" } }, [
+                _vm._v("5€/elève")
+              ])
             ])
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "d-flex flex-direction-row" }, [
-            _c("i", { staticClass: "fa fa-star m-2 mt-1" }),
+            _c("i", {
+              staticClass: "fa fa-star m-2 mt-1",
+              staticStyle: { color: "#9bc31c" }
+            }),
             _vm._v(" "),
             _c("label", [
               _vm._v(
-                "\n                            traitement des injection des listes et injection\n                            des données 20DH/elève\n                          "
-              )
+                "\n                            traitement des injection des listes et injection\n                            des données "
+              ),
+              _c("b", { staticStyle: { color: "#9bc31c" } }, [
+                _vm._v("2€/elève")
+              ])
             ])
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "d-flex flex-direction-row" }, [
-            _c("i", { staticClass: "fa fa-star m-2 mt-1" }),
+            _c("i", {
+              staticClass: "fa fa-star m-2 mt-1",
+              staticStyle: { color: "#9bc31c" }
+            }),
             _vm._v(" "),
             _c("label", [
               _vm._v(
