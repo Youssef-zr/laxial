@@ -65,9 +65,9 @@
                 <ul>
                     <li>Le nombre des élèves choisi ( <span class="color">{{$details['nb_students']}} </span> élèves ).</li>
                     <li>le prix Initial de loffre ( {{ $details['price_init'] }} ) </li>
-                    <li>le prix de traitement des injection des listes et lutilisation des application mobile et IOS ( {{$details['tarif']}} )/elève.</li>
+                    <li>le prix de traitement des injection des listes et lutilisation des application mobile et IOS ( {{$details['tarif']}} /elève).</li>
                     @if (count($details['extra'])>0)
-                        <li>le prix des module de lextra ( {{$details['modules_price']}} ).</li>
+                        <li>le prix des modules de lextra ( {{$details['modules_price']}} ).</li>
                     @endif
                     <li>le montant total : <span class="color">( {{$details['total_price']}} ).</span></li>
                 </ul>

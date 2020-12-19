@@ -162,7 +162,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Version Basic De Laxial  De 1 a 499 élèves',
+                            'version basic de laxial  de 1 a 499 élèves',
                             sum_price_basic_one,
                             plans.basic.plan_one.total_price,
                             1,
@@ -303,7 +303,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Version Basic De Laxial  De 500 a 999 élèves',
+                            'version basic de laxial  de 500 a 999 élèves',
                             sum_price_basic_two,
                             plans.basic.plan_two.total_price,
                             500,
@@ -442,7 +442,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Version Basic De Laxial Plus de 1000 élèves',
+                            'version basic de laxial plus de 1000 élèves',
                             sum_price_basic_three,
                             plans.basic.plan_three.total_price,
                             1000,
@@ -521,7 +521,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Version Complète De Laxial De 1 a 499 élèves',
+                            'version complète de laxial de 1 a 499 élèves',
                             sum_price_advanced_one,
                             plans.advanced.plan_one.total_price,
                             1,
@@ -593,7 +593,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Version Complète De Laxial De 500 a 999 élèves',
+                            'version complète de laxial de 500 a 999 élèves',
                             sum_price_advanced_two,
                             plans.advanced.plan_two.total_price,
                             500,
@@ -665,7 +665,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'Version Complète De Laxial Plus De 1000 Elèves',
+                            'version complète de laxial plus de 1000 Elèves',
                             sum_price_advanced_three,
                             plans.advanced.plan_three.total_price,
                             1000,
