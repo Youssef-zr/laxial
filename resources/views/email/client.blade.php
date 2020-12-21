@@ -80,7 +80,7 @@
         </div>
         <div class="footer">
             <p>
-                Merci de la confiance que vous nous avez témoingné en choisissant notre service.
+                Merci de la confiance que vous nous avez témoingné en choisissant notre service
             </p>
         </div>
         <img src="{{url('images/laxial.ico')}}" alt="laxial image">
