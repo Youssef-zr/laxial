@@ -70,7 +70,7 @@
                 <ul>
                     <li>Le nombre des élèves choisi ( <span class="color">{{$details['nb_students']}} </span> élèves ).</li>
                     <li>le prix initial de l'offre ( {{ $details['price_init'] }} ) </li>
-                    <li>le prix de traitement des injection des listes et l'utilisation des application mobile et IOS ( {{$details['tarif']}} /elève).</li>
+                    <li>le prix de traitement des injection des listes et l'utilisation des application mobile et IOS ( {{$details['tarif']}} /élève).</li>
                     @if (count($details['extra'])>0)
                         <li>le prix des modules de l'/'extra ( {{$details['modules_price']}} ).</li>
                     @endif
