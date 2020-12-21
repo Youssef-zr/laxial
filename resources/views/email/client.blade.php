@@ -31,14 +31,15 @@
        }
 
        .email ul{
-           margin-top:0px;
            list-style-type: square;
             padding:0;
-           margin:0;
+            margin:0;
+            margin-top:10px;
        }
 
        .email .total-price ul{
-        margin-top:10px;
+           border-top:1px dashed #444;
+        margin-top:15px;
        }
 
        .email .footer{
