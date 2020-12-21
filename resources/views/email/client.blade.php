@@ -37,6 +37,11 @@
            margin-top:0px;
            list-style-type: square;
        }
+
+       .email .total-price ul{
+           padding:0;
+           margin:0;
+       }
     </style>
 </head>
 <body>
@@ -49,7 +54,7 @@
             <div class="offer-name">
                 <p>
                     vous avez choisi la <span class="color">{{$details['offer_name']}}</span>
-                    qui comprends la licence , linstallation et lhébergement du logiciel.
+                    qui comprends la licence , l'installation et l'hébergement du logiciel.
                 </p>
             </div>
             @if (count($details['extra'])>0)
@@ -64,10 +69,10 @@
             <div class="total-price">
                 <ul>
                     <li>Le nombre des élèves choisi ( <span class="color">{{$details['nb_students']}} </span> élèves ).</li>
-                    <li>le prix Initial de loffre ( {{ $details['price_init'] }} ) </li>
-                    <li>le prix de traitement des injection des listes et lutilisation des application mobile et IOS ( {{$details['tarif']}} /elève).</li>
+                    <li>le prix initial de l'offre ( {{ $details['price_init'] }} ) </li>
+                    <li>le prix de traitement des injection des listes et l'utilisation des application mobile et IOS ( {{$details['tarif']}} /elève).</li>
                     @if (count($details['extra'])>0)
-                        <li>le prix des modules de lextra ( {{$details['modules_price']}} ).</li>
+                        <li>le prix des modules de l'/'extra ( {{$details['modules_price']}} ).</li>
                     @endif
                     <li>le montant total : <span class="color">( {{$details['total_price']}} ).</span></li>
                 </ul>
@@ -75,7 +80,7 @@
         </div>
         <div class="footer">
             <p>
-                Merci De Choisir Notre Service, Cordialement Léquipe Connective Market
+                Merci de la confiance que vous nous avez témoingné en choisissant notre service.
             </p>
         </div>
         <img src="{{url('images/laxial.ico')}}" alt="laxial image">

@@ -665,7 +665,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version complète de laxial plus de 1000 Elèves',
+                            'version complète de laxial plus de 1000 elèves',
                             sum_price_advanced_three,
                             plans.advanced.plan_three.total_price,
                             1000,

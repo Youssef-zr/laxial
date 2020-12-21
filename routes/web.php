@@ -19,3 +19,5 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('{any}', function () {
     return view('website.welcome');
 })->where('any', '.*');
+
+
