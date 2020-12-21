@@ -40,9 +40,16 @@
        .email .total-price ul{
            border-top:1px dashed #444;
         margin-top:15px;
+        padding-top:20px;
        }
 
        .email .footer{
+           margin-top:20px;
+       }
+
+       .email .laxial-image{
+           width:50px;
+           height:50px;
            margin-top:20px;
        }
     </style>
@@ -85,7 +92,7 @@
                 Merci de la confiance que vous nous avez témoingné en choisissant notre service.
             </p>
         </div>
-        <img src="{{url('images/laxial.ico')}}" alt="laxial image">
+        <img src="{{url('images/laxial.ico')}}" class="laxial-image" alt="laxial image">
     </section>
 
     </body>
