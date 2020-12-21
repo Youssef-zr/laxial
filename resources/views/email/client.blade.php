@@ -48,8 +48,8 @@
        }
 
        .email .laxial-image{
-           width:50px;
-           height:50px;
+           width:70px;
+           height:70px;
            margin-top:20px;
        }
     </style>

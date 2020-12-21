@@ -1509,7 +1509,6 @@ body {
   z-index: 12455555;
   padding: 8px 15px 0;
   font-size: 16px;
-  text-transform: capitalize;
 }
 
 .no-border-bottom {
