@@ -1332,7 +1332,7 @@ export default {
         // if nb_students > max number of students in this offer
         // if the user deppased the maximum number of students
         this.msgDepassNbMax =
-          "vous avez atteint le nombre maximum, veuillez choisir le pack adéquat !";
+          "vous avez atteint le nombre maximal, veuillez choisir le pack adéquat !";
 
         let price_student = this.otherTarif * this.form.max_nbStudents;
         // console.log(this.otherTarif, this.form.nb_students, price_student);

@@ -7,7 +7,6 @@
     <title>hello</title>
     <style>
        .email{
-           text-transform: capitalize;
            font-family:Verdana, Geneva, Tahoma, sans-serif;
            background:#ffff;
            padding:10px 15px;
@@ -76,6 +75,7 @@
             </ul>
             @endif
             <div class="total-price">
+                <h5>le prix total comprand : <span class="color">( {{$details['total_price']}} ).</span></h5>
                 <ul>
                     <li>Le nombre des élèves choisi ( <span class="color">{{$details['nb_students']}} </span> élèves ).</li>
                     <li>le prix initial de l'offre ( {{ $details['price_init'] }} ) </li>
@@ -83,7 +83,6 @@
                     @if (count($details['extra'])>0)
                         <li>le prix des modules de l'extra ( {{$details['modules_price']}} ).</li>
                     @endif
-                    <li>le montant total : <span class="color">( {{$details['total_price']}} ).</span></li>
                 </ul>
             </div>
         </div>
