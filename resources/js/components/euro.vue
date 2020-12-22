@@ -21,7 +21,7 @@
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#menu1">
                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                Version Basique</a
+                version basique </a
               >
             </li>
             <li class="nav-item">
@@ -170,7 +170,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version basic de laxial  de 1 a 499 élèves',
+                            'version basique de laxial  de 1 a 499 élèves',
                             sum_price_basic_one,
                             plans.basic.plan_one.total_price,
                             1,
@@ -319,7 +319,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version basic de laxial  de 500 a 999 élèves',
+                            'version basique de laxial  de 500 a 999 élèves',
                             sum_price_basic_two,
                             plans.basic.plan_two.total_price,
                             500,
@@ -466,7 +466,7 @@
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version basic de laxial plus de 1000 élèves',
+                            'version basique de laxial plus de 1000 élèves',
                             sum_price_basic_three,
                             plans.basic.plan_three.total_price,
                             1000,

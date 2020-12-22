@@ -30258,7 +30258,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "version basic de laxial  de 1 a 499 élèves",
+                                    "version basique de laxial  de 1 a 499 élèves",
                                     _vm.sum_price_basic_one,
                                     _vm.plans.basic.plan_one.total_price,
                                     1,
@@ -30682,7 +30682,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "version basic de laxial  de 500 a 999 élèves",
+                                    "version basique de laxial  de 500 a 999 élèves",
                                     _vm.sum_price_basic_two,
                                     _vm.plans.basic.plan_two.total_price,
                                     500,
@@ -31116,7 +31116,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "version basic de laxial plus de 1000 élèves",
+                                    "version basique de laxial plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
                                     _vm.plans.basic.plan_three.total_price,
                                     1000,
@@ -31981,7 +31981,7 @@ var staticRenderFns = [
                 staticClass: "fa fa-star-half-o",
                 attrs: { "aria-hidden": "true" }
               }),
-              _vm._v("\n              Version Basique")
+              _vm._v("\n              version basique ")
             ]
           )
         ]),
@@ -32680,7 +32680,7 @@ var staticRenderFns = [
                 staticClass: "text-dark",
                 staticStyle: { "margin-left": "30px" }
               },
-              [_vm._v("le prix total comprends:")]
+              [_vm._v("le prix total comprends: ")]
             )
           ]),
           _vm._v(" "),
@@ -33459,7 +33459,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "version basic de laxial de 1 a 499 élèves",
+                                    "version basique  de laxial de 1 a 499 élèves",
                                     _vm.sum_price_basic_one,
                                     _vm.plans.basic.plan_one.total_price,
                                     1,
@@ -33883,7 +33883,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "version basic de laxial de 500 a 999 élèves",
+                                    "version basique  de laxial de 500 a 999 élèves",
                                     _vm.sum_price_basic_two,
                                     _vm.plans.basic.plan_two.total_price,
                                     500,
@@ -34317,7 +34317,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   return _vm.choosePlane(
-                                    "version basic de laxial plus de 1000 élèves",
+                                    "version basique  de laxial plus de 1000 élèves",
                                     _vm.sum_price_basic_three,
                                     _vm.plans.basic.plan_three.total_price,
                                     1000,
@@ -35831,7 +35831,7 @@ var staticRenderFns = [
                 staticClass: "text-dark",
                 staticStyle: { "margin-left": "30px" }
               },
-              [_vm._v("le prix total comprends:")]
+              [_vm._v("le prix total comprends: ")]
             )
           ]),
           _vm._v(" "),

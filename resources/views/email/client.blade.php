@@ -16,6 +16,10 @@
        .email h3{
            font-weight:500;
            font-size:20px;
+           margin:5px 0;
+       }
+       .email h5{
+         margin:5px 0;
        }
 
        .email p{
@@ -33,7 +37,7 @@
            list-style-type: square;
             padding:0;
             margin:0;
-            margin-top:10px;
+            margin-top:5px;
        }
 
        .email .total-price ul{
@@ -57,30 +61,29 @@
 
     <section class="email">
         <div class="header">
-            <h3 class="title">Bonjour {{$details['client_name']}}</h3>
+            <h3 class="title" style="margin:5px 0">Bonjour {{$details['client_name']}}</h3>
         </div>
         <div class="body">
             <div class="offer-name">
-                  <p>
+                  <label style="display: block">
                     vous avez choisi la <span class="color">{{$details['offer_name']}}</span>
                     qui comprends :
-                  </p>
-                  <p>
+                  </label>
+                  <label style="display: block">
                     la licence , l'installation et l'hébergement du logiciel.
-                  </p>
+                  </label>
             </div>
             @if (count($details['extra'])>0)
-            <h5 style="margin-bottom:0 !important">les extra services que vous avez choisi:</h5>
-            <ul style="margin-bottom:8px !important">
+            <h5 style="margin-bottom:5px !important">les extra services que vous avez choisi:</h5>
+            <ul style="margin:5px 0">
                 @foreach ($details['extra'] as $extra)
                 <li>{{$extra}}.</li>
                 @endforeach
             </ul>
             @endif
             <div class="total-price">
-              vous avez choisi la version complète de laxial qui comprends
-                <h5>le prix total comprand : </h5>
-                <ul>
+                <h5 class="margin:5px 0">le prix total comprends : </h5>
+                <ul style="margin:5px 0">
                     <li>Le nombre des élèves choisi (<span class="color">{{$details['nb_students']}} </span> élèves).</li>
                     <li>le prix initial de l'offre ({{ $details['price_init'] }}). </li>
                     <li>le prix de traitement des injections des listes et l'utilisation des applications mobiles et IOS ({{$details['tarif']}} /élève).</li>
