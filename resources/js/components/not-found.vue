@@ -9,7 +9,6 @@
           Désolé !! Page Introuvable
         </h1>
       </div>
-
       <!-- /.error-content -->
     </div>
     <!-- /.error-page -->
