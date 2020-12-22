@@ -1572,8 +1572,8 @@ export default {
       }
     };
   },
-  created() {
-    axios.get("/api/localisation").then(res => {
+  beforeCreate() {
+       axios.get("/api/localisation").then(res => {
       if (res.statusText == "OK") {
         if (res.data.localisation != null) {
           this.form.country = res.data.localisation;
@@ -1583,7 +1583,8 @@ export default {
         }
       }
     });
-
+  },
+  created() {
     setTimeout(() => {
       this.loadingStatus = false;
     }, 700);
@@ -1646,7 +1647,6 @@ export default {
           this.form.nb_students <= this.form.max_nbStudents
         ) {
           // if nb_students > 1000
-
           if (this.form.nb_students > 1000) {
             let x = this.form.nb_students - 1000;
             x = x / 500;

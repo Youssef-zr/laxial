@@ -1136,8 +1136,8 @@ export default {
       }
     };
   },
-  created() {
-    axios.get("/api/localisation").then(res => {
+  beforeCreate() {
+          axios.get("/api/localisation").then(res => {
       if (res.statusText == "OK") {
           if(res.data.localisation != null ){
               this.form.country = res.data.localisation;
@@ -1147,7 +1147,8 @@ export default {
         }
       }
     });
-
+  },
+  created() {
     setTimeout(() => {
       this.loadingStatus = false;
     }, 700);

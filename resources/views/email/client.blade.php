@@ -37,9 +37,9 @@
        }
 
        .email .total-price ul{
-           border-top:1px dashed #444;
-        margin-top:15px;
-        padding-top:20px;
+            border-top:1px dashed #444;
+            margin-top:5px;
+            padding-top:20px;
        }
 
        .email .footer{

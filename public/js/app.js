@@ -3060,7 +3060,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     };
   },
-  created: function created() {
+  beforeCreate: function beforeCreate() {
     var _this = this;
 
     axios.get("/api/localisation").then(function (res) {
@@ -3074,8 +3074,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }
       }
     });
+  },
+  created: function created() {
+    var _this2 = this;
+
     setTimeout(function () {
-      _this.loadingStatus = false;
+      _this2.loadingStatus = false;
     }, 700);
   },
   methods: {
@@ -3153,29 +3157,29 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     },
     saveOrder: function saveOrder() {
-      var _this2 = this;
+      var _this3 = this;
 
       // send data from form to controller by api
       this.loadingStatus = true;
       this.form.post("/api/newOffer").then(function (res) {
         if (res.statusText == "OK") {
-          _this2.loadingStatus = false;
+          _this3.loadingStatus = false;
 
-          _this2.closeModal(); // msg successfull
+          _this3.closeModal(); // msg successfull
 
 
-          _this2.msg = res.data.msg;
+          _this3.msg = res.data.msg;
           setTimeout(function () {
-            _this2.msg = "";
+            _this3.msg = "";
           }, 3000);
         }
       })["catch"](function (err) {
-        _this2.loadingStatus = false;
+        _this3.loadingStatus = false;
 
         if (err.response != undefined && err.response.status == 500) {
-          _this2.msgError = "Erreur veuillez réessayer plus tard";
+          _this3.msgError = "Erreur veuillez réessayer plus tard";
           setTimeout(function () {
-            _this2.msgError = "";
+            _this3.msgError = "";
           }, 4000);
         }
       });
@@ -4859,7 +4863,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     };
   },
-  created: function created() {
+  beforeCreate: function beforeCreate() {
     var _this = this;
 
     axios.get("/api/localisation").then(function (res) {
@@ -4873,8 +4877,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }
       }
     });
+  },
+  created: function created() {
+    var _this2 = this;
+
     setTimeout(function () {
-      _this.loadingStatus = false;
+      _this2.loadingStatus = false;
     }, 700);
   },
   methods: {
@@ -4952,29 +4960,29 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     },
     saveOrder: function saveOrder() {
-      var _this2 = this;
+      var _this3 = this;
 
       // send data from form to controller by api
       this.loadingStatus = true;
       this.form.post("/api/newOffer").then(function (res) {
         if (res.statusText == "OK") {
-          _this2.loadingStatus = false;
+          _this3.loadingStatus = false;
 
-          _this2.closeModal(); // msg successfull
+          _this3.closeModal(); // msg successfull
 
 
-          _this2.msg = res.data.msg;
+          _this3.msg = res.data.msg;
           setTimeout(function () {
-            _this2.msg = "";
+            _this3.msg = "";
           }, 3000);
         }
       })["catch"](function (err) {
-        _this2.loadingStatus = false;
+        _this3.loadingStatus = false;
 
         if (err.response != undefined && err.response.status == 500) {
-          _this2.msgError = "Erreur veuillez réessayer plus tard";
+          _this3.msgError = "Erreur veuillez réessayer plus tard";
           setTimeout(function () {
-            _this2.msgError = "";
+            _this3.msgError = "";
           }, 4000);
         }
       });
