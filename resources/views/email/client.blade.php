@@ -81,13 +81,13 @@
               vous avez choisi la version complète de laxial qui comprends
                 <h5>le prix total comprand : </h5>
                 <ul>
-                    <li>Le nombre des élèves choisi ( <span class="color">{{$details['nb_students']}} </span> élèves ).</li>
-                    <li>le prix initial de l'offre ( {{ $details['price_init'] }} ). </li>
-                    <li>le prix de traitement des injections des listes et l'utilisation des applications mobiles et IOS ( {{$details['tarif']}} /élève ).</li>
+                    <li>Le nombre des élèves choisi (<span class="color">{{$details['nb_students']}} </span> élèves).</li>
+                    <li>le prix initial de l'offre ({{ $details['price_init'] }}). </li>
+                    <li>le prix de traitement des injections des listes et l'utilisation des applications mobiles et IOS ({{$details['tarif']}} /élève).</li>
                     @if (count($details['extra'])>0)
-                        <li>le prix des modules de l'extra ( {{$details['modules_price']}} ).</li>
+                        <li>le prix des modules de l'extra ({{$details['modules_price']}}).</li>
                     @endif
-                    <li>total: <span class="color">( {{$details['total_price']}} ).</span> </li>
+                    <li>total: <span class="color">({{$details['total_price']}}).</span> </li>
                 </ul>
             </div>
         </div>
