@@ -112,7 +112,7 @@ class OffersController extends Controller
         Mail::to([$order->email])->send(new clientMail($mailDetails));
         Mail::to("sarah@connectivemarket.com")->send(new adminMail($mailDetails));
 
-        return response()->json(['msg' => 'Votre order a été créée avec succès']);
+        return response()->json(['msg' => 'votre demande a été crée avec succès']);
 
     }
 
