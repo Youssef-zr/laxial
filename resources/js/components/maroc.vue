@@ -830,7 +830,7 @@
                           style="border-color: #9bc31c !important"
                         >
                          <li class="d-flex flex-direction-row">
-                          <label class="text-dark" style="margin-left:30px;"><b>le prix total comprends:</b></label>
+                          <label class="text-dark" style="margin-left:30px;">le prix total comprends: </label>
                           </li>
                           <li class="d-flex flex-direction-row">
                             <i

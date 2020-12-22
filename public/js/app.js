@@ -32680,7 +32680,7 @@ var staticRenderFns = [
                 staticClass: "text-dark",
                 staticStyle: { "margin-left": "30px" }
               },
-              [_c("b", [_vm._v("le prix total comprends:")])]
+              [_vm._v("le prix total comprends:")]
             )
           ]),
           _vm._v(" "),
@@ -35831,7 +35831,7 @@ var staticRenderFns = [
                 staticClass: "text-dark",
                 staticStyle: { "margin-left": "30px" }
               },
-              [_c("b", [_vm._v("le prix total comprends:")])]
+              [_vm._v("le prix total comprends:")]
             )
           ]),
           _vm._v(" "),
