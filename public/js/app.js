@@ -3128,7 +3128,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     setTimeout(function () {
       _this2.loadingStatus = false;
-    }, 700);
+    }, 1000);
   },
   methods: {
     openModalBase: function openModalBase(version) {
@@ -4934,7 +4934,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
     setTimeout(function () {
       _this2.loadingStatus = false;
-    }, 700);
+    }, 1000);
   },
   methods: {
     openModalBase: function openModalBase(version) {

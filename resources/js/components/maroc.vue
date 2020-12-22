@@ -1590,7 +1590,7 @@ export default {
   created() {
     setTimeout(() => {
       this.loadingStatus = false;
-    }, 700);
+    }, 1000);
   },
   methods: {
     openModalBase(version) {
