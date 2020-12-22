@@ -1194,7 +1194,7 @@ export default {
           res.data.localisation === "Morocco" &&
           res.data.localisation != null
         ) {
-          this.$router.push("/");
+          this.$router.push("/maroc");
         }
       }
     });

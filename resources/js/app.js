@@ -14,13 +14,13 @@ import notFound from "./components/not-found";
 let routes = [
     {
         path: "/",
-        name: "Maroc",
-        component: maroc
-    },
-    {
-        path: "/fr",
         name: "Fr",
         component: fr
+    },
+    {
+        path: "/maroc",
+        name: "/Maroc",
+        component: maroc
     },
     {
         path: "*",

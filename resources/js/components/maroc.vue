@@ -1582,7 +1582,7 @@ export default {
           this.form.country = res.data.localisation;
         }
         if (res.data.localisation !== "Morocco" && res.data.localisation!=null) {
-          this.$router.push("/fr");
+          this.$router.push("/");
         }
       }
     });

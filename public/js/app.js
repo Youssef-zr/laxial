@@ -3118,7 +3118,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }
 
         if (res.data.localisation === "Morocco" && res.data.localisation != null) {
-          _this.$router.push("/");
+          _this.$router.push("/maroc");
         }
       }
     });
@@ -4924,7 +4924,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }
 
         if (res.data.localisation !== "Morocco" && res.data.localisation != null) {
-          _this.$router.push("/fr");
+          _this.$router.push("/");
         }
       }
     });
@@ -51470,12 +51470,12 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 var routes = [{
   path: "/",
-  name: "Maroc",
-  component: _components_maroc__WEBPACK_IMPORTED_MODULE_1__["default"]
-}, {
-  path: "/fr",
   name: "Fr",
   component: _components_euro__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: "/maroc",
+  name: "/Maroc",
+  component: _components_maroc__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
   path: "*",
   name: "any",
