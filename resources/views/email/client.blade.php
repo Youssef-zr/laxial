@@ -61,10 +61,13 @@
         </div>
         <div class="body">
             <div class="offer-name">
-                <p>
+                  <p>
                     vous avez choisi la <span class="color">{{$details['offer_name']}}</span>
-                    qui comprends la licence , l'installation et l'hébergement du logiciel.
-                </p>
+                    qui comprends :
+                  </p>
+                  <p>
+                    la licence , l'installation et l'hébergement du logiciel.
+                  </p>
             </div>
             @if (count($details['extra'])>0)
             <h5 style="margin-bottom:0 !important">les extra services que vous avez choisi:</h5>
@@ -75,6 +78,7 @@
             </ul>
             @endif
             <div class="total-price">
+              vous avez choisi la version complète de laxial qui comprends
                 <h5>le prix total comprand : </h5>
                 <ul>
                     <li>Le nombre des élèves choisi ( <span class="color">{{$details['nb_students']}} </span> élèves ).</li>
@@ -89,7 +93,7 @@
         </div>
         <div class="footer">
             <p>
-                Merci de la confiance que vous nous avez témoingné en choisissant notre service.
+                Merci de la confiance que vous nous avez témoigné en choisissant notre service.
             </p>
         </div>
         <img src="{{url('images/laxial.ico')}}" class="laxial-image" alt="laxial image">

@@ -52,9 +52,9 @@ class OffersController extends Controller
                 }
             } elseif ($extraService == "2000" || $extraService == "200") {
                 if ($request->country == "Morocco") {
-                    $extra .= "/[ personnele  en extra ( 2.000 MAD ) ]/";
+                    $extra .= "/[ personnel en extra ( 2.000 MAD ) ]/";
                 } else {
-                    $extra .= "/[ personnele  en extra ( 200€  ) ]/";
+                    $extra .= "/[ personnel en extra ( 200€  ) ]/";
                 }
             }
         }

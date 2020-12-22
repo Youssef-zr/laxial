@@ -105,7 +105,7 @@
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
-                            module bibliothèque en exact
+                            module bibliothèque en extra
                             <label class="price_color">150‎€</label>
                             + prix annuel:
                             <label class="price_color">100‎€</label>
@@ -120,7 +120,7 @@
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
-                            module transport en exact
+                            module transport en extra
                             <label class="price_color">100‎€</label>
                             + prix annuel:
                             <label class="price_color">50‎€</label>
@@ -135,7 +135,7 @@
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
-                            module rapport en exact
+                            module rapport en extra
                             <label class="price_color">250‎€</label>
                             + prix annuel:
                             <label class="price_color">100‎€</label>
@@ -150,7 +150,7 @@
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
-                            module personnel en exact
+                            module personnel en extra
                             <label class="price_color">150‎€</label>
                             + prix annuel:
                             <label class="price_color">50‎€</label>
@@ -254,7 +254,7 @@
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
-                            module bibliothèque en exact
+                            module bibliothèque en extra
                             <label class="price_color">150‎€</label>
                             + prix annuel:
                             <label class="price_color">100‎€</label>
@@ -269,7 +269,7 @@
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
-                            module transport en exact
+                            module transport en extra
                             <label class="price_color">100‎€</label>
                             + prix annuel:
                             <label class="price_color">50‎€</label>
@@ -284,7 +284,7 @@
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
-                            module rapport en exact
+                            module rapport en extra
                             <label class="price_color">250‎€</label>
                             + prix annuel:
                             <label class="price_color">100‎€</label>
@@ -299,7 +299,7 @@
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
-                            module personnel en exact
+                            module personnel en extra
                             <label class="price_color">150‎€</label>
                             + prix annuel:
                             <label class="price_color">50‎€</label>
@@ -401,7 +401,7 @@
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
-                            module bibliothèque en exact
+                            module bibliothèque en extra
                             <label class="price_color">150‎€</label>
                             + prix annuel:
                             <label class="price_color">100‎€</label>
@@ -416,7 +416,7 @@
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
-                            module transport en exact
+                            module transport en extra
                             <label class="price_color">100‎€</label>
                             + prix annuel:
                             <label class="price_color">50‎€</label>
@@ -431,7 +431,7 @@
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
-                            module rapport en exact
+                            module rapport en extra
                             <label class="price_color">250‎€</label>
                             + prix annuel:
                             <label class="price_color">100‎€</label>
@@ -446,7 +446,7 @@
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
-                            module personnel en exact
+                            module personnel en extra
                             <label class="price_color">150‎€</label>
                             + prix annuel:
                             <label class="price_color">50‎€</label>
@@ -857,13 +857,17 @@
                           class="list-unstyled text-dark text-capitalize border p-2 rounded"
                           style="border-color: #9bc31c !important"
                         >
+
+                          <li class="d-flex flex-direction-row">
+                          <label class="text-dark" style="margin-left:30px;"><b>le prix total comprends:</b></label>
+                          </li>
                           <li class="d-flex flex-direction-row">
                             <i
                               class="fa fa-star m-2 mt-1"
                               style="color: #9bc31c"
                             ></i>
                             <label>
-                              le prix total comprend les comptes application
+                              les comptes application
                               mobile et IOS
                               <b style="color: #9bc31c">5€/elève</b>
                             </label>
