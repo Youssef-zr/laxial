@@ -32429,7 +32429,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Administrateurs Offert ")])
+      _c("span", [_vm._v("Portail Administrateurs Offert ")])
     ])
   },
   function() {
@@ -32497,7 +32497,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Administrateurs Offert ")])
+      _c("span", [_vm._v("Portail Administrateurs Offert ")])
     ])
   },
   function() {
@@ -32566,7 +32566,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Administrateurs Offert ")])
+      _c("span", [_vm._v("Portail Administrateurs Offert ")])
     ])
   },
   function() {
@@ -32857,7 +32857,7 @@ var staticRenderFns = [
             _c("span", { staticClass: "d-block other-service" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
-                "\n                            Version mobile (Android iOS) ainsi que les\n                            portails élèves et parents :\n                            "
+                "\n                            Version mobile (Android iOS) ainsi que les\n                            Portail élèves et parents :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
                 _vm._v("5€/élèves")
@@ -35600,7 +35600,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Administrateurs Offert")])
+      _c("span", [_vm._v("Portail Administrateurs Offert")])
     ])
   },
   function() {
@@ -35610,7 +35610,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Professeurs Offert")])
+      _c("span", [_vm._v("Portail Professeurs Offert")])
     ])
   },
   function() {
@@ -35660,7 +35660,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Administrateurs Offert")])
+      _c("span", [_vm._v("Portail Administrateurs Offert")])
     ])
   },
   function() {
@@ -35670,7 +35670,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Professeurs Offert")])
+      _c("span", [_vm._v("Portail Professeurs Offert")])
     ])
   },
   function() {
@@ -35721,7 +35721,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Administrateurs Offert")])
+      _c("span", [_vm._v("Portail Administrateurs Offert")])
     ])
   },
   function() {
@@ -35731,7 +35731,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("Portails Professeurs Offert")])
+      _c("span", [_vm._v("Portail Professeurs Offert")])
     ])
   },
   function() {
@@ -36006,7 +36006,7 @@ var staticRenderFns = [
             _c("span", { staticClass: "d-block other-service" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
-                " Version mobile\n                            (Android iOS) ainsi que les portails élèves et\n                            parents :\n                            "
+                " Version mobile\n                            (Android iOS) ainsi que les Portail élèves et\n                            parents :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
                 _vm._v("50MAD/élèves")

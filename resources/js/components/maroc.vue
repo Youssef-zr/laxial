@@ -497,11 +497,11 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portails Administrateurs Offert</span>
+                          <span>Portail Administrateurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portails Professeurs Offert</span>
+                          <span>Portail Professeurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -573,11 +573,11 @@
 
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portails Administrateurs Offert</span>
+                          <span>Portail Administrateurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portails Professeurs Offert</span>
+                          <span>Portail Professeurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -648,11 +648,11 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portails Administrateurs Offert</span>
+                          <span>Portail Administrateurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portails Professeurs Offert</span>
+                          <span>Portail Professeurs Offert</span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -947,7 +947,7 @@
                             </span>
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i> Version mobile
-                              (Android iOS) ainsi que les portails élèves et
+                              (Android iOS) ainsi que les Portail élèves et
                               parents :
                               <span class="accordion-mony">50MAD/élèves</span>
                             </span>

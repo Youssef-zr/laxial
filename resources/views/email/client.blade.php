@@ -82,7 +82,7 @@
             </ul>
             @endif
             <div class="total-price">
-                <h5 class="margin:5px 0">le prix total comprends : </h5>
+                <h5 class="margin-top:10px">le prix total comprends : </h5>
                 <ul style="margin:5px 0">
                     <li>Le nombre des élèves choisi (<span class="color">{{$details['nb_students']}} </span> élèves).</li>
                     <li>le prix initial de l'offre ({{ $details['price_init'] }}). </li>
