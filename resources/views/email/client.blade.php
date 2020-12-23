@@ -40,7 +40,7 @@
             margin-top:5px;
        }
 
-       .email .total-price ul{
+       .email .total-price{
             border-top:1px dashed #444;
             margin-top:5px;
             padding-top:20px;
