@@ -5152,7 +5152,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".not-found {\n  height: 100vh;\n  background: #2c3e50;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.not-found .err-page {\n  margin-top: 50px;\n}\n.not-found .err-page img {\n  width: 65%;\n  height: 340px;\n}\n.not-found .err-page .error-content {\n  color: #555;\n}\n.not-found .err-page .error-content .fa {\n  color: #18bc9c;\n  display: block;\n  font-size: 100px;\n  margin: 5px 0;\n}\n.not-found .err-page .error-content h1 {\n  margin-top: 0;\n  color: #18bc9c;\n}", ""]);
+exports.push([module.i, ".not-found {\n  height: 100vh;\n  background: #2c3e50;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.not-found .err-page img {\n  width: 65%;\n  height: 340px;\n}\n.not-found .err-page .error-content {\n  color: #555;\n}\n.not-found .err-page .error-content .fa {\n  color: #18bc9c;\n  display: block;\n  font-size: 100px;\n  margin: 5px 0;\n}\n.not-found .err-page .error-content h1 {\n  margin-top: 0;\n  color: #18bc9c;\n}", ""]);
 
 // exports
 

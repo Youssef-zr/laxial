@@ -24,7 +24,6 @@
   justify-content: center;
   align-items: center;
   .err-page {
-    margin-top: 50px;
     img {
         width:65%;
         height:340px;
