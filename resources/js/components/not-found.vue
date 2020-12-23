@@ -1,14 +1,15 @@
 <template>
   <section class="not-found">
-    <div class="err-page">
-      <h2 class="headline">404</h2>
+    <div class="err-page text-center">
+      <img src="/images/not-found.png" class="img-responsive" alt="not found">
 
       <div class="error-content text-center">
          <i class="fa fa-warning fa-3x"></i>
         <h1>
-          Désolé !! Page Introuvable
+          Désole !! Page Introuvable
         </h1>
       </div>
+
       <!-- /.error-content -->
     </div>
     <!-- /.error-page -->
@@ -18,22 +19,20 @@
 <style lang="scss">
 .not-found {
   height:100vh;
-  background: rgb(29, 138, 165);
+  background: #2c3e50;
   display: flex;
   justify-content: center;
+  align-items: center;
   .err-page {
     margin-top: 50px;
-    .headline {
-      color: #f39c12;
-      font-weight: bold;
-      font-size: 100px;
-      margin: 10px 0 0;
-      text-align: center;
+    img {
+        width:65%;
+        height:340px;
     }
     .error-content {
       color: #555;
       .fa {
-          color: #f39c12;
+          color: #18bc9c;
           display: block;
           font-size: 100px;
           margin:5px 0;
@@ -42,7 +41,7 @@
         // font-size: 29px;
         margin-top: 0;
 
-        color:#f39c12;
+        color:#18bc9c;
       }
 
     }

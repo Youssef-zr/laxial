@@ -5152,7 +5152,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".not-found {\n  height: 100vh;\n  background: #1d8aa5;\n  display: flex;\n  justify-content: center;\n}\n.not-found .err-page {\n  margin-top: 50px;\n}\n.not-found .err-page .headline {\n  color: #f39c12;\n  font-weight: bold;\n  font-size: 100px;\n  margin: 10px 0 0;\n  text-align: center;\n}\n.not-found .err-page .error-content {\n  color: #555;\n}\n.not-found .err-page .error-content .fa {\n  color: #f39c12;\n  display: block;\n  font-size: 100px;\n  margin: 5px 0;\n}\n.not-found .err-page .error-content h1 {\n  margin-top: 0;\n  color: #f39c12;\n}", ""]);
+exports.push([module.i, ".not-found {\n  height: 100vh;\n  background: #2c3e50;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.not-found .err-page {\n  margin-top: 50px;\n}\n.not-found .err-page img {\n  width: 65%;\n  height: 340px;\n}\n.not-found .err-page .error-content {\n  color: #555;\n}\n.not-found .err-page .error-content .fa {\n  color: #18bc9c;\n  display: block;\n  font-size: 100px;\n  margin: 5px 0;\n}\n.not-found .err-page .error-content h1 {\n  margin-top: 0;\n  color: #18bc9c;\n}", ""]);
 
 // exports
 
@@ -36182,13 +36182,16 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "not-found" }, [
-      _c("div", { staticClass: "err-page" }, [
-        _c("h2", { staticClass: "headline" }, [_vm._v("404")]),
+      _c("div", { staticClass: "err-page text-center" }, [
+        _c("img", {
+          staticClass: "img-responsive",
+          attrs: { src: "/images/not-found.png", alt: "not found" }
+        }),
         _vm._v(" "),
         _c("div", { staticClass: "error-content text-center" }, [
           _c("i", { staticClass: "fa fa-warning fa-3x" }),
           _vm._v(" "),
-          _c("h1", [_vm._v("\n        Désolé !! Page Introuvable\n      ")])
+          _c("h1", [_vm._v("\n        Désole !! Page Introuvable\n      ")])
         ])
       ])
     ])
@@ -51453,7 +51456,7 @@ __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_maroc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/maroc */ "./resources/js/components/maroc.vue");
 /* harmony import */ var _components_euro__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/euro */ "./resources/js/components/euro.vue");
-/* harmony import */ var _components_not_found__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/not-found */ "./resources/js/components/not-found.vue");
+/* harmony import */ var _components_not_found__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/not-found */ "./resources/js/components/not-found.vue");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_4__);
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -51479,7 +51482,7 @@ var routes = [{
 }, {
   path: "*",
   name: "any",
-  component: _components_not_found__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_not_found__WEBPACK_IMPORTED_MODULE_5__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: "history",
