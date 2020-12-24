@@ -3051,6 +3051,33 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3058,6 +3085,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   data: function data() {
     return {
+      plansApi: [],
       form: new Form({
         society_name: "",
         client_email: "",
@@ -3085,24 +3113,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       plans: {
         basic: {
           plan_one: {
-            total_price: ["1550"]
+            total_price: []
           },
           plan_two: {
-            total_price: ["2650"]
+            total_price: []
           },
           plan_three: {
-            total_price: ["3945"]
+            total_price: []
           }
         },
         advanced: {
           plan_one: {
-            total_price: ["2790"]
+            total_price: []
           },
           plan_two: {
-            total_price: ["3780"]
+            total_price: []
           },
           plan_three: {
-            total_price: ["4635"]
+            total_price: []
           }
         }
       }
@@ -3122,15 +3150,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }
       }
     });
-  },
-  created: function created() {
-    var _this2 = this;
+    axios.get("/api/getPlans").then(function (res) {
+      _this.plansApi = res.data.plans;
 
-    setTimeout(function () {
-      _this2.loadingStatus = false;
-    }, 1000);
+      _this.set_plans();
+    });
   },
   methods: {
+    set_plans: function set_plans() {
+      // prices basics plans
+      this.plans.basic.plan_one.total_price[0] = this.plansApi[0].prix_actuel_euro;
+      this.plans.basic.plan_two.total_price[0] = this.plansApi[1].prix_actuel_euro;
+      this.plans.basic.plan_three.total_price[0] = this.plansApi[2].prix_actuel_euro; // prices advanced plans
+
+      this.plans.advanced.plan_one.total_price[0] = this.plansApi[3].prix_actuel_euro;
+      this.plans.advanced.plan_two.total_price[0] = this.plansApi[4].prix_actuel_euro;
+      this.plans.advanced.plan_three.total_price[0] = this.plansApi[5].prix_actuel_euro;
+      this.loadingStatus = false;
+    },
     openModalBase: function openModalBase(version) {
       if (version === "vBasic") {
         this.moduleVersion = false;
@@ -3205,29 +3242,29 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     },
     saveOrder: function saveOrder() {
-      var _this3 = this;
+      var _this2 = this;
 
       // send data from form to controller by api
       this.loadingStatus = true;
       this.form.post("/api/newOffer").then(function (res) {
         if (res.statusText == "OK") {
-          _this3.loadingStatus = false;
+          _this2.loadingStatus = false;
 
-          _this3.closeModal(); // msg successfull
+          _this2.closeModal(); // msg successfull
 
 
-          _this3.msg = res.data.msg;
+          _this2.msg = res.data.msg;
           setTimeout(function () {
-            _this3.msg = "";
+            _this2.msg = "";
           }, 3000);
         }
       })["catch"](function (err) {
-        _this3.loadingStatus = false;
+        _this2.loadingStatus = false;
 
         if (err.response != undefined && err.response.status == 500) {
-          _this3.msgError = "Erreur veuillez réessayer plus tard";
+          _this2.msgError = "Erreur veuillez réessayer plus tard";
           setTimeout(function () {
-            _this3.msgError = "";
+            _this2.msgError = "";
           }, 4000);
         }
       });
@@ -4857,6 +4894,31 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4864,6 +4926,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   data: function data() {
     return {
+      plansApi: [],
       form: new Form({
         society_name: "",
         client_email: "",
@@ -4891,24 +4954,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       plans: {
         basic: {
           plan_one: {
-            total_price: ["15500"]
+            total_price: []
           },
           plan_two: {
-            total_price: ["26500"]
+            total_price: []
           },
           plan_three: {
-            total_price: ["39450"]
+            total_price: []
           }
         },
         advanced: {
           plan_one: {
-            total_price: ["27900"]
+            total_price: []
           },
           plan_two: {
-            total_price: ["37800"]
+            total_price: []
           },
           plan_three: {
-            total_price: ["46350"]
+            total_price: []
           }
         }
       }
@@ -4928,15 +4991,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }
       }
     });
-  },
-  created: function created() {
-    var _this2 = this;
+    axios.get("/api/getPlans").then(function (res) {
+      _this.plansApi = res.data.plans;
 
-    setTimeout(function () {
-      _this2.loadingStatus = false;
-    }, 1000);
+      _this.set_plans();
+    });
   },
   methods: {
+    set_plans: function set_plans() {
+      // prices basics plans
+      this.plans.basic.plan_one.total_price[0] = this.plansApi[0].prix_actuel_dh;
+      this.plans.basic.plan_two.total_price[0] = this.plansApi[1].prix_actuel_dh;
+      this.plans.basic.plan_three.total_price[0] = this.plansApi[2].prix_actuel_dh; // prices advanced plans
+
+      this.plans.advanced.plan_one.total_price[0] = this.plansApi[3].prix_actuel_dh;
+      this.plans.advanced.plan_two.total_price[0] = this.plansApi[4].prix_actuel_dh;
+      this.plans.advanced.plan_three.total_price[0] = this.plansApi[5].prix_actuel_dh;
+      this.loadingStatus = false;
+    },
     openModalBase: function openModalBase(version) {
       if (version === "vBasic") {
         this.moduleVersion = false;
@@ -5011,29 +5083,29 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }
     },
     saveOrder: function saveOrder() {
-      var _this3 = this;
+      var _this2 = this;
 
       // send data from form to controller by api
       this.loadingStatus = true;
       this.form.post("/api/newOffer").then(function (res) {
         if (res.statusText == "OK") {
-          _this3.loadingStatus = false;
+          _this2.loadingStatus = false;
 
-          _this3.closeModal(); // msg successfull
+          _this2.closeModal(); // msg successfull
 
 
-          _this3.msg = res.data.msg;
+          _this2.msg = res.data.msg;
           setTimeout(function () {
-            _this3.msg = "";
+            _this2.msg = "";
           }, 3000);
         }
       })["catch"](function (err) {
-        _this3.loadingStatus = false;
+        _this2.loadingStatus = false;
 
         if (err.response != undefined && err.response.status == 500) {
-          _this3.msgError = "Erreur veuillez réessayer plus tard";
+          _this2.msgError = "Erreur veuillez réessayer plus tard";
           setTimeout(function () {
-            _this3.msgError = "";
+            _this2.msgError = "";
           }, 4000);
         }
       });
@@ -29825,2125 +29897,2511 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "Euro" }, [
-    _c("div", { staticClass: "offers py-4" }, [
-      _vm.loadingStatus
-        ? _c(
-            "div",
-            { staticClass: "ajax-icon" },
-            [
-              _c("breeding-rhombus-spinner", {
-                attrs: {
-                  "animation-duration": 2000,
-                  size: 65,
-                  color: "#ff1d5e"
-                }
-              })
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "offers-cards my-0" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "tab-content pt-3" }, [
-            _c(
-              "div",
-              {
-                staticClass: "container tab-pane fade",
-                attrs: { id: "menu1" }
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "\n                          tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vBasic")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(3),
-                              _vm._v(" "),
-                              _vm._m(4),
-                              _vm._v(" "),
-                              _vm._m(5),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "780" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "780"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "780",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(6)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "250" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "250"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "250",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(7)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "150" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "150"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "150",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(8)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "350" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "350"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "350",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(9)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "200" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "200"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "200",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(10)
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total :\n                      " +
-                                  _vm._s(_vm.sum_price_basic_one) +
-                                  " ‎€\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version basique de laxial  de 1 a 499 élèves",
-                                    _vm.sum_price_basic_one,
-                                    _vm.plans.basic.plan_one.total_price,
-                                    1,
-                                    499
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card offer-centred" }, [
-                        _vm._m(11),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "\n                          tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vBasic")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(12),
-                              _vm._v(" "),
-                              _vm._m(13),
-                              _vm._v(" "),
-                              _vm._m(14),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "780" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "780"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "780",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(15)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "250" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "250"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "250",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(16)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "150" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "150"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "150",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(17)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "350" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "350"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "350",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(18)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "200" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "200"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "200",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(19)
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total :\n                      " +
-                                  _vm._s(_vm.sum_price_basic_two) +
-                                  " ‎€\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version basique de laxial  de 500 a 999 élèves",
-                                    _vm.sum_price_basic_two,
-                                    _vm.plans.basic.plan_two.total_price,
-                                    500,
-                                    999
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(20),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "\n                          tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vBasic")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(21),
-                              _vm._v(" "),
-                              _vm._m(22),
-                              _vm._v(" "),
-                              _vm._m(23),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "780" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "780"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "780",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(24)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "250" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "250"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "250",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(25)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "150" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "150"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "150",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(26)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "350" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "350"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "350",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(27)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "200" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "200"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "200",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(28)
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total :\n                      " +
-                                  _vm._s(_vm.sum_price_basic_three) +
-                                  " ‎€\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version basique de laxial plus de 1000 élèves",
-                                    _vm.sum_price_basic_three,
-                                    _vm.plans.basic.plan_three.total_price,
-                                    1000,
-                                    900000
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "container tab-pane active",
-                attrs: { id: "menu2" }
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(29),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v("tous les modules offerts")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: { click: _vm.openModalBase }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(30),
-                              _vm._v(" "),
-                              _vm._m(31),
-                              _vm._v(" "),
-                              _vm._m(32),
-                              _vm._v(" "),
-                              _vm._m(33)
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total :\n                      " +
-                                  _vm._s(_vm.sum_price_advanced_one) +
-                                  " ‎€\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version complète de laxial de 1 a 499 élèves",
-                                    _vm.sum_price_advanced_one,
-                                    _vm.plans.advanced.plan_one.total_price,
-                                    1,
-                                    499
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card offer-centred" }, [
-                        _vm._m(34),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v("tous les modules offerts")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: { click: _vm.openModalBase }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(35),
-                              _vm._v(" "),
-                              _vm._m(36),
-                              _vm._v(" "),
-                              _vm._m(37),
-                              _vm._v(" "),
-                              _vm._m(38)
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total :\n                      " +
-                                  _vm._s(_vm.sum_price_advanced_two) +
-                                  " ‎€\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version complète de laxial de 500 a 999 élèves",
-                                    _vm.sum_price_advanced_two,
-                                    _vm.plans.advanced.plan_two.total_price,
-                                    500,
-                                    999
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(39),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: { click: _vm.openModalBase }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(40),
-                              _vm._v(" "),
-                              _vm._m(41),
-                              _vm._v(" "),
-                              _vm._m(42),
-                              _vm._v(" "),
-                              _vm._m(43)
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total :\n                      " +
-                                  _vm._s(_vm.sum_price_advanced_three) +
-                                  "\n                      ‎€\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version complète de laxial plus de 1000 elèves",
-                                    _vm.sum_price_advanced_three,
-                                    _vm.plans.advanced.plan_three.total_price,
-                                    1000,
-                                    900000
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  )
-                ])
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _vm.modalStatus == true
-          ? _c("div", { staticClass: "modal fade" }, [
-              _c("div", {
-                staticClass: "modal-shadow",
-                on: { click: _vm.closeModal }
-              }),
-              _vm._v(" "),
-              _c(
+    _vm.plansApi[0] === undefined
+      ? _c(
+          "div",
+          { staticClass: "ajax-icon" },
+          [
+            _c("breeding-rhombus-spinner", {
+              attrs: { "animation-duration": 2000, size: 65, color: "#ff1d5e" }
+            })
+          ],
+          1
+        )
+      : _c("div", { staticClass: "offers py-4" }, [
+          _vm.loadingStatus
+            ? _c(
                 "div",
-                {
-                  staticClass: "modal-dialog modal-lg",
-                  staticStyle: { "overflow-y": "initial !important" }
-                },
+                { staticClass: "ajax-icon" },
                 [
-                  _c("div", { staticClass: "modal-content" }, [
-                    _c("div", { staticClass: "modal-header" }, [
-                      _c("h5", { staticClass: "modal-title" }, [
-                        _vm._v("L'offre " + _vm._s(_vm.form.plan_name))
-                      ]),
-                      _vm._v(" "),
+                  _c("breeding-rhombus-spinner", {
+                    attrs: {
+                      "animation-duration": 2000,
+                      size: 65,
+                      color: "#ff1d5e"
+                    }
+                  })
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "offers-cards my-0" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "tab-content pt-3" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "container tab-pane fade",
+                    attrs: { id: "menu1" }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
                       _c(
-                        "button",
+                        "div",
                         {
-                          staticClass: "close",
-                          attrs: { type: "button" },
-                          on: { click: _vm.closeModal }
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
                         },
-                        [_c("i", { staticClass: "fa fa-times-circle" })]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "modal-body" }, [
-                      _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-lg-6" }, [
-                          _vm._m(44),
-                          _vm._v(" "),
-                          _c(
-                            "form",
-                            { attrs: { autocomplete: "off", novalidate: "" } },
-                            [
-                              _c(
-                                "div",
-                                { staticClass: "input-group mb-3" },
-                                [
-                                  _vm._m(45),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.form.society_name,
-                                        expression: "form.society_name"
-                                      }
-                                    ],
-                                    class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "society_name"
-                                      ),
-                                      "form-control": true
-                                    },
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Entrer Votre Nom"
-                                    },
-                                    domProps: { value: _vm.form.society_name },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.form,
-                                          "society_name",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("has-error", {
-                                    attrs: {
-                                      form: _vm.form,
-                                      field: "society_name"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "input-group mb-3" },
-                                [
-                                  _vm._m(46),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.form.client_email,
-                                        expression: "form.client_email"
-                                      }
-                                    ],
-                                    class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "client_email"
-                                      ),
-                                      "form-control": true
-                                    },
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Entrer Votre Email"
-                                    },
-                                    domProps: { value: _vm.form.client_email },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.form,
-                                          "client_email",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("has-error", {
-                                    attrs: {
-                                      form: _vm.form,
-                                      field: "client_email"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "input-group mb-3 price_parent"
-                                },
-                                [
-                                  _vm._m(47),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model.number",
-                                        value: _vm.form.nb_students,
-                                        expression: "form.nb_students",
-                                        modifiers: { number: true }
-                                      }
-                                    ],
-                                    class: {
-                                      "is-invalid":
-                                        _vm.form.errors.has("nb_students") ||
-                                        _vm.form.errors.has("min_nbStudents"),
-                                      "form-control": true
-                                    },
-                                    attrs: {
-                                      type: "number",
-                                      min: "0",
-                                      max: _vm.form.max_nbStudents,
-                                      placeholder: "Le Nombre Des Eleves"
-                                    },
-                                    domProps: { value: _vm.form.nb_students },
-                                    on: {
-                                      keydown: _vm.priceByStudent,
-                                      change: _vm.priceByStudent,
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.form,
-                                          "nb_students",
-                                          _vm._n($event.target.value)
-                                        )
-                                      },
-                                      blur: function($event) {
-                                        return _vm.$forceUpdate()
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("has-error", {
-                                    attrs: {
-                                      form: _vm.form,
-                                      field: "nb_students"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("has-error", {
-                                    attrs: {
-                                      form: _vm.form,
-                                      field: "min_nbStudents"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _vm.msgDepassNbMax
-                                    ? _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "d-block rounded m-0 py-0 text-danger"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                        " +
-                                              _vm._s(_vm.msgDepassNbMax) +
-                                              "\n                      "
-                                          )
-                                        ]
-                                      )
-                                    : _vm._e()
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "form-group" }, [
+                        [
+                          _c("div", { staticClass: "offer-card" }, [
                             _c(
-                              "label",
-                              {
-                                staticClass: "label-control",
-                                attrs: { for: "" }
-                              },
-                              [_vm._v("Prix Total ")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              { staticClass: "badge badge-total-price" },
+                              "div",
+                              { staticClass: "offer-header border-bottom-0" },
                               [
-                                _vm._v(
-                                  _vm._s(_vm.form.total_price) +
-                                    " ‎€\n                    "
-                                )
+                                _c("h3", { staticClass: "offer-title" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(_vm.plansApi[0].titre) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "offer-price" }, [
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v("Euro")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(
+                                          _vm.plansApi[0].prix_actuel_euro
+                                        ) +
+                                        "€\n                        "
+                                    ),
+                                    _c("label", [
+                                      _vm._v(
+                                        " /" +
+                                          _vm._s(
+                                            _vm.plansApi[0].prix_initial_euro
+                                          ) +
+                                          "€ "
+                                      )
+                                    ])
+                                  ])
+                                ])
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(48)
+                            _c("div", { staticClass: "offer-body" }, [
+                              _c(
+                                "ul",
+                                { staticClass: "offer-list list-unstyled" },
+                                [
+                                  _c(
+                                    "li",
+                                    { staticClass: "offer-list-item extra" },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-chevron-circle-right"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "d-inline" }, [
+                                        _vm._v(
+                                          "\n                          tous les modules offerts\n                        "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "d-inline ml-0",
+                                          attrs: { title: "modules de base" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.openModalBase("vBasic")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("span", {
+                                            staticClass:
+                                              "d-inline fa fa-eye fa-fw ml-2",
+                                            staticStyle: { "font-size": "16px" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(2),
+                                  _vm._v(" "),
+                                  _vm._m(3),
+                                  _vm._v(" "),
+                                  _vm._m(4),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "780" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "780"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "780",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(5)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "250" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "250"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "250",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(6)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "150" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "150"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "150",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(7)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "350" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "350"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "350",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(8)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "200" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "200"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "200",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(9)
+                                  ])
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-footer" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass:
+                                    "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Prix Total :\n                      " +
+                                      _vm._s(_vm.sum_price_basic_one) +
+                                      " ‎€\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-block",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.choosePlane(
+                                        "version basique de laxial  de 1 a 499 élèves",
+                                        _vm.sum_price_basic_one,
+                                        _vm.plans.basic.plan_one.total_price,
+                                        1,
+                                        499
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-paper-plane",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(
+                                    "\n                      choisissez votre plan\n                    "
+                                  )
+                                ]
+                              )
+                            ])
                           ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-lg-6 accordion-parent" },
-                          [
-                            _c("div", { attrs: { id: "accordion" } }, [
-                              _c("div", { staticClass: "card" }, [
-                                _vm._m(49),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "offer-card offer-centred" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "offer-header border-bottom-0" },
+                                [
+                                  _c("h3", { staticClass: "offer-title" }, [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(_vm.plansApi[1].titre) +
+                                        "\n                    "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "offer-price" }, [
+                                    _c("span", { staticClass: "device" }, [
+                                      _vm._v("Euro")
+                                    ]),
+                                    _c("span", { staticClass: "device" }, [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.plansApi[1].prix_actuel_euro
+                                        ) + "€\n                        "
+                                      ),
+                                      _c("label", [
+                                        _vm._v(
+                                          "/" +
+                                            _vm._s(
+                                              _vm.plansApi[1].prix_initial_euro
+                                            ) +
+                                            "€"
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "offer-body" }, [
+                                _c(
+                                  "ul",
+                                  { staticClass: "offer-list list-unstyled" },
+                                  [
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item extra" },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-chevron-circle-right"
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          { staticClass: "d-inline" },
+                                          [
+                                            _vm._v(
+                                              "\n                          tous les modules offerts\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "d-inline ml-0",
+                                            attrs: { title: "modules de base" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.openModalBase(
+                                                  "vBasic"
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass:
+                                                "d-inline fa fa-eye fa-fw ml-2",
+                                              staticStyle: {
+                                                "font-size": "16px"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(10),
+                                    _vm._v(" "),
+                                    _vm._m(11),
+                                    _vm._v(" "),
+                                    _vm._m(12),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "780"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "780"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "780",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(13)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "250"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "250"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "250",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(14)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "150"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "150"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "150",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(15)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "350"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "350"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "350",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(16)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "200"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "200"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "200",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(17)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "offer-footer" }, [
+                                _c(
+                                  "h5",
+                                  {
+                                    staticClass:
+                                      "badge badge-dark d-block py-3 px-2 rounded-0 m-0"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      Prix Total :\n                      " +
+                                        _vm._s(_vm.sum_price_basic_two) +
+                                        " ‎€\n                    "
+                                    )
+                                  ]
+                                ),
                                 _vm._v(" "),
                                 _c(
-                                  "div",
+                                  "button",
                                   {
-                                    staticClass: "show",
-                                    attrs: {
-                                      id: "one",
-                                      "data-parent": "#accordion"
+                                    staticClass: "btn btn-block",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.choosePlane(
+                                          "version basique de laxial  de 500 a 999 élèves",
+                                          _vm.sum_price_basic_two,
+                                          _vm.plans.basic.plan_two.total_price,
+                                          500,
+                                          999
+                                        )
+                                      }
                                     }
                                   },
                                   [
-                                    _c("div", { staticClass: "card-body" }, [
+                                    _c("i", {
+                                      staticClass: "fa fa-paper-plane",
+                                      attrs: { "aria-hidden": "true" }
+                                    }),
+                                    _vm._v(
+                                      "\n                      choisissez votre plan\n                    "
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0"
+                        },
+                        [
+                          _c("div", { staticClass: "offer-card" }, [
+                            _c(
+                              "div",
+                              { staticClass: "offer-header border-bottom-0" },
+                              [
+                                _c("h3", { staticClass: "offer-title" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(_vm.plansApi[2].titre) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "offer-price" }, [
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v("Euro")
+                                  ]),
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v(
+                                      _vm._s(_vm.plansApi[2].prix_actuel_euro) +
+                                        "€\n                        "
+                                    ),
+                                    _c("label", [
+                                      _vm._v(
+                                        "/" +
+                                          _vm._s(
+                                            _vm.plansApi[2].prix_initial_euro
+                                          ) +
+                                          "€"
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-body" }, [
+                              _c(
+                                "ul",
+                                { staticClass: "offer-list list-unstyled" },
+                                [
+                                  _c(
+                                    "li",
+                                    { staticClass: "offer-list-item extra" },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-chevron-circle-right"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "d-inline" }, [
+                                        _vm._v(
+                                          "\n                          tous les modules offerts\n                        "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "d-inline ml-0",
+                                          attrs: { title: "modules de base" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.openModalBase("vBasic")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("span", {
+                                            staticClass:
+                                              "d-inline fa fa-eye fa-fw ml-2",
+                                            staticStyle: { "font-size": "16px" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(18),
+                                  _vm._v(" "),
+                                  _vm._m(19),
+                                  _vm._v(" "),
+                                  _vm._m(20),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "780" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "780"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "780",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(21)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "250" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "250"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "250",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(22)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "150" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "150"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "150",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(23)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "350" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "350"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "350",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(24)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: { type: "checkbox", value: "200" },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "200"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "200",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(25)
+                                  ])
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-footer" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass:
+                                    "badge badge-dark d-block py-3 px-2 rounded-0 m-0"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Prix Total :\n                      " +
+                                      _vm._s(_vm.sum_price_basic_three) +
+                                      " ‎€\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-block",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.choosePlane(
+                                        "version basique de laxial plus de 1000 élèves",
+                                        _vm.sum_price_basic_three,
+                                        _vm.plans.basic.plan_three.total_price,
+                                        1000,
+                                        900000
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-paper-plane",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(
+                                    "\n                      choisissez votre plan\n                    "
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "container tab-pane active",
+                    attrs: { id: "menu2" }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
+                        },
+                        [
+                          _c("div", { staticClass: "offer-card" }, [
+                            _c(
+                              "div",
+                              { staticClass: "offer-header border-bottom-0" },
+                              [
+                                _c("h3", { staticClass: "offer-title" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(_vm.plansApi[3].titre) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "offer-price" }, [
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v("Euro")
+                                  ]),
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v(
+                                      _vm._s(_vm.plansApi[3].prix_actuel_euro) +
+                                        "€\n                        "
+                                    ),
+                                    _c("label", [
+                                      _vm._v(
+                                        "/" +
+                                          _vm._s(
+                                            _vm.plansApi[3].prix_initial_euro
+                                          ) +
+                                          "€"
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-body" }, [
+                              _c(
+                                "ul",
+                                { staticClass: "offer-list list-unstyled" },
+                                [
+                                  _c(
+                                    "li",
+                                    { staticClass: "offer-list-item extra" },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-chevron-circle-right"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "d-inline" }, [
+                                        _vm._v("tous les modules offerts")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "d-inline ml-0",
+                                          attrs: { title: "modules de base" },
+                                          on: { click: _vm.openModalBase }
+                                        },
+                                        [
+                                          _c("span", {
+                                            staticClass:
+                                              "d-inline fa fa-eye fa-fw ml-2",
+                                            staticStyle: { "font-size": "16px" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(26),
+                                  _vm._v(" "),
+                                  _vm._m(27),
+                                  _vm._v(" "),
+                                  _vm._m(28),
+                                  _vm._v(" "),
+                                  _vm._m(29)
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-footer" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass:
+                                    "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Prix Total :\n                      " +
+                                      _vm._s(_vm.sum_price_advanced_one) +
+                                      " ‎€\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-block",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.choosePlane(
+                                        "version complète de laxial de 1 a 499 élèves",
+                                        _vm.sum_price_advanced_one,
+                                        _vm.plans.advanced.plan_one.total_price,
+                                        1,
+                                        499
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-paper-plane",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(
+                                    "\n                      choisissez votre plan\n                    "
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "offer-card offer-centred" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "offer-header border-bottom-0" },
+                                [
+                                  _c("h3", { staticClass: "offer-title" }, [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(_vm.plansApi[4].titre) +
+                                        "\n                    "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "offer-price" }, [
+                                    _c("span", { staticClass: "device" }, [
+                                      _vm._v("Euro")
+                                    ]),
+                                    _c("span", { staticClass: "device" }, [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.plansApi[4].prix_actuel_euro
+                                        ) + "€\n                        "
+                                      ),
+                                      _c("label", [
+                                        _vm._v(
+                                          "/" +
+                                            _vm._s(
+                                              _vm.plansApi[4].prix_initial_euro
+                                            ) +
+                                            "€"
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "offer-body" }, [
+                                _c(
+                                  "ul",
+                                  { staticClass: "offer-list list-unstyled" },
+                                  [
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item extra" },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-chevron-circle-right"
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          { staticClass: "d-inline" },
+                                          [_vm._v("tous les modules offerts")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "d-inline ml-0",
+                                            attrs: { title: "modules de base" },
+                                            on: { click: _vm.openModalBase }
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass:
+                                                "d-inline fa fa-eye fa-fw ml-2",
+                                              staticStyle: {
+                                                "font-size": "16px"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(30),
+                                    _vm._v(" "),
+                                    _vm._m(31),
+                                    _vm._v(" "),
+                                    _vm._m(32),
+                                    _vm._v(" "),
+                                    _vm._m(33)
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "offer-footer" }, [
+                                _c(
+                                  "h5",
+                                  {
+                                    staticClass:
+                                      "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      Prix Total :\n                      " +
+                                        _vm._s(_vm.sum_price_advanced_two) +
+                                        " ‎€\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-block",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.choosePlane(
+                                          "version complète de laxial de 500 a 999 élèves",
+                                          _vm.sum_price_advanced_two,
+                                          _vm.plans.advanced.plan_two
+                                            .total_price,
+                                          500,
+                                          999
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa fa-paper-plane",
+                                      attrs: { "aria-hidden": "true" }
+                                    }),
+                                    _vm._v(
+                                      "\n                      choisissez votre plan\n                    "
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
+                        },
+                        [
+                          _c("div", { staticClass: "offer-card" }, [
+                            _c(
+                              "div",
+                              { staticClass: "offer-header border-bottom-0" },
+                              [
+                                _c("h3", { staticClass: "offer-title" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(_vm.plansApi[5].titre) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "offer-price" }, [
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v("Euro")
+                                  ]),
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v(
+                                      _vm._s(_vm.plansApi[5].prix_actuel_euro) +
+                                        "€\n                        "
+                                    ),
+                                    _c("label", [
+                                      _vm._v(
+                                        "/" +
+                                          _vm._s(
+                                            _vm.plansApi[5].prix_initial_euro
+                                          ) +
+                                          "€"
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-body" }, [
+                              _c(
+                                "ul",
+                                { staticClass: "offer-list list-unstyled" },
+                                [
+                                  _c(
+                                    "li",
+                                    { staticClass: "offer-list-item extra" },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-chevron-circle-right"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "d-inline" }, [
+                                        _vm._v(
+                                          "tous les modules offerts\n                        "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "d-inline ml-0",
+                                          attrs: { title: "modules de base" },
+                                          on: { click: _vm.openModalBase }
+                                        },
+                                        [
+                                          _c("span", {
+                                            staticClass:
+                                              "d-inline fa fa-eye fa-fw ml-2",
+                                            staticStyle: { "font-size": "16px" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(34),
+                                  _vm._v(" "),
+                                  _vm._m(35),
+                                  _vm._v(" "),
+                                  _vm._m(36),
+                                  _vm._v(" "),
+                                  _vm._m(37)
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-footer" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass:
+                                    "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Prix Total :\n                      " +
+                                      _vm._s(_vm.sum_price_advanced_three) +
+                                      "\n                      ‎€\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-block",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.choosePlane(
+                                        "version complète de laxial plus de 1000 elèves",
+                                        _vm.sum_price_advanced_three,
+                                        _vm.plans.advanced.plan_three
+                                          .total_price,
+                                        1000,
+                                        900000
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-paper-plane",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(
+                                    "\n                      choisissez votre plan\n                    "
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.modalStatus == true
+              ? _c("div", { staticClass: "modal fade" }, [
+                  _c("div", {
+                    staticClass: "modal-shadow",
+                    on: { click: _vm.closeModal }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-dialog modal-lg",
+                      staticStyle: { "overflow-y": "initial !important" }
+                    },
+                    [
+                      _c("div", { staticClass: "modal-content" }, [
+                        _c("div", { staticClass: "modal-header" }, [
+                          _c("h5", { staticClass: "modal-title" }, [
+                            _vm._v("L'offre " + _vm._s(_vm.form.plan_name))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "close",
+                              attrs: { type: "button" },
+                              on: { click: _vm.closeModal }
+                            },
+                            [_c("i", { staticClass: "fa fa-times-circle" })]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-body" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-lg-6" }, [
+                              _vm._m(38),
+                              _vm._v(" "),
+                              _c(
+                                "form",
+                                {
+                                  attrs: { autocomplete: "off", novalidate: "" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "input-group mb-3" },
+                                    [
+                                      _vm._m(39),
+                                      _vm._v(" "),
                                       _c("input", {
                                         directives: [
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.form.formation_en_ligne,
-                                            expression:
-                                              "form.formation_en_ligne"
+                                            value: _vm.form.society_name,
+                                            expression: "form.society_name"
                                           }
                                         ],
-                                        attrs: { type: "checkbox" },
+                                        class: {
+                                          "is-invalid": _vm.form.errors.has(
+                                            "society_name"
+                                          ),
+                                          "form-control": true
+                                        },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Entrer Votre Nom"
+                                        },
                                         domProps: {
-                                          checked: Array.isArray(
-                                            _vm.form.formation_en_ligne
-                                          )
-                                            ? _vm._i(
-                                                _vm.form.formation_en_ligne,
-                                                null
-                                              ) > -1
-                                            : _vm.form.formation_en_ligne
+                                          value: _vm.form.society_name
                                         },
                                         on: {
-                                          change: function($event) {
-                                            var $$a =
-                                                _vm.form.formation_en_ligne,
-                                              $$el = $event.target,
-                                              $$c = $$el.checked ? true : false
-                                            if (Array.isArray($$a)) {
-                                              var $$v = null,
-                                                $$i = _vm._i($$a, $$v)
-                                              if ($$el.checked) {
-                                                $$i < 0 &&
-                                                  _vm.$set(
-                                                    _vm.form,
-                                                    "formation_en_ligne",
-                                                    $$a.concat([$$v])
-                                                  )
-                                              } else {
-                                                $$i > -1 &&
-                                                  _vm.$set(
-                                                    _vm.form,
-                                                    "formation_en_ligne",
-                                                    $$a
-                                                      .slice(0, $$i)
-                                                      .concat(
-                                                        $$a.slice($$i + 1)
-                                                      )
-                                                  )
-                                              }
-                                            } else {
-                                              _vm.$set(
-                                                _vm.form,
-                                                "formation_en_ligne",
-                                                $$c
-                                              )
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
                                             }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "society_name",
+                                              $event.target.value
+                                            )
                                           }
                                         }
                                       }),
-                                      _vm._v(
-                                        "\n                          oui\n                        "
-                                      )
-                                    ])
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "society_name"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "input-group mb-3" },
+                                    [
+                                      _vm._m(40),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.client_email,
+                                            expression: "form.client_email"
+                                          }
+                                        ],
+                                        class: {
+                                          "is-invalid": _vm.form.errors.has(
+                                            "client_email"
+                                          ),
+                                          "form-control": true
+                                        },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Entrer Votre Email"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.client_email
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "client_email",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "client_email"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "input-group mb-3 price_parent"
+                                    },
+                                    [
+                                      _vm._m(41),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.number",
+                                            value: _vm.form.nb_students,
+                                            expression: "form.nb_students",
+                                            modifiers: { number: true }
+                                          }
+                                        ],
+                                        class: {
+                                          "is-invalid":
+                                            _vm.form.errors.has(
+                                              "nb_students"
+                                            ) ||
+                                            _vm.form.errors.has(
+                                              "min_nbStudents"
+                                            ),
+                                          "form-control": true
+                                        },
+                                        attrs: {
+                                          type: "number",
+                                          min: "0",
+                                          max: _vm.form.max_nbStudents,
+                                          placeholder: "Le Nombre Des Eleves"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.nb_students
+                                        },
+                                        on: {
+                                          keydown: _vm.priceByStudent,
+                                          change: _vm.priceByStudent,
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "nb_students",
+                                              _vm._n($event.target.value)
+                                            )
+                                          },
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "nb_students"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "min_nbStudents"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _vm.msgDepassNbMax
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "d-block rounded m-0 py-0 text-danger"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                        " +
+                                                  _vm._s(_vm.msgDepassNbMax) +
+                                                  "\n                      "
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-group" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "label-control",
+                                    attrs: { for: "" }
+                                  },
+                                  [_vm._v("Prix Total ")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticClass: "badge badge-total-price" },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.form.total_price) +
+                                        " ‎€\n                    "
+                                    )
                                   ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(50),
-                              _vm._v(" "),
-                              _vm._m(51)
-                            ])
-                          ]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "modal-footer" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary btn-sm",
-                          attrs: { type: "button" },
-                          on: { click: _vm.saveOrder }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-chevron-circle-right"
-                          }),
-                          _vm._v("\n                Valider\n              ")
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger btn-sm",
-                          attrs: { type: "button" },
-                          on: { click: _vm.closeModal }
-                        },
-                        [
-                          _c("i", { staticClass: "fa fa-times-circle" }),
-                          _vm._v("\n                Fermer\n              ")
-                        ]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.modalBaseStatus
-          ? _c(
-              "div",
-              { staticClass: "modal fade module-base text-capitalize" },
-              [
-                _c("div", {
-                  staticClass: "modal-shadow",
-                  on: { click: _vm.closeModalBase }
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "modal-dialog",
-                    staticStyle: { "overflow-y": "initial !important" }
-                  },
-                  [
-                    _c("div", { staticClass: "modal-content" }, [
-                      _c("div", { staticClass: "modal-header" }, [
-                        _c("h5", { staticClass: "modal-title" }, [
-                          _vm._v(
-                            "\n                tous les modules offerts.\n              "
-                          )
+                                ),
+                                _vm._v(" "),
+                                _vm._m(42)
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-lg-6 accordion-parent" },
+                              [
+                                _c("div", { attrs: { id: "accordion" } }, [
+                                  _c("div", { staticClass: "card" }, [
+                                    _vm._m(43),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "show",
+                                        attrs: {
+                                          id: "one",
+                                          "data-parent": "#accordion"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "card-body" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    _vm.form.formation_en_ligne,
+                                                  expression:
+                                                    "form.formation_en_ligne"
+                                                }
+                                              ],
+                                              attrs: { type: "checkbox" },
+                                              domProps: {
+                                                checked: Array.isArray(
+                                                  _vm.form.formation_en_ligne
+                                                )
+                                                  ? _vm._i(
+                                                      _vm.form
+                                                        .formation_en_ligne,
+                                                      null
+                                                    ) > -1
+                                                  : _vm.form.formation_en_ligne
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  var $$a =
+                                                      _vm.form
+                                                        .formation_en_ligne,
+                                                    $$el = $event.target,
+                                                    $$c = $$el.checked
+                                                      ? true
+                                                      : false
+                                                  if (Array.isArray($$a)) {
+                                                    var $$v = null,
+                                                      $$i = _vm._i($$a, $$v)
+                                                    if ($$el.checked) {
+                                                      $$i < 0 &&
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "formation_en_ligne",
+                                                          $$a.concat([$$v])
+                                                        )
+                                                    } else {
+                                                      $$i > -1 &&
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "formation_en_ligne",
+                                                          $$a
+                                                            .slice(0, $$i)
+                                                            .concat(
+                                                              $$a.slice($$i + 1)
+                                                            )
+                                                        )
+                                                    }
+                                                  } else {
+                                                    _vm.$set(
+                                                      _vm.form,
+                                                      "formation_en_ligne",
+                                                      $$c
+                                                    )
+                                                  }
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(
+                                              "\n                          oui\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(44),
+                                  _vm._v(" "),
+                                  _vm._m(45)
+                                ])
+                              ]
+                            )
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "close",
-                            attrs: { type: "button" },
-                            on: { click: _vm.closeModalBase }
-                          },
-                          [_c("i", { staticClass: "fa fa-times-circle" })]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "modal-body" }, [
-                        _c(
-                          "ul",
-                          { staticClass: "list-group module-base" },
-                          [
-                            _vm._m(52),
-                            _vm._v(" "),
-                            _vm._m(53),
-                            _vm._v(" "),
-                            _vm._m(54),
-                            _vm._v(" "),
-                            _vm._m(55),
-                            _vm._v(" "),
-                            _vm._m(56),
-                            _vm._v(" "),
-                            _vm._m(57),
-                            _vm._v(" "),
-                            _vm.moduleVersion
-                              ? [
-                                  _vm._m(58),
-                                  _vm._v(" "),
-                                  _vm._m(59),
-                                  _vm._v(" "),
-                                  _vm._m(60),
-                                  _vm._v(" "),
-                                  _vm._m(61),
-                                  _vm._v(" "),
-                                  _vm._m(62)
-                                ]
-                              : _vm._e()
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "modal-footer" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger btn-sm",
-                            attrs: { type: "button" },
-                            on: { click: _vm.closeModalBase }
-                          },
-                          [
-                            _c("i", { staticClass: "fa fa-times-circle" }),
-                            _vm._v("\n                Fermer\n              ")
-                          ]
-                        )
+                        _c("div", { staticClass: "modal-footer" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-sm",
+                              attrs: { type: "button" },
+                              on: { click: _vm.saveOrder }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-chevron-circle-right"
+                              }),
+                              _vm._v(
+                                "\n                Valider\n              "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger btn-sm",
+                              attrs: { type: "button" },
+                              on: { click: _vm.closeModal }
+                            },
+                            [
+                              _c("i", { staticClass: "fa fa-times-circle" }),
+                              _vm._v("\n                Fermer\n              ")
+                            ]
+                          )
+                        ])
                       ])
-                    ])
+                    ]
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.modalBaseStatus
+              ? _c(
+                  "div",
+                  { staticClass: "modal fade module-base text-capitalize" },
+                  [
+                    _c("div", {
+                      staticClass: "modal-shadow",
+                      on: { click: _vm.closeModalBase }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "modal-dialog",
+                        staticStyle: { "overflow-y": "initial !important" }
+                      },
+                      [
+                        _c("div", { staticClass: "modal-content" }, [
+                          _c("div", { staticClass: "modal-header" }, [
+                            _c("h5", { staticClass: "modal-title" }, [
+                              _vm._v(
+                                "\n                tous les modules offerts.\n              "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "close",
+                                attrs: { type: "button" },
+                                on: { click: _vm.closeModalBase }
+                              },
+                              [_c("i", { staticClass: "fa fa-times-circle" })]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-body" }, [
+                            _c(
+                              "ul",
+                              { staticClass: "list-group module-base" },
+                              [
+                                _vm._m(46),
+                                _vm._v(" "),
+                                _vm._m(47),
+                                _vm._v(" "),
+                                _vm._m(48),
+                                _vm._v(" "),
+                                _vm._m(49),
+                                _vm._v(" "),
+                                _vm._m(50),
+                                _vm._v(" "),
+                                _vm._m(51),
+                                _vm._v(" "),
+                                _vm.moduleVersion
+                                  ? [
+                                      _vm._m(52),
+                                      _vm._v(" "),
+                                      _vm._m(53),
+                                      _vm._v(" "),
+                                      _vm._m(54),
+                                      _vm._v(" "),
+                                      _vm._m(55),
+                                      _vm._v(" "),
+                                      _vm._m(56)
+                                    ]
+                                  : _vm._e()
+                              ],
+                              2
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-footer" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger btn-sm",
+                                attrs: { type: "button" },
+                                on: { click: _vm.closeModalBase }
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-times-circle" }),
+                                _vm._v(
+                                  "\n                Fermer\n              "
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
                   ]
                 )
-              ]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _vm.msg != ""
-        ? _c("div", { staticClass: "msg" }, [
-            _c("p", [_vm._v(_vm._s(_vm.msg))])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.msgError != ""
-        ? _c("div", { staticClass: "msg bg-danger" }, [
-            _c("p", [_vm._v(_vm._s(_vm.msgError))])
-          ])
-        : _vm._e()
-    ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm.msg != ""
+            ? _c("div", { staticClass: "msg" }, [
+                _c("p", [_vm._v(_vm._s(_vm.msg))])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.msgError != ""
+            ? _c("div", { staticClass: "msg bg-danger" }, [
+                _c("p", [_vm._v(_vm._s(_vm.msgError))])
+              ])
+            : _vm._e()
+        ])
   ])
 }
 var staticRenderFns = [
@@ -31981,7 +32439,7 @@ var staticRenderFns = [
                 staticClass: "fa fa-star-half-o",
                 attrs: { "aria-hidden": "true" }
               }),
-              _vm._v("\n              version basique ")
+              _vm._v("\n              version basique\n            ")
             ]
           )
         ]),
@@ -32001,26 +32459,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [
-        _vm._v(
-          "\n                      De 1 a 499 élèves\n                    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("1550‎€ "),
-          _c("label", [_vm._v("/2550‎€")])
-        ])
-      ])
-    ])
   },
   function() {
     var _vm = this
@@ -32134,26 +32572,6 @@ var staticRenderFns = [
       ),
       _c("label", { staticClass: "price_color" }, [_vm._v("50‎€")]),
       _vm._v("\n                          = 200‎€\n                        ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [
-        _vm._v(
-          "\n                      De 500 a 999 élèves\n                    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("2650‎€ "),
-          _c("label", [_vm._v("/3650‎€")])
-        ])
-      ])
     ])
   },
   function() {
@@ -32274,24 +32692,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [
-        _vm._v("\n                      De 1000 et plus\n                    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("3945€ "),
-          _c("label", [_vm._v("/4945€")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
@@ -32406,26 +32806,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [
-        _vm._v(
-          "\n                      De 1 a 499 élèves\n                    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("2790‎€ "),
-          _c("label", [_vm._v("/3790‎€")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
@@ -32474,26 +32854,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [
-        _vm._v(
-          "\n                      De 500 a 999 élèves\n                    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("3780‎€ "),
-          _c("label", [_vm._v("/4780€")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
@@ -32535,27 +32895,6 @@ var staticRenderFns = [
         _vm._v(
           "Maintenance de la première année Comprise (810€/an)\n                        "
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [
-        _vm._v(
-          "\n                      Plus De 1000 élèves\n                    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Euro")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("4635‎€ "),
-          _c("label", [_vm._v("/5635€")])
-        ])
       ])
     ])
   },
@@ -32680,7 +33019,7 @@ var staticRenderFns = [
                 staticClass: "text-dark",
                 staticStyle: { "margin-left": "30px" }
               },
-              [_vm._v("le prix total comprends: ")]
+              [_vm._v("le prix total comprends:\n                          ")]
             )
           ]),
           _vm._v(" "),
@@ -32692,7 +33031,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("label", [
               _vm._v(
-                "\n                            les comptes application\n                            mobile et IOS\n                            "
+                "\n                            les comptes application mobile et IOS\n                            "
               ),
               _c("b", { staticStyle: { color: "#9bc31c" } }, [
                 _vm._v("5€/elève")
@@ -32857,7 +33196,7 @@ var staticRenderFns = [
             _c("span", { staticClass: "d-block other-service" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
-                "\n                            Version mobile (Android iOS) ainsi que les\n                            Portail élèves et parents :\n                            "
+                "\n                            Version mobile (Android iOS) ainsi que les Portail\n                            élèves et parents :\n                            "
               ),
               _c("span", { staticClass: "accordion-mony" }, [
                 _vm._v("5€/élèves")
@@ -33026,2139 +33365,2571 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "maroc" }, [
-    _c("div", { staticClass: "offers py-4" }, [
-      _vm.loadingStatus
-        ? _c(
-            "div",
-            { staticClass: "ajax-icon" },
-            [
-              _c("breeding-rhombus-spinner", {
-                attrs: {
-                  "animation-duration": 2000,
-                  size: 65,
-                  color: "#ff1d5e"
-                }
-              })
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "offers-cards my-0" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "tab-content pt-3" }, [
-            _c(
-              "div",
-              {
-                staticClass: "container tab-pane fade",
-                attrs: { id: "menu1" }
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "\n                          tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vBasic")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(3),
-                              _vm._v(" "),
-                              _vm._m(4),
-                              _vm._v(" "),
-                              _vm._m(5),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "7800" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "7800"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "7800",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(6)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "2500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "2500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "2500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(7)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "1500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "1500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "1500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(8)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "3500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "3500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "3500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(9)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_one.total_price,
-                                      expression:
-                                        "plans.basic.plan_one.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "2000" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_one.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_one.total_price,
-                                          "2000"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_one.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_one.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "2000",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_one,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_one,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(10)
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total : " +
-                                  _vm._s(_vm.sum_price_basic_one) +
-                                  " MAD\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version basique  de laxial de 1 a 499 élèves",
-                                    _vm.sum_price_basic_one,
-                                    _vm.plans.basic.plan_one.total_price,
-                                    1,
-                                    499
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card offer-centred" }, [
-                        _vm._m(11),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "\n                          tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vBasic")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(12),
-                              _vm._v(" "),
-                              _vm._m(13),
-                              _vm._v(" "),
-                              _vm._m(14),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "7800" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "7800"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "7800",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(15)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "2500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "2500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "2500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(16)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "1500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "1500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "1500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(17)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "3500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "3500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "3500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(18)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_two.total_price,
-                                      expression:
-                                        "plans.basic.plan_two.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "2000" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_two.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_two.total_price,
-                                          "2000"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_two.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_two.total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "2000",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_two,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_two,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(19)
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total : " +
-                                  _vm._s(_vm.sum_price_basic_two) +
-                                  " MAD\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version basique  de laxial de 500 a 999 élèves",
-                                    _vm.sum_price_basic_two,
-                                    _vm.plans.basic.plan_two.total_price,
-                                    500,
-                                    999
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(20),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "\n                          tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vBasic")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(21),
-                              _vm._v(" "),
-                              _vm._m(22),
-                              _vm._v(" "),
-                              _vm._m(23),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "7800" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "7800"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "7800",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(24)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "2500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "2500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "2500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(25)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "1500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "1500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "1500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(26)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "3500" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "3500"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "3500",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(27)
-                              ]),
-                              _vm._v(" "),
-                              _c("li", { staticClass: "offer-list-item" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.plans.basic.plan_three.total_price,
-                                      expression:
-                                        "plans.basic.plan_three.total_price"
-                                    }
-                                  ],
-                                  staticClass: "checkbox",
-                                  attrs: { type: "checkbox", value: "2000" },
-                                  domProps: {
-                                    checked: Array.isArray(
-                                      _vm.plans.basic.plan_three.total_price
-                                    )
-                                      ? _vm._i(
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                          "2000"
-                                        ) > -1
-                                      : _vm.plans.basic.plan_three.total_price
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      var $$a =
-                                          _vm.plans.basic.plan_three
-                                            .total_price,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = "2000",
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a.concat([$$v])
-                                            )
-                                        } else {
-                                          $$i > -1 &&
-                                            _vm.$set(
-                                              _vm.plans.basic.plan_three,
-                                              "total_price",
-                                              $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1))
-                                            )
-                                        }
-                                      } else {
-                                        _vm.$set(
-                                          _vm.plans.basic.plan_three,
-                                          "total_price",
-                                          $$c
-                                        )
-                                      }
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(28)
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total : " +
-                                  _vm._s(_vm.sum_price_basic_three) +
-                                  " MAD\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version basique  de laxial plus de 1000 élèves",
-                                    _vm.sum_price_basic_three,
-                                    _vm.plans.basic.plan_three.total_price,
-                                    1000,
-                                    900000
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "container tab-pane active",
-                attrs: { id: "menu2" }
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(29),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "\n                          tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vAdvanced")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(30),
-                              _vm._v(" "),
-                              _vm._m(31),
-                              _vm._v(" "),
-                              _vm._m(32),
-                              _vm._v(" "),
-                              _vm._m(33)
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total : " +
-                                  _vm._s(_vm.sum_price_advanced_one) +
-                                  " MAD\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version complète  de laxial de 1 a 499 élèves",
-                                    _vm.sum_price_advanced_one,
-                                    _vm.plans.advanced.plan_one.total_price,
-                                    1,
-                                    499
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card offer-centred" }, [
-                        _vm._m(34),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vAdvanced")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(35),
-                              _vm._v(" "),
-                              _vm._m(36),
-                              _vm._v(" "),
-                              _vm._m(37),
-                              _vm._v(" "),
-                              _vm._m(38)
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total : " +
-                                  _vm._s(_vm.sum_price_advanced_two) +
-                                  " MAD\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version complète  de laxial de 500 a 999 élèves",
-                                    _vm.sum_price_advanced_two,
-                                    _vm.plans.advanced.plan_two.total_price,
-                                    500,
-                                    999
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0" },
-                    [
-                      _c("div", { staticClass: "offer-card" }, [
-                        _vm._m(39),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-body" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "offer-list list-unstyled" },
-                            [
-                              _c(
-                                "li",
-                                { staticClass: "offer-list-item extra" },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-chevron-circle-right"
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "d-inline" }, [
-                                    _vm._v(
-                                      "\n                          tous les modules offerts\n                        "
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "d-inline ml-0",
-                                      attrs: { title: "modules de base" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.openModalBase("vAdvanced")
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "d-inline fa fa-eye fa-fw ml-2",
-                                        staticStyle: { "font-size": "16px" }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._m(40),
-                              _vm._v(" "),
-                              _vm._m(41),
-                              _vm._v(" "),
-                              _vm._m(42),
-                              _vm._v(" "),
-                              _vm._m(43)
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offer-footer" }, [
-                          _c(
-                            "h5",
-                            {
-                              staticClass:
-                                "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Prix Total : " +
-                                  _vm._s(_vm.sum_price_advanced_three) +
-                                  " MAD\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block",
-                              on: {
-                                click: function($event) {
-                                  return _vm.choosePlane(
-                                    "version complète de laxial plus De 1000 elèves",
-                                    _vm.sum_price_advanced_three,
-                                    _vm.plans.advanced.plan_three.total_price,
-                                    1000,
-                                    900000
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("i", {
-                                staticClass: "fa fa-paper-plane",
-                                attrs: { "aria-hidden": "true" }
-                              }),
-                              _vm._v(
-                                "\n                      choisissez votre plan\n                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  )
-                ])
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _vm.modalStatus == true
-          ? _c("div", { staticClass: "modal fade" }, [
-              _c("div", {
-                staticClass: "modal-shadow",
-                on: { click: _vm.closeModal }
-              }),
-              _vm._v(" "),
-              _c(
+    _vm.plansApi[0] === undefined
+      ? _c(
+          "div",
+          { staticClass: "ajax-icon" },
+          [
+            _c("breeding-rhombus-spinner", {
+              attrs: { "animation-duration": 2000, size: 65, color: "#ff1d5e" }
+            })
+          ],
+          1
+        )
+      : _c("div", { staticClass: "offers py-4" }, [
+          _vm.loadingStatus
+            ? _c(
                 "div",
-                {
-                  staticClass: "modal-dialog modal-lg",
-                  staticStyle: { "overflow-y": "initial !important" }
-                },
+                { staticClass: "ajax-icon" },
                 [
-                  _c("div", { staticClass: "modal-content" }, [
-                    _c("div", { staticClass: "modal-header" }, [
-                      _c("h5", { staticClass: "modal-title" }, [
-                        _vm._v("L'offre " + _vm._s(_vm.form.plan_name))
-                      ]),
-                      _vm._v(" "),
+                  _c("breeding-rhombus-spinner", {
+                    attrs: {
+                      "animation-duration": 2000,
+                      size: 65,
+                      color: "#ff1d5e"
+                    }
+                  })
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "offers-cards my-0" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "tab-content pt-3" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "container tab-pane fade",
+                    attrs: { id: "menu1" }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
                       _c(
-                        "button",
+                        "div",
                         {
-                          staticClass: "close",
-                          attrs: { type: "button" },
-                          on: { click: _vm.closeModal }
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
                         },
-                        [_c("i", { staticClass: "fa fa-times-circle" })]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "modal-body" }, [
-                      _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-lg-6" }, [
-                          _vm._m(44),
-                          _vm._v(" "),
-                          _c(
-                            "form",
-                            { attrs: { autocomplete: "off", novalidate: "" } },
-                            [
-                              _c(
-                                "div",
-                                { staticClass: "input-group mb-3" },
-                                [
-                                  _vm._m(45),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.form.society_name,
-                                        expression: "form.society_name"
-                                      }
-                                    ],
-                                    class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "society_name"
-                                      ),
-                                      "form-control": true
-                                    },
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Entrer Votre Nom"
-                                    },
-                                    domProps: { value: _vm.form.society_name },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.form,
-                                          "society_name",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("has-error", {
-                                    attrs: {
-                                      form: _vm.form,
-                                      field: "society_name"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "input-group mb-3" },
-                                [
-                                  _vm._m(46),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.form.client_email,
-                                        expression: "form.client_email"
-                                      }
-                                    ],
-                                    class: {
-                                      "is-invalid": _vm.form.errors.has(
-                                        "client_email"
-                                      ),
-                                      "form-control": true
-                                    },
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Entrer Votre Email"
-                                    },
-                                    domProps: { value: _vm.form.client_email },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.form,
-                                          "client_email",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("has-error", {
-                                    attrs: {
-                                      form: _vm.form,
-                                      field: "client_email"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "input-group mb-3 price_parent"
-                                },
-                                [
-                                  _vm._m(47),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model.number",
-                                        value: _vm.form.nb_students,
-                                        expression: "form.nb_students",
-                                        modifiers: { number: true }
-                                      }
-                                    ],
-                                    class: {
-                                      "is-invalid":
-                                        _vm.form.errors.has("nb_students") ||
-                                        _vm.form.errors.has("min_nbStudents"),
-                                      "form-control": true
-                                    },
-                                    attrs: {
-                                      type: "number",
-                                      min: "0",
-                                      max: _vm.form.max_nbStudents,
-                                      placeholder: "Le Nombre Des Eleves"
-                                    },
-                                    domProps: { value: _vm.form.nb_students },
-                                    on: {
-                                      keydown: _vm.priceByStudent,
-                                      change: _vm.priceByStudent,
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.form,
-                                          "nb_students",
-                                          _vm._n($event.target.value)
-                                        )
-                                      },
-                                      blur: function($event) {
-                                        return _vm.$forceUpdate()
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("has-error", {
-                                    attrs: {
-                                      form: _vm.form,
-                                      field: "nb_students"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("has-error", {
-                                    attrs: {
-                                      form: _vm.form,
-                                      field: "min_nbStudents"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _vm.msgDepassNbMax
-                                    ? _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "d-block rounded m-0 py-0 text-danger"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                        " +
-                                              _vm._s(_vm.msgDepassNbMax) +
-                                              "\n                      "
-                                          )
-                                        ]
-                                      )
-                                    : _vm._e()
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "form-group" }, [
+                        [
+                          _c("div", { staticClass: "offer-card" }, [
                             _c(
-                              "label",
-                              {
-                                staticClass: "label-control",
-                                attrs: { for: "" }
-                              },
-                              [_vm._v("Prix Total ")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              { staticClass: "badge badge-total-price" },
+                              "div",
+                              { staticClass: "offer-header border-bottom-0" },
                               [
-                                _vm._v(
-                                  _vm._s(_vm.form.total_price) +
-                                    " MAD\n                    "
-                                )
+                                _c("h3", { staticClass: "offer-title" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(_vm.plansApi[0].titre) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "offer-price" }, [
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v("MAD")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(_vm.plansApi[0].prix_actuel_dh) +
+                                        "MAD\n                        "
+                                    ),
+                                    _c("label", [
+                                      _vm._v(
+                                        " /" +
+                                          _vm._s(
+                                            _vm.plansApi[0].prix_initial_dh
+                                          ) +
+                                          "MAD "
+                                      )
+                                    ])
+                                  ])
+                                ])
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(48)
+                            _c("div", { staticClass: "offer-body" }, [
+                              _c(
+                                "ul",
+                                { staticClass: "offer-list list-unstyled" },
+                                [
+                                  _c(
+                                    "li",
+                                    { staticClass: "offer-list-item extra" },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-chevron-circle-right"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "d-inline" }, [
+                                        _vm._v(
+                                          "\n                          tous les modules offerts\n                        "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "d-inline ml-0",
+                                          attrs: { title: "modules de base" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.openModalBase("vBasic")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("span", {
+                                            staticClass:
+                                              "d-inline fa fa-eye fa-fw ml-2",
+                                            staticStyle: { "font-size": "16px" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(2),
+                                  _vm._v(" "),
+                                  _vm._m(3),
+                                  _vm._v(" "),
+                                  _vm._m(4),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "7800"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "7800"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "7800",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(5)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "2500"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "2500"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "2500",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(6)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "1500"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "1500"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "1500",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(7)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "3500"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "3500"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "3500",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(8)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_one
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_one.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "2000"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_one.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                              "2000"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_one.total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_one
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "2000",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_one,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_one,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(9)
+                                  ])
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-footer" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass:
+                                    "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Prix Total : " +
+                                      _vm._s(_vm.sum_price_basic_one) +
+                                      " MAD\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-block",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.choosePlane(
+                                        "version basique  de laxial de 1 a 499 élèves",
+                                        _vm.sum_price_basic_one,
+                                        _vm.plans.basic.plan_one.total_price,
+                                        1,
+                                        499
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-paper-plane",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(
+                                    "\n                      choisissez votre plan\n                    "
+                                  )
+                                ]
+                              )
+                            ])
                           ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col-lg-6 accordion-parent" },
-                          [
-                            _c("div", { attrs: { id: "accordion" } }, [
-                              _c("div", { staticClass: "card" }, [
-                                _vm._m(49),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "offer-card offer-centred" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "offer-header border-bottom-0" },
+                                [
+                                  _c("h3", { staticClass: "offer-title" }, [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(_vm.plansApi[1].titre) +
+                                        "\n                    "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "offer-price" }, [
+                                    _c("span", { staticClass: "device" }, [
+                                      _vm._v("MAD")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "device" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(
+                                            _vm.plansApi[1].prix_actuel_dh
+                                          ) +
+                                          "MAD\n                        "
+                                      ),
+                                      _c("label", [
+                                        _vm._v(
+                                          " /" +
+                                            _vm._s(
+                                              _vm.plansApi[1].prix_initial_dh
+                                            ) +
+                                            "MAD "
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "offer-body" }, [
+                                _c(
+                                  "ul",
+                                  { staticClass: "offer-list list-unstyled" },
+                                  [
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item extra" },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-chevron-circle-right"
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          { staticClass: "d-inline" },
+                                          [
+                                            _vm._v(
+                                              "\n                          tous les modules offerts\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "d-inline ml-0",
+                                            attrs: { title: "modules de base" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.openModalBase(
+                                                  "vBasic"
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass:
+                                                "d-inline fa fa-eye fa-fw ml-2",
+                                              staticStyle: {
+                                                "font-size": "16px"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(10),
+                                    _vm._v(" "),
+                                    _vm._m(11),
+                                    _vm._v(" "),
+                                    _vm._m(12),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "7800"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "7800"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "7800",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(13)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "2500"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "2500"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "2500",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(14)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "1500"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "1500"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "1500",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(15)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "3500"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "3500"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "3500",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(16)
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.plans.basic.plan_two
+                                                  .total_price,
+                                              expression:
+                                                "plans.basic.plan_two.total_price"
+                                            }
+                                          ],
+                                          staticClass: "checkbox",
+                                          attrs: {
+                                            type: "checkbox",
+                                            value: "2000"
+                                          },
+                                          domProps: {
+                                            checked: Array.isArray(
+                                              _vm.plans.basic.plan_two
+                                                .total_price
+                                            )
+                                              ? _vm._i(
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                  "2000"
+                                                ) > -1
+                                              : _vm.plans.basic.plan_two
+                                                  .total_price
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              var $$a =
+                                                  _vm.plans.basic.plan_two
+                                                    .total_price,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = "2000",
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.plans.basic.plan_two,
+                                                      "total_price",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_two,
+                                                  "total_price",
+                                                  $$c
+                                                )
+                                              }
+                                            }
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(17)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "offer-footer" }, [
+                                _c(
+                                  "h5",
+                                  {
+                                    staticClass:
+                                      "badge badge-dark d-block py-3 px-2 rounded-0 m-0"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      Prix Total : " +
+                                        _vm._s(_vm.sum_price_basic_two) +
+                                        " MAD\n                    "
+                                    )
+                                  ]
+                                ),
                                 _vm._v(" "),
                                 _c(
-                                  "div",
+                                  "button",
                                   {
-                                    staticClass: "show",
-                                    attrs: {
-                                      id: "one",
-                                      "data-parent": "#accordion"
+                                    staticClass: "btn btn-block",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.choosePlane(
+                                          "version basique  de laxial de 500 a 999 élèves",
+                                          _vm.sum_price_basic_two,
+                                          _vm.plans.basic.plan_two.total_price,
+                                          500,
+                                          999
+                                        )
+                                      }
                                     }
                                   },
                                   [
-                                    _c("div", { staticClass: "card-body" }, [
+                                    _c("i", {
+                                      staticClass: "fa fa-paper-plane",
+                                      attrs: { "aria-hidden": "true" }
+                                    }),
+                                    _vm._v(
+                                      "\n                      choisissez votre plan\n                    "
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-4 mb-md-0"
+                        },
+                        [
+                          _c("div", { staticClass: "offer-card" }, [
+                            _c(
+                              "div",
+                              { staticClass: "offer-header border-bottom-0" },
+                              [
+                                _c("h3", { staticClass: "offer-title" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(_vm.plansApi[2].titre) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "offer-price" }, [
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v("MAD")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(_vm.plansApi[2].prix_actuel_dh) +
+                                        "MAD\n                        "
+                                    ),
+                                    _c("label", [
+                                      _vm._v(
+                                        " /" +
+                                          _vm._s(
+                                            _vm.plansApi[2].prix_initial_dh
+                                          ) +
+                                          "MAD "
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-body" }, [
+                              _c(
+                                "ul",
+                                { staticClass: "offer-list list-unstyled" },
+                                [
+                                  _c(
+                                    "li",
+                                    { staticClass: "offer-list-item extra" },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-chevron-circle-right"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "d-inline" }, [
+                                        _vm._v(
+                                          "\n                          tous les modules offerts\n                        "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "d-inline ml-0",
+                                          attrs: { title: "modules de base" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.openModalBase("vBasic")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("span", {
+                                            staticClass:
+                                              "d-inline fa fa-eye fa-fw ml-2",
+                                            staticStyle: { "font-size": "16px" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(18),
+                                  _vm._v(" "),
+                                  _vm._m(19),
+                                  _vm._v(" "),
+                                  _vm._m(20),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "7800"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "7800"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "7800",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(21)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "2500"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "2500"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "2500",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(22)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "1500"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "1500"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "1500",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(23)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "3500"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "3500"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "3500",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(24)
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "offer-list-item" }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.plans.basic.plan_three
+                                              .total_price,
+                                          expression:
+                                            "plans.basic.plan_three.total_price"
+                                        }
+                                      ],
+                                      staticClass: "checkbox",
+                                      attrs: {
+                                        type: "checkbox",
+                                        value: "2000"
+                                      },
+                                      domProps: {
+                                        checked: Array.isArray(
+                                          _vm.plans.basic.plan_three.total_price
+                                        )
+                                          ? _vm._i(
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                              "2000"
+                                            ) > -1
+                                          : _vm.plans.basic.plan_three
+                                              .total_price
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.plans.basic.plan_three
+                                                .total_price,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = "2000",
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.plans.basic.plan_three,
+                                                  "total_price",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.plans.basic.plan_three,
+                                              "total_price",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(25)
+                                  ])
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-footer" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass:
+                                    "badge badge-dark d-block py-3 px-2 rounded-0 m-0"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Prix Total : " +
+                                      _vm._s(_vm.sum_price_basic_three) +
+                                      " MAD\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-block",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.choosePlane(
+                                        "version basique  de laxial plus de 1000 élèves",
+                                        _vm.sum_price_basic_three,
+                                        _vm.plans.basic.plan_three.total_price,
+                                        1000,
+                                        900000
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-paper-plane",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(
+                                    "\n                      choisissez votre plan\n                    "
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "container tab-pane active",
+                    attrs: { id: "menu2" }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
+                        },
+                        [
+                          _c("div", { staticClass: "offer-card" }, [
+                            _c(
+                              "div",
+                              { staticClass: "offer-header border-bottom-0" },
+                              [
+                                _c("h3", { staticClass: "offer-title" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(_vm.plansApi[3].titre) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "offer-price" }, [
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v("MAD")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(_vm.plansApi[3].prix_actuel_dh) +
+                                        "MAD\n                        "
+                                    ),
+                                    _c("label", [
+                                      _vm._v(
+                                        " /" +
+                                          _vm._s(
+                                            _vm.plansApi[3].prix_initial_dh
+                                          ) +
+                                          "MAD "
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-body" }, [
+                              _c(
+                                "ul",
+                                { staticClass: "offer-list list-unstyled" },
+                                [
+                                  _c(
+                                    "li",
+                                    { staticClass: "offer-list-item extra" },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-chevron-circle-right"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "d-inline" }, [
+                                        _vm._v(
+                                          "\n                          tous les modules offerts\n                        "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "d-inline ml-0",
+                                          attrs: { title: "modules de base" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.openModalBase(
+                                                "vAdvanced"
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("span", {
+                                            staticClass:
+                                              "d-inline fa fa-eye fa-fw ml-2",
+                                            staticStyle: { "font-size": "16px" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(26),
+                                  _vm._v(" "),
+                                  _vm._m(27),
+                                  _vm._v(" "),
+                                  _vm._m(28),
+                                  _vm._v(" "),
+                                  _vm._m(29)
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-footer" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass:
+                                    "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Prix Total : " +
+                                      _vm._s(_vm.sum_price_advanced_one) +
+                                      " MAD\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-block",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.choosePlane(
+                                        "version complète  de laxial de 1 a 499 élèves",
+                                        _vm.sum_price_advanced_one,
+                                        _vm.plans.advanced.plan_one.total_price,
+                                        1,
+                                        499
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-paper-plane",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(
+                                    "\n                      choisissez votre plan\n                    "
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "offer-card offer-centred" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "offer-header border-bottom-0" },
+                                [
+                                  _c("h3", { staticClass: "offer-title" }, [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(_vm.plansApi[4].titre) +
+                                        "\n                    "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "offer-price" }, [
+                                    _c("span", { staticClass: "device" }, [
+                                      _vm._v("MAD")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "device" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(
+                                            _vm.plansApi[4].prix_actuel_dh
+                                          ) +
+                                          "MAD\n                        "
+                                      ),
+                                      _c("label", [
+                                        _vm._v(
+                                          " /" +
+                                            _vm._s(
+                                              _vm.plansApi[4].prix_initial_dh
+                                            ) +
+                                            "MAD "
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "offer-body" }, [
+                                _c(
+                                  "ul",
+                                  { staticClass: "offer-list list-unstyled" },
+                                  [
+                                    _c(
+                                      "li",
+                                      { staticClass: "offer-list-item extra" },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-chevron-circle-right"
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          { staticClass: "d-inline" },
+                                          [
+                                            _vm._v(
+                                              "tous les modules offerts\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "d-inline ml-0",
+                                            attrs: { title: "modules de base" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.openModalBase(
+                                                  "vAdvanced"
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("span", {
+                                              staticClass:
+                                                "d-inline fa fa-eye fa-fw ml-2",
+                                              staticStyle: {
+                                                "font-size": "16px"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(30),
+                                    _vm._v(" "),
+                                    _vm._m(31),
+                                    _vm._v(" "),
+                                    _vm._m(32),
+                                    _vm._v(" "),
+                                    _vm._m(33)
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "offer-footer" }, [
+                                _c(
+                                  "h5",
+                                  {
+                                    staticClass:
+                                      "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      Prix Total : " +
+                                        _vm._s(_vm.sum_price_advanced_two) +
+                                        " MAD\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-block",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.choosePlane(
+                                          "version complète  de laxial de 500 a 999 élèves",
+                                          _vm.sum_price_advanced_two,
+                                          _vm.plans.advanced.plan_two
+                                            .total_price,
+                                          500,
+                                          999
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa fa-paper-plane",
+                                      attrs: { "aria-hidden": "true" }
+                                    }),
+                                    _vm._v(
+                                      "\n                      choisissez votre plan\n                    "
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-12 col-md-6 col-lg-4 mb-2 mb-md-0"
+                        },
+                        [
+                          _c("div", { staticClass: "offer-card" }, [
+                            _c(
+                              "div",
+                              { staticClass: "offer-header border-bottom-0" },
+                              [
+                                _c("h3", { staticClass: "offer-title" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(_vm.plansApi[5].titre) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "offer-price" }, [
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v("MAD")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "device" }, [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(_vm.plansApi[5].prix_actuel_dh) +
+                                        "MAD\n                        "
+                                    ),
+                                    _c("label", [
+                                      _vm._v(
+                                        " /" +
+                                          _vm._s(
+                                            _vm.plansApi[5].prix_initial_dh
+                                          ) +
+                                          "MAD "
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-body" }, [
+                              _c(
+                                "ul",
+                                { staticClass: "offer-list list-unstyled" },
+                                [
+                                  _c(
+                                    "li",
+                                    { staticClass: "offer-list-item extra" },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fa fa-chevron-circle-right"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "d-inline" }, [
+                                        _vm._v(
+                                          "\n                          tous les modules offerts\n                        "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "d-inline ml-0",
+                                          attrs: { title: "modules de base" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.openModalBase(
+                                                "vAdvanced"
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("span", {
+                                            staticClass:
+                                              "d-inline fa fa-eye fa-fw ml-2",
+                                            staticStyle: { "font-size": "16px" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._m(34),
+                                  _vm._v(" "),
+                                  _vm._m(35),
+                                  _vm._v(" "),
+                                  _vm._m(36),
+                                  _vm._v(" "),
+                                  _vm._m(37)
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "offer-footer" }, [
+                              _c(
+                                "h5",
+                                {
+                                  staticClass:
+                                    "badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      Prix Total : " +
+                                      _vm._s(_vm.sum_price_advanced_three) +
+                                      " MAD\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-block",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.choosePlane(
+                                        "version complète de laxial plus De 1000 elèves",
+                                        _vm.sum_price_advanced_three,
+                                        _vm.plans.advanced.plan_three
+                                          .total_price,
+                                        1000,
+                                        900000
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-paper-plane",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(
+                                    "\n                      choisissez votre plan\n                    "
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.modalStatus == true
+              ? _c("div", { staticClass: "modal fade" }, [
+                  _c("div", {
+                    staticClass: "modal-shadow",
+                    on: { click: _vm.closeModal }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-dialog modal-lg",
+                      staticStyle: { "overflow-y": "initial !important" }
+                    },
+                    [
+                      _c("div", { staticClass: "modal-content" }, [
+                        _c("div", { staticClass: "modal-header" }, [
+                          _c("h5", { staticClass: "modal-title" }, [
+                            _vm._v("L'offre " + _vm._s(_vm.form.plan_name))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "close",
+                              attrs: { type: "button" },
+                              on: { click: _vm.closeModal }
+                            },
+                            [_c("i", { staticClass: "fa fa-times-circle" })]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-body" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-lg-6" }, [
+                              _vm._m(38),
+                              _vm._v(" "),
+                              _c(
+                                "form",
+                                {
+                                  attrs: { autocomplete: "off", novalidate: "" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "input-group mb-3" },
+                                    [
+                                      _vm._m(39),
+                                      _vm._v(" "),
                                       _c("input", {
                                         directives: [
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: _vm.form.formation_en_ligne,
-                                            expression:
-                                              "form.formation_en_ligne"
+                                            value: _vm.form.society_name,
+                                            expression: "form.society_name"
                                           }
                                         ],
-                                        attrs: { type: "checkbox" },
+                                        class: {
+                                          "is-invalid": _vm.form.errors.has(
+                                            "society_name"
+                                          ),
+                                          "form-control": true
+                                        },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Entrer Votre Nom"
+                                        },
                                         domProps: {
-                                          checked: Array.isArray(
-                                            _vm.form.formation_en_ligne
-                                          )
-                                            ? _vm._i(
-                                                _vm.form.formation_en_ligne,
-                                                null
-                                              ) > -1
-                                            : _vm.form.formation_en_ligne
+                                          value: _vm.form.society_name
                                         },
                                         on: {
-                                          change: function($event) {
-                                            var $$a =
-                                                _vm.form.formation_en_ligne,
-                                              $$el = $event.target,
-                                              $$c = $$el.checked ? true : false
-                                            if (Array.isArray($$a)) {
-                                              var $$v = null,
-                                                $$i = _vm._i($$a, $$v)
-                                              if ($$el.checked) {
-                                                $$i < 0 &&
-                                                  _vm.$set(
-                                                    _vm.form,
-                                                    "formation_en_ligne",
-                                                    $$a.concat([$$v])
-                                                  )
-                                              } else {
-                                                $$i > -1 &&
-                                                  _vm.$set(
-                                                    _vm.form,
-                                                    "formation_en_ligne",
-                                                    $$a
-                                                      .slice(0, $$i)
-                                                      .concat(
-                                                        $$a.slice($$i + 1)
-                                                      )
-                                                  )
-                                              }
-                                            } else {
-                                              _vm.$set(
-                                                _vm.form,
-                                                "formation_en_ligne",
-                                                $$c
-                                              )
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
                                             }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "society_name",
+                                              $event.target.value
+                                            )
                                           }
                                         }
                                       }),
-                                      _vm._v(
-                                        "\n                          oui\n                        "
-                                      )
-                                    ])
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "society_name"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "input-group mb-3" },
+                                    [
+                                      _vm._m(40),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.client_email,
+                                            expression: "form.client_email"
+                                          }
+                                        ],
+                                        class: {
+                                          "is-invalid": _vm.form.errors.has(
+                                            "client_email"
+                                          ),
+                                          "form-control": true
+                                        },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Entrer Votre Email"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.client_email
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "client_email",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "client_email"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "input-group mb-3 price_parent"
+                                    },
+                                    [
+                                      _vm._m(41),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.number",
+                                            value: _vm.form.nb_students,
+                                            expression: "form.nb_students",
+                                            modifiers: { number: true }
+                                          }
+                                        ],
+                                        class: {
+                                          "is-invalid":
+                                            _vm.form.errors.has(
+                                              "nb_students"
+                                            ) ||
+                                            _vm.form.errors.has(
+                                              "min_nbStudents"
+                                            ),
+                                          "form-control": true
+                                        },
+                                        attrs: {
+                                          type: "number",
+                                          min: "0",
+                                          max: _vm.form.max_nbStudents,
+                                          placeholder: "Le Nombre Des Eleves"
+                                        },
+                                        domProps: {
+                                          value: _vm.form.nb_students
+                                        },
+                                        on: {
+                                          keydown: _vm.priceByStudent,
+                                          change: _vm.priceByStudent,
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "nb_students",
+                                              _vm._n($event.target.value)
+                                            )
+                                          },
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "nb_students"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "min_nbStudents"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _vm.msgDepassNbMax
+                                        ? _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "d-block rounded m-0 py-0 text-danger"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                        " +
+                                                  _vm._s(_vm.msgDepassNbMax) +
+                                                  "\n                      "
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-group" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "label-control",
+                                    attrs: { for: "" }
+                                  },
+                                  [_vm._v("Prix Total ")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticClass: "badge badge-total-price" },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.form.total_price) +
+                                        " MAD\n                    "
+                                    )
                                   ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(50),
-                              _vm._v(" "),
-                              _vm._m(51)
-                            ])
-                          ]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "modal-footer" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary btn-sm",
-                          attrs: { type: "button" },
-                          on: { click: _vm.saveOrder }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-chevron-circle-right"
-                          }),
-                          _vm._v(" Valider\n              ")
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger btn-sm",
-                          attrs: { type: "button" },
-                          on: { click: _vm.closeModal }
-                        },
-                        [
-                          _c("i", { staticClass: "fa fa-times-circle" }),
-                          _vm._v("\n                Fermer\n              ")
-                        ]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.modalBaseStatus
-          ? _c(
-              "div",
-              { staticClass: "modal fade module-base text-capitalize" },
-              [
-                _c("div", {
-                  staticClass: "modal-shadow",
-                  on: { click: _vm.closeModalBase }
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "modal-dialog",
-                    staticStyle: { "overflow-y": "initial !important" }
-                  },
-                  [
-                    _c("div", { staticClass: "modal-content" }, [
-                      _c("div", { staticClass: "modal-header" }, [
-                        _c("h5", { staticClass: "modal-title" }, [
-                          _vm._v("tous les modules offerts")
+                                ),
+                                _vm._v(" "),
+                                _vm._m(42)
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-lg-6 accordion-parent" },
+                              [
+                                _c("div", { attrs: { id: "accordion" } }, [
+                                  _c("div", { staticClass: "card" }, [
+                                    _vm._m(43),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "show",
+                                        attrs: {
+                                          id: "one",
+                                          "data-parent": "#accordion"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "card-body" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    _vm.form.formation_en_ligne,
+                                                  expression:
+                                                    "form.formation_en_ligne"
+                                                }
+                                              ],
+                                              attrs: { type: "checkbox" },
+                                              domProps: {
+                                                checked: Array.isArray(
+                                                  _vm.form.formation_en_ligne
+                                                )
+                                                  ? _vm._i(
+                                                      _vm.form
+                                                        .formation_en_ligne,
+                                                      null
+                                                    ) > -1
+                                                  : _vm.form.formation_en_ligne
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  var $$a =
+                                                      _vm.form
+                                                        .formation_en_ligne,
+                                                    $$el = $event.target,
+                                                    $$c = $$el.checked
+                                                      ? true
+                                                      : false
+                                                  if (Array.isArray($$a)) {
+                                                    var $$v = null,
+                                                      $$i = _vm._i($$a, $$v)
+                                                    if ($$el.checked) {
+                                                      $$i < 0 &&
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "formation_en_ligne",
+                                                          $$a.concat([$$v])
+                                                        )
+                                                    } else {
+                                                      $$i > -1 &&
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "formation_en_ligne",
+                                                          $$a
+                                                            .slice(0, $$i)
+                                                            .concat(
+                                                              $$a.slice($$i + 1)
+                                                            )
+                                                        )
+                                                    }
+                                                  } else {
+                                                    _vm.$set(
+                                                      _vm.form,
+                                                      "formation_en_ligne",
+                                                      $$c
+                                                    )
+                                                  }
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(
+                                              "\n                          oui\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(44),
+                                  _vm._v(" "),
+                                  _vm._m(45)
+                                ])
+                              ]
+                            )
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "close",
-                            attrs: { type: "button" },
-                            on: { click: _vm.closeModalBase }
-                          },
-                          [_c("i", { staticClass: "fa fa-times-circle" })]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "modal-body" }, [
-                        _c(
-                          "ul",
-                          { staticClass: "list-group module-base" },
-                          [
-                            _vm._m(52),
-                            _vm._v(" "),
-                            _vm._m(53),
-                            _vm._v(" "),
-                            _vm._m(54),
-                            _vm._v(" "),
-                            _vm._m(55),
-                            _vm._v(" "),
-                            _vm._m(56),
-                            _vm._v(" "),
-                            _vm._m(57),
-                            _vm._v(" "),
-                            _vm.moduleVersion
-                              ? [
-                                  _vm._m(58),
-                                  _vm._v(" "),
-                                  _vm._m(59),
-                                  _vm._v(" "),
-                                  _vm._m(60),
-                                  _vm._v(" "),
-                                  _vm._m(61),
-                                  _vm._v(" "),
-                                  _vm._m(62)
-                                ]
-                              : _vm._e()
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "modal-footer" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger btn-sm",
-                            attrs: { type: "button" },
-                            on: { click: _vm.closeModalBase }
-                          },
-                          [
-                            _c("i", { staticClass: "fa fa-times-circle" }),
-                            _vm._v("\n                Fermer\n              ")
-                          ]
-                        )
+                        _c("div", { staticClass: "modal-footer" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-sm",
+                              attrs: { type: "button" },
+                              on: { click: _vm.saveOrder }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-chevron-circle-right"
+                              }),
+                              _vm._v(" Valider\n              ")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger btn-sm",
+                              attrs: { type: "button" },
+                              on: { click: _vm.closeModal }
+                            },
+                            [
+                              _c("i", { staticClass: "fa fa-times-circle" }),
+                              _vm._v("\n                Fermer\n              ")
+                            ]
+                          )
+                        ])
                       ])
-                    ])
+                    ]
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.modalBaseStatus
+              ? _c(
+                  "div",
+                  { staticClass: "modal fade module-base text-capitalize" },
+                  [
+                    _c("div", {
+                      staticClass: "modal-shadow",
+                      on: { click: _vm.closeModalBase }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "modal-dialog",
+                        staticStyle: { "overflow-y": "initial !important" }
+                      },
+                      [
+                        _c("div", { staticClass: "modal-content" }, [
+                          _c("div", { staticClass: "modal-header" }, [
+                            _c("h5", { staticClass: "modal-title" }, [
+                              _vm._v("tous les modules offerts")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "close",
+                                attrs: { type: "button" },
+                                on: { click: _vm.closeModalBase }
+                              },
+                              [_c("i", { staticClass: "fa fa-times-circle" })]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-body" }, [
+                            _c(
+                              "ul",
+                              { staticClass: "list-group module-base" },
+                              [
+                                _vm._m(46),
+                                _vm._v(" "),
+                                _vm._m(47),
+                                _vm._v(" "),
+                                _vm._m(48),
+                                _vm._v(" "),
+                                _vm._m(49),
+                                _vm._v(" "),
+                                _vm._m(50),
+                                _vm._v(" "),
+                                _vm._m(51),
+                                _vm._v(" "),
+                                _vm.moduleVersion
+                                  ? [
+                                      _vm._m(52),
+                                      _vm._v(" "),
+                                      _vm._m(53),
+                                      _vm._v(" "),
+                                      _vm._m(54),
+                                      _vm._v(" "),
+                                      _vm._m(55),
+                                      _vm._v(" "),
+                                      _vm._m(56)
+                                    ]
+                                  : _vm._e()
+                              ],
+                              2
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-footer" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger btn-sm",
+                                attrs: { type: "button" },
+                                on: { click: _vm.closeModalBase }
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-times-circle" }),
+                                _vm._v(
+                                  "\n                Fermer\n              "
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
                   ]
                 )
-              ]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _vm.msg != ""
-        ? _c("div", { staticClass: "msg" }, [
-            _c("p", [_vm._v(_vm._s(_vm.msg))])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.msgError != ""
-        ? _c("div", { staticClass: "msg bg-danger" }, [
-            _c("p", [_vm._v(_vm._s(_vm.msgError))])
-          ])
-        : _vm._e()
-    ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm.msg != ""
+            ? _c("div", { staticClass: "msg" }, [
+                _c("p", [_vm._v(_vm._s(_vm.msg))])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.msgError != ""
+            ? _c("div", { staticClass: "msg bg-danger" }, [
+                _c("p", [_vm._v(_vm._s(_vm.msgError))])
+              ])
+            : _vm._e()
+        ])
   ])
 }
 var staticRenderFns = [
@@ -35216,22 +35987,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("De 1 a 499 élèves")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("15500MAD "),
-          _c("label", [_vm._v("/25500MAD")])
-        ])
-      ])
-    ])
   },
   function() {
     var _vm = this
@@ -35335,22 +36090,6 @@ var staticRenderFns = [
       _vm._v(" + prix\n                          annuel: "),
       _c("label", { staticClass: "price_color" }, [_vm._v("500MAD")]),
       _vm._v(" =\n                          2000MAD\n                        ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("De 500 a 999 élèves")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("26500MAD "),
-          _c("label", [_vm._v("/36500MAD")])
-        ])
-      ])
     ])
   },
   function() {
@@ -35461,22 +36200,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("De 1000 et plus")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("39450MAD "),
-          _c("label", [_vm._v("/49450MAD")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
@@ -35581,22 +36304,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("De 1 a 499 élèves")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("27900MAD "),
-          _c("label", [_vm._v("/37900MAD")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
@@ -35641,22 +36348,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("De 500 a 999 élèves")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("37800MAD "),
-          _c("label", [_vm._v("/47800MAD")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
@@ -35694,23 +36385,6 @@ var staticRenderFns = [
         _vm._v(
           "\n                          Maintenance de la première année Comprise\n                          (8100DH/an)\n                        "
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offer-header border-bottom-0" }, [
-      _c("h3", { staticClass: "offer-title" }, [_vm._v("Plus De 1000 élèves")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "offer-price" }, [
-        _c("span", { staticClass: "device" }, [_vm._v("Mad")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "device" }, [
-          _vm._v("46350MAD "),
-          _c("label", [_vm._v("/56350MAD")])
-        ])
       ])
     ])
   },
@@ -51456,7 +52130,7 @@ __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_maroc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/maroc */ "./resources/js/components/maroc.vue");
 /* harmony import */ var _components_euro__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/euro */ "./resources/js/components/euro.vue");
-/* harmony import */ var _components_not_found__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/not-found */ "./resources/js/components/not-found.vue");
+/* harmony import */ var _components_not_found__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/not-found */ "./resources/js/components/not-found.vue");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_4__);
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -51482,7 +52156,7 @@ var routes = [{
 }, {
   path: "*",
   name: "any",
-  component: _components_not_found__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _components_not_found__WEBPACK_IMPORTED_MODULE_3__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: "history",

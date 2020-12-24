@@ -1,13 +1,6 @@
 <template>
-  <div class="maroc">
-    <div class="ajax-icon" v-if="plansApi[0] === undefined">
-      <breeding-rhombus-spinner
-        :animation-duration="2000"
-        :size="65"
-        color="#ff1d5e"
-      />
-    </div>
-    <div class="offers py-4" v-else>
+  <div class="Euro">
+    <div class="offers py-4">
       <div class="ajax-icon" v-if="loadingStatus">
         <breeding-rhombus-spinner
           :animation-duration="2000"
@@ -19,17 +12,17 @@
         <div class="offers-cards my-0">
           <div class="head">
             <h2 class="mb-2 text-capitalize text-center">
-              <i class="fa fa-thumb-tack" aria-hidden="true"></i> Choisissez
-              votre plan
+              <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+              Choisissez votre plan
             </h2>
           </div>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs mt-5 pt-5" role="tablist">
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#menu1">
-                <i class="fa fa-star-half-o" aria-hidden="true"></i> Version
-                Basique</a
-              >
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                version basique
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#menu2">
@@ -48,14 +41,13 @@
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">
-                        {{ plansApi[0].titre }}
+                        De 1 a 499 élèves
                       </h3>
                       <div class="offer-price">
-                        <span class="device">MAD</span>
-                        <span class="device">
-                          {{ plansApi[0].prix_actuel_dh }}MAD
-                          <label> /{{ plansApi[0].prix_initial_dh }}MAD </label>
-                        </span>
+                        <span class="device">Euro</span
+                        ><span class="device"
+                          >1550‎€ <label>/2550‎€</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -83,7 +75,7 @@
                           <i class="fa fa-chevron-circle-right"></i>
                           <span
                             >Maintenance de la première année Comprise
-                            (3500dh/an)</span
+                            (350€/an)</span
                           >
                         </li>
                         <li class="offer-list-item extra">
@@ -94,70 +86,75 @@
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="7800"
+                            value="780"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">6000MAD</label> + prix
-                            annuel: <label class="price_color">1800MAD</label> =
-                            7800MAD
+                            <label class="price_color">600€</label>
+                            + prix annuel:
+                            <label class="price_color">180‎€</label>
+                            = 780‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2500"
+                            value="250"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module bibliothèque en extra
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            2500MAD
+                            <label class="price_color">150‎€</label>
+                            + prix annuel:
+                            <label class="price_color">100‎€</label>
+                            = 250‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="1500"
+                            value="150"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module transport en extra
-                            <label class="price_color">1000MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            1500MAD
+                            <label class="price_color">100‎€</label>
+                            + prix annuel:
+                            <label class="price_color">50‎€</label>
+                            = 150‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="3500"
+                            value="350"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module rapport en extra
-                            <label class="price_color">2500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            3500MAD
+                            <label class="price_color">250‎€</label>
+                            + prix annuel:
+                            <label class="price_color">100‎€</label>
+                            = 350‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2000"
+                            value="200"
                             v-model="plans.basic.plan_one.total_price"
                           />
                           <span>
                             module personnel en extra
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            2000MAD
+                            <label class="price_color">150‎€</label>
+                            + prix annuel:
+                            <label class="price_color">50‎€</label>
+                            = 200‎€
                           </span>
                         </li>
                       </ul>
@@ -166,13 +163,14 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        Prix Total : {{ sum_price_basic_one }} MAD
+                        Prix Total :
+                        {{ sum_price_basic_one }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version basique  de laxial de 1 a 499 élèves',
+                            'version basique de laxial  de 1 a 499 élèves',
                             sum_price_basic_one,
                             plans.basic.plan_one.total_price,
                             1,
@@ -191,15 +189,14 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card offer-centred">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
-                        {{ plansApi[1].titre }}
+                      <h3 class="offer-title">
+                        De 500 a 999 élèves
                       </h3>
                       <div class="offer-price">
-                        <span class="device">MAD</span>
-                        <span class="device">
-                          {{ plansApi[1].prix_actuel_dh }}MAD
-                          <label> /{{ plansApi[1].prix_initial_dh }}MAD </label>
-                        </span>
+                        <span class="device">Euro</span
+                        ><span class="device"
+                          >2650‎€ <label>/3650‎€</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -227,7 +224,7 @@
                           <i class="fa fa-chevron-circle-right"></i>
                           <span
                             >Maintenance de la première année Comprise
-                            (4000DH/an)</span
+                            (400€/an)</span
                           >
                         </li>
                         <li class="offer-list-item extra">
@@ -238,70 +235,75 @@
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="7800"
+                            value="780"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">6000MAD</label> + prix
-                            annuel: <label class="price_color">1800MAD</label> =
-                            7800MAD
+                            <label class="price_color">600€</label>
+                            + prix annuel:
+                            <label class="price_color">180‎€</label>
+                            = 780‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2500"
+                            value="250"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module bibliothèque en extra
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            2500MAD
+                            <label class="price_color">150‎€</label>
+                            + prix annuel:
+                            <label class="price_color">100‎€</label>
+                            = 250‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="1500"
+                            value="150"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module transport en extra
-                            <label class="price_color">1000MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            1500MAD
+                            <label class="price_color">100‎€</label>
+                            + prix annuel:
+                            <label class="price_color">50‎€</label>
+                            = 150‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="3500"
+                            value="350"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module rapport en extra
-                            <label class="price_color">2500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            3500MAD
+                            <label class="price_color">250‎€</label>
+                            + prix annuel:
+                            <label class="price_color">100‎€</label>
+                            = 350‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2000"
+                            value="200"
                             v-model="plans.basic.plan_two.total_price"
                           />
                           <span>
                             module personnel en extra
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            2000MAD
+                            <label class="price_color">150‎€</label>
+                            + prix annuel:
+                            <label class="price_color">50‎€</label>
+                            = 200‎€
                           </span>
                         </li>
                       </ul>
@@ -310,13 +312,14 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
                       >
-                        Prix Total : {{ sum_price_basic_two }} MAD
+                        Prix Total :
+                        {{ sum_price_basic_two }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version basique  de laxial de 500 a 999 élèves',
+                            'version basique de laxial  de 500 a 999 élèves',
                             sum_price_basic_two,
                             plans.basic.plan_two.total_price,
                             500,
@@ -335,15 +338,12 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
-                        {{ plansApi[2].titre }}
+                      <h3 class="offer-title">
+                        De 1000 et plus
                       </h3>
                       <div class="offer-price">
-                        <span class="device">MAD</span>
-                        <span class="device">
-                          {{ plansApi[2].prix_actuel_dh }}MAD
-                          <label> /{{ plansApi[2].prix_initial_dh }}MAD </label>
-                        </span>
+                        <span class="device">Euro</span
+                        ><span class="device">3945€ <label>/4945€</label></span>
                       </div>
                     </div>
                     <div class="offer-body">
@@ -371,7 +371,7 @@
                           <i class="fa fa-chevron-circle-right"></i>
                           <span
                             >Maintenance de la première année Comprise
-                            (6000dh/an)</span
+                            (600€/an)</span
                           >
                         </li>
                         <li class="offer-list-item extra">
@@ -382,70 +382,75 @@
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="7800"
+                            value="780"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module frais en extra
-                            <label class="price_color">6000MAD</label> + prix
-                            annuel: <label class="price_color">1800MAD</label> =
-                            7800MAD
+                            <label class="price_color">600€</label>
+                            + prix annuel:
+                            <label class="price_color">180‎€</label>
+                            = 780‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2500"
+                            value="250"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module bibliothèque en extra
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            2500MAD
+                            <label class="price_color">150‎€</label>
+                            + prix annuel:
+                            <label class="price_color">100‎€</label>
+                            = 250‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="1500"
+                            value="150"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module transport en extra
-                            <label class="price_color">1000MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            1500MAD
+                            <label class="price_color">100‎€</label>
+                            + prix annuel:
+                            <label class="price_color">50‎€</label>
+                            = 150‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="3500"
+                            value="350"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module rapport en extra
-                            <label class="price_color">2500MAD</label> + prix
-                            annuel: <label class="price_color">1000MAD</label> =
-                            3500MAD
+                            <label class="price_color">250‎€</label>
+                            + prix annuel:
+                            <label class="price_color">100‎€</label>
+                            = 350‎€
                           </span>
                         </li>
                         <li class="offer-list-item">
                           <input
                             type="checkbox"
                             class="checkbox"
-                            value="2000"
+                            value="200"
                             v-model="plans.basic.plan_three.total_price"
                           />
                           <span>
                             module personnel en extra
-                            <label class="price_color">1500MAD</label> + prix
-                            annuel: <label class="price_color">500MAD</label> =
-                            2000MAD
+                            <label class="price_color">150‎€</label>
+                            + prix annuel:
+                            <label class="price_color">50‎€</label>
+                            = 200‎€
                           </span>
                         </li>
                       </ul>
@@ -454,13 +459,14 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0"
                       >
-                        Prix Total : {{ sum_price_basic_three }} MAD
+                        Prix Total :
+                        {{ sum_price_basic_three }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version basique  de laxial plus de 1000 élèves',
+                            'version basique de laxial plus de 1000 élèves',
                             sum_price_basic_three,
                             plans.basic.plan_three.total_price,
                             1000,
@@ -486,26 +492,23 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
-                        {{ plansApi[3].titre }}
+                      <h3 class="offer-title">
+                        De 1 a 499 élèves
                       </h3>
                       <div class="offer-price">
-                        <span class="device">MAD</span>
-                        <span class="device">
-                          {{ plansApi[3].prix_actuel_dh }}MAD
-                          <label> /{{ plansApi[3].prix_initial_dh }}MAD </label>
-                        </span>
+                        <span class="device">Euro</span
+                        ><span class="device"
+                          >2790‎€ <label>/3790‎€</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline">
-                            tous les modules offerts
-                          </span>
+                          <span class="d-inline">tous les modules offerts</span>
                           <a
-                            @click="openModalBase('vAdvanced')"
+                            @click="openModalBase"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
@@ -516,7 +519,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portail Administrateurs Offert</span>
+                          <span>Portail Administrateurs Offert </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -524,13 +527,14 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H heures de formation gratuites </span>
+                          <span>
+                            5H heures de formation gratuites
+                          </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>
-                            Maintenance de la première année Comprise
-                            (7200DH/an)
+                          <span
+                            >Maintenance de la première année Comprise (720€/An)
                           </span>
                         </li>
                       </ul>
@@ -539,13 +543,14 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        Prix Total : {{ sum_price_advanced_one }} MAD
+                        Prix Total :
+                        {{ sum_price_advanced_one }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version complète  de laxial de 1 a 499 élèves',
+                            'version complète de laxial de 1 a 499 élèves',
                             sum_price_advanced_one,
                             plans.advanced.plan_one.total_price,
                             1,
@@ -564,26 +569,23 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card offer-centred">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
-                        {{ plansApi[4].titre }}
+                      <h3 class="offer-title">
+                        De 500 a 999 élèves
                       </h3>
                       <div class="offer-price">
-                        <span class="device">MAD</span>
-                        <span class="device">
-                          {{ plansApi[4].prix_actuel_dh }}MAD
-                          <label> /{{ plansApi[4].prix_initial_dh }}MAD </label>
-                        </span>
+                        <span class="device">Euro</span
+                        ><span class="device"
+                          >3780‎€ <label>/4780€</label></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline"
-                            >tous les modules offerts
-                          </span>
+                          <span class="d-inline">tous les modules offerts</span>
                           <a
-                            @click="openModalBase('vAdvanced')"
+                            @click="openModalBase"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
@@ -592,10 +594,9 @@
                             ></span
                           ></a>
                         </li>
-
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portail Administrateurs Offert</span>
+                          <span>Portail Administrateurs Offert </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -603,13 +604,14 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H heures de formation gratuites </span>
+                          <span>
+                            5H heures de formation gratuites
+                          </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>
-                            Maintenance de la première année Comprise
-                            (8100DH/an)
+                          <span
+                            >Maintenance de la première année Comprise (810€/an)
                           </span>
                         </li>
                       </ul>
@@ -618,13 +620,14 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        Prix Total : {{ sum_price_advanced_two }} MAD
+                        Prix Total :
+                        {{ sum_price_advanced_two }} ‎€
                       </h5>
                       <button
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version complète  de laxial de 500 a 999 élèves',
+                            'version complète de laxial de 500 a 999 élèves',
                             sum_price_advanced_two,
                             plans.advanced.plan_two.total_price,
                             500,
@@ -643,26 +646,23 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
-                        {{ plansApi[5].titre }}
+                      <h3 class="offer-title">
+                        Plus De 1000 élèves
                       </h3>
                       <div class="offer-price">
-                        <span class="device">MAD</span>
-                        <span class="device">
-                          {{ plansApi[5].prix_actuel_dh }}MAD
-                          <label> /{{ plansApi[5].prix_initial_dh }}MAD </label>
-                        </span>
+                        <span class="device">Euro</span>
+                        <span class="device">4635‎€ <label>/5635€</label></span>
                       </div>
                     </div>
                     <div class="offer-body">
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline">
-                            tous les modules offerts
+                          <span class="d-inline"
+                            >tous les modules offerts
                           </span>
                           <a
-                            @click="openModalBase('vAdvanced')"
+                            @click="openModalBase"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
@@ -673,7 +673,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>Portail Administrateurs Offert</span>
+                          <span>Portail Administrateurs Offert </span>
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -681,13 +681,14 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H heures de formation gratuites </span>
+                          <span>
+                            5H heures de formation gratuites
+                          </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>
-                            Maintenance de la première année Comprise
-                            (9450DH/an)
+                          <span
+                            >Maintenance de la première année Comprise (945€/an)
                           </span>
                         </li>
                       </ul>
@@ -696,13 +697,15 @@
                       <h5
                         class="badge badge-dark d-block py-3 px-2 rounded-0 m-0 display-3"
                       >
-                        Prix Total : {{ sum_price_advanced_three }} MAD
+                        Prix Total :
+                        {{ sum_price_advanced_three }}
+                        ‎€
                       </h5>
                       <button
                         class="btn btn-block"
                         @click="
                           choosePlane(
-                            'version complète de laxial plus De 1000 elèves',
+                            'version complète de laxial plus de 1000 elèves',
                             sum_price_advanced_three,
                             plans.advanced.plan_three.total_price,
                             1000,
@@ -723,7 +726,7 @@
           </div>
         </div>
 
-        <!-- start modal dialog -->
+        <!-- start modal dialog order-->
         <div class="modal fade" v-if="modalStatus == true">
           <div class="modal-shadow" @click="closeModal"></div>
           <div
@@ -745,8 +748,8 @@
                 <div class="row">
                   <div class="col-lg-6">
                     <h5 class="mb-4">
-                      <i class="fa fa-id-card fa-fw"></i> Veillez Saisie Votre
-                      Information
+                      <i class="fa fa-id-card"></i>
+                      Veillez Saisie Votre Information
                     </h5>
 
                     <form autocomplete="off" novalidate>
@@ -765,7 +768,7 @@
                           placeholder="Entrer Votre Nom"
                           :class="{
                             'is-invalid': form.errors.has('society_name'),
-                            'form-control': true,
+                            'form-control': true
                           }"
                         />
                         <has-error
@@ -788,7 +791,7 @@
                           placeholder="Entrer Votre Email"
                           :class="{
                             'is-invalid': form.errors.has('client_email'),
-                            'form-control': true,
+                            'form-control': true
                           }"
                         />
                         <has-error
@@ -821,7 +824,7 @@
                             'is-invalid':
                               form.errors.has('nb_students') ||
                               form.errors.has('min_nbStudents'),
-                            'form-control': true,
+                            'form-control': true
                           }"
                         />
                         <has-error :form="form" field="nb_students"></has-error>
@@ -841,7 +844,7 @@
                     <div class="form-group">
                       <label for="" class="label-control">Prix Total </label>
                       <span class="badge badge-total-price"
-                        >{{ form.total_price }} MAD
+                        >{{ form.total_price }} ‎€
                       </span>
                       <div class="message">
                         <label class="mt-3 d-block">
@@ -854,8 +857,10 @@
                           class="list-unstyled text-dark text-capitalize border p-2 rounded"
                           style="border-color: #9bc31c !important"
                         >
-                         <li class="d-flex flex-direction-row">
-                          <label class="text-dark" style="margin-left:30px;">le prix total comprends: </label>
+                          <li class="d-flex flex-direction-row">
+                            <label class="text-dark" style="margin-left:30px;"
+                              >le prix total comprends:
+                            </label>
                           </li>
                           <li class="d-flex flex-direction-row">
                             <i
@@ -863,8 +868,7 @@
                               style="color: #9bc31c"
                             ></i>
                             <label>
-                              les comptes application
-                              mobile et IOS
+                              les comptes application mobile et IOS
                               <b style="color: #9bc31c">5€/elève</b>
                             </label>
                           </li>
@@ -875,7 +879,8 @@
                             ></i>
                             <label>
                               traitement des injection des listes et injection
-                              des données <b style="color: #9bc31c">2€/elève</b>
+                              des données
+                              <b style="color: #9bc31c">2€/elève</b>
                             </label>
                           </li>
                           <li class="d-flex flex-direction-row">
@@ -892,6 +897,7 @@
                       </div>
                     </div>
                   </div>
+                  <!-- start modal other information -->
                   <!-- start modal other information -->
                   <div class="col-lg-6 accordion-parent">
                     <div id="accordion">
@@ -937,13 +943,14 @@
                         <div id="two" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <span>
-                              <label class="accordion-hours"> 5H</label> :
-                              gratuites
+                              <label class="accordion-hours"> 5H</label>
+                              : gratuites
                             </span>
                             <span
                               >Au-delà de
-                              <span class="accordion-hours">5H</span> :
-                              <span class="accordion-mony">250MAD / Heure</span>
+                              <span class="accordion-hours">5H</span>
+                              :
+                              <span class="accordion-mony">25€ / Heure</span>
                               (Facturation Sur Devis)
                             </span>
                           </div>
@@ -966,22 +973,22 @@
                         <div id="three" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <span class="d-block other-service">
-                              <i class="fa fa-square"></i> Traitement des listes
-                              et injections de données :
-                              <span class="accordion-mony">20MAD/élève</span>
+                              <i class="fa fa-square"></i>
+                              Traitement des listes et injections de données :
+                              <span class="accordion-mony">2€/élève</span>
                             </span>
                             <span class="d-block other-service">
-                              <i class="fa fa-square"></i> Version mobile
-                              (Android iOS) ainsi que les Portail élèves et
-                              parents :
-                              <span class="accordion-mony">50MAD/élèves</span>
+                              <i class="fa fa-square"></i>
+                              Version mobile (Android iOS) ainsi que les Portail
+                              élèves et parents :
+                              <span class="accordion-mony">5€/élèves</span>
                             </span>
                             <span
                               class="d-block other-service no-border-bottom mb-0"
                             >
-                              <i class="fa fa-square"></i> Développements
-                              Spécifiques:
-                              <span class="accordion-mony">200MAD/Heure</span>
+                              <i class="fa fa-square"></i>
+                              Développements Spécifiques:
+                              <span class="accordion-mony">20€/Heure</span>
                             </span>
                             <span class="d-block other-service mt-0">
                               <i class="fa fa-square"></i>
@@ -1002,7 +1009,8 @@
                   class="btn btn-primary btn-sm"
                   @click="saveOrder"
                 >
-                  <i class="fa fa-chevron-circle-right"></i> Valider
+                  <i class="fa fa-chevron-circle-right"></i>
+                  Valider
                 </button>
                 <button
                   type="button"
@@ -1016,7 +1024,8 @@
             </div>
           </div>
         </div>
-        <!-- end modal dialog -->
+        <!-- end modal dialog order-->
+
         <!-- start modal dialog modules de base-->
         <div
           class="modal fade module-base text-capitalize"
@@ -1027,7 +1036,9 @@
             <div class="modal-content">
               <!-- Modal Header -->
               <div class="modal-header">
-                <h5 class="modal-title">tous les modules offerts</h5>
+                <h5 class="modal-title">
+                  tous les modules offerts.
+                </h5>
                 <button type="button" class="close" @click="closeModalBase">
                   <i class="fa fa-times-circle"></i>
                 </button>
@@ -1039,10 +1050,9 @@
                 <ul class="list-group module-base">
                   <li class="list-group-item p-1">
                     <i class="fa fa-slack fa-fw"></i>
-                    <span
-                      >gestion administrative des élèves et des
-                      professeurs</span
-                    >
+                    <span>
+                      gestion administrative des élèves et des professeurs
+                    </span>
                   </li>
                   <li class="list-group-item p-1">
                     <i class="fa fa-slack fa-fw"></i>
@@ -1118,432 +1128,6 @@
   </div>
 </template>
 
-<style lang="scss">
-$card_centred: #9bc31c;
-$card_header_bg: #51c1e1;
-$card_header_title: #fff;
-
-$card_body_bg: #fff;
-
-$main_color: #333;
-$secand_color: #444;
-
-.offers {
-  position: relative;
-  z-index: 2;
-  //   margin: 80px;
-  .nav-tabs {
-    border-color: $card_header_bg;
-    .nav-link {
-      background: transparent;
-      color: $card_header_bg;
-      &:hover {
-        border-color: transparent;
-      }
-      &.active {
-        background: $card_header_bg;
-        color: $card_header_title;
-        border-color: transparent;
-        border-bottom-color: white;
-      }
-    }
-  }
-  .offers-cards {
-    border: 2px solid $card_header_bg;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 20px 15px;
-    position: relative;
-    // text-transform: lowercase;
-    background: #fff;
-    .head {
-      color: #fff !important;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 15px 5px;
-      background: $card_header_bg;
-      h2 {
-        width: 90%;
-        margin-bottom: -40px;
-        @media (max-width: 768px) {
-          font-size: 22px;
-          margin-top: 10px;
-        }
-      }
-    }
-    .offer-card {
-      margin-top: 30px;
-      background: #fff;
-      border: 1px solid $card_header_bg;
-      box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3);
-      .offer-header {
-        border-bottom: 1px dashed #444;
-        .offer-title {
-          padding: 15px 5px 15px 35px;
-          background: $card_header_bg;
-          color: $card_header_title;
-          font-size: 20px;
-          text-align: left;
-          margin-bottom: 0;
-        }
-        .offer-price {
-          background-color: white;
-          color: $main_color;
-          padding: 0px 5px 0px 35px;
-          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-          font-weight: bold;
-          span.device {
-            text-align: left;
-            font-size: 27px;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: $card_centred !important;
-            display: block;
-            margin: 4px 0 -5px 0;
-          }
-          span:last-of-type {
-            display: block;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 16px;
-            // color: #444;
-            label {
-              text-decoration: line-through;
-              color: $card_header_bg;
-            }
-          }
-        }
-      }
-      .offer-body {
-        background: $card_body_bg;
-        .offer-list {
-          .offer-list-item {
-            margin-bottom: 7px;
-            padding: 6px 4px 8px 8px;
-            border-bottom: 1px dashed #444;
-            font-size: 15px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-              Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-              sans-serif;
-            font-weight: 500;
-            color: $main_color;
-            font-size: 14px;
-            position: relative;
-            i,
-            .checkbox {
-              position: absolute;
-              top: 10px;
-              left: 8px;
-              color: $card_header_bg;
-              font-size: 16px;
-            }
-            .checkbox {
-              top: 12px;
-              color: #444;
-            }
-            span {
-              display: block;
-              margin-left: 20px;
-              text-transform: capitalize;
-              label.price_color {
-                color: $card_header_bg;
-                font-weight: bold;
-                letter-spacing: 1px;
-              }
-            }
-            &:last-of-type {
-              border-bottom: none;
-              padding-bottom: 2px;
-            }
-            &.extra {
-              background: white;
-              border-top: 1px solid $card_header_bg;
-              border-bottom: 1px solid $card_header_bg;
-              font-weight: bold;
-              color: $card_header_bg;
-              padding: 10px;
-              i {
-                color: $card_header_bg;
-                top: 13px;
-              }
-              a.d-inline {
-                cursor: pointer;
-                &:hover {
-                  color: #555;
-                  //   opacity:.9;
-                }
-              }
-            }
-            &.total_price {
-              padding: 0 !important;
-              margin: 0 !important;
-              background: $card_header_bg !important;
-            }
-          }
-        }
-      }
-      .offer-footer {
-        // height: 40px;
-        h5 {
-          font-size: 14px;
-        }
-        .btn {
-          background: $card_header_bg;
-          color: #fff;
-          border: none;
-          border-radius: 0 !important;
-          font-size: 16px;
-          font-weight: bold;
-          border-top: 1px solid $card_header_bg;
-          transition: 0.2s;
-          text-transform: capitalize;
-          &:hover {
-            // background: $card_header_bg;
-            opacity: 0.9;
-          }
-        }
-      }
-    }
-  }
-
-  //   offer card other style
-  .offer-card.offer-centred {
-    border: 1px solid $card_centred;
-    .offer-header {
-      .offer-title {
-        padding: 15px 5px 15px 35px;
-        background: $card_centred;
-      }
-      .offer-price span:last-of-type label {
-        color: $card_header_bg;
-      }
-    }
-
-    .offer-list {
-      .offer-list-item {
-        i:not(.card-centred) {
-          color: $card_centred !important;
-        }
-        &.extra {
-          color: $card_centred !important;
-          border-color: $card_centred !important;
-          i {
-            color: $card_centred !important;
-          }
-        }
-        span {
-          label.price_color {
-            color: $card_centred !important;
-          }
-        }
-      }
-    }
-    .offer-footer {
-      // height: 40px;
-      .btn {
-        background: $card_centred;
-        border-top: 1px solid $card_centred;
-      }
-    }
-  }
-
-  //   start modal style
-  .modal {
-    opacity: 1;
-    display: block;
-    position: absolute;
-    height: 100%;
-    .modal-shadow {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      background: rgba(0, 0, 0, 0.9);
-    }
-
-    .modal-content {
-      top: 50px;
-      border-width: 2px;
-      border-color: $card_header_bg !important;
-      box-shadow: 0 0 6px 0px $card_header_bg !important;
-      border-left-width: 4px;
-      .modal-header {
-        background: $card_header_bg !important;
-        color: $card_header_title;
-        border-color: $card_header_bg;
-        button.close {
-          color: $card_header_title;
-        }
-      }
-      .badge-total-price {
-        background: $card_header_bg !important;
-        color: $card_header_title;
-        padding: 5px 10px;
-      }
-      .message {
-        span {
-          background: $card_centred;
-        }
-      }
-      .modal-body {
-        color: $card_header_bg;
-        overflow-y: auto;
-        input {
-          text-transform: capitalize;
-          color: $card_header_bg;
-          color: #555;
-        }
-        .module-base {
-          li {
-            border: 1px solid $card_header_bg;
-            color: #666;
-            margin-bottom: 7px;
-            border-radius: 3px;
-            i {
-              color: $card_header_bg;
-            }
-          }
-        }
-      }
-      .modal-footer {
-        border-color: $card_header_bg;
-      }
-
-      .icon-form {
-        background: $card_header_bg;
-        padding: 5px 12px;
-        &.user-icon {
-          padding: 5px 15px;
-        }
-      }
-    }
-  }
-
-  //   start modal de base
-  .modal.module-base {
-    border-color: $card_body_bg;
-    .modal-content {
-      border-color: $card_header_bg;
-      box-shadow: 0 0 6px 0px $card_body_bg;
-      .modal-header {
-        background: $card_body_bg;
-        border-color: $card_body_bg;
-      }
-      .modal-footer {
-        border-color: $card_body_bg;
-      }
-    }
-  }
-
-  .mycheckbox {
-    background: red;
-  }
-
-  .invalid-feedback {
-    margin-left: 43px;
-  }
-}
-
-// effect snow
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  position: relative;
-}
-
-.ajax-icon {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #fff;
-  z-index: 5885489;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  img {
-    width: 40px;
-    height: 40px;
-  }
-}
-.accordion-parent {
-  @media (min-width: 996px) {
-    border-left: 1px solid $card_header_bg;
-  }
-  #accordion {
-    border: none;
-    .card {
-      margin-bottom: 3px;
-      border-radius: 0 !important;
-      border: none;
-      .card-header {
-        text-transform: capitalize;
-        padding: 0;
-        background: $card_header_bg;
-        color: $card_header_title !important;
-        .card-link {
-          font-size: 15px;
-          padding: 12px 5px;
-          color: inherit;
-          display: block;
-        }
-      }
-      .card-body {
-        border-left: 1px solid $card_header_bg !important;
-        border-right: 1px solid $card_header_bg !important;
-        border-bottom: 1px solid $card_header_bg !important;
-        padding: 10px 8px;
-        color: #666;
-        margin-bottom: 3px;
-        .other-service {
-          margin-bottom: 5px;
-          padding-bottom: 5px;
-          border-bottom: 1px dotted $card_header_bg;
-          &:last-of-type {
-            border-bottom: none;
-            padding-bottom: none;
-            margin-bottom: none;
-          }
-          .fa-square {
-            font-size: 13px;
-            color: $card_header_bg;
-          }
-        }
-        .accordion-mony {
-          color: $card_header_bg;
-          font-weight: bolder;
-          font-size: 14px;
-        }
-        .accordion-hours {
-          font-size: 15px;
-          font-weight: bold;
-          color: #777;
-        }
-      }
-    }
-  }
-}
-//   message successfully
-.msg {
-  position: fixed;
-  top: 5px;
-  right: 5px;
-  background: $card_centred;
-  color: #fff;
-  z-index: 12455555;
-  padding: 8px 15px 0;
-  font-size: 16px;
-}
-
-.no-border-bottom {
-  border-bottom: none !important;
-}
-</style>
-
 <script>
 import { BreedingRhombusSpinner } from "epic-spinners";
 export default {
@@ -1552,7 +1136,6 @@ export default {
   },
   data() {
     return {
-      plansApi: [],
       form: new Form({
         society_name: "",
         client_email: "",
@@ -1560,13 +1143,13 @@ export default {
         total_price: 0,
         nb_students: "",
         formation_en_ligne: false,
-        country: "Morocco",
+        country: "France",
         min_nbStudents: 1,
         max_nbStudents: 1,
         extraServices: [],
-        iosDonee: "70MAD" // tarif use ios and enter data in the application
+        iosDonee: "7€" // tarif use ios and enter data in the application
       }),
-      otherTarif: 70, // tarif inject donner utilisation app mobile / eleve
+      otherTarif: 7, // tarif inject donner utilisation app mobile / eleve
       modalTotalPrice: 0,
       modalStatus: false,
       modalBaseStatus: false,
@@ -1578,59 +1161,50 @@ export default {
       plans: {
         basic: {
           plan_one: {
-            total_price: []
+            total_price: ["1550"]
           },
           plan_two: {
-            total_price: []
+            total_price: ["2650"]
           },
           plan_three: {
-            total_price: []
+            total_price: ["3945"]
           }
         },
         advanced: {
           plan_one: {
-            total_price: []
+            total_price: ["2790"]
           },
           plan_two: {
-            total_price: []
+            total_price: ["3780"]
           },
           plan_three: {
-            total_price: []
+            total_price: ["4635"]
           }
         }
       }
     };
   },
   beforeCreate() {
-       axios.get("/api/localisation").then(res => {
+    axios.get("/api/localisation").then(res => {
       if (res.statusText == "OK") {
         if (res.data.localisation != null) {
           this.form.country = res.data.localisation;
         }
-        if (res.data.localisation !== "Morocco" && res.data.localisation!=null) {
-          this.$router.push("/");
+        if (
+          res.data.localisation === "Morocco" &&
+          res.data.localisation != null
+        ) {
+          this.$router.push("/maroc");
         }
       }
     });
-      axios.get("/api/getPlans").then(res => {
-      this.plansApi = res.data.plans;
-      this.set_plans();
-    });
+  },
+  created() {
+    setTimeout(() => {
+      this.loadingStatus = false;
+    }, 1000);
   },
   methods: {
-    set_plans() {
-
-      // prices basics plans
-      this.plans.basic.plan_one.total_price[0] = this.plansApi[0].prix_actuel_dh;
-      this.plans.basic.plan_two.total_price[0] = this.plansApi[1].prix_actuel_dh;
-      this.plans.basic.plan_three.total_price[0] = this.plansApi[2].prix_actuel_dh;
-
-      // prices advanced plans
-      this.plans.advanced.plan_one.total_price[0] = this.plansApi[3].prix_actuel_dh;
-      this.plans.advanced.plan_two.total_price[0] = this.plansApi[4].prix_actuel_dh;
-      this.plans.advanced.plan_three.total_price[0] = this.plansApi[5].prix_actuel_dh;
-      this.loadingStatus = false;
-    },
     openModalBase(version) {
       if (version === "vBasic") {
         this.moduleVersion = false;
@@ -1697,6 +1271,7 @@ export default {
             // console.log(this.form.total_price);
           } else {
             this.form.total_price = this.modalTotalPrice + price_student;
+            // console.log("hello");
           }
         } else if (this.form.nb_students > this.form.max_nbStudents) {
           // if nb_students > max number of students in this offer
@@ -1798,22 +1373,21 @@ export default {
           let x = this.form.nb_students - 1000;
           x = x / 500;
           x = parseInt(x) * 1000;
-          console.log(this.modalTotalPrice + price_student);
+          //   console.log(this.modalTotalPrice + price_student);
           this.form.total_price = this.modalTotalPrice + price_student + x;
-          console.log(this.form.total_price);
+          //   console.log(this.form.total_price);
         } else {
           this.form.total_price = this.modalTotalPrice + price_student;
         }
       } // if nb_students > 0
       else if (this.form.nb_students > this.form.max_nbStudents) {
         // if nb_students > max number of students in this offer
-
         // if the user deppased the maximum number of students
         this.msgDepassNbMax =
           "vous avez atteint le nombre maximal, veuillez choisir le pack adéquat !";
 
         let price_student = this.otherTarif * this.form.max_nbStudents;
-        console.log(this.otherTarif, this.form.nb_students, price_student);
+        // console.log(this.otherTarif, this.form.nb_students, price_student);
         this.form.nb_students = this.form.max_nbStudents;
         this.form.total_price = this.modalTotalPrice + price_student;
       }

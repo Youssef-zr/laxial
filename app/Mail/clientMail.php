@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -29,6 +28,7 @@ class clientMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Laxial order')->view('email.client',['details'=>$this->details]);
+        return $this->subject('Laxial order')
+            ->view('email.client', ['details' => $this->details]);
     }
 }

@@ -8,6 +8,7 @@ use App\Mail\clientMail;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Plan;
 
 class OffersController extends Controller
 {
@@ -110,7 +111,7 @@ class OffersController extends Controller
         ];
 
         Mail::to([$order->email])->send(new clientMail($mailDetails));
-        Mail::to("sarah@connectivemarket.com")->send(new adminMail($mailDetails));
+        // Mail::to("sarah@connectivemarket.com")->send(new adminMail($mailDetails));
 
         return response()->json(['msg' => 'votre demande a été crée avec succès']);
 
@@ -136,4 +137,9 @@ class OffersController extends Controller
         return $ip;
     }
 
+
+    public function get_plans(){
+        $plans = Plan::all();
+        return response()->json(['plans'=>$plans]);
+    }
 }

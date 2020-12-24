@@ -1,6 +1,13 @@
 <template>
   <div class="Euro">
-    <div class="offers py-4">
+    <div class="ajax-icon" v-if="plansApi[0] === undefined">
+      <breeding-rhombus-spinner
+        :animation-duration="2000"
+        :size="65"
+        color="#ff1d5e"
+      />
+    </div>
+    <div class="offers py-4" v-else>
       <div class="ajax-icon" v-if="loadingStatus">
         <breeding-rhombus-spinner
           :animation-duration="2000"
@@ -21,8 +28,8 @@
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#menu1">
                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                version basique </a
-              >
+                version basique
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#menu2">
@@ -41,13 +48,14 @@
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">
-                        De 1 a 499 élèves
+                        {{ plansApi[0].titre }}
                       </h3>
                       <div class="offer-price">
-                        <span class="device">Euro</span
-                        ><span class="device"
-                          >1550‎€ <label>/2550‎€</label></span
-                        >
+                        <span class="device">Euro</span>
+                        <span class="device">
+                          {{ plansApi[0].prix_actuel_euro }}€
+                          <label> /{{ plansApi[0].prix_initial_euro }}€ </label>
+                        </span>
                       </div>
                     </div>
                     <div class="offer-body">
@@ -190,12 +198,15 @@
                   <div class="offer-card offer-centred">
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">
-                        De 500 a 999 élèves
+                        {{ plansApi[1].titre }}
                       </h3>
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >2650‎€ <label>/3650‎€</label></span
+                          >{{ plansApi[1].prix_actuel_euro }}€
+                          <label
+                            >/{{ plansApi[1].prix_initial_euro }}€</label
+                          ></span
                         >
                       </div>
                     </div>
@@ -339,11 +350,16 @@
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">
-                        De 1000 et plus
+                        {{ plansApi[2].titre }}
                       </h3>
                       <div class="offer-price">
                         <span class="device">Euro</span
-                        ><span class="device">3945€ <label>/4945€</label></span>
+                        ><span class="device"
+                          >{{ plansApi[2].prix_actuel_euro }}€
+                          <label
+                            >/{{ plansApi[2].prix_initial_euro }}€</label
+                          ></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -493,12 +509,15 @@
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">
-                        De 1 a 499 élèves
+                        {{ plansApi[3].titre }}
                       </h3>
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >2790‎€ <label>/3790‎€</label></span
+                          >{{ plansApi[3].prix_actuel_euro }}€
+                          <label
+                            >/{{ plansApi[3].prix_initial_euro }}€</label
+                          ></span
                         >
                       </div>
                     </div>
@@ -570,12 +589,15 @@
                   <div class="offer-card offer-centred">
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">
-                        De 500 a 999 élèves
+                        {{ plansApi[4].titre }}
                       </h3>
                       <div class="offer-price">
                         <span class="device">Euro</span
                         ><span class="device"
-                          >3780‎€ <label>/4780€</label></span
+                          >{{ plansApi[4].prix_actuel_euro }}€
+                          <label
+                            >/{{ plansApi[4].prix_initial_euro }}€</label
+                          ></span
                         >
                       </div>
                     </div>
@@ -647,11 +669,16 @@
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
                       <h3 class="offer-title">
-                        Plus De 1000 élèves
+                        {{ plansApi[5].titre }}
                       </h3>
                       <div class="offer-price">
-                        <span class="device">Euro</span>
-                        <span class="device">4635‎€ <label>/5635€</label></span>
+                        <span class="device">Euro</span
+                        ><span class="device"
+                          >{{ plansApi[5].prix_actuel_euro }}€
+                          <label
+                            >/{{ plansApi[5].prix_initial_euro }}€</label
+                          ></span
+                        >
                       </div>
                     </div>
                     <div class="offer-body">
@@ -857,9 +884,10 @@
                           class="list-unstyled text-dark text-capitalize border p-2 rounded"
                           style="border-color: #9bc31c !important"
                         >
-
                           <li class="d-flex flex-direction-row">
-                          <label class="text-dark" style="margin-left:30px;">le prix total comprends: </label>
+                            <label class="text-dark" style="margin-left:30px;"
+                              >le prix total comprends:
+                            </label>
                           </li>
                           <li class="d-flex flex-direction-row">
                             <i
@@ -867,8 +895,7 @@
                               style="color: #9bc31c"
                             ></i>
                             <label>
-                              les comptes application
-                              mobile et IOS
+                              les comptes application mobile et IOS
                               <b style="color: #9bc31c">5€/elève</b>
                             </label>
                           </li>
@@ -979,8 +1006,8 @@
                             </span>
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i>
-                              Version mobile (Android iOS) ainsi que les
-                              Portail élèves et parents :
+                              Version mobile (Android iOS) ainsi que les Portail
+                              élèves et parents :
                               <span class="accordion-mony">5€/élèves</span>
                             </span>
                             <span
@@ -1136,6 +1163,7 @@ export default {
   },
   data() {
     return {
+      plansApi: [],
       form: new Form({
         society_name: "",
         client_email: "",
@@ -1161,24 +1189,24 @@ export default {
       plans: {
         basic: {
           plan_one: {
-            total_price: ["1550"]
+            total_price: []
           },
           plan_two: {
-            total_price: ["2650"]
+            total_price: []
           },
           plan_three: {
-            total_price: ["3945"]
+            total_price: []
           }
         },
         advanced: {
           plan_one: {
-            total_price: ["2790"]
+            total_price: []
           },
           plan_two: {
-            total_price: ["3780"]
+            total_price: []
           },
           plan_three: {
-            total_price: ["4635"]
+            total_price: []
           }
         }
       }
@@ -1198,13 +1226,24 @@ export default {
         }
       }
     });
-  },
-  created() {
-    setTimeout(() => {
-      this.loadingStatus = false;
-    }, 1000);
+    axios.get("/api/getPlans").then(res => {
+      this.plansApi = res.data.plans;
+      this.set_plans();
+    });
   },
   methods: {
+    set_plans() {
+      // prices basics plans
+      this.plans.basic.plan_one.total_price[0] = this.plansApi[0].prix_actuel_euro;
+      this.plans.basic.plan_two.total_price[0] = this.plansApi[1].prix_actuel_euro;
+      this.plans.basic.plan_three.total_price[0] = this.plansApi[2].prix_actuel_euro;
+
+      // prices advanced plans
+      this.plans.advanced.plan_one.total_price[0] = this.plansApi[3].prix_actuel_euro;
+      this.plans.advanced.plan_two.total_price[0] = this.plansApi[4].prix_actuel_euro;
+      this.plans.advanced.plan_three.total_price[0] = this.plansApi[5].prix_actuel_euro;
+      this.loadingStatus = false;
+    },
     openModalBase(version) {
       if (version === "vBasic") {
         this.moduleVersion = false;
