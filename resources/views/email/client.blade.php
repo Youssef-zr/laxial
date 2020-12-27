@@ -70,7 +70,7 @@
                     qui comprends :
                   </label>
                   <label style="display: block">
-                    la licence , l'installation et l'hébergement du logiciel.
+                    la licence (web et mobile) , l'installation et l'hébergement du logiciel.
                   </label>
             </div>
             @if (count($details['extra'])>0)

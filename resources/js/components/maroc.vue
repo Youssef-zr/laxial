@@ -63,14 +63,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
-                            tous les modules offerts
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase('vBasic')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -207,14 +207,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
-                            tous les modules offerts
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase('vBasic')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -351,14 +351,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
-                            tous les modules offerts
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase('vBasic')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -502,14 +502,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
-                            tous les modules offerts
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase('vAdvanced')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -524,7 +524,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H heures de formation gratuites </span>
+                          <span> 5H de formation gratuites </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -580,14 +580,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline"
-                            >tous les modules offerts
+                            >tous les modules
                           </span>
                           <a
                             @click="openModalBase('vAdvanced')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -603,7 +603,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H heures de formation gratuites </span>
+                          <span> 5H de formation gratuites </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -659,14 +659,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
-                            tous les modules offerts
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase('vAdvanced')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -681,7 +681,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H heures de formation gratuites </span>
+                          <span> 5H de formation gratuites </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>

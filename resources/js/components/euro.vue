@@ -63,14 +63,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
-                            tous les modules offerts
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase('vBasic')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -215,14 +215,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
-                            tous les modules offerts
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase('vBasic')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -367,14 +367,14 @@
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span class="d-inline">
-                            tous les modules offerts
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase('vBasic')"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -525,13 +525,13 @@
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline">tous les modules offerts</span>
+                          <span class="d-inline">tous les modules</span>
                           <a
                             @click="openModalBase"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -547,7 +547,7 @@
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            5H heures de formation gratuites
+                            5H de formation gratuites
                           </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
@@ -605,13 +605,13 @@
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline">tous les modules offerts</span>
+                          <span class="d-inline">tous les modules</span>
                           <a
                             @click="openModalBase"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -627,7 +627,7 @@
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            5H heures de formation gratuites
+                            5H de formation offerte
                           </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
@@ -685,15 +685,15 @@
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline"
-                            >tous les modules offerts
+                          <span class="d-inline">
+                            tous les modules
                           </span>
                           <a
                             @click="openModalBase"
                             title="modules de base"
                             class="d-inline ml-0"
                             ><span
-                              class="d-inline fa fa-eye fa-fw ml-2"
+                              class="d-inline fa fa-eye fa-fw ml-1"
                               style="font-size: 16px"
                             ></span
                           ></a>
@@ -709,7 +709,7 @@
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            5H heures de formation gratuites
+                            5H de formation gratuites
                           </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
@@ -895,8 +895,8 @@
                               style="color: #9bc31c"
                             ></i>
                             <label>
-                              les comptes application mobile et IOS
-                              <b style="color: #9bc31c">5€/elève</b>
+                              les comptes application mobile android  et IOS
+                              <b style="color: #9bc31c">5€/elève/an</b>
                             </label>
                           </li>
                           <li class="d-flex flex-direction-row">
@@ -971,14 +971,12 @@
                           <div class="card-body">
                             <span>
                               <label class="accordion-hours"> 5H</label>
-                              : gratuites
+                               de formation en ligne offerte
                             </span>
-                            <span
+                            <span class="d-block"
                               >Au-delà de
-                              <span class="accordion-hours">5H</span>
-                              :
-                              <span class="accordion-mony">25€ / Heure</span>
-                              (Facturation Sur Devis)
+                              <span class="accordion-hours">5H</span> :
+                              <span class="accordion-mony">250MAD / Heure</span>
                             </span>
                           </div>
                         </div>
@@ -1001,25 +999,7 @@
                           <div class="card-body">
                             <span class="d-block other-service">
                               <i class="fa fa-square"></i>
-                              Traitement des listes et injections de données :
-                              <span class="accordion-mony">2€/élève</span>
-                            </span>
-                            <span class="d-block other-service">
-                              <i class="fa fa-square"></i>
-                              Version mobile (Android iOS) ainsi que les Portail
-                              élèves et parents :
-                              <span class="accordion-mony">5€/élèves</span>
-                            </span>
-                            <span
-                              class="d-block other-service no-border-bottom mb-0"
-                            >
-                              <i class="fa fa-square"></i>
-                              Développements Spécifiques:
-                              <span class="accordion-mony">20€/Heure</span>
-                            </span>
-                            <span class="d-block other-service mt-0">
-                              <i class="fa fa-square"></i>
-                              (Facturation Sur Devis)
+                              formation présentielle disponible sur devis
                             </span>
                           </div>
                         </div>
@@ -1064,7 +1044,7 @@
               <!-- Modal Header -->
               <div class="modal-header">
                 <h5 class="modal-title">
-                  tous les modules offerts.
+                  tous les modules
                 </h5>
                 <button type="button" class="close" @click="closeModalBase">
                   <i class="fa fa-times-circle"></i>
@@ -1177,7 +1157,7 @@ export default {
         extraServices: [],
         iosDonee: "7€" // tarif use ios and enter data in the application
       }),
-      otherTarif: 7, // tarif inject donner utilisation app mobile / eleve
+      otherTarif: 7, // tarif inject donner utilisation app mobile android  / eleve
       modalTotalPrice: 0,
       modalStatus: false,
       modalBaseStatus: false,

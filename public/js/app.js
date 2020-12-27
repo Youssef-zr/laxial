@@ -3058,26 +3058,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3101,7 +3081,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       }),
       otherTarif: 7,
-      // tarif inject donner utilisation app mobile / eleve
+      // tarif inject donner utilisation app mobile android  / eleve
       modalTotalPrice: 0,
       modalStatus: false,
       modalBaseStatus: false,
@@ -30003,7 +29983,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("span", { staticClass: "d-inline" }, [
                                         _vm._v(
-                                          "\n                          tous les modules offerts\n                        "
+                                          "\n                          tous les modules\n                        "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -30021,7 +30001,7 @@ var render = function() {
                                         [
                                           _c("span", {
                                             staticClass:
-                                              "d-inline fa fa-eye fa-fw ml-2",
+                                              "d-inline fa fa-eye fa-fw ml-1",
                                             staticStyle: { "font-size": "16px" }
                                           })
                                         ]
@@ -30485,7 +30465,7 @@ var render = function() {
                                           { staticClass: "d-inline" },
                                           [
                                             _vm._v(
-                                              "\n                          tous les modules offerts\n                        "
+                                              "\n                          tous les modules\n                        "
                                             )
                                           ]
                                         ),
@@ -30506,7 +30486,7 @@ var render = function() {
                                           [
                                             _c("span", {
                                               staticClass:
-                                                "d-inline fa fa-eye fa-fw ml-2",
+                                                "d-inline fa fa-eye fa-fw ml-1",
                                               staticStyle: {
                                                 "font-size": "16px"
                                               }
@@ -31031,7 +31011,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("span", { staticClass: "d-inline" }, [
                                         _vm._v(
-                                          "\n                          tous les modules offerts\n                        "
+                                          "\n                          tous les modules\n                        "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -31049,7 +31029,7 @@ var render = function() {
                                         [
                                           _c("span", {
                                             staticClass:
-                                              "d-inline fa fa-eye fa-fw ml-2",
+                                              "d-inline fa fa-eye fa-fw ml-1",
                                             staticStyle: { "font-size": "16px" }
                                           })
                                         ]
@@ -31521,7 +31501,7 @@ var render = function() {
                                       }),
                                       _vm._v(" "),
                                       _c("span", { staticClass: "d-inline" }, [
-                                        _vm._v("tous les modules offerts")
+                                        _vm._v("tous les modules")
                                       ]),
                                       _vm._v(" "),
                                       _c(
@@ -31534,7 +31514,7 @@ var render = function() {
                                         [
                                           _c("span", {
                                             staticClass:
-                                              "d-inline fa fa-eye fa-fw ml-2",
+                                              "d-inline fa fa-eye fa-fw ml-1",
                                             staticStyle: { "font-size": "16px" }
                                           })
                                         ]
@@ -31663,7 +31643,7 @@ var render = function() {
                                         _c(
                                           "span",
                                           { staticClass: "d-inline" },
-                                          [_vm._v("tous les modules offerts")]
+                                          [_vm._v("tous les modules")]
                                         ),
                                         _vm._v(" "),
                                         _c(
@@ -31676,7 +31656,7 @@ var render = function() {
                                           [
                                             _c("span", {
                                               staticClass:
-                                                "d-inline fa fa-eye fa-fw ml-2",
+                                                "d-inline fa fa-eye fa-fw ml-1",
                                               staticStyle: {
                                                 "font-size": "16px"
                                               }
@@ -31804,7 +31784,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("span", { staticClass: "d-inline" }, [
                                         _vm._v(
-                                          "tous les modules offerts\n                        "
+                                          "\n                          tous les modules\n                        "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -31818,7 +31798,7 @@ var render = function() {
                                         [
                                           _c("span", {
                                             staticClass:
-                                              "d-inline fa fa-eye fa-fw ml-2",
+                                              "d-inline fa fa-eye fa-fw ml-1",
                                             staticStyle: { "font-size": "16px" }
                                           })
                                         ]
@@ -32316,7 +32296,7 @@ var render = function() {
                           _c("div", { staticClass: "modal-header" }, [
                             _c("h5", { staticClass: "modal-title" }, [
                               _vm._v(
-                                "\n                tous les modules offerts.\n              "
+                                "\n                tous les modules\n              "
                               )
                             ]),
                             _vm._v(" "),
@@ -32831,7 +32811,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("span", [
         _vm._v(
-          "\n                          5H heures de formation gratuites\n                        "
+          "\n                          5H de formation gratuites\n                        "
         )
       ])
     ])
@@ -32879,7 +32859,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("span", [
         _vm._v(
-          "\n                          5H heures de formation gratuites\n                        "
+          "\n                          5H de formation offerte\n                        "
         )
       ])
     ])
@@ -32927,7 +32907,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("span", [
         _vm._v(
-          "\n                          5H heures de formation gratuites\n                        "
+          "\n                          5H de formation gratuites\n                        "
         )
       ])
     ])
@@ -33031,10 +33011,10 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("label", [
               _vm._v(
-                "\n                            les comptes application mobile et IOS\n                            "
+                "\n                            les comptes application mobile android  et IOS\n                            "
               ),
               _c("b", { staticStyle: { color: "#9bc31c" } }, [
-                _vm._v("5€/elève")
+                _vm._v("5€/elève/an")
               ])
             ])
           ]),
@@ -33129,22 +33109,17 @@ var staticRenderFns = [
             _c("span", [
               _c("label", { staticClass: "accordion-hours" }, [_vm._v(" 5H")]),
               _vm._v(
-                "\n                            : gratuites\n                          "
+                "\n                             de formation en ligne offerte\n                          "
               )
             ]),
             _vm._v(" "),
-            _c("span", [
+            _c("span", { staticClass: "d-block" }, [
               _vm._v("Au-delà de\n                            "),
               _c("span", { staticClass: "accordion-hours" }, [_vm._v("5H")]),
-              _vm._v(
-                "\n                            :\n                            "
-              ),
+              _vm._v(" :\n                            "),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("25€ / Heure")
-              ]),
-              _vm._v(
-                "\n                            (Facturation Sur Devis)\n                          "
-              )
+                _vm._v("250MAD / Heure")
+              ])
             ])
           ])
         ]
@@ -33186,41 +33161,7 @@ var staticRenderFns = [
             _c("span", { staticClass: "d-block other-service" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
-                "\n                            Traitement des listes et injections de données :\n                            "
-              ),
-              _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("2€/élève")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "d-block other-service" }, [
-              _c("i", { staticClass: "fa fa-square" }),
-              _vm._v(
-                "\n                            Version mobile (Android iOS) ainsi que les Portail\n                            élèves et parents :\n                            "
-              ),
-              _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("5€/élèves")
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
-              { staticClass: "d-block other-service no-border-bottom mb-0" },
-              [
-                _c("i", { staticClass: "fa fa-square" }),
-                _vm._v(
-                  "\n                            Développements Spécifiques:\n                            "
-                ),
-                _c("span", { staticClass: "accordion-mony" }, [
-                  _vm._v("20€/Heure")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("span", { staticClass: "d-block other-service mt-0" }, [
-              _c("i", { staticClass: "fa fa-square" }),
-              _vm._v(
-                "\n                            (Facturation Sur Devis)\n                          "
+                "\n                            formation présentielle disponible sur devis\n                          "
               )
             ])
           ])
@@ -33469,7 +33410,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("span", { staticClass: "d-inline" }, [
                                         _vm._v(
-                                          "\n                          tous les modules offerts\n                        "
+                                          "\n                          tous les modules\n                        "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -33487,7 +33428,7 @@ var render = function() {
                                         [
                                           _c("span", {
                                             staticClass:
-                                              "d-inline fa fa-eye fa-fw ml-2",
+                                              "d-inline fa fa-eye fa-fw ml-1",
                                             staticStyle: { "font-size": "16px" }
                                           })
                                         ]
@@ -33969,7 +33910,7 @@ var render = function() {
                                           { staticClass: "d-inline" },
                                           [
                                             _vm._v(
-                                              "\n                          tous les modules offerts\n                        "
+                                              "\n                          tous les modules\n                        "
                                             )
                                           ]
                                         ),
@@ -33990,7 +33931,7 @@ var render = function() {
                                           [
                                             _c("span", {
                                               staticClass:
-                                                "d-inline fa fa-eye fa-fw ml-2",
+                                                "d-inline fa fa-eye fa-fw ml-1",
                                               staticStyle: {
                                                 "font-size": "16px"
                                               }
@@ -34517,7 +34458,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("span", { staticClass: "d-inline" }, [
                                         _vm._v(
-                                          "\n                          tous les modules offerts\n                        "
+                                          "\n                          tous les modules\n                        "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -34535,7 +34476,7 @@ var render = function() {
                                         [
                                           _c("span", {
                                             staticClass:
-                                              "d-inline fa fa-eye fa-fw ml-2",
+                                              "d-inline fa fa-eye fa-fw ml-1",
                                             staticStyle: { "font-size": "16px" }
                                           })
                                         ]
@@ -35025,7 +34966,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("span", { staticClass: "d-inline" }, [
                                         _vm._v(
-                                          "\n                          tous les modules offerts\n                        "
+                                          "\n                          tous les modules\n                        "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -35045,7 +34986,7 @@ var render = function() {
                                         [
                                           _c("span", {
                                             staticClass:
-                                              "d-inline fa fa-eye fa-fw ml-2",
+                                              "d-inline fa fa-eye fa-fw ml-1",
                                             staticStyle: { "font-size": "16px" }
                                           })
                                         ]
@@ -35179,7 +35120,7 @@ var render = function() {
                                           { staticClass: "d-inline" },
                                           [
                                             _vm._v(
-                                              "tous les modules offerts\n                        "
+                                              "tous les modules\n                        "
                                             )
                                           ]
                                         ),
@@ -35200,7 +35141,7 @@ var render = function() {
                                           [
                                             _c("span", {
                                               staticClass:
-                                                "d-inline fa fa-eye fa-fw ml-2",
+                                                "d-inline fa fa-eye fa-fw ml-1",
                                               staticStyle: {
                                                 "font-size": "16px"
                                               }
@@ -35330,7 +35271,7 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("span", { staticClass: "d-inline" }, [
                                         _vm._v(
-                                          "\n                          tous les modules offerts\n                        "
+                                          "\n                          tous les modules\n                        "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -35350,7 +35291,7 @@ var render = function() {
                                         [
                                           _c("span", {
                                             staticClass:
-                                              "d-inline fa fa-eye fa-fw ml-2",
+                                              "d-inline fa fa-eye fa-fw ml-1",
                                             staticStyle: { "font-size": "16px" }
                                           })
                                         ]
@@ -36327,7 +36268,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+      _c("span", [_vm._v(" 5H de formation gratuites ")])
     ])
   },
   function() {
@@ -36371,7 +36312,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+      _c("span", [_vm._v(" 5H de formation gratuites ")])
     ])
   },
   function() {
@@ -36415,7 +36356,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v(" 5H heures de formation gratuites ")])
+      _c("span", [_vm._v(" 5H de formation gratuites ")])
     ])
   },
   function() {
