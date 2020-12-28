@@ -77,7 +77,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>5h de formation gratuites</span>
+                          <span>5H de formation offerte</span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -229,7 +229,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>5h de formation gratuites</span>
+                          <span>5H de formation offerte</span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -381,7 +381,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>5h de formation gratuites</span>
+                          <span>5H de formation offerte</span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -547,7 +547,7 @@
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            5H de formation gratuites
+                            5H de formation offerte
                           </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
@@ -709,7 +709,7 @@
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
                           <span>
-                            5H de formation gratuites
+                            5H de formation offerte
                           </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">

@@ -32427,7 +32427,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("5h de formation gratuites")])
+      _c("span", [_vm._v("5H de formation offerte")])
     ])
   },
   function() {
@@ -32541,7 +32541,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("5h de formation gratuites")])
+      _c("span", [_vm._v("5H de formation offerte")])
     ])
   },
   function() {
@@ -32655,7 +32655,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("5h de formation gratuites")])
+      _c("span", [_vm._v("5H de formation offerte")])
     ])
   },
   function() {
@@ -32791,7 +32791,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("span", [
         _vm._v(
-          "\n                          5H de formation gratuites\n                        "
+          "\n                          5H de formation offerte\n                        "
         )
       ])
     ])
@@ -32887,7 +32887,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("span", [
         _vm._v(
-          "\n                          5H de formation gratuites\n                        "
+          "\n                          5H de formation offerte\n                        "
         )
       ])
     ])
