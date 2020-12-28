@@ -976,7 +976,7 @@
                             <span class="d-block"
                               >Au-delà de
                               <span class="accordion-hours">5H</span> :
-                              <span class="accordion-mony">250MAD / Heure</span>
+                              <span class="accordion-mony">25€/Heure</span>
                             </span>
                           </div>
                         </div>

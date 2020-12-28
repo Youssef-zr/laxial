@@ -4879,26 +4879,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -33118,7 +33098,7 @@ var staticRenderFns = [
               _c("span", { staticClass: "accordion-hours" }, [_vm._v("5H")]),
               _vm._v(" :\n                            "),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("250MAD / Heure")
+                _vm._v("25€/Heure")
               ])
             ])
           ])
@@ -35118,11 +35098,7 @@ var render = function() {
                                         _c(
                                           "span",
                                           { staticClass: "d-inline" },
-                                          [
-                                            _vm._v(
-                                              "tous les modules\n                        "
-                                            )
-                                          ]
+                                          [_vm._v("tous les modules ")]
                                         ),
                                         _vm._v(" "),
                                         _c(
@@ -35936,7 +35912,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("5h de formation gratuites")])
+      _c("span", [_vm._v("5H de formation offerte ")])
     ])
   },
   function() {
@@ -36040,7 +36016,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("5h de formation gratuites")])
+      _c("span", [_vm._v("5H de formation offerte ")])
     ])
   },
   function() {
@@ -36144,7 +36120,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v("5h de formation gratuites")])
+      _c("span", [_vm._v("5H de formation offerte ")])
     ])
   },
   function() {
@@ -36268,7 +36244,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v(" 5H de formation gratuites ")])
+      _c("span", [_vm._v(" 5H de formation offerte ")])
     ])
   },
   function() {
@@ -36312,7 +36288,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v(" 5H de formation gratuites ")])
+      _c("span", [_vm._v(" 5H de formation offerte ")])
     ])
   },
   function() {
@@ -36356,7 +36332,7 @@ var staticRenderFns = [
     return _c("li", { staticClass: "offer-list-item" }, [
       _c("i", { staticClass: "fa fa-chevron-circle-right" }),
       _vm._v(" "),
-      _c("span", [_vm._v(" 5H de formation gratuites ")])
+      _c("span", [_vm._v(" 5H de formation offerte ")])
     ])
   },
   function() {
@@ -36446,7 +36422,7 @@ var staticRenderFns = [
                 staticClass: "text-dark",
                 staticStyle: { "margin-left": "30px" }
               },
-              [_vm._v("le prix total comprends: ")]
+              [_vm._v("le prix total comprends:\n                          ")]
             )
           ]),
           _vm._v(" "),
@@ -36458,10 +36434,10 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("label", [
               _vm._v(
-                "\n                            les comptes application\n                            mobile et IOS\n                            "
+                "\n                            les comptes application mobile et IOS\n                            "
               ),
               _c("b", { staticStyle: { color: "#9bc31c" } }, [
-                _vm._v("5€/elève")
+                _vm._v("50MAD/elève/an")
               ])
             ])
           ]),
@@ -36477,7 +36453,7 @@ var staticRenderFns = [
                 "\n                            traitement des injection des listes et injection\n                            des données "
               ),
               _c("b", { staticStyle: { color: "#9bc31c" } }, [
-                _vm._v("2€/elève")
+                _vm._v("20MAD/elève")
               ])
             ])
           ]),
@@ -36556,20 +36532,17 @@ var staticRenderFns = [
             _c("span", [
               _c("label", { staticClass: "accordion-hours" }, [_vm._v(" 5H")]),
               _vm._v(
-                " :\n                            gratuites\n                          "
+                "\n                            de formation en ligne offerte\n                          "
               )
             ]),
             _vm._v(" "),
-            _c("span", [
+            _c("span", { staticClass: "d-block" }, [
               _vm._v("Au-delà de\n                            "),
               _c("span", { staticClass: "accordion-hours" }, [_vm._v("5H")]),
               _vm._v(" :\n                            "),
               _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("250MAD / Heure")
-              ]),
-              _vm._v(
-                "\n                            (Facturation Sur Devis)\n                          "
-              )
+                _vm._v("250MAD/Heure")
+              ])
             ])
           ])
         ]
@@ -36611,41 +36584,7 @@ var staticRenderFns = [
             _c("span", { staticClass: "d-block other-service" }, [
               _c("i", { staticClass: "fa fa-square" }),
               _vm._v(
-                " Traitement des listes\n                            et injections de données :\n                            "
-              ),
-              _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("20MAD/élève")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "d-block other-service" }, [
-              _c("i", { staticClass: "fa fa-square" }),
-              _vm._v(
-                " Version mobile\n                            (Android iOS) ainsi que les Portail élèves et\n                            parents :\n                            "
-              ),
-              _c("span", { staticClass: "accordion-mony" }, [
-                _vm._v("50MAD/élèves")
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
-              { staticClass: "d-block other-service no-border-bottom mb-0" },
-              [
-                _c("i", { staticClass: "fa fa-square" }),
-                _vm._v(
-                  " Développements\n                            Spécifiques:\n                            "
-                ),
-                _c("span", { staticClass: "accordion-mony" }, [
-                  _vm._v("200MAD/Heure")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("span", { staticClass: "d-block other-service mt-0" }, [
-              _c("i", { staticClass: "fa fa-square" }),
-              _vm._v(
-                "\n                            (Facturation Sur Devis)\n                          "
+                "\n                            formation présentielle disponible sur devis\n                          "
               )
             ])
           ])

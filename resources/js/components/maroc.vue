@@ -77,7 +77,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>5h de formation gratuites</span>
+                          <span>5H de formation offerte </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -191,7 +191,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card offer-centred">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
+                      <h3 class="offer-title">
                         {{ plansApi[1].titre }}
                       </h3>
                       <div class="offer-price">
@@ -221,7 +221,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>5h de formation gratuites</span>
+                          <span>5H de formation offerte </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -335,7 +335,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
+                      <h3 class="offer-title">
                         {{ plansApi[2].titre }}
                       </h3>
                       <div class="offer-price">
@@ -365,7 +365,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span>5h de formation gratuites</span>
+                          <span>5H de formation offerte </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -486,7 +486,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
+                      <h3 class="offer-title">
                         {{ plansApi[3].titre }}
                       </h3>
                       <div class="offer-price">
@@ -524,7 +524,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H de formation gratuites </span>
+                          <span> 5H de formation offerte </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -564,7 +564,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card offer-centred">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
+                      <h3 class="offer-title">
                         {{ plansApi[4].titre }}
                       </h3>
                       <div class="offer-price">
@@ -579,9 +579,7 @@
                       <ul class="offer-list list-unstyled">
                         <li class="offer-list-item extra">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span class="d-inline"
-                            >tous les modules
-                          </span>
+                          <span class="d-inline">tous les modules </span>
                           <a
                             @click="openModalBase('vAdvanced')"
                             title="modules de base"
@@ -603,7 +601,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H de formation gratuites </span>
+                          <span> 5H de formation offerte </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -643,7 +641,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
                   <div class="offer-card">
                     <div class="offer-header border-bottom-0">
-                       <h3 class="offer-title">
+                      <h3 class="offer-title">
                         {{ plansApi[5].titre }}
                       </h3>
                       <div class="offer-price">
@@ -681,7 +679,7 @@
                         </li>
                         <li class="offer-list-item">
                           <i class="fa fa-chevron-circle-right"></i>
-                          <span> 5H de formation gratuites </span>
+                          <span> 5H de formation offerte </span>
                         </li>
                         <li class="offer-list-item no-border-bottom">
                           <i class="fa fa-chevron-circle-right"></i>
@@ -765,7 +763,7 @@
                           placeholder="Entrer Votre Nom"
                           :class="{
                             'is-invalid': form.errors.has('society_name'),
-                            'form-control': true,
+                            'form-control': true
                           }"
                         />
                         <has-error
@@ -788,7 +786,7 @@
                           placeholder="Entrer Votre Email"
                           :class="{
                             'is-invalid': form.errors.has('client_email'),
-                            'form-control': true,
+                            'form-control': true
                           }"
                         />
                         <has-error
@@ -821,7 +819,7 @@
                             'is-invalid':
                               form.errors.has('nb_students') ||
                               form.errors.has('min_nbStudents'),
-                            'form-control': true,
+                            'form-control': true
                           }"
                         />
                         <has-error :form="form" field="nb_students"></has-error>
@@ -854,8 +852,10 @@
                           class="list-unstyled text-dark text-capitalize border p-2 rounded"
                           style="border-color: #9bc31c !important"
                         >
-                         <li class="d-flex flex-direction-row">
-                          <label class="text-dark" style="margin-left:30px;">le prix total comprends: </label>
+                          <li class="d-flex flex-direction-row">
+                            <label class="text-dark" style="margin-left:30px;"
+                              >le prix total comprends:
+                            </label>
                           </li>
                           <li class="d-flex flex-direction-row">
                             <i
@@ -863,9 +863,8 @@
                               style="color: #9bc31c"
                             ></i>
                             <label>
-                              les comptes application
-                              mobile et IOS
-                              <b style="color: #9bc31c">5€/elève</b>
+                              les comptes application mobile et IOS
+                              <b style="color: #9bc31c">50MAD/elève/an</b>
                             </label>
                           </li>
                           <li class="d-flex flex-direction-row">
@@ -875,7 +874,7 @@
                             ></i>
                             <label>
                               traitement des injection des listes et injection
-                              des données <b style="color: #9bc31c">2€/elève</b>
+                              des données <b style="color: #9bc31c">20MAD/elève</b>
                             </label>
                           </li>
                           <li class="d-flex flex-direction-row">
@@ -937,14 +936,13 @@
                         <div id="two" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <span>
-                              <label class="accordion-hours"> 5H</label> :
-                              gratuites
+                              <label class="accordion-hours"> 5H</label>
+                              de formation en ligne offerte
                             </span>
-                            <span
+                            <span class="d-block"
                               >Au-delà de
                               <span class="accordion-hours">5H</span> :
-                              <span class="accordion-mony">250MAD / Heure</span>
-                              (Facturation Sur Devis)
+                              <span class="accordion-mony">250MAD/Heure</span>
                             </span>
                           </div>
                         </div>
@@ -966,26 +964,8 @@
                         <div id="three" class="show" data-parent="#accordion">
                           <div class="card-body">
                             <span class="d-block other-service">
-                              <i class="fa fa-square"></i> Traitement des listes
-                              et injections de données :
-                              <span class="accordion-mony">20MAD/élève</span>
-                            </span>
-                            <span class="d-block other-service">
-                              <i class="fa fa-square"></i> Version mobile
-                              (Android iOS) ainsi que les Portail élèves et
-                              parents :
-                              <span class="accordion-mony">50MAD/élèves</span>
-                            </span>
-                            <span
-                              class="d-block other-service no-border-bottom mb-0"
-                            >
-                              <i class="fa fa-square"></i> Développements
-                              Spécifiques:
-                              <span class="accordion-mony">200MAD/Heure</span>
-                            </span>
-                            <span class="d-block other-service mt-0">
                               <i class="fa fa-square"></i>
-                              (Facturation Sur Devis)
+                              formation présentielle disponible sur devis
                             </span>
                           </div>
                         </div>
@@ -1602,24 +1582,26 @@ export default {
     };
   },
   beforeCreate() {
-       axios.get("/api/localisation").then(res => {
+    axios.get("/api/localisation").then(res => {
       if (res.statusText == "OK") {
         if (res.data.localisation != null) {
           this.form.country = res.data.localisation;
         }
-        if (res.data.localisation !== "Morocco" && res.data.localisation!=null) {
+        if (
+          res.data.localisation !== "Morocco" &&
+          res.data.localisation != null
+        ) {
           this.$router.push("/");
         }
       }
     });
-      axios.get("/api/getPlans").then(res => {
+    axios.get("/api/getPlans").then(res => {
       this.plansApi = res.data.plans;
       this.set_plans();
     });
   },
   methods: {
     set_plans() {
-
       // prices basics plans
       this.plans.basic.plan_one.total_price[0] = this.plansApi[0].prix_actuel_dh;
       this.plans.basic.plan_two.total_price[0] = this.plansApi[1].prix_actuel_dh;
