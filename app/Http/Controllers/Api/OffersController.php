@@ -67,7 +67,7 @@ class OffersController extends Controller
         ];
 
         $niceNames = [
-            "society_name" => "nom de societe",
+            "society_name" => "nom du client",
             "client_email" => "email du client",
             "nb_students" => "nombre des éleves",
         ];
