@@ -743,8 +743,7 @@
                 <div class="row">
                   <div class="col-lg-6">
                     <h5 class="mb-4">
-                      <i class="fa fa-id-card fa-fw"></i> Veillez Saisie Votre
-                      Information
+                      <i class="fa fa-id-card fa-fw"></i> veuillez saisir vos informations
                     </h5>
 
                     <form autocomplete="off" novalidate>
@@ -930,7 +929,7 @@
                               class="fa fa-chevron-circle-right"
                               aria-hidden="true"
                             ></i>
-                            Combien d’heures :
+                            durée de la formation :
                           </a>
                         </div>
                         <div id="two" class="show" data-parent="#accordion">
