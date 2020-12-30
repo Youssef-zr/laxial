@@ -4878,7 +4878,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -32913,7 +32912,7 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "mb-4" }, [
       _c("i", { staticClass: "fa fa-id-card" }),
       _vm._v(
-        "\n                    Veillez Saisie Votre Information\n                  "
+        "\n                    veuillez saisir vos informations\n                  "
       )
     ])
   },
@@ -33072,7 +33071,7 @@ var staticRenderFns = [
               attrs: { "aria-hidden": "true" }
             }),
             _vm._v(
-              "\n                          Combien d’heures :\n                        "
+              "\n                          durée de la formation :\n                        "
             )
           ]
         )
@@ -36355,9 +36354,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("h5", { staticClass: "mb-4" }, [
       _c("i", { staticClass: "fa fa-id-card fa-fw" }),
-      _vm._v(
-        " Veillez Saisie Votre\n                    Information\n                  "
-      )
+      _vm._v(" veuillez saisir vos informations\n                  ")
     ])
   },
   function() {
@@ -36515,7 +36512,7 @@ var staticRenderFns = [
               attrs: { "aria-hidden": "true" }
             }),
             _vm._v(
-              "\n                          Combien d’heures :\n                        "
+              "\n                          durée de la formation :\n                        "
             )
           ]
         )
