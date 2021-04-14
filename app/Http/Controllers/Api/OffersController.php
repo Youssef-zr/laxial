@@ -67,7 +67,7 @@ class OffersController extends Controller
         ];
 
         $niceNames = [
-            "society_name" => "nom du client",
+            "society_name" => "nom de societe",
             "client_email" => "email du client",
             "nb_students" => "nombre des éleves",
         ];
@@ -111,7 +111,7 @@ class OffersController extends Controller
         ];
 
         Mail::to([$order->email])->send(new clientMail($mailDetails));
-        Mail::to("sarah@connectivemarket.com")->send(new adminMail($mailDetails));
+        Mail::to("yn-neinaa@hotmail.com")->send(new adminMail($mailDetails));
 
         return response()->json(['msg' => 'votre demande a été crée avec succès']);
 
