@@ -100,7 +100,8 @@ class OffersController extends Controller
 
         $mailDetails = [
             "client_name" => $order->nom,
-            "offer_name" => $order->plan_choisie,
+            "offer_
+            name" => $order->plan_choisie,
             'total_price' => $order->prix_total,
             "lien" => url("/admin/orders/" . $order->id),
             "extra" => $extra,
